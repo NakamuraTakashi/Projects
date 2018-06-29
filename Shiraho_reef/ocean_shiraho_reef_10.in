@@ -416,7 +416,8 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! Linear equation of State parameters:
 
           R0 == 1024.0d0                   ! kg/m3
-          T0 == 29.5d0                     ! Celsius
+!          T0 == 29.5d0                     ! Celsius   !!! Nakamura et al 2018a
+          T0 == 29.0d0                     ! Celsius    !!! For bleaching test!!
           S0 == 34.45d0                     ! nondimensional (PSU)
        TCOEF == 1.7d-4                     ! 1/Celsius
        SCOEF == 7.6d-4                     ! nondimensional
@@ -1012,8 +1013,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == D:/ROMS/output/Shiraho_reef/test/ocean_rst_10.nc
-     HISNAME == D:/ROMS/output/Shiraho_reef/test/ocean_his_10.nc
+     RSTNAME == K:/ROMS/output/Shiraho_reef/bleaching02/ocean_rst_10.nc
+     HISNAME == K:/ROMS/output/Shiraho_reef/bleaching02/ocean_his_10.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

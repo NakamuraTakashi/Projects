@@ -203,7 +203,7 @@
 # define SIMPLE_BIO_BOUNDARY /* USE ANA_TOBC_BIO option. for shimple boundaly test case */
 
 /* compartments */
-# define ORGANIC_MATTER
+/*# define ORGANIC_MATTER*/
 /*# define CARBON_ISOTOPE*/
 /*# define NUTRIENTS*/
 
@@ -222,12 +222,13 @@
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
-/*#  define CORAL_ZOOXANTHELLAE*/
-#  define CORAL_MUCUS           /*Mucus release from coral */
+#  define CORAL_ZOOXANTHELLAE
+#  define CORAL_PHOTOINHIBITION
+/*#  define CORAL_MUCUS*/           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
 /*#   define CORAL_INGESTION*/
 #  endif
-/*#  define CORAL_SIZE_DYNAMICS*/
+#  define CORAL_SIZE_DYNAMICS
 #  if defined CARBON_ISOTOPE
 #   define CORAL_CARBON_ISOTOPE
 /*#   define CORAL_NONE_CO2_EQ*/
