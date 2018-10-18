@@ -211,10 +211,10 @@
        Oxyg0 == 200.0d0      ! DO  (umol L-1)
 
        DOC_0 == 65.0d0       ! DOC  (umol L-1) 
-       POC_0 == 0.0d0  !4.2d0        ! POC  (umol L-1) 
-       Phy10 == 0.0d0  !0.5d0       ! Phytoplankton1 (umolC L-1) 
-       Phy20 == 0.0d0  !0.5d0       ! Phytoplankton2 (umolC L-1) 
-       Zoop0 == 0.0d0  !1.3d0        ! Zooplankton (umol L-1)
+       POC_0 == 4.2d0        ! POC  (umol L-1) 
+       Phy10 == 0.5d0       ! Phytoplankton1 (umolC L-1) 
+       Phy20 == 0.5d0       ! Phytoplankton2 (umolC L-1) 
+       Zoop0 == 1.3d0        ! Zooplankton (umol L-1)
 
    d13C_TIC0 == 0.7d0        ! d13C_TIC (permill VPDB)
    d13C_DOC0 == -15.0d0      ! d13C_DOC (permill VPDB)
@@ -350,9 +350,9 @@ ad_LBC(isTvar) ==   Clo     Clo     Cla     Clo \    ! idbio( 1), alkalinity
 !                                 1 1 1 1 1 1 1 1 1 1 2 2 2 2
 !               1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3
 !
-  LtracerSrc == 23*F
+!  LtracerSrc == 22*T
 ! LtracerSrc == T T F F F F F T F T F F F F F F F F F F F F
-! LtracerSrc == T T T T T F F F           T T T T T T T T F F  ! For no d13C version
+  LtracerSrc == T T T T T F F F           T T T T T T T T F F  ! For no d13C version
 
 ! Logical switches (TRUE/FALSE) to activate writing of biological fields
 ! into HISTORY output file: [1:NBT,Ngrids].
@@ -381,16 +381,16 @@ Aout(idTvar) == 22*F    ! NO3, ...           biological tracer
 ! biological tracer diagnostic terms into DIAGNOSTIC output file:
 ! [1:NBT,Ngrids].
 
-Dout(iTrate) == 22*F    ! NO3_rate, ...      time rate of change
-Dout(iThadv) == 22*F    ! NO3_hadv, ...      horizontal total advection
-Dout(iTxadv) == 22*F    ! NO3_xadv, ...      horizontal XI-advection
-Dout(iTyadv) == 22*F    ! NO3_yadv, ...      horizontal ETA-advection
-Dout(iTvadv) == 22*F    ! NO3_vadv, ...      vertical advection
-Dout(iThdif) == 22*F    ! NO3_hdiff, ...     horizontal total diffusion
-Dout(iTxdif) == 22*F    ! NO3_xdiff, ...     horizontal XI-diffusion
-Dout(iTydif) == 22*F    ! NO3_ydiff, ...     horizontal ETA-diffusion
-Dout(iTsdif) == 22*F    ! NO3_sdiff, ...     horizontal S-diffusion
-Dout(iTvdif) == 22*F    ! NO3_vdiff, ...     vertical diffusion
+Dout(iTrate) == 23*F    ! NO3_rate, ...      time rate of change
+Dout(iThadv) == 23*F    ! NO3_hadv, ...      horizontal total advection
+Dout(iTxadv) == 23*F    ! NO3_xadv, ...      horizontal XI-advection
+Dout(iTyadv) == 23*F    ! NO3_yadv, ...      horizontal ETA-advection
+Dout(iTvadv) == 23*F    ! NO3_vadv, ...      vertical advection
+Dout(iThdif) == 23*F    ! NO3_hdiff, ...     horizontal total diffusion
+Dout(iTxdif) == 23*F    ! NO3_xdiff, ...     horizontal XI-diffusion
+Dout(iTydif) == 23*F    ! NO3_ydiff, ...     horizontal ETA-diffusion
+Dout(iTsdif) == 23*F    ! NO3_sdiff, ...     horizontal S-diffusion
+Dout(iTvdif) == 23*F    ! NO3_vdiff, ...     vertical diffusion
 
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged,
 ! biological processes diagnostics terms into DIAGNOSTIC output file [Ngrids].

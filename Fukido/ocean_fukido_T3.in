@@ -344,7 +344,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 
         RDRG == 3.0d-04                    ! m/s
        RDRG2 == 0.025d0                    ! nondimensional
-         Zob == 0.03d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
+         Zob == 0.0015d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
          Zos == 0.5d0                      ! m
 
 ! Height (m) of atmospheric measurements for Bulk fluxes parameterization.
@@ -1006,8 +1006,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Fukido/test03/ocean_rst5.nc
-     HISNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Fukido/test03/ocean_his5.nc
+     RSTNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Fukido/veg_test01/fukido_veg_rst.nc
+     HISNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Fukido/veg_test01/fukido_veg_his.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
@@ -1025,6 +1025,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      BPARNAM =  bio_reef_ecosys.in             !!! used
      SPARNAM =  sediment_fukido.in       !!! used
      USRNAME =  MyFile.dat
+     VEGNAM  =  vegetation.in       !!! used
 
 !
 !  GLOSSARY:

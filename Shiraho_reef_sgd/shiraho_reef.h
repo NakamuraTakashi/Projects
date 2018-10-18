@@ -6,26 +6,18 @@
 **   See License_ROMS.txt                                                    **
 *******************************************************************************
 **
-** Options for Inlet Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
+** Options for Shiraho reef Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   FUKIDO
+** Application flag:   SHIRAHO_REEF
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
 */
 #define ROMS_MODEL
-/*#define SWAN_MODEL*/
-/*#define MCT_LIB*/
+#define SWAN_MODEL
+#define MCT_LIB
 
 #define NO_LBC_ATT
-/*#define PARALLEL_IO*/
-/*#define HDF5*/
-/*#define PNETCDF*/
-
-/*#define NESTING*/
-/*#define NESTING_DEBUG*/
-/*#define ONE_WAY*/
-/*#define QUADRATIC_WEIGHTS*/
 
 #define SOLVE3D
 
@@ -85,10 +77,9 @@
 
 
 #define ANA_INITIAL
-#define ANA_FSOBC
+/*#define ANA_FSOBC*/
 #define ANA_M2OBC
 #define ANA_TOBC
-/*#define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 #define SOLAR_SOURCE
 
@@ -102,10 +93,6 @@
 /*# define ANA_TAIR*/
 /*# define ANA_RAIN*/
 /*# define ANA_WINDS*/
-/*# define ANA_SRFLUX*/
-/*# define ALBEDO_CLOUD*/
-/*# define LOCAL_TIME +9.0*/
-/*# define DIURNAL_SRFLUX*/
 #else
 # define ANA_SMFLUX
 # define ANA_STFLUX
@@ -114,15 +101,18 @@
 
 /*** waves-ocean (SWAN/ROMS) two-way coupling. ***/
 #ifdef SWAN_MODEL
-# define NEARSHORE_MELLOR08
+# define WEC_MELLOR
+/*# define WEC_VF*/
+# define WDISS_WAVEMOD
+# define UV_KIRBY
 #endif
 
 /* define only one of the following 5 */
-#define UV_LOGDRAG
+/*#define UV_LOGDRAG*/
 /*#define UV_QDRAG*/
 /*#define MB_BBL*/
 /*#define SG_BBL*/
-/*#define SSW_BBL*/
+#define SSW_BBL
 
 #ifdef MB_BBL
 /*# define MB_CALC_ZNOT*/
@@ -134,22 +124,6 @@
 #endif
 #define LIMIT_BSTRESS
 
-/*** Vegetation ***/
-#define VEGETATION 
-# ifdef VEGETATION 
-#  define MANGROVE /*** Original CPP flag ***/
-#  define ANA_VEGETATION 
-#  define VEG_DRAG
-#  ifdef VEG_DRAG
-/*#   define VEG_FLEX*/
-/*#   define VEG_TURB*/
-#  endif
-/*#  define VEG_SWAN_COUPLING*/
-#  ifdef VEG_SWAN_COUPLING
-#   define VEG_STREAMING ! dependence to WEC_VF/BOTTOM_STREAMING
-#  endif
-/*# define MARSH_WAVE_THRUST*/
-# endif
 
 #ifdef SOLVE3D
 
@@ -165,8 +139,8 @@
 /*#  define K_C4ADVECTION*/
 /*#  define K_C2ADVECTION*/
 /*#  define N2S2_HORAVG*/
-/*#  define ZOS_HSIG*/
-/*#  define TKE_WAVEDISS*/
+#  define ZOS_HSIG
+#  define TKE_WAVEDISS
 # endif
 
 # if defined MY25_MIXING
@@ -187,7 +161,7 @@
 # endif
 
 
-/*# define SEDIMENT*/
+# define SEDIMENT
 # ifdef SEDIMENT
 #  define SUSPLOAD
 #  undef  BEDLOAD_SOULSBY
@@ -216,25 +190,27 @@
 
 /*** submarine groundwater discharge ***/
 
-/*#define SGD_ON*/    /*Original CPP flag */
+#define SGD_ON    /*Original CPP flag */
 
 /***  Biological model options. (Original CPP flags) ***/
 
-/*#define REEF_ECOSYS*/
+#define REEF_ECOSYS
 
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
+/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
+# define SIMPLE_BIO_BOUNDARY /* USE ANA_TOBC_BIO option. for shimple boundaly test case */
 
 /* compartments */
 # define ORGANIC_MATTER
 /*# define CARBON_ISOTOPE*/
 # define NUTRIENTS
 
-/*# define CORAL_POLYP*/  /* USE coral module */
-/*# define SEAGRASS*/     /* USE seagrass module */
-/*# define MACROALGAE*/        /* USE algae module  */
-/*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
+# define CORAL_POLYP  /* USE coral module */
+# define SEAGRASS     /* USE seagrass module */
+# define MACROALGAE        /* USE algae module  */
+# define SEDIMENT_ECOSYS        /* USE sedecosys module  */
 # if defined SEDIMENT_ECOSYS
 #  define SEDIMENT_EMPIRICAL     /* USE empirical sediment module  */
 # endif
@@ -247,9 +223,10 @@
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
 /*#  define CORAL_ZOOXANTHELLAE*/
-#  define CORAL_MUCUS           /*Mucus release from coral */
+/*#  define CORAL_PHOTOINHIBITION*/
+/*#  define CORAL_MUCUS*/           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
-#   define CORAL_INGESTION
+/*#   define CORAL_INGESTION*/
 #  endif
 /*#  define CORAL_SIZE_DYNAMICS*/
 #  if defined CARBON_ISOTOPE
@@ -263,3 +240,4 @@
 # endif
 
 #endif
+
