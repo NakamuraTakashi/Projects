@@ -1,2 +1,2 @@
-mpirun -np 10 ./oceanM.exe ocean_fukido.in
+mpirun -use-hwthread-cpus -np 10 ./oceanM.exe ocean_fukido.in
 #

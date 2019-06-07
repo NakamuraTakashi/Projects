@@ -56,8 +56,8 @@
 #define TS_DIF2
 /*#define TS_DIF4*/
 #define TS_SMAGORINSKY
-#define MIX_S_TS
-/*#define MIX_GEO_TS*/
+/*#define MIX_S_TS*/
+#define MIX_GEO_TS
 /*#define MIX_ISO_TS*/
 
 #define MASKING
@@ -73,7 +73,7 @@
 /*#define RI_HORAVG*/
 /*#define RI_VERAVG*/
 
-/*#define WET_DRY*/
+#define WET_DRY
 
 
 /*** Option for Boundary condition ***/

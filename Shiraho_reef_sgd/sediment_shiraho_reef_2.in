@@ -169,7 +169,7 @@ ad_LBC(isTvar) ==   Clo     Rad     Cla     Rad      ! idsed(:), compact
 ! tracers point Sources/Sinks (like river runoff). See glossary below for
 ! details.
 
- MUD_Ltracer == F F F
+ MUD_Ltracer == T T T
 
 ! Logical switches (TRUE/FALSE) to activate writing of cohesive sediment
 ! fields into HISTORY output file.
