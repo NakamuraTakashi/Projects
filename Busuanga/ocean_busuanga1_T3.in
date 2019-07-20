@@ -146,11 +146,8 @@
 !                   1       2       3       4
 
    LBC(isFsur) ==   Cha     Cha     Cha     Cha         ! free-surface
-!   LBC(isFsur) ==   Clo     Clo     Clo     Clo         ! free-surface
    LBC(isUbar) ==   Fla     Fla     Fla     Fla         ! 2D U-momentum
    LBC(isVbar) ==   Fla     Fla     Fla     Fla         ! 2D V-momentum
-!   LBC(isUbar) ==   Clo     Clo     Clo     Clo         ! 2D U-momentum
-!   LBC(isVbar) ==   Clo     Clo     Clo     Clo         ! 2D V-momentum
    LBC(isUvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D U-momentum
    LBC(isVvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D V-momentum
    LBC(isMtke) ==   Gra     Gra     Gra     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
@@ -208,7 +205,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 6480
+      NTIMES == 14400
           DT == 120.0d0 !!!180.0d0
      NDTFAST == 20
 
@@ -524,13 +521,13 @@ Hout(idVvel) == T       ! v                  3D V-velocity
 Hout(idu3dE) == F       ! u_eastward         3D U-eastward  at RHO-points
 Hout(idv3dN) == F       ! v_northward        3D V-northward at RHO-points
 Hout(idWvel) == T       ! w                  3D W-velocity
-Hout(idOvel) == F       ! omega              omega vertical velocity
-Hout(idUbar) == F       ! ubar               2D U-velocity
-Hout(idVbar) == F       ! vbar               2D V-velocity
+Hout(idOvel) == T       ! omega              omega vertical velocity
+Hout(idUbar) == T       ! ubar               2D U-velocity
+Hout(idVbar) == T       ! vbar               2D V-velocity
 Hout(idu2dE) == F       ! ubar_eastward      2D U-eastward  at RHO-points
 Hout(idv2dN) == F       ! vbar_northward     2D V-northward at RHO-points
 Hout(idFsur) == T       ! zeta               free-surface
-Hout(idBath) == F       ! bath               time-dependent bathymetry
+Hout(idBath) == T       ! bath               time-dependent bathymetry
 
 Hout(idTvar) == T T     ! temp, salt         temperature and salinity
 
@@ -545,16 +542,16 @@ Hout(idUairE) == F      ! Uwind_eastward     surface U-wind
 Hout(idVairN) == F      ! Vwind_northward    surface V-wind
 Hout(idUsms) == F       ! sustr              surface U-stress
 Hout(idVsms) == F       ! svstr              surface V-stress
-Hout(idUbms) == F       ! bustr              bottom U-stress
-Hout(idVbms) == F       ! bvstr              bottom V-stress
+Hout(idUbms) == T       ! bustr              bottom U-stress
+Hout(idVbms) == T       ! bvstr              bottom V-stress
 
-Hout(idUbrs) == F       ! bustrc             bottom U-current stress
-Hout(idVbrs) == F       ! bvstrc             bottom V-current stress
-Hout(idUbws) == F       ! bustrw             bottom U-wave stress
-Hout(idVbws) == F       ! bvstrw             bottom V-wave stress
-Hout(idUbcs) == F       ! bustrcwmax         bottom max wave-current U-stress
-Hout(idVbcs) == F       ! bvstrcwmax         bottom max wave-current V-stress
-Hout(idUVwc) == F       ! bstrcwmax          bottom max wave-current stress magnitude
+Hout(idUbrs) == T       ! bustrc             bottom U-current stress
+Hout(idVbrs) == T       ! bvstrc             bottom V-current stress
+Hout(idUbws) == T       ! bustrw             bottom U-wave stress
+Hout(idVbws) == T       ! bvstrw             bottom V-wave stress
+Hout(idUbcs) == T       ! bustrcwmax         bottom max wave-current U-stress
+Hout(idVbcs) == T       ! bvstrcwmax         bottom max wave-current V-stress
+Hout(idUVwc) == T       ! bstrcwmax          bottom max wave-current stress magnitude
 
 Hout(idUbot) == T       ! Ubot               bed wave orbital U-velocity
 Hout(idVbot) == T       ! Vbot               bed wave orbital V-velocity
@@ -613,13 +610,13 @@ Hout(idevap) == F       ! evaporation        evaporation rate
 Hout(idrain) == F       ! rain               precipitation rate
 
 Hout(idDano) == F       ! rho                density anomaly
-Hout(idVvis) == F       ! AKv                vertical viscosity
+Hout(idVvis) == T       ! AKv                vertical viscosity
 Hout(idTdif) == F       ! AKt                vertical T-diffusion
 Hout(idSdif) == F       ! AKs                vertical Salinity diffusion
 Hout(idHsbl) == F       ! Hsbl               depth of surface boundary layer
 Hout(idHbbl) == F       ! Hbbl               depth of bottom boundary layer
-Hout(idMtke) == F       ! tke                turbulent kinetic energy
-Hout(idMtls) == F       ! gls                turbulent length scale
+Hout(idMtke) == T       ! tke                turbulent kinetic energy
+Hout(idMtls) == T       ! gls                turbulent length scale
 
 ! Logical switches (TRUE/FALSE) to activate writing of extra inert passive
 ! tracers other than biological and sediment tracers into the HISTORY
@@ -945,9 +942,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_grd_v2.nc
-     ININAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOMwNAO_Nz30_20170402.00.nc
-!     ININAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOM_Nz30_20170402.00.nc
+     GRDNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_grd_v2.nc
+     ININAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOMwNAO_Nz30_20170402.00.nc
+!     ININAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOM_Nz30_20170402.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -970,7 +967,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_bry_HYCOM_Nz30_201704.nc
+     BRYNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_bry_HYCOM_Nz30_201704.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -978,11 +975,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/ROMS/Data/Yaeyama/Yaeyama2_river_Nz15_arakawa_pop_up_conn_nomal_14.nc
+     SSFNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama2_river_Nz15_arakawa_pop_up_conn_nomal_14.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == D:/ROMS/Data/Coral_Triangle/CT_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).  The USER has the option to enter
 ! several file names for each nested grid.  For example, the USER may
@@ -998,20 +995,20 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 7                          ! number of unique forcing files
 
-     FRCNAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Tair_201704.nc      \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Uwind_201704.nc     \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Vwind_201704.nc     \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Pair_201704.nc      \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Qair_201704.nc      \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_cloud_201704.nc     \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_rain_201704.nc
+     FRCNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Tair_201704.nc      \
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Uwind_201704.nc     \
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Vwind_201704.nc     \
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Pair_201704.nc      \
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Qair_201704.nc      \
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_cloud_201704.nc     \
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_rain_201704.nc
    
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == CT_0.08_rst_201704.nc
-     HISNAME == CT_0.08_his_201704.nc
+     RSTNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Coral_Triangle/test01/CT_0.08_rst_201704.nc
+     HISNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Coral_Triangle/test01/CT_0.08_his_201704.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
@@ -1027,7 +1024,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      SPOSNAM =  stations.in
      FPOSNAM =  floats_yaeyama2_fdt.in         !!! used
      BPARNAM =  bio_reef_ecosys.in             !!! used
-     SPARNAM =  sediment.in       !!! used
+     SPARNAM =  sediment_yaeyama1.in       !!! used
      USRNAME =  MyFile.dat
 
 !

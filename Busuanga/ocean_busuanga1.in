@@ -91,8 +91,8 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 887           ! Number of I-direction INTERIOR RHO-points
-          Mm == 563           ! Number of J-direction INTERIOR RHO-points
+          Lm == 125           ! Number of I-direction INTERIOR RHO-points
+          Mm == 110           ! Number of J-direction INTERIOR RHO-points
            N == 30            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
@@ -146,11 +146,8 @@
 !                   1       2       3       4
 
    LBC(isFsur) ==   Cha     Cha     Cha     Cha         ! free-surface
-!   LBC(isFsur) ==   Clo     Clo     Clo     Clo         ! free-surface
    LBC(isUbar) ==   Fla     Fla     Fla     Fla         ! 2D U-momentum
    LBC(isVbar) ==   Fla     Fla     Fla     Fla         ! 2D V-momentum
-!   LBC(isUbar) ==   Clo     Clo     Clo     Clo         ! 2D U-momentum
-!   LBC(isVbar) ==   Clo     Clo     Clo     Clo         ! 2D V-momentum
    LBC(isUvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D U-momentum
    LBC(isVvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D V-momentum
    LBC(isMtke) ==   Gra     Gra     Gra     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
@@ -208,8 +205,8 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 6480
-          DT == 120.0d0 !!!180.0d0
+      NTIMES == 144000
+          DT == 10.0d0 !!!180.0d0
      NDTFAST == 20
 
 ! Model iteration loops parameters.
@@ -239,7 +236,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 30
+        NHIS == 360
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
@@ -347,7 +344,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 
         RDRG == 3.0d-04                    ! m/s
        RDRG2 == 0.025d0                    ! nondimensional
-         Zob == 0.03d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
+         Zob == 0.01d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
          Zos == 0.5d0                      ! m
 
 ! Height (m) of atmospheric measurements for Bulk fluxes parameterization.
@@ -524,13 +521,13 @@ Hout(idVvel) == T       ! v                  3D V-velocity
 Hout(idu3dE) == F       ! u_eastward         3D U-eastward  at RHO-points
 Hout(idv3dN) == F       ! v_northward        3D V-northward at RHO-points
 Hout(idWvel) == T       ! w                  3D W-velocity
-Hout(idOvel) == F       ! omega              omega vertical velocity
-Hout(idUbar) == F       ! ubar               2D U-velocity
-Hout(idVbar) == F       ! vbar               2D V-velocity
+Hout(idOvel) == T       ! omega              omega vertical velocity
+Hout(idUbar) == T       ! ubar               2D U-velocity
+Hout(idVbar) == T       ! vbar               2D V-velocity
 Hout(idu2dE) == F       ! ubar_eastward      2D U-eastward  at RHO-points
 Hout(idv2dN) == F       ! vbar_northward     2D V-northward at RHO-points
 Hout(idFsur) == T       ! zeta               free-surface
-Hout(idBath) == F       ! bath               time-dependent bathymetry
+Hout(idBath) == T       ! bath               time-dependent bathymetry
 
 Hout(idTvar) == T T     ! temp, salt         temperature and salinity
 
@@ -545,16 +542,16 @@ Hout(idUairE) == F      ! Uwind_eastward     surface U-wind
 Hout(idVairN) == F      ! Vwind_northward    surface V-wind
 Hout(idUsms) == F       ! sustr              surface U-stress
 Hout(idVsms) == F       ! svstr              surface V-stress
-Hout(idUbms) == F       ! bustr              bottom U-stress
-Hout(idVbms) == F       ! bvstr              bottom V-stress
+Hout(idUbms) == T       ! bustr              bottom U-stress
+Hout(idVbms) == T       ! bvstr              bottom V-stress
 
-Hout(idUbrs) == F       ! bustrc             bottom U-current stress
-Hout(idVbrs) == F       ! bvstrc             bottom V-current stress
-Hout(idUbws) == F       ! bustrw             bottom U-wave stress
-Hout(idVbws) == F       ! bvstrw             bottom V-wave stress
-Hout(idUbcs) == F       ! bustrcwmax         bottom max wave-current U-stress
-Hout(idVbcs) == F       ! bvstrcwmax         bottom max wave-current V-stress
-Hout(idUVwc) == F       ! bstrcwmax          bottom max wave-current stress magnitude
+Hout(idUbrs) == T       ! bustrc             bottom U-current stress
+Hout(idVbrs) == T       ! bvstrc             bottom V-current stress
+Hout(idUbws) == T       ! bustrw             bottom U-wave stress
+Hout(idVbws) == T       ! bvstrw             bottom V-wave stress
+Hout(idUbcs) == T       ! bustrcwmax         bottom max wave-current U-stress
+Hout(idVbcs) == T       ! bvstrcwmax         bottom max wave-current V-stress
+Hout(idUVwc) == T       ! bstrcwmax          bottom max wave-current stress magnitude
 
 Hout(idUbot) == T       ! Ubot               bed wave orbital U-velocity
 Hout(idVbot) == T       ! Vbot               bed wave orbital V-velocity
@@ -613,13 +610,13 @@ Hout(idevap) == F       ! evaporation        evaporation rate
 Hout(idrain) == F       ! rain               precipitation rate
 
 Hout(idDano) == F       ! rho                density anomaly
-Hout(idVvis) == F       ! AKv                vertical viscosity
+Hout(idVvis) == T       ! AKv                vertical viscosity
 Hout(idTdif) == F       ! AKt                vertical T-diffusion
 Hout(idSdif) == F       ! AKs                vertical Salinity diffusion
 Hout(idHsbl) == F       ! Hsbl               depth of surface boundary layer
 Hout(idHbbl) == F       ! Hbbl               depth of bottom boundary layer
-Hout(idMtke) == F       ! tke                turbulent kinetic energy
-Hout(idMtls) == F       ! gls                turbulent length scale
+Hout(idMtke) == T       ! tke                turbulent kinetic energy
+Hout(idMtls) == T       ! gls                turbulent length scale
 
 ! Logical switches (TRUE/FALSE) to activate writing of extra inert passive
 ! tracers other than biological and sediment tracers into the HISTORY
@@ -945,9 +942,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_grd_v2.nc
-     ININAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOMwNAO_Nz30_20170402.00.nc
-!     ININAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOM_Nz30_20170402.00.nc
+     GRDNAME == D:/ROMS/Data/Busuanga/Busuanga1_grd_v1.0.nc
+     ININAME == D:/ROMS/Data/Busuanga/Busuanga1_ini_Nz30_20170404.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -970,7 +966,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_bry_HYCOM_Nz30_201704.nc
+     BRYNAME == D:/ROMS/Data/Busuanga/Busuanga1_bry_Nz30_20170402.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -998,20 +994,20 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 7                          ! number of unique forcing files
 
-     FRCNAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Tair_201704.nc      \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Uwind_201704.nc     \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Vwind_201704.nc     \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Pair_201704.nc      \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Qair_201704.nc      \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_cloud_201704.nc     \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_rain_201704.nc
+     FRCNAME == D:/ROMS/Data/Busuanga/Busuanga1_frc_JRA55_Tair_201704.nc      \
+                D:/ROMS/Data/Busuanga/Busuanga1_frc_JRA55_Uwind_201704.nc     \
+                D:/ROMS/Data/Busuanga/Busuanga1_frc_JRA55_Vwind_201704.nc     \
+                D:/ROMS/Data/Busuanga/Busuanga1_frc_JRA55_Pair_201704.nc      \
+                D:/ROMS/Data/Busuanga/Busuanga1_frc_JRA55_Qair_201704.nc      \
+                D:/ROMS/Data/Busuanga/Busuanga1_frc_JRA55_cloud_201704.nc     \
+                D:/ROMS/Data/Busuanga/Busuanga1_frc_JRA55_rain_201704.nc
    
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == CT_0.08_rst_201704.nc
-     HISNAME == CT_0.08_his_201704.nc
+     RSTNAME == Busuanga1_rst_201704.nc
+     HISNAME == Busuanga1_his_201704.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
