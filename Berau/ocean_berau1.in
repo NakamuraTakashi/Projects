@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 2                               ! I-direction partition
-      NtileJ == 5                               ! J-direction partition
+      NtileI == 1                               ! I-direction partition
+      NtileJ == 11                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -205,7 +205,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 144000
+      NTIMES == 288000
           DT == 10.0d0 !!!180.0d0
      NDTFAST == 20
 
@@ -226,7 +226,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Input/Output parameters.
 
-       NRREC == 0
+       NRREC == -1  !0 or -1
    LcycleRST == T
         NRST == 720
         NSTA == 1
@@ -236,7 +236,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 360
+        NHIS == 180
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
@@ -942,8 +942,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/ROMS/Data/Berau/Berau1_grd_v1.0.nc
-     ININAME == D:/ROMS/Data/Berau/Berau1_ini_Nz30_20170405.00.nc
+     GRDNAME == ../../Data/Berau/Berau1_grd_v1.2.nc
+!     ININAME == ../../Data/Berau/Berau1_ini_Nz30_20170405.00.nc
+     ININAME == Berau1_his_201704.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,7 +967,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/ROMS/Data/Berau/Berau1_bry_Nz30_20170402.00.nc
+     BRYNAME == ../../Data/Berau/Berau1_bry_Nz30_20170402.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -974,11 +975,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/ROMS/Data/Yaeyama/Yaeyama2_river_Nz15_arakawa_pop_up_conn_nomal_14.nc
+     SSFNAME == ../../Data/Yaeyama/Yaeyama2_river_Nz15_arakawa_pop_up_conn_nomal_14.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == D:/ROMS/Data/Coral_Triangle/CT_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == ../../Data/Coral_Triangle/CT_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).  The USER has the option to enter
 ! several file names for each nested grid.  For example, the USER may
@@ -994,20 +995,20 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 7                          ! number of unique forcing files
 
-     FRCNAME == D:/ROMS/Data/Berau/Berau1_frc_JRA55_Tair_201704.nc      \
-                D:/ROMS/Data/Berau/Berau1_frc_JRA55_Uwind_201704.nc     \
-                D:/ROMS/Data/Berau/Berau1_frc_JRA55_Vwind_201704.nc     \
-                D:/ROMS/Data/Berau/Berau1_frc_JRA55_Pair_201704.nc      \
-                D:/ROMS/Data/Berau/Berau1_frc_JRA55_Qair_201704.nc      \
-                D:/ROMS/Data/Berau/Berau1_frc_JRA55_cloud_201704.nc     \
-                D:/ROMS/Data/Berau/Berau1_frc_JRA55_rain_201704.nc
+     FRCNAME == ../../Data/Berau/Berau1_frc_JRA55_Tair_201704.nc      \
+                ../../Data/Berau/Berau1_frc_JRA55_Uwind_201704.nc     \
+                ../../Data/Berau/Berau1_frc_JRA55_Vwind_201704.nc     \
+                ../../Data/Berau/Berau1_frc_JRA55_Pair_201704.nc      \
+                ../../Data/Berau/Berau1_frc_JRA55_Qair_201704.nc      \
+                ../../Data/Berau/Berau1_frc_JRA55_cloud_201704.nc     \
+                ../../Data/Berau/Berau1_frc_JRA55_rain_201704.nc
    
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
      RSTNAME == Berau1_rst_201704.nc
-     HISNAME == Berau1_his_201704.nc
+     HISNAME == Berau1_his_201704_3.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

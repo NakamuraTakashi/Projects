@@ -64,11 +64,11 @@
 !
 ! Application title.
 
-       TITLE = CORAL_TRIANGLE Case
+       TITLE = BERAU2 Case
 
 ! C-preprocessing Flag.
 
-    MyAppCPP = CORAL_TRIANGLE
+    MyAppCPP = BERAU1
 
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
@@ -91,8 +91,8 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 125           ! Number of I-direction INTERIOR RHO-points
-          Mm == 110           ! Number of J-direction INTERIOR RHO-points
+          Lm == 500           ! Number of I-direction INTERIOR RHO-points
+          Mm == 505           ! Number of J-direction INTERIOR RHO-points
            N == 30            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 5                               ! I-direction partition
-      NtileJ == 2                               ! J-direction partition
+      NtileI == 1                               ! I-direction partition
+      NtileJ == 11                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -145,15 +145,15 @@
 !
 !                   1       2       3       4
 
-   LBC(isFsur) ==   Cha     Cha     Cha     Cha         ! free-surface
-   LBC(isUbar) ==   Fla     Fla     Fla     Fla         ! 2D U-momentum
-   LBC(isVbar) ==   Fla     Fla     Fla     Fla         ! 2D V-momentum
-   LBC(isUvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D U-momentum
-   LBC(isVvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D V-momentum
-   LBC(isMtke) ==   Gra     Gra     Gra     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
+   LBC(isFsur) ==   Clo     Cha     Cha     Cha         ! free-surface
+   LBC(isUbar) ==   Clo     Fla     Fla     Fla         ! 2D U-momentum
+   LBC(isVbar) ==   Clo     Fla     Fla     Fla         ! 2D V-momentum
+   LBC(isUvel) ==   Clo     RadNud  RadNud  RadNud      ! 3D U-momentum
+   LBC(isVvel) ==   Clo     RadNud  RadNud  RadNud      ! 3D V-momentum
+   LBC(isMtke) ==   Clo     Gra     Gra     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
                                                
-   LBC(isTvar) ==   RadNud  RadNud  RadNud  RadNud \    ! temperature
-                    RadNud  RadNud  RadNud  RadNud      ! salinity
+   LBC(isTvar) ==   Clo     RadNud  RadNud  RadNud \    ! temperature
+                    Clo     RadNud  RadNud  RadNud      ! salinity
 
 ! Wec boundary conditions
 
@@ -205,8 +205,8 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 144000
-          DT == 10.0d0 !!!180.0d0
+      NTIMES == 288000
+          DT == 20.0d0 !!!180.0d0
      NDTFAST == 20
 
 ! Model iteration loops parameters.
@@ -226,7 +226,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Input/Output parameters.
 
-       NRREC == 0
+       NRREC == -1  !0 or -1
    LcycleRST == T
         NRST == 720
         NSTA == 1
@@ -236,7 +236,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 360
+        NHIS == 90
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
@@ -942,8 +942,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../Data/Busuanga/Busuanga1_grd_v1.0.nc
-     ININAME == ../../Data/Busuanga/Busuanga1_ini_Nz30_20170404.00.nc
+     GRDNAME == ../../Data/Berau/Berau2_grd_v3.1.nc
+!     ININAME == ../../Data/Berau/Berau2_ini_Nz30_20170405.12.nc
+     ININAME == Berau2_his_201704.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,7 +967,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == ../../Data/Busuanga/Busuanga1_bry_Nz30_20170402.00.nc
+     BRYNAME == ../../Data/Berau/Berau2_bry_Nz30_20170405.04.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -994,20 +995,20 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 7                          ! number of unique forcing files
 
-     FRCNAME == ../../Data/Busuanga/Busuanga1_frc_JRA55_Tair_201704.nc      \
-                ../../Data/Busuanga/Busuanga1_frc_JRA55_Uwind_201704.nc     \
-                ../../Data/Busuanga/Busuanga1_frc_JRA55_Vwind_201704.nc     \
-                ../../Data/Busuanga/Busuanga1_frc_JRA55_Pair_201704.nc      \
-                ../../Data/Busuanga/Busuanga1_frc_JRA55_Qair_201704.nc      \
-                ../../Data/Busuanga/Busuanga1_frc_JRA55_cloud_201704.nc     \
-                ../../Data/Busuanga/Busuanga1_frc_JRA55_rain_201704.nc
+     FRCNAME == ../../Data/Berau/Berau2_frc_JRA55_Tair_201704.nc      \
+                ../../Data/Berau/Berau2_frc_JRA55_Uwind_201704.nc     \
+                ../../Data/Berau/Berau2_frc_JRA55_Vwind_201704.nc     \
+                ../../Data/Berau/Berau2_frc_JRA55_Pair_201704.nc      \
+                ../../Data/Berau/Berau2_frc_JRA55_Qair_201704.nc      \
+                ../../Data/Berau/Berau2_frc_JRA55_cloud_201704.nc     \
+                ../../Data/Berau/Berau2_frc_JRA55_rain_201704.nc
    
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == Busuanga1_rst_201704.nc
-     HISNAME == Busuanga1_his_201704.nc
+     RSTNAME == Berau2_rst_201704.nc
+     HISNAME == Berau2_his_201704_2.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
