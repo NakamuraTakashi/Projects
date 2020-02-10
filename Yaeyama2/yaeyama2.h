@@ -212,17 +212,19 @@
 # define BIOLOGY
 # define ANA_BIOLOGY
 # define ANA_TOBC_BIO   /*Original CPP flag */
-# define SIMPLE_BIO_BOUNDARY /* USE ANA_TOBC_BIO option. for shimple boundaly test case */
 
 /* compartments */
 # define ORGANIC_MATTER
+# define NUTRIENTS
 /*# define CARBON_ISOTOPE*/
-/*# define NUTRIENTS*/
+# if defined CARBON_ISOTOPE
+#  define CARBON_TRACE
+# endif
 
-# define CORAL_POLYP  /* USE coral module */
-# define SEAGRASS     /* USE seagrass module */
-# define MACROALGAE        /* USE algae module  */
-# define SEDIMENT_ECOSYS        /* USE sedecosys module  */
+/*# define CORAL_POLYP*/  /* USE coral module */
+/*# define SEAGRASS*/     /* USE seagrass module */
+/*# define MACROALGAE*/        /* USE algae module  */
+/*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
 # if defined SEDIMENT_ECOSYS
 #  define SEDIMENT_EMPIRICAL     /* USE empirical sediment module  */
 # endif
@@ -230,12 +232,17 @@
 # if defined ORGANIC_MATTER
 #  define FOODWEB      /* USE foodweb module */
 # endif
+
 # define AIR_SEA_GAS_EXCHANGE
+
+
+
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
 /*#  define CORAL_ZOOXANTHELLAE*/
-#  define CORAL_MUCUS           /*Mucus release from coral */
+/*#  define CORAL_PHOTOINHIBITION*/
+/*#  define CORAL_MUCUS*/           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
 /*#   define CORAL_INGESTION*/
 #  endif

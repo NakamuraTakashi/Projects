@@ -983,7 +983,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input tidal forcing file name.
 
-    TIDENAME == ../../Data/Yaeyama/Yaeyama1_frc_OTPS_YS_20000101_v2.nc
+    TIDENAME == ../../Data/Yaeyama/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !
