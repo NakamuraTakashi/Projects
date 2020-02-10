@@ -236,7 +236,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 120
+        NHIS == 1 !120
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
@@ -561,14 +561,14 @@ Hout(idVbot) == T       ! Vbot               bed wave orbital V-velocity
 Hout(idUbur) == T       ! Ur                 bottom U-velocity above bed
 Hout(idVbvr) == T       ! Vr                 bottom V-velocity above bed
 
-Hout(idW2xx) == T       ! Sxx_bar            WEC_Mellor 2D Sxx radiation stress
-Hout(idW2xy) == T       ! Sxy_bar            WEC_Mellor 2D Sxy radiation stress
-Hout(idW2yy) == T       ! Syy_bar            WEC_Mellor 2D Syy radiation stress
-Hout(idW3xx) == T       ! Sxx                WEC_Mellor 3D Sxx radiation stress
-Hout(idW3xy) == T       ! Sxy                WEC_Mellor 3D Sxy radiation stress
-Hout(idW3yy) == T       ! Syy                WEC_Mellor 3D Syy radiation stress
-Hout(idW3zx) == T       ! Szx                WEC_Mellor 3D Szx radiation stress
-Hout(idW3zy) == T       ! Szy                WEC_Mellor 3D Szy radiation stress
+Hout(idW2xx) == F       ! Sxx_bar            WEC_Mellor 2D Sxx radiation stress
+Hout(idW2xy) == F       ! Sxy_bar            WEC_Mellor 2D Sxy radiation stress
+Hout(idW2yy) == F       ! Syy_bar            WEC_Mellor 2D Syy radiation stress
+Hout(idW3xx) == F       ! Sxx                WEC_Mellor 3D Sxx radiation stress
+Hout(idW3xy) == F       ! Sxy                WEC_Mellor 3D Sxy radiation stress
+Hout(idW3yy) == F       ! Syy                WEC_Mellor 3D Syy radiation stress
+Hout(idW3zx) == F       ! Szx                WEC_Mellor 3D Szx radiation stress
+Hout(idW3zy) == F       ! Szy                WEC_Mellor 3D Szy radiation stress
 
 Hout(idWztw) == T       ! zetaw              WEC_VF quasi-static sea level adjustment
 Hout(idWqsp) == T       ! qsp                WEC_VF quasi-static pressure

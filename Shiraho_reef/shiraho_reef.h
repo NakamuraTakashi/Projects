@@ -194,7 +194,7 @@
 
 /***  Biological model options. (Original CPP flags) ***/
 
-#define REEF_ECOSYS
+/*#define REEF_ECOSYS*/
 
 #if defined REEF_ECOSYS
 # define BIOLOGY

@@ -1,4 +1,4 @@
-!  Fennel et al (2006) Nitrogen-based Biological Model Parameters.
+!  Coral reef ecosystem Model Parameters by Takashi Nakamura.
 !
 !svn $Id: bio_Fennel.in 589 2012-01-03 22:42:10Z arango $
 !========================================================= Hernan G. Arango ===
@@ -6,6 +6,7 @@
 !    Licensed under a MIT/X style license                                     !
 !    See License_ROMS.txt                                                     !
 !==============================================================================
+!========================================================= Takashi Nakamura ===
 !                                                                             !
 ! Input parameters can be entered in ANY order, provided that the parameter   !
 ! KEYWORD (usually, upper case) is typed correctly followed by "="  or "=="   !
@@ -46,20 +47,12 @@
 ! Maximum number of iterations to achieve convergence of the nonlinear
 ! solution.
 
-     CrlIter == 10 !!!!!!!!!
+     CrlIter == 40 !!!!!!!!!
 
 ! Maximum number of iterations to achieve convergence of the nonlinear
 ! solution.
 
      SedIter == 1   !!!!!!!!!
-
-! Light attenuation due to seawater [1/m], {0.04d0}.
-
-       AttSW == 0.12d0 !!!!!!!!!
-
-! Light attenuation by chlorophyll [1/(mg_Chl m2)], {0.02486d0}.
-
-      AttChl == 0.02486d0
 
 ! Fraction of shortwave radiation that is photosynthetically active
 ! (nondimensional), {0.43d0}.
@@ -68,133 +61,10 @@
 
      PARfrac == 1.82d0
 
-! Eppley temperature-limited growth parameter [nondimensional], {1.0d0}
-
-         Vp0 == 1.0d0
-
-! Radiation threshold for nitrification inhibition [Watts/m2], {0.0095d0}.
-
-     I_thNH4 == 0.0095d0
-
-! Half-saturation radiation for nitrification inhibition [Watts/m2], {0.036d0}.
-
-     D_p5NH4 == 0.1d0
-
-! Nitrification rate: oxidation of NH4 to NO3 [1/day], {0.05d0}.
-
-      NitriR == 0.05d0
-
-! Inverse half-saturation for phytoplankton NO3 uptake [1/(millimole_N m-3)],
-! {2.0d0}.
-
-       K_NO3 == 2.0d0
-
-! Inverse half-saturation for phytoplankton NH4 uptake [1/(millimole_N m-3)],
-! {2.0d0}.
-
-       K_NH4 == 2.0d0
-
-! Zooplankton half-saturation constant (squared) for ingestion
-! [millimole_N m-3]^2, {1.0d0}.
-
-       K_Phy == 2.0d0
-
-! Maximum chlorophyll to carbon ratio [mg_Chl/mg_C], {0.0535d0}.
-
-     Chl2C_m == 0.0535d0
-
-! Chlorophyll minimum threshold value [mg_Chl/m3], {0.0d0}.
-
-      ChlMin == 0.001d0
-
-! Phytoplankton Carbon:Nitrogen ratio [mole_C/mole_N] , {6.625d0}.
-
-       PhyCN == 6.625d0
-
-! Phytoplankton, NH4 inhibition parameter [1/(millimole_N)], {1.5d0}.
-
-       PhyIP == 1.5d0
-
-! Phytoplankton, initial slope of P-I curve [mg_C/(mg_Chl Watts m-2 day)],
-! {0.025d0}.
-
-       PhyIS == 0.025d0
-
-! Phytoplankton minimum threshold value [millimole_N/m3], {0.0d0}.
-
-      PhyMin == 0.001d0
-
-! Phytoplankton mortality rate [1/day], {0.072d0}.
-
-       PhyMR == 0.15d0
-
-! Zooplankton Nitrogen assimilation efficiency [nondimesnional], {0.75d0}.
-
-     ZooAE_N == 0.75d0
-
-! Zooplankton Basal metabolism [1/day], {0.1d0}.
-
-       ZooBM == 0.1d0
-
-! Zooplankton Carbon:Nitrogen ratio [mole_C/mole_N], {5.0d0}.
-
-       ZooCN == 6.625d0
-
-! Zooplankton specific excretion rate [1/day], {0.1d0}.
-
-       ZooER == 0.1d0
-
-! Zooplankton maximum growth rate [1/day], {0.75d0}.
-
-       ZooGR == 0.6d0
-
-! Zooplankton minimum threshold value [millimole_N/m3], {0.0d0}.
-
-      ZooMin == 0.001d0
-
-! Zooplankton mortality rate [1/day], {0.025d0}.
-
-       ZooMR == 0.025d0
-
-! Large detritus remineralization rate N-fraction [1/day], {0.01d0}.
-
-       LDeRRN == 0.01d0
-
-! Large detritus remineralization rate C-fraction [1/day].
-
-       LDeRRC == 0.01d0
-
-! Coagulation rate: aggregation rate of SDeN + Phy ==> LDeN
-! [1/day], {0.005d0}.
-
-       CoagR == 0.005d0
-
-! Small detritus remineralization rate N-fraction [1/day], {0.03d0}.
-
-       SDeRRN == 0.03d0
-
-! Small detritus remineralization rate C-fraction[1/day].
-
-       SDeRRC == 0.03d0
-
-! Vertical sinking velocity for phytoplankton [m/day], {0.1d0}.
-
-        wPhy == 0.1d0
-
-! Vertical sinking velocity for large detritus [m/day],
-! {1.0d0}.
-
-       wLDet == 1.0d0
-
-! Vertical sinking velocity for small detritus [m/day],
-! {0.1d0}.
-
-       wSDet == 0.1d0
-
 ! CO2 partial pressure in the air (parts per million by volume),
 ! {377.0d0}.
 
-     pCO2air == 370.0d0  !!! 700.0d0 (uatm)
+     pCO2air == 400.0d0  !!! 700.0d0 (uatm)
 
 ! Linear equation of State parameters: !!! Initial and boundary conditions
 
@@ -202,27 +72,36 @@
        TIC_0 == 1915.0d0     ! TA  (umol kg-1)  !!! 2050.0d0 @ fCO2=800uatm;  2030.0d0 @ fCO2=700uatm 
        Oxyg0 == 200.0d0      ! DO  (umol L-1)
 
-       DOC_0 == 65.0d0       ! DOC  (umol L-1) 
-       POC_0 == 4.2d0        ! POC  (umol L-1) 
-       Phy10 == 0.5d0       ! Phytoplankton1 (umolC L-1) 
-       Phy20 == 0.5d0       ! Phytoplankton2 (umolC L-1) 
-       Zoop0 == 0.2d0        ! Zooplankton (umol L-1)
+       DOC_0 == 5.0d0 50.0d0          ! DOC  (umol L-1) 
+       POC_0 == 1.0d0  0.0d0          ! POC  (umol L-1) 
+      Phyt_0 == 0.5d0  0.5d0  0.5d0   ! Phytoplankton1 (umolC L-1) 
+      Zoop_0 == 0.1d0                 ! Zooplankton (umol L-1)
+       PIC_0 == 0.5d0                 ! PIC  (umol L-1) 
 
-   d13C_TIC0 == 0.7d0        ! d13C_TIC (permill VPDB)
-   d13C_DOC0 == -15.0d0      ! d13C_DOC (permill VPDB)
-   d13C_POC0 == -15.0d0      ! d13C_POC (permill VPDB)
-   d13C_Phy0 == -15.0d0      ! d13C_phytoplankton (permill VPDB)
-   d13C_Zoo0 == -20.0d0      ! d13C_zooplankton (permill VPDB)
+   d13C_TIC0 == 0.7d0                ! d13C_TIC (permill VPDB)
+  d13C_DOC_0 == -15.0d0 -15.0d0      ! d13C_DOC (permill VPDB)
+  d13C_POC_0 == -15.0d0 -15.0d0      ! d13C_POC (permill VPDB)
+ d13C_Phyt_0 == -15.0d0 -15.0d0 -15.0d0   ! d13C_phytoplankton (permill VPDB)
+ d13C_Zoop_0 == -20.0d0              ! d13C_zooplankton (permill VPDB)
+  d13C_PIC_0 == -5.0d0               ! d13C_PIC (permill VPDB)
 
        NO3_0 == 0.1d0        ! NO3  (umol L-1)  0.5d0, 10.0d0 
        NO2_0 == 0.02d0       ! NO2  (umol L-1) 
        NH4_0 == 0.26d0       ! NH4  (umol L-1) 
        PO4_0 == 0.04d0       ! PO4  (umol L-1) 0.05d0, 2.0d0 
 
-       DON_0 == 10.0d0       ! DON  (umol L-1) 
-       PON_0 == 0.6d0        ! PON  (umol L-1) 
-       DOP_0 == 0.6d0        ! DOP  (umol L-1) 
-       POP_0 == 0.04d0       ! POP  (umol L-1) 
+       DON_0 == 1.0d0  10.0d0   ! DON  (umol L-1) 
+       PON_0 == 0.6d0   0.0d0   ! PON  (umol L-1) 
+       DOP_0 == 0.06d0  0.6d0   ! DOP  (umol L-1) 
+       POP_0 == 0.04d0  0.0d0   ! POP  (umol L-1) 
+
+  d15N_NO3_0 == 0.7d0                ! d15N_NO3 (permill)
+!  d15N_NO2_0 == 0.7d0                ! d15N_TIC (permill)
+  d15N_NH4_0 == 0.7d0                ! d15N_TIC (permill)
+  d15N_DON_0 == -15.0d0 -15.0d0      ! d15N_DOC (permill)
+  d15N_PON_0 == -15.0d0 -15.0d0      ! d15N_POC (permill)
+ d15N_Phyt_0 == -15.0d0 -15.0d0 -15.0d0   ! d15N_phytoplankton (permill)
+ d15N_Zoop_0 == -20.0d0              ! d15N_zooplankton (permill)
 
        COTe0 == 0.0d0        ! COTS eggs (umol L-1) 
        COTl0 == 0.0d0        ! COTS larvae (umol L-1) 
@@ -230,24 +109,24 @@
 ! Harmonic/biharmonic horizontal diffusion of biological tracer for
 ! nonlinear model and adjoint-based algorithms: [1:NBT,Ngrids].
 
-        TNU2 == 23*0.0d0                        ! m2/s
-        TNU4 == 23*0.0d0                        ! m4/s
+        TNU2 == 34*0.0d0                        ! m2/s
+        TNU4 == 34*0.0d0                        ! m4/s
 
-     ad_TNU2 == 23*0.0d0                        ! m2/s
-     ad_TNU4 == 23*0.0d0                        ! m4/s
+     ad_TNU2 == 34*0.0d0                        ! m2/s
+     ad_TNU4 == 34*0.0d0                        ! m4/s
 
 ! Vertical mixing coefficients for biological tracers for nonlinear
 ! model and basic state scale factor in adjoint-based algorithms:
 ! [1:NBT,Ngrids].
 
-     AKT_BAK == 23*1.0d-6                       ! m2/s
+     AKT_BAK == 34*1.0d-6                       ! m2/s
 
-  ad_AKT_fac == 23*1.0d0                        ! nondimensional
+  ad_AKT_fac == 34*1.0d0                        ! nondimensional
 
 ! Nudging/relaxation time scales, inverse scales will be computed
 ! internally: [1:NBT,Ngrids].
 
-       TNUDG == 23*180.0d0                        ! days
+       TNUDG == 34*180.0d0                        ! days
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -284,73 +163,29 @@
 !                                                 
 !                   1       2       3       4     
 
-   LBC(isTvar) ==   RadNud  RadNud  RadNud  RadNud \ ! idbio( 1), alkalinity
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 2), TIC
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 3), oxygen
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 4), DOC
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 5), POC
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 6), Phytoplankton1
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 7), phytoplankton2
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 8), zooplankton
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 9), TI13C
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(10), DO13C
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(11), PO13C
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(12), 13C of phytoplankton
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(13), 13C of zooplankton
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(14), NO3
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(15), NO2
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(16), NH4
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(17), PO4
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(18), DON
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(19), PON
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(20), DOP
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(21), POP
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(22), COTS eggs
-                    RadNud  RadNud  RadNud  RadNud   ! idbio(23), COTS larvae
+   LBC(isTvar) ==   RadNud  RadNud  RadNud  RadNud  ! idbio(:), compact
 
 ! Adjoint-based algorithms can have different lateral boundary
 ! conditions keywords.
 
-ad_LBC(isTvar) ==   RadNud  RadNud  RadNud  RadNud \ ! idbio( 1), alkalinity
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 2), TIC
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 3), oxygen
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 4), DOC
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 5), POC
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 6), Phytoplankton1
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 7), phytoplankton2
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 8), zooplankton
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio( 9), TI13C
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(10), DO13C
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(11), PO13C
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(12), 13C of phytoplankton
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(13), 13C of zooplankton
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(14), NO3
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(15), NO2
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(16), NH4
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(17), PO4
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(18), DON
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(19), PON
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(20), DOP
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(21), POP
-                    RadNud  RadNud  RadNud  RadNud \ ! idbio(22), COTS eggs
-                    RadNud  RadNud  RadNud  RadNud   ! idbio(23), COTS larvae
+ad_LBC(isTvar) ==   RadNud  RadNud  RadNud  RadNud  ! idbio(:), compact
 
 ! Logical switches (TRUE/FALSE) to specify which variables to consider on
 ! tracers point Sources/Sinks (like river runoff): [NBT,Ngrids] values are
 ! expected. See glossary below for details.
 
-!                                 1 1 1 1 1 1 1 1 1 1 2 2 2 2
-!               1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3
+!                                 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3
+!               1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3
 !
-! LtracerSrc == 23*F
-! LtracerSrc == T T F F F F F T F T F F F F F F F F F F F F F
-  LtracerSrc == T T T T T F F F           T T T T T T T T F F  ! For no d13C version
+!  LtracerSrc == 34*F
+  LtracerSrc == T T T T T T T F F F F F T T T T T T T T T T T ! For no d13C version
+!  LtracerSrc == T T T T T T T F F F F F T T T T T F F F F F T T T T T T T T T T T ! For d13C version
 
 ! Logical switches (TRUE/FALSE) to activate writing of biological fields
 ! into HISTORY output file: [1:NBT,Ngrids].
 
-Hout(idTvar) == 23*T    ! NO3, ...           biological tracer
-Hout(idTsur) == 23*F    ! NO3_sflux, ...     surface tracer flux
+Hout(idTvar) == 45*T    ! NO3, ...           biological tracer
+Hout(idTsur) == 34*F    ! NO3_sflux, ...     surface tracer flux
 
 !!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TN:Add
 
@@ -366,22 +201,22 @@ Hout(iHbio3) == 3*T
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged fields
 ! into AVERAGE output file: [1:NBT,Ngrids].
 
-Aout(idTvar) == 23*F    ! NO3, ...           biological tracer
+Aout(idTvar) == 24*F    ! NO3, ...           biological tracer
 
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged,
 ! biological tracer diagnostic terms into DIAGNOSTIC output file:
 ! [1:NBT,Ngrids].
 
-Dout(iTrate) == 23*F    ! NO3_rate, ...      time rate of change
-Dout(iThadv) == 23*F    ! NO3_hadv, ...      horizontal total advection
-Dout(iTxadv) == 23*F    ! NO3_xadv, ...      horizontal XI-advection
-Dout(iTyadv) == 23*F    ! NO3_yadv, ...      horizontal ETA-advection
-Dout(iTvadv) == 23*F    ! NO3_vadv, ...      vertical advection
-Dout(iThdif) == 23*F    ! NO3_hdiff, ...     horizontal total diffusion
-Dout(iTxdif) == 23*F    ! NO3_xdiff, ...     horizontal XI-diffusion
-Dout(iTydif) == 23*F    ! NO3_ydiff, ...     horizontal ETA-diffusion
-Dout(iTsdif) == 23*F    ! NO3_sdiff, ...     horizontal S-diffusion
-Dout(iTvdif) == 23*F    ! NO3_vdiff, ...     vertical diffusion
+Dout(iTrate) == 24*F    ! NO3_rate, ...      time rate of change
+Dout(iThadv) == 24*F    ! NO3_hadv, ...      horizontal total advection
+Dout(iTxadv) == 24*F    ! NO3_xadv, ...      horizontal XI-advection
+Dout(iTyadv) == 24*F    ! NO3_yadv, ...      horizontal ETA-advection
+Dout(iTvadv) == 24*F    ! NO3_vadv, ...      vertical advection
+Dout(iThdif) == 24*F    ! NO3_hdiff, ...     horizontal total diffusion
+Dout(iTxdif) == 24*F    ! NO3_xdiff, ...     horizontal XI-diffusion
+Dout(iTydif) == 24*F    ! NO3_ydiff, ...     horizontal ETA-diffusion
+Dout(iTsdif) == 24*F    ! NO3_sdiff, ...     horizontal S-diffusion
+Dout(iTvdif) == 24*F    ! NO3_vdiff, ...     vertical diffusion
 
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged,
 ! biological processes diagnostics terms into DIAGNOSTIC output file [Ngrids].
@@ -394,19 +229,51 @@ Dout(iTvdif) == 23*F    ! NO3_vdiff, ...     vertical diffusion
 ! Fennel et al (2006), Nitrogen-based Biological Model Parameters. Currently,
 ! it can be configured with 12 biological tracers:
 !
-! idbio( 1)     NO3               Nitrate concentration
-! idbio( 2)     NH4               Ammonium concentration
-! idbio( 3)     chlorophyll       Chorophyll concentration
-! idbio( 4)     phytoplankton     Phytoplankton biomass
-! idbio( 5)     zooplankton       Zooplankton biomass
-! idbio( 6)     LdetritusN        Large detritus N-concentration
-! idbio( 7)     SdetritusN        Small detritus N-concentration
-! idbio( 8)     LdetritusC        Large detritus C-concentration     if CARBON
-! idbio( 9)     SdetritusC        Small detritus C-concentration     if CARBON
-! idbio(10)     TIC               Total inorganic carbon             if CARBON
-! idbio(11)     alkalinity        Alkalinity                         if CARBON
-! idbio(12)     oxygen            Oxygen concentration               if OXYGEN
-!
+! idbio( 1), idbio( 1), idbio( 1), idbio( 1),   alkalinity
+! idbio( 2), idbio( 2), idbio( 2), idbio( 2),   TIC
+! idbio( 3), idbio( 3), idbio( 3), idbio( 3),   oxygen
+! idbio( 4), idbio( 4), idbio( 4), idbio( 4),   DOC_01
+! idbio( 5), idbio( 5), idbio( 5), idbio( 5),   DOC_02
+! idbio( 6), idbio( 6), idbio( 6), idbio( 6),   POC_01
+! idbio( 7), idbio( 7), idbio( 7), idbio( 7),   POC_02
+! idbio( 8), idbio( 8), idbio( 8), idbio( 8),   Phytoplankton_01
+! idbio( 9), idbio( 9), idbio( 9), idbio( 9),   Phytoplankton_02
+! idbio(10), idbio(10), idbio(10), idbio(10),   phytoplankton_03
+! idbio(11), idbio(11), idbio(11), idbio(11),   zooplankton_01
+! idbio(12), idbio(12), idbio(12), idbio(12),   PIC_01
+! idbio(13), idbio(13), idbio(13),              TI13C
+! idbio(14), idbio(14), idbio(14),              DO13C_01
+! idbio(15), idbio(15), idbio(15),              DO13C_02
+! idbio(16), idbio(16), idbio(16),              PO13C_01
+! idbio(17), idbio(17), idbio(17),              PO13C_02
+! idbio(18), idbio(18), idbio(18),              Phyt13C_01
+! idbio(19), idbio(19), idbio(19),              Phyt13C_02
+! idbio(20), idbio(20), idbio(20),              phyt13C_03
+! idbio(21), idbio(21), idbio(21),              zoop13C_01
+! idbio(22), idbio(22), idbio(22),              PI13C_01
+! idbio(23), idbio(23), idbio(23), idbio(13),   NO3
+! idbio(24), idbio(24), idbio(24), idbio(14),   NH4
+! idbio(25), idbio(25), idbio(25), idbio(15),   PO4
+! idbio(26), idbio(26), idbio(26), idbio(16),   DON_01
+! idbio(27), idbio(27), idbio(27), idbio(17),   DON_02
+! idbio(28), idbio(28), idbio(28), idbio(18),   PON_01
+! idbio(29), idbio(29), idbio(29), idbio(19),   PON_02
+! idbio(30), idbio(30), idbio(30), idbio(20),   DOP_01
+! idbio(31), idbio(31), idbio(31), idbio(21),   DOP_02
+! idbio(32), idbio(32), idbio(32), idbio(22),   POP_01
+! idbio(33), idbio(33), idbio(33), idbio(23),   POP_02
+! idbio(34), idbio(34),                         NO3_15N
+! idbio(35), idbio(35),                         NH4_15N
+! idbio(36), idbio(36),                         DO15N_01
+! idbio(37), idbio(37),                         DO15N_02
+! idbio(38), idbio(38),                         PO15N_01
+! idbio(39), idbio(39),                         PO15N_02
+! idbio(40), idbio(40),                         Phyt15N_01
+! idbio(41), idbio(41),                         Phyt15N_02
+! idbio(42), idbio(42),                         phyt15N_03
+! idbio(43), idbio(43),                         zoop15N_01
+! idbio(44),                                    COTS eggs
+! idbio(45),                                    COTS larvae
 !------------------------------------------------------------------------------
 !
 !  Lbiology       Switch to control the computation of a particular module
@@ -422,84 +289,8 @@ Dout(iTvdif) == 23*F    ! NO3_vdiff, ...     vertical diffusion
 !  BioIter        Maximum number of iterations to achieve convergence of
 !                   the nonlinear solution.
 !
-!  AttSW          Light attenuation due to seawater [1/m].
-!
-!  AttChl         Light attenuation by chlorophyll [1/(mg_Chl m2)].
-!
 !  PARfrac        Fraction of shortwave radiation that is photosynthetically
 !                   active (nondimensional).
-!
-!  Vp0            Eppley temperature-limited and light-limited growth tuning
-!                   parameter [nondimensional].
-!
-!  I_thNH4        Radiation threshold for nitrification inhibition [Watts/m2].
-!
-!  D_p5HN4        Half-saturation radiation for nitrification inhibition
-!                   [Watts/m2].
-!
-!  NitriR         Nitrification rate: oxidation of NH4 to NO3 [day-1].
-!
-!  K_NO3          Inverse half-saturation for phytoplankton NO3 uptake
-!                   [1/(millimole_N m-3)].
-!
-!  K_NH4          Inverse half-saturation for phytoplankton NH4 uptake
-!                   [1/(millimole_N m-3)].
-!
-!  K_Phy          Zooplankton half-saturation, squared constant for ingestion
-!                   [millimole_N m-3]^2.
-!
-!  Chl2C_m        Maximum chlorophyll to carbon ratio [mg_Chl/mg_C].
-!
-!  ChlMin         Chlorophyll minimum threshold value [mg_Chl/m3].  Set to
-!                   zero to avoid limiting.
-!
-!  PhyCN          Phytoplankton Carbon:Nitrogen ratio [mole_C/mole_N].
-!
-!  PhyIP          Phytoplankton, NH4 inhibition parameter [1/(millimole_N)].
-!
-!  PhyIS          Phytoplankton, initial slope of P-I curve
-!                   [(mg_C)/(mg_Chl Watts m-2 day)].
-!
-!  PhyMin         Phytoplankton minimum threshold value [millimole_N/m3].
-!                   Set to zero to avoid limiting.
-!
-!  PhyMR          Phytoplankton mortality rate [1/day].
-!
-!  ZooAE_N        Zooplankton Nitrogen assimilation efficiency
-!                   [nondimensional].
-!
-!  ZooBM          Basal metabolism of zooplankton [1/day].
-!
-!  ZooCN          Zooplankton Carbon:Nitrogen ratio [mole_C/mole_N].
-!
-!  ZooER          Zooplankton specific excretion rate [1/day].
-!
-!  ZooGR          Zooplankton maximum growth rate [1/day].
-!
-!  ZooMin         Zooplankton minimum threshold value [millimole_N/m3].
-!                   Set to zero to avoid limiting.
-!
-!  ZooMR          Zooplankton mortality rate [1/day].
-!
-!  LDeRRN         Large nitrogen detritus remineralization rate [day-1].
-!
-!  LDeRRC         Large carbon detritus remineralization rate [day-1].
-!
-!  CoagR          Coagulation rate: aggregation rate of SDeN + Phyt ==> LDeN
-!                   [day-1].
-!
-!  SDeRRN         Small nitrogen detritus remineralization rate [day-1].
-!
-!  SDeRRC         Small carbon detritus remineralization rate [day-1].
-!
-!  wPhy           Vertical sinking velocity for phytoplankton [m/day].
-!
-!  wLDet          Vertical sinking velocity for large detritus
-!                   [m/day].
-!
-!  wLDet          Vertical sinking velocity for large detritus
-!                   [m/day].
-!
 !  pCO2air        CO2 partial pressure in the air (parts per million by
 !                   volume).
 !
