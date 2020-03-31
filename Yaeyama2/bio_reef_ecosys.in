@@ -178,8 +178,8 @@ ad_LBC(isTvar) ==   RadNud  RadNud  RadNud  RadNud  ! idbio(:), compact
 !               1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3
 !
 !  LtracerSrc == 34*F
-  LtracerSrc == T T T T T T T F F F F F T T T T T T T T T T T ! For no d13C version
-!  LtracerSrc == T T T T T T T F F F F F T T T T T F F F F F T T T T T T T T T T T ! For d13C version
+!  LtracerSrc == T T T T T T T F F F F F T T T T T T T T T T T ! For no d13C version
+  LtracerSrc == T T T T T T T F F F F F T T T T T F F F F F T T T T T T T T T T T ! For d13C version
 
 ! Logical switches (TRUE/FALSE) to activate writing of biological fields
 ! into HISTORY output file: [1:NBT,Ngrids].
@@ -229,8 +229,8 @@ Dout(iTvdif) == 24*F    ! NO3_vdiff, ...     vertical diffusion
 ! Fennel et al (2006), Nitrogen-based Biological Model Parameters. Currently,
 ! it can be configured with 12 biological tracers:
 !
-! idbio( 1), idbio( 1), idbio( 1), idbio( 1),   alkalinity
-! idbio( 2), idbio( 2), idbio( 2), idbio( 2),   TIC
+! idbio( 1), idbio( 1), idbio( 1), idbio( 1),   TIC
+! idbio( 2), idbio( 2), idbio( 2), idbio( 2),   alkalinity
 ! idbio( 3), idbio( 3), idbio( 3), idbio( 3),   oxygen
 ! idbio( 4), idbio( 4), idbio( 4), idbio( 4),   DOC_01
 ! idbio( 5), idbio( 5), idbio( 5), idbio( 5),   DOC_02

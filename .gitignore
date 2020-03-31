@@ -6,6 +6,7 @@
 *.nc
 *.dump
 *.stackdump
+fort.*
 
 */swan_restart.dat*
 */PRINT*

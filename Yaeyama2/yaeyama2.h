@@ -216,9 +216,9 @@
 /* compartments */
 # define ORGANIC_MATTER
 # define NUTRIENTS
-/*# define CARBON_ISOTOPE*/
+# define CARBON_ISOTOPE
 # if defined CARBON_ISOTOPE
-#  define CARBON_TRACE
+/*#  define CARBON_TRACE*/
 # endif
 
 /*# define CORAL_POLYP*/  /* USE coral module */
