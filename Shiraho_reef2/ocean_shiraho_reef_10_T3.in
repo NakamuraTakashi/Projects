@@ -73,7 +73,7 @@
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
 
-     VARNAME = ../../COAWST_Eco/ROMS/External/varinfo.dat
+     VARNAME = /gs/hs1/tga-NakamuLab/COAWST/COAWST_Eco/ROMS/External/varinfo.dat
 
 ! Number of nested grids.
 
@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 1   !1   !2   !6                            ! I-direction partition
-      NtileJ == 10   !3   !10  !20                            ! J-direction partition
+      NtileI == 2             ! I-direction partition
+      NtileJ == 26            ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -231,7 +231,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
         NRST == 10000
         NSTA == 1
         NFLT == 1
-       NINFO == 1
+       NINFO == 12
 
 ! Output history, average, diagnostic files parameters.
 
@@ -417,8 +417,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! Linear equation of State parameters:
 
           R0 == 1024.0d0                   ! kg/m3
-!          T0 == 29.5d0                     ! Celsius   !!! Nakamura et al 2018a
-          T0 == 29.0d0                     ! Celsius    !!! For bleaching test!!
+          T0 == 29.5d0                     ! Celsius
           S0 == 34.45d0                     ! nondimensional (PSU)
        TCOEF == 1.7d-4                     ! 1/Celsius
        SCOEF == 7.6d-4                     ! nondimensional
@@ -561,14 +560,14 @@ Hout(idVbot) == T       ! Vbot               bed wave orbital V-velocity
 Hout(idUbur) == T       ! Ur                 bottom U-velocity above bed
 Hout(idVbvr) == T       ! Vr                 bottom V-velocity above bed
 
-Hout(idW2xx) == F       ! Sxx_bar            WEC_Mellor 2D Sxx radiation stress
-Hout(idW2xy) == F       ! Sxy_bar            WEC_Mellor 2D Sxy radiation stress
-Hout(idW2yy) == F       ! Syy_bar            WEC_Mellor 2D Syy radiation stress
-Hout(idW3xx) == F       ! Sxx                WEC_Mellor 3D Sxx radiation stress
-Hout(idW3xy) == F       ! Sxy                WEC_Mellor 3D Sxy radiation stress
-Hout(idW3yy) == F       ! Syy                WEC_Mellor 3D Syy radiation stress
-Hout(idW3zx) == F       ! Szx                WEC_Mellor 3D Szx radiation stress
-Hout(idW3zy) == F       ! Szy                WEC_Mellor 3D Szy radiation stress
+Hout(idW2xx) == T       ! Sxx_bar            WEC_Mellor 2D Sxx radiation stress
+Hout(idW2xy) == T       ! Sxy_bar            WEC_Mellor 2D Sxy radiation stress
+Hout(idW2yy) == T       ! Syy_bar            WEC_Mellor 2D Syy radiation stress
+Hout(idW3xx) == T       ! Sxx                WEC_Mellor 3D Sxx radiation stress
+Hout(idW3xy) == T       ! Sxy                WEC_Mellor 3D Sxy radiation stress
+Hout(idW3yy) == T       ! Syy                WEC_Mellor 3D Syy radiation stress
+Hout(idW3zx) == T       ! Szx                WEC_Mellor 3D Szx radiation stress
+Hout(idW3zy) == T       ! Szy                WEC_Mellor 3D Szy radiation stress
 
 Hout(idWztw) == T       ! zetaw              WEC_VF quasi-static sea level adjustment
 Hout(idWqsp) == T       ! qsp                WEC_VF quasi-static pressure
@@ -945,7 +944,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../Data/Shiraho_reef/shiraho_reef_grid16.3.nc   ! New bathymetry, with new coverage
+     GRDNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/shiraho_reef_grid16.2.nc   ! New bathymetry, with new coverage
      ININAME == ocean_ini.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -969,11 +968,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == ../../Data/Shiraho_reef/bry_tide_tr100820-0930v3_ref20000101.nc
-!     BRYNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/bry_tide_tr090825-0911_zeta_plus_63cm.nc  !!! RCP 8.5: zeta+63cm
-!     BRYNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/bry_tide_tr090825-0911_zeta_plus_48cm.nc  !!! RCP 6.0: zeta+48cm
-!     BRYNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/bry_tide_tr090825-0911_zeta_plus_47cm.nc  !!! RCP 4.5: zeta+47cm
-!     BRYNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/bry_tide_tr090825-0911_zeta_plus_40cm.nc  !!! RCP 2.6: zeta+40cm
+     BRYNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/bry_tide_tr100820-0930v3_ref20000101.nc
+!     BRYNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/bry_tide_tr090825-0911_zeta_plus_63cm.nc  !!! RCP 8.5: zeta+63cm
+!     BRYNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/bry_tide_tr090825-0911_zeta_plus_48cm.nc  !!! RCP 6.0: zeta+48cm
+!     BRYNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/bry_tide_tr090825-0911_zeta_plus_47cm.nc  !!! RCP 4.5: zeta+47cm
+!     BRYNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/bry_tide_tr090825-0911_zeta_plus_40cm.nc  !!! RCP 2.6: zeta+40cm
 
 ! Input climatology nudging coefficients file name.
 
@@ -981,8 +980,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../Data/Shiraho_reef/frc_freshwater_10-15_ref20000101.nc
-!     SSFNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/frc_freshwater_10tmp.nc
+     SSFNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/frc_freshwater_10-15_ref20000101.nc
+!     SSFNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/frc_freshwater_10tmp.nc
 
 ! Input tidal forcing file name.
 
@@ -1008,14 +1007,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 1                          ! number of unique forcing files
 
-     FRCNAME == ../../Data/Shiraho_reef/frc_air100820-1001v3_ref20000101.nc    ! forcing file 1, grid 1
+     FRCNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/frc_air100820-1001v3_ref20000101.nc    ! forcing file 1, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == ocean_rst_10.nc
-     HISNAME == ocean_his_10.nc
+     RSTNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Shiraho_reef/test01/ocean_rst_10.nc
+     HISNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Shiraho_reef/test01/ocean_his_10.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
