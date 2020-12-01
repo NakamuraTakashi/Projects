@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 2             ! I-direction partition
-      NtileJ == 26            ! J-direction partition
+      NtileI == 4             ! I-direction partition
+      NtileJ == 13            ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -944,7 +944,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/shiraho_reef_grid16.2.nc   ! New bathymetry, with new coverage
+     GRDNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Shiraho_reef/shiraho_reef_grid16.3.nc   ! New bathymetry, with new coverage
      ININAME == ocean_ini.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -1029,7 +1029,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      APARNAM =  s4dvar.in
      SPOSNAM =  stations.in
      FPOSNAM =  floats_shiraho_reef.in         !!! used
-     BPARNAM =  bio_reef_ecosys_10.in             !!! used
+     BPARNAM =  bio_reef_ecosys.in             !!! used
      SPARNAM =  sediment_shiraho_reef_2.in       !!! used
      USRNAME =  MyFile.dat
 

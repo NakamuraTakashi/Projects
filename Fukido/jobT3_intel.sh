@@ -9,7 +9,8 @@
 ## Initialize module command
 . /etc/profile.d/modules.sh
 
-module load cuda openmpi
+module load cuda intel
+module load openmpi
 module load hdf5
 module load netcdf-parallel
 ## 28 process per node, all MPI process is 56

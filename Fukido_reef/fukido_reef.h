@@ -202,7 +202,6 @@
 # define BIOLOGY
 # define ANA_BIOLOGY
 # define ANA_TOBC_BIO   /*Original CPP flag */
-/*# define SIMPLE_BIO_BOUNDARY*/ /* USE ANA_TOBC_BIO option. for shimple boundaly test case */
 
 /* compartments */
 /*# define ORGANIC_MATTER*/

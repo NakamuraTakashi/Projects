@@ -9,8 +9,9 @@
 ## Initialize module command
 . /etc/profile.d/modules.sh
 
-module load cuda openmpi
+module load cuda pgi
+module load openmpi
 module load hdf5
 module load netcdf-parallel
 ## 28 process per node, all MPI process is 56
-mpirun -use-hwthread-cpus -x LD_LIBRARY_PATH -npernode 28 -n 56 ./coawstM coupling_shiraho_reef_10_T3.in
+mpirun -use-hwthread-cpus -x LD_LIBRARY_PATH -npernode 28 -n 56 ./coawstM ocean_palau1.in

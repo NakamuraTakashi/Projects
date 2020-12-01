@@ -18,9 +18,6 @@
 /*#define MCT_LIB*/
 
 #define NO_LBC_ATT
-/*#define PARALLEL_IO*/
-/*#define HDF5*/
-/*#define PNETCDF*/
 
 /*#define NESTING*/
 /*#define NESTING_DEBUG*/
@@ -218,7 +215,7 @@
 # define NUTRIENTS
 # define CARBON_ISOTOPE
 # if defined CARBON_ISOTOPE
-/*#  define CARBON_TRACE*/
+#  define CARBON_TRACE
 # endif
 
 /*# define CORAL_POLYP*/  /* USE coral module */
