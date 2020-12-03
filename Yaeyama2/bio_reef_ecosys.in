@@ -90,7 +90,7 @@
        NH4_0 == 0.26d0       ! NH4  (umol L-1) 
        PO4_0 == 0.04d0       ! PO4  (umol L-1) 0.05d0, 2.0d0 
 
-       DON_0 == 1.0d0  10.0d0   ! DON  (umol L-1) 
+       DON_0 == 0.5d0   5.0d0   ! DON  (umol L-1) 
        PON_0 == 0.6d0   0.0d0   ! PON  (umol L-1) 
        DOP_0 == 0.06d0  0.6d0   ! DOP  (umol L-1) 
        POP_0 == 0.04d0  0.0d0   ! POP  (umol L-1) 
