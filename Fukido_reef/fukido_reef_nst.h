@@ -82,11 +82,11 @@
 /*#define FSOBC_REDUCED*/
 
 
-#define ANA_INITIAL
+/*#define ANA_INITIAL*/
 /*#define ANA_FSOBC*/
 /*#define ANA_M2OBC*/
 /*#define ANA_TOBC*/
-#define ANA_TOBC_BIO   /*Original CPP flag */
+/*#define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 #define SOLAR_SOURCE
 
