@@ -64,16 +64,16 @@
 !
 ! Application title.
 
-       TITLE = TOKYOBAY2 Case
+       TITLE = YAEYAMA1 Test Case
 
 ! C-preprocessing Flag.
 
-    MyAppCPP = TOKYOBAY2
+    MyAppCPP = YAEYAMA1
 
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
 
-     VARNAME = ../../COAWST_Eco/ROMS/External/varinfo.dat
+     VARNAME = /gs/hs1/tga-NakamuLab/COAWST/COAWST_Eco/ROMS/External/varinfo.dat
 
 ! Number of nested grids.
 
@@ -91,9 +91,9 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 190           ! Number of I-direction INTERIOR RHO-points
-          Mm == 135           ! Number of J-direction INTERIOR RHO-points
-           N == 30            ! Number of vertical levels
+          Lm == 308           ! Number of I-direction INTERIOR RHO-points
+          Mm == 278           ! Number of J-direction INTERIOR RHO-points
+           N == 15            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
 
@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 10                               ! I-direction partition
-      NtileJ == 1                                ! J-direction partition
+      NtileI == 8                               ! I-direction partition
+      NtileJ == 7                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -145,22 +145,22 @@
 !
 !                   1       2       3       4
 
-   LBC(isFsur) ==   Clo     Cha     Clo     Clo         ! free-surface
-   LBC(isUbar) ==   Clo     Fla     Clo     Clo         ! 2D U-momentum
-   LBC(isVbar) ==   Clo     Fla     Clo     Clo         ! 2D V-momentum
-   LBC(isUvel) ==   Clo     RadNud  Clo     Clo         ! 3D U-momentum
-   LBC(isVvel) ==   Clo     RadNud  Clo     Clo         ! 3D V-momentum
-   LBC(isMtke) ==   Clo     Gra     Clo     Clo         ! mixing TKE !!!(Turbulence Kinetic Energy?)
-                                                  
-   LBC(isTvar) ==   Clo     RadNud  Clo     Clo    \    ! temperature
-                    Clo     RadNud  Clo     Clo         ! salinity
+   LBC(isFsur) ==   Cha     Cha     Cha     Cha         ! free-surface
+   LBC(isUbar) ==   Fla     Fla     Fla     Fla         ! 2D U-momentum
+   LBC(isVbar) ==   Fla     Fla     Fla     Fla         ! 2D V-momentum
+   LBC(isUvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D U-momentum
+   LBC(isVvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D V-momentum
+   LBC(isMtke) ==   Gra     Gra     Gra     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
+                                               
+   LBC(isTvar) ==   RadNud  RadNud  RadNud  RadNud \    ! temperature
+                    RadNud  RadNud  RadNud  RadNud      ! salinity
 
 ! Wec boundary conditions
 
-   LBC(isU2Sd) ==   Clo     Gra     Clo     Clo         ! 2D U-stokes
-   LBC(isV2Sd) ==   Clo     Gra     Clo     Clo         ! 2D V-stokes
-   LBC(isU3Sd) ==   Clo     Gra     Clo     Clo         ! 3D U-stokes
-   LBC(isV3Sd) ==   Clo     Gra     Clo     Clo         ! 3D V-stokes
+   LBC(isU2Sd) ==   Clo     Clo     Gra     Clo         ! 2D U-stokes
+   LBC(isV2Sd) ==   Clo     Clo     Gra     Clo         ! 2D V-stokes
+   LBC(isU3Sd) ==   Clo     Clo     Gra     Clo         ! 3D U-stokes
+   LBC(isV3Sd) ==   Clo     Clo     Gra     Clo         ! 3D V-stokes
 
 ! Ice boundary conditions
 
@@ -228,10 +228,10 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
        NRREC == 0
    LcycleRST == T
-        NRST == 2880
+        NRST == 2400
         NSTA == 1
         NFLT == 1
-       NINFO == 20
+       NINFO == 15
 
 ! Output history, average, diagnostic files parameters.
 
@@ -344,8 +344,8 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 
         RDRG == 3.0d-04                    ! m/s
        RDRG2 == 0.025d0                    ! nondimensional
-         Zob == 0.02d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
-         Zos == 0.02d0                      ! m
+         Zob == 0.03d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
+         Zos == 0.5d0                      ! m
 
 ! Height (m) of atmospheric measurements for Bulk fluxes parameterization.
 
@@ -601,13 +601,13 @@ Hout(idWrol) == T       ! rollA              wave roller action density
 Hout(idRunoff) == F     ! Runoff             surface runoff from land
 Hout(idPair) == F       ! Pair               surface air pressure
 Hout(idTsur) == F F     ! shflux, ssflux     surface net heat and salt flux
-Hout(idLhea) == T       ! latent             latent heat flux
-Hout(idShea) == T       ! sensible           sensible heat flux
-Hout(idLrad) == T       ! lwrad              longwave radiation flux
-Hout(idSrad) == T       ! swrad              shortwave radiation flux
-Hout(idEmPf) == T       ! EminusP            E-P flux
-Hout(idevap) == T       ! evaporation        evaporation rate
-Hout(idrain) == T       ! rain               precipitation rate
+Hout(idLhea) == F       ! latent             latent heat flux
+Hout(idShea) == F       ! sensible           sensible heat flux
+Hout(idLrad) == F       ! lwrad              longwave radiation flux
+Hout(idSrad) == F       ! swrad              shortwave radiation flux
+Hout(idEmPf) == F       ! EminusP            E-P flux
+Hout(idevap) == F       ! evaporation        evaporation rate
+Hout(idrain) == F       ! rain               precipitation rate
 
 Hout(idDano) == F       ! rho                density anomaly
 Hout(idVvis) == T       ! AKv                vertical viscosity
@@ -942,8 +942,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Grid/TokyoBay2_grd_v2.0.nc
-     ININAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Ini/TokyoBay2_ini_JCOPET_Nz30_20180605.00.nc
+     GRDNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_grd_v10.nc
+     ININAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_ini_Nz15_HYCOMpNAO_140410.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,7 +966,12 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Bry/TokyoBay2_bry_JCOPE-T_Nz30_20180605.00.nc
+     BRYNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1404.nc  |
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1405.nc  |
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1406.nc  |
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1407.nc  |
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1408.nc  |
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1409.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -974,11 +979,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../Data/Yaeyama/Yaeyama2_river_Nz15_arakawa_pop_up_conn_nomal_14.nc
+     SSFNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama2_river_Nz15_arakawa_pop_up_conn_nomal_14.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == ../../Data/Yaeyama/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_frc_OTPS_YS_20000101_v2.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -998,16 +1003,21 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! continuation (\) or a vertical bar (|) symbol after each entry, except
 ! the last one.
 
-     NFFILES == 2                          ! number of unique forcing files
+     NFFILES == 1                          ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
-                F:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_2.nc
+     FRCNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_frc_JMA_1404.nc   |    ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_frc_JMA_1405.nc   |    ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_frc_JMA_1406.nc   |    ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_frc_JMA_1407.nc   |    ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_frc_JMA_1408.nc   |    ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama1_frc_JMA_1409.nc   
+
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == TokyoBay2_rst_20180605.nc
-     HISNAME == TokyoBay2_his_20180605.nc
+     RSTNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Yaeyama1/test01/Yaeyama1_rst_14.nc
+     HISNAME == /gs/hs1/tga-NakamuLab/nakamura/ROMS/output/Yaeyama1/test01/Yaeyama1_his_14.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

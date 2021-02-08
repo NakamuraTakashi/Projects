@@ -101,7 +101,7 @@ done
 # Set the CPP option defining the particular application. This will
 # determine the name of the ".h" header file with the application
 # CPP definitions. Also this will activate the switch file for WW3.
-export   COAWST_APPLICATION=FUKIDO
+export   COAWST_APPLICATION=YAEYAMA2
 
 # Set the ROMS_APPLICATION to be the same as the COAWST_APP.
 # Do not change this. We use the COAWST APP for other checks.
@@ -393,8 +393,8 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
           export  PARPACK_LIBDIR=/opt/gfortransoft/mpich2/PARPACK
         elif [ "${which_MPI}" = "openmpi" ]; then
           export        ESMF_DIR=/opt/gfortransoft/openmpi/esmf
-          export      MCT_INCDIR=/usr/local/openmpi/mct/include
-          export      MCT_LIBDIR=/usr/local/openmpi/mct/lib
+          export      MCT_INCDIR=/opt/gfortransoft/openmpi/mct/include
+          export      MCT_LIBDIR=/opt/gfortransoft/openmpi/mct/lib
           export  PARPACK_LIBDIR=/opt/gfortransoft/openmpi/PARPACK
         fi
       fi

@@ -65,11 +65,11 @@
 !
 ! Application title.
 
-       TITLE = YAEYAMA2 Case
+       TITLE = YAEYAMA3 Case
 
 ! C-preprocessing Flag.
 
-    MyAppCPP = YAEYAMA2   !!!!
+    MyAppCPP = YAEYAMA3   !!!!
 
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
@@ -93,7 +93,7 @@ GridsInLayer =  1
 ! these parameters correctly.
 
           Lm == 327           ! Number of I-direction INTERIOR RHO-points
-          Mm == 297           ! Number of J-direction INTERIOR RHO-points
+          Mm == 318           ! Number of J-direction INTERIOR RHO-points
            N == 15            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers

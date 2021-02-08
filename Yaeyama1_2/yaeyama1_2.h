@@ -8,7 +8,7 @@
 **
 ** Options for Inlet Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   YAEYAMA1
+** Application flag:   YAEYAMA1_2
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
@@ -18,11 +18,8 @@
 /*#define MCT_LIB*/
 
 #define NO_LBC_ATT
-/*#define PARALLEL_IO*/
-/*#define HDF5*/
-/*#define PNETCDF*/
 
-/*#define NESTING*/
+#define NESTING
 /*#define NESTING_DEBUG*/
 /*#define ONE_WAY*/
 /*#define QUADRATIC_WEIGHTS*/
@@ -82,15 +79,15 @@
 /*** Option for tidal forcing ***/
 /*#define SSH_TIDES*/
 /*#define UV_TIDES*/
+/*#define RAMP_TIDES*/
 /*#define ADD_FSOBC*/
 /*#define ADD_M2OBC*/
-/*#define RAMP_TIDES*/ /*Not use*/
+
 
 /*#define ANA_INITIAL*/
 /*#define ANA_FSOBC*/
 /*#define ANA_M2OBC*/
 /*#define ANA_TOBC*/
-/*#define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 #define SOLAR_SOURCE
 
@@ -104,7 +101,7 @@
 /*# define ANA_TAIR*/
 /*# define ANA_RAIN*/
 /*# define ANA_WINDS*/
-/*# define ANA_SRFLUX*/  /* can deactivate after 2018 run */
+# define ANA_SRFLUX
 # define ALBEDO_CLOUD
 /*# define LOCAL_TIME +9.0*/
 /*# define DIURNAL_SRFLUX*/
@@ -214,11 +211,17 @@
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
+# define ANA_TOBC_BIO   /*Original CPP flag */
+# define BIO_VPROFILE_YAEYAMA  /*choose one of the two options*/
+/*# define BIO_VPROFILE_CT*/   /*choose one of the two options*/
 
 /* compartments */
 # define ORGANIC_MATTER
-/*# define CARBON_ISOTOPE*/
 # define NUTRIENTS
+# define CARBON_ISOTOPE
+# if defined CARBON_ISOTOPE
+#  define CARBON_TRACE
+# endif
 
 /*# define CORAL_POLYP*/  /* USE coral module */
 /*# define SEAGRASS*/     /* USE seagrass module */
@@ -231,14 +234,19 @@
 # if defined ORGANIC_MATTER
 #  define FOODWEB      /* USE foodweb module */
 # endif
+
 # define AIR_SEA_GAS_EXCHANGE
+
+
+
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
 /*#  define CORAL_ZOOXANTHELLAE*/
-#  define CORAL_MUCUS           /*Mucus release from coral */
+/*#  define CORAL_PHOTOINHIBITION*/
+/*#  define CORAL_MUCUS*/           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
-#   define CORAL_INGESTION
+/*#   define CORAL_INGESTION*/
 #  endif
 /*#  define CORAL_SIZE_DYNAMICS*/
 #  if defined CARBON_ISOTOPE

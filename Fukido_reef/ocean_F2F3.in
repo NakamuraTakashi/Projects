@@ -68,7 +68,7 @@
 
 ! C-preprocessing Flag.
 
-    MyAppCPP = FUKIDO_REEF
+    MyAppCPP = FUKIDO_REEF_NST
 
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
@@ -83,16 +83,16 @@
 ! Number of grid nesting layers.  This parameter is used to allow refinement
 ! and composite grid combinations.
 
-  NestLayers =  1
+  NestLayers =  2
 
 ! Number of grids in each nesting layer [1:NestLayers].
 
-  GridsInLayer = 2
+  GridsInLayer = 1 1
 
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 125  180      ! Number of I-direction INTERIOR RHO-points
+          Lm == 140  180      ! Number of I-direction INTERIOR RHO-points
           Mm == 165  160      ! Number of J-direction INTERIOR RHO-points
            N == 8    8       ! Number of vertical levels
 
@@ -107,8 +107,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 5  5                            ! I-direction partition
-      NtileJ == 2  2                            ! J-direction partition
+      NtileI == 1   5                            ! I-direction partition
+      NtileJ == 10  2                            ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -214,8 +214,8 @@ ad_VolCons(north) ==  F F                         ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 2160000  2160000
-          DT == 1.0d0   1.0d0
+      NTIMES == 216000  864000
+          DT == 4.0d0   1.0d0
      NDTFAST == 20      20
 
 ! Model iteration loops parameters.
@@ -238,8 +238,8 @@ ad_VolCons(north) ==  F F                         ! northern boundary
        NRREC == 0      0
 !       NRREC == -1     -1
    LcycleRST == T      T
-        NRST == 1000   1000
-!        NRST == 1      1   !!!!!!!!!!!! for Debug
+        NRST == 900   3600
+!        NRST == 1     1   !!!!!!!!!!!! for Debug
         NSTA == 1      1
         NFLT == 1      1
        NINFO == 1      1
@@ -247,7 +247,7 @@ ad_VolCons(north) ==  F F                         ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T     T
-        NHIS == 1     1
+        NHIS == 450   1800      !15    30    !450   1800
      NDEFHIS == 0     0
         NQCK == 0     0
      NDEFQCK == 0     0
@@ -395,7 +395,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! origin for tidal forcing, and model reference time for output
 ! NetCDF units attribute.
 
-      DSTART =  7179.0d0 !0.0d0               ! days   !!!Start time !0.3d0, 0.54d0, 0.76d0, 1.05d0
+      DSTART =  0.0d0               ! days   !!!Start time !0.3d0, 0.54d0, 0.76d0, 1.05d0
   TIDE_START =  0.0d0                      ! days
     TIME_REF =  20000101.00                ! yyyymmdd.dd  !!!Changed
 
@@ -440,13 +440,13 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! Sources/Sinks (like volume vertical influx), [1:Ngrids].
 
       LuvSrc == F F                        ! horizontal momentum transport
-       LwSrc == F F                        ! volume vertical influx
+       LwSrc == F T                        ! volume vertical influx
 
 ! Logical switches (TRUE/FALSE) to activate tracers point Sources/Sinks
 ! (like river runoff) and to specify which tracer variables to consider:
 ! [1:NAT+NPT,Ngrids].  See glossary below for details.
 
-  LtracerSrc == 2*F 2*F                        ! temperature, salinity, inert
+  LtracerSrc == 2*T 2*T                        ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to read and process climatology fields.
 ! See glossary below for details.
@@ -953,12 +953,10 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../Data/Fukido_reef/Fukido2_20m_grd_v1.nc   \
-                ../../Data/Fukido_reef/Fukido3_4m_mangrove_grd_v0.2.nc
-     ININAME == ../../Data/Fukido_reef/Fukido2_20m_ini_Nz8_20190828.04.nc \
-                ../../Data/Fukido_reef/Fukido3_ini_Nz8_20190828.04.nc
-!     ININAME == D:/ROMS/output/Yaeyama/test_2g/Y2_his_14.nc  \
-!                D:/ROMS/output/Yaeyama/test_2g/Y3_his_14.nc
+     GRDNAME == F:/COAWST_DATA/Yaeyama/Fukido2/Grid/Fukido2_20m_grd_v5.1.nc   \
+                F:/COAWST_DATA/Yaeyama/Fukido3/Grid/Fukido3_4m_mangrove_grd_v2.0.nc
+     ININAME == F:/COAWST_DATA/Yaeyama/Fukido2/ini/Fukido2_ini_Nz8_20150717.00.nc \
+                F:/COAWST_DATA/Yaeyama/Fukido3/ini/Fukido3_ini_Nz8_20150717.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -969,7 +967,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 ! NetCDF file is special and complex. It is currently generated using
 ! the script "matlab/grid/contact.m" from the Matlab repository.
 
-     NGCNAME =  ../../Data/Fukido_reef/Fukido_ngc_2g_F2F3_v1.0.nc
+     NGCNAME =  F:/COAWST_DATA/Yaeyama/nest/Fukido_ngc_2g_F2F3_v2.0.nc
 
 ! Input lateral boundary conditions and climatology file names.  The
 ! USER has the option to split input data time records into several
@@ -981,7 +979,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == ../../Data/Fukido_reef/Fukido2_20m_bry_Nz8_20190828.00.nc
+     BRYNAME == F:/COAWST_DATA/Yaeyama/Fukido2/Bry/Fukido2_bry_Nz8_20150716.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -989,7 +987,10 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../Data/Fukido_reef/Fukido2_river_Nz8_2019.nc
+     SSFNAME == F:/COAWST_DATA/Yaeyama/Fukido3/River/Fukido_river_Lw_const_1990_2050.nc \  ! dummy input for Fukido2
+                F:/COAWST_DATA/Yaeyama/Fukido3/River/Fukido_river_Lw_const_1990_2050.nc
+!     SSFNAME == F:/COAWST_DATA/Yaeyama/Fukido3/River/Fukido_river_Luv_const_1990_2050.nc \  ! dummy input for Fukido2
+!                F:/COAWST_DATA/Yaeyama/Fukido3/River/Fukido_river_Luv_const_1990_2050.nc
 
 ! Input forcing NetCDF file name(s).  The USER has the option to enter
 ! several file names for each nested grid.  For example, the USER may
@@ -1003,19 +1004,33 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 ! per entry with a continuation (\) or vertical bar (|) symbol after each
 ! entry, except the last one.
 
-     NFFILES == 1 1                        ! number of unique forcing files
+     NFFILES == 8 8                        ! number of unique forcing files
 
-     FRCNAME == ../../Data/Fukido_reef/Fukido_frc_20190728_20191001_UTC.nc |  ! forcing file 1, grid 1
-                ../../Data/Fukido_reef/Fukido_frc_20190728_20191001_UTC.nc      ! forcing file 1, grid 2
+     FRCNAME == F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_cloud.nc \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_Pair.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_Qair.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_rain.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_swrad.nc \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_Tair.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_wind.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_lwrad_down.nc \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_cloud.nc \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_Pair.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_Qair.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_rain.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_swrad.nc \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_Tair.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_wind.nc  \
+                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2015_lwrad_down.nc
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == Fukido2_nst_rst.nc  \
-                Fukido3_nst_rst.nc
-     HISNAME == Fukido2_nst_his.nc  \
-                Fukido3_nst_his.nc
+     RSTNAME == Fukido2_nst_Lw_rst.nc  \
+                Fukido3_nst_Lw_rst.nc
+     HISNAME == Fukido2_nst_Lw_his.nc  \
+                Fukido3_nst_Lw_his.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
@@ -1033,6 +1048,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
      BPARNAM =  bio_reef_ecosys.in             !!! used
      SPARNAM =  sediment_yaeyama1.in       !!! used
      USRNAME =  MyFile.dat
+     VEGNAM  =  vegetation.in       !!! used
 
 !
 !  GLOSSARY:

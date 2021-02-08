@@ -91,8 +91,8 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 190           ! Number of I-direction INTERIOR RHO-points
-          Mm == 135           ! Number of J-direction INTERIOR RHO-points
+          Lm == 267           ! Number of I-direction INTERIOR RHO-points
+          Mm == 291           ! Number of J-direction INTERIOR RHO-points
            N == 30            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 10                               ! I-direction partition
-      NtileJ == 1                                ! J-direction partition
+      NtileI == 1                                 ! I-direction partition
+      NtileJ == 10                                ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -157,10 +157,10 @@
 
 ! Wec boundary conditions
 
-   LBC(isU2Sd) ==   Clo     Clo     Gra     Clo         ! 2D U-stokes
-   LBC(isV2Sd) ==   Clo     Clo     Gra     Clo         ! 2D V-stokes
-   LBC(isU3Sd) ==   Clo     Clo     Gra     Clo         ! 3D U-stokes
-   LBC(isV3Sd) ==   Clo     Clo     Gra     Clo         ! 3D V-stokes
+   LBC(isU2Sd) ==   Clo     Gra     Clo     Clo         ! 2D U-stokes
+   LBC(isV2Sd) ==   Clo     Gra     Clo     Clo         ! 2D V-stokes
+   LBC(isU3Sd) ==   Clo     Gra     Clo     Clo         ! 3D U-stokes
+   LBC(isV3Sd) ==   Clo     Gra     Clo     Clo         ! 3D V-stokes
 
 ! Ice boundary conditions
 
@@ -206,7 +206,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Time-Stepping parameters.
 
       NTIMES == 501120   !!! 259200 step = 30 days, 267840 step = 31 days, 95040 = 11 days
-          DT == 30.0d0    !!!1.0d0
+          DT == 20.0d0    !!!1.0d0
      NDTFAST == 20    
 
 ! Model iteration loops parameters.
@@ -228,15 +228,15 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
        NRREC == 0
    LcycleRST == T
-        NRST == 2880
+        NRST == 4320
         NSTA == 1
         NFLT == 1
-       NINFO == 20
+       NINFO == 30
 
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 120
+        NHIS == 180
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
@@ -344,8 +344,8 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 
         RDRG == 3.0d-04                    ! m/s
        RDRG2 == 0.025d0                    ! nondimensional
-         Zob == 0.03d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
-         Zos == 0.5d0                      ! m
+         Zob == 0.02d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
+         Zos == 0.02d0                      ! m
 
 ! Height (m) of atmospheric measurements for Bulk fluxes parameterization.
 
@@ -942,8 +942,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/Data/TokyoBay/TokyoBay3/Grid/TokyoBay3_grd_v0.1.nc
-     ININAME == F:/Data/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_JCOPET_Nz30_20180605.00.nc
+     GRDNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Grid/TokyoBay3_grd_v1.0.nc
+     ININAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_ROMS_Nz30_20180608.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,7 +966,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/Data/TokyoBay/TokyoBay3/Bry/TokyoBay3_bry_JCOPE-T_Nz30_20180605.00.nc
+     BRYNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Bry/TokyoBay3_bry_ROMS_Nz30_20180605.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -1000,8 +1000,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == F:/Data/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
-                F:/Data/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_2.nc
+     FRCNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
+                F:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_2.nc
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc

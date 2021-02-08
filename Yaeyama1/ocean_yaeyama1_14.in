@@ -206,7 +206,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Time-Stepping parameters.
 
       NTIMES == 501120   !!! 259200 step = 30 days, 267840 step = 31 days, 95040 = 11 days
-          DT == 30.0d0    !!!1.0d0
+          DT == 40.0d0    !!!1.0d0
      NDTFAST == 20    
 
 ! Model iteration loops parameters.
@@ -228,7 +228,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
        NRREC == 0
    LcycleRST == T
-        NRST == 2400
+        NRST == 2160
         NSTA == 1
         NFLT == 1
        NINFO == 15
@@ -236,7 +236,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 120
+        NHIS == 90
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
@@ -942,8 +942,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../Data/Yaeyama/Yaeyama1_grd_v10.nc
-     ININAME == ../../Data/Yaeyama/Yaeyama1_ini_Nz15_HYCOMpNAO_140410.nc
+     GRDNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc
+     ININAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_HYCOMwNAO_Nz15_20140502.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,12 +966,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == ../../Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1404.nc  |
-                ../../Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1405.nc  |
-                ../../Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1406.nc  |
-                ../../Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1407.nc  |
-                ../../Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1408.nc  |
-                ../../Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_1409.nc
+     BRYNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140501.00.nc  |
+                F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140601.00.nc  |
+                F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140701.00.nc  |
+                F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140801.00.nc  |
+                F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140901.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -983,7 +982,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input tidal forcing file name.
 
-    TIDENAME == ../../Data/Yaeyama/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -1003,21 +1002,17 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! continuation (\) or a vertical bar (|) symbol after each entry, except
 ! the last one.
 
-     NFFILES == 1                          ! number of unique forcing files
+     NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == ../../Data/Yaeyama/Yaeyama1_frc_JMA_1404.nc   |    ! forcing file 1, grid 1
-                ../../Data/Yaeyama/Yaeyama1_frc_JMA_1405.nc   |    ! forcing file 1, grid 1
-                ../../Data/Yaeyama/Yaeyama1_frc_JMA_1406.nc   |    ! forcing file 1, grid 1
-                ../../Data/Yaeyama/Yaeyama1_frc_JMA_1407.nc   |    ! forcing file 1, grid 1
-                ../../Data/Yaeyama/Yaeyama1_frc_JMA_1408.nc   |    ! forcing file 1, grid 1
-                ../../Data/Yaeyama/Yaeyama1_frc_JMA_1409.nc   
+     FRCNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMnc_20140101_1.nc   \  ! forcing file 1, grid 1
+                F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMnc_20140101_2.nc     ! forcing file 1, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == Yaeyama1_rst_14.nc
-     HISNAME == Yaeyama1_his_14.nc
+     RSTNAME == Yaeyama1_rst_20140502.nc
+     HISNAME == Yaeyama1_his_20140502.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

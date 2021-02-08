@@ -1,2 +1,2 @@
-mpirun -use-hwthread-cpus -np 10 ./coawstG.exe ocean_yaeyama1_14.in
+mpirun -use-hwthread-cpus -np 10 ./coawstM.exe ocean_yaeyama1.in
 #

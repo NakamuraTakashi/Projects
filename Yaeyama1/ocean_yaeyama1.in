@@ -64,11 +64,11 @@
 !
 ! Application title.
 
-       TITLE = TOKYOBAY2 Case
+       TITLE = YAEYAMA1 Test Case
 
 ! C-preprocessing Flag.
 
-    MyAppCPP = TOKYOBAY2
+    MyAppCPP = YAEYAMA1
 
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
@@ -91,9 +91,9 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 190           ! Number of I-direction INTERIOR RHO-points
-          Mm == 135           ! Number of J-direction INTERIOR RHO-points
-           N == 30            ! Number of vertical levels
+          Lm == 308           ! Number of I-direction INTERIOR RHO-points
+          Mm == 278           ! Number of J-direction INTERIOR RHO-points
+           N == 15            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
 
@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 10                               ! I-direction partition
-      NtileJ == 1                                ! J-direction partition
+      NtileI == 5                               ! I-direction partition
+      NtileJ == 2                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -145,22 +145,22 @@
 !
 !                   1       2       3       4
 
-   LBC(isFsur) ==   Clo     Cha     Clo     Clo         ! free-surface
-   LBC(isUbar) ==   Clo     Fla     Clo     Clo         ! 2D U-momentum
-   LBC(isVbar) ==   Clo     Fla     Clo     Clo         ! 2D V-momentum
-   LBC(isUvel) ==   Clo     RadNud  Clo     Clo         ! 3D U-momentum
-   LBC(isVvel) ==   Clo     RadNud  Clo     Clo         ! 3D V-momentum
-   LBC(isMtke) ==   Clo     Gra     Clo     Clo         ! mixing TKE !!!(Turbulence Kinetic Energy?)
-                                                  
-   LBC(isTvar) ==   Clo     RadNud  Clo     Clo    \    ! temperature
-                    Clo     RadNud  Clo     Clo         ! salinity
+   LBC(isFsur) ==   Cha     Cha     Cha     Cha         ! free-surface
+   LBC(isUbar) ==   Fla     Fla     Fla     Fla         ! 2D U-momentum
+   LBC(isVbar) ==   Fla     Fla     Fla     Fla         ! 2D V-momentum
+   LBC(isUvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D U-momentum
+   LBC(isVvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D V-momentum
+   LBC(isMtke) ==   Gra     Gra     Gra     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
+                                               
+   LBC(isTvar) ==   RadNud  RadNud  RadNud  RadNud \    ! temperature
+                    RadNud  RadNud  RadNud  RadNud      ! salinity
 
 ! Wec boundary conditions
 
-   LBC(isU2Sd) ==   Clo     Gra     Clo     Clo         ! 2D U-stokes
-   LBC(isV2Sd) ==   Clo     Gra     Clo     Clo         ! 2D V-stokes
-   LBC(isU3Sd) ==   Clo     Gra     Clo     Clo         ! 3D U-stokes
-   LBC(isV3Sd) ==   Clo     Gra     Clo     Clo         ! 3D V-stokes
+   LBC(isU2Sd) ==   Clo     Clo     Gra     Clo         ! 2D U-stokes
+   LBC(isV2Sd) ==   Clo     Clo     Gra     Clo         ! 2D V-stokes
+   LBC(isU3Sd) ==   Clo     Clo     Gra     Clo         ! 3D U-stokes
+   LBC(isV3Sd) ==   Clo     Clo     Gra     Clo         ! 3D V-stokes
 
 ! Ice boundary conditions
 
@@ -206,7 +206,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Time-Stepping parameters.
 
       NTIMES == 501120   !!! 259200 step = 30 days, 267840 step = 31 days, 95040 = 11 days
-          DT == 30.0d0    !!!1.0d0
+          DT == 40.0d0    !!!1.0d0
      NDTFAST == 20    
 
 ! Model iteration loops parameters.
@@ -228,15 +228,15 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
        NRREC == 0
    LcycleRST == T
-        NRST == 2880
+        NRST == 2160
         NSTA == 1
         NFLT == 1
-       NINFO == 20
+       NINFO == 15
 
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 120
+        NHIS == 90
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
@@ -344,8 +344,8 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 
         RDRG == 3.0d-04                    ! m/s
        RDRG2 == 0.025d0                    ! nondimensional
-         Zob == 0.02d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
-         Zos == 0.02d0                      ! m
+         Zob == 0.03d0 !!!  0.15d0  !!! 0.015d0        ! m  !!! 0.03d0: Falter et al. 2013, 0.15d: Reidenbach et al. 2006
+         Zos == 0.5d0                      ! m
 
 ! Height (m) of atmospheric measurements for Bulk fluxes parameterization.
 
@@ -521,13 +521,13 @@ Hout(idVvel) == T       ! v                  3D V-velocity
 Hout(idu3dE) == F       ! u_eastward         3D U-eastward  at RHO-points
 Hout(idv3dN) == F       ! v_northward        3D V-northward at RHO-points
 Hout(idWvel) == T       ! w                  3D W-velocity
-Hout(idOvel) == T       ! omega              omega vertical velocity
+Hout(idOvel) == F       ! omega              omega vertical velocity
 Hout(idUbar) == T       ! ubar               2D U-velocity
 Hout(idVbar) == T       ! vbar               2D V-velocity
 Hout(idu2dE) == F       ! ubar_eastward      2D U-eastward  at RHO-points
 Hout(idv2dN) == F       ! vbar_northward     2D V-northward at RHO-points
 Hout(idFsur) == T       ! zeta               free-surface
-Hout(idBath) == T       ! bath               time-dependent bathymetry
+Hout(idBath) == F       ! bath               time-dependent bathymetry
 
 Hout(idTvar) == T T     ! temp, salt         temperature and salinity
 
@@ -542,81 +542,81 @@ Hout(idUairE) == F      ! Uwind_eastward     surface U-wind
 Hout(idVairN) == F      ! Vwind_northward    surface V-wind
 Hout(idUsms) == F       ! sustr              surface U-stress
 Hout(idVsms) == F       ! svstr              surface V-stress
-Hout(idUbms) == T       ! bustr              bottom U-stress
-Hout(idVbms) == T       ! bvstr              bottom V-stress
+Hout(idUbms) == F       ! bustr              bottom U-stress
+Hout(idVbms) == F       ! bvstr              bottom V-stress
 
-Hout(idUbrs) == T       ! bustrc             bottom U-current stress
-Hout(idVbrs) == T       ! bvstrc             bottom V-current stress
-Hout(idUbws) == T       ! bustrw             bottom U-wave stress
-Hout(idVbws) == T       ! bvstrw             bottom V-wave stress
-Hout(idUbcs) == T       ! bustrcwmax         bottom max wave-current U-stress
-Hout(idVbcs) == T       ! bvstrcwmax         bottom max wave-current V-stress
-Hout(idUVwc) == T       ! bstrcwmax          bottom max wave-current stress magnitude
+Hout(idUbrs) == F       ! bustrc             bottom U-current stress
+Hout(idVbrs) == F       ! bvstrc             bottom V-current stress
+Hout(idUbws) == F       ! bustrw             bottom U-wave stress
+Hout(idVbws) == F       ! bvstrw             bottom V-wave stress
+Hout(idUbcs) == F       ! bustrcwmax         bottom max wave-current U-stress
+Hout(idVbcs) == F       ! bvstrcwmax         bottom max wave-current V-stress
+Hout(idUVwc) == F       ! bstrcwmax          bottom max wave-current stress magnitude
 
-Hout(idUbot) == T       ! Ubot               bed wave orbital U-velocity
-Hout(idVbot) == T       ! Vbot               bed wave orbital V-velocity
-Hout(idUbur) == T       ! Ur                 bottom U-velocity above bed
-Hout(idVbvr) == T       ! Vr                 bottom V-velocity above bed
+Hout(idUbot) == F       ! Ubot               bed wave orbital U-velocity
+Hout(idVbot) == F       ! Vbot               bed wave orbital V-velocity
+Hout(idUbur) == F       ! Ur                 bottom U-velocity above bed
+Hout(idVbvr) == F       ! Vr                 bottom V-velocity above bed
 
-Hout(idW2xx) == T       ! Sxx_bar            WEC_Mellor 2D Sxx radiation stress
-Hout(idW2xy) == T       ! Sxy_bar            WEC_Mellor 2D Sxy radiation stress
-Hout(idW2yy) == T       ! Syy_bar            WEC_Mellor 2D Syy radiation stress
-Hout(idW3xx) == T       ! Sxx                WEC_Mellor 3D Sxx radiation stress
-Hout(idW3xy) == T       ! Sxy                WEC_Mellor 3D Sxy radiation stress
-Hout(idW3yy) == T       ! Syy                WEC_Mellor 3D Syy radiation stress
-Hout(idW3zx) == T       ! Szx                WEC_Mellor 3D Szx radiation stress
-Hout(idW3zy) == T       ! Szy                WEC_Mellor 3D Szy radiation stress
+Hout(idW2xx) == F       ! Sxx_bar            WEC_Mellor 2D Sxx radiation stress
+Hout(idW2xy) == F       ! Sxy_bar            WEC_Mellor 2D Sxy radiation stress
+Hout(idW2yy) == F       ! Syy_bar            WEC_Mellor 2D Syy radiation stress
+Hout(idW3xx) == F       ! Sxx                WEC_Mellor 3D Sxx radiation stress
+Hout(idW3xy) == F       ! Sxy                WEC_Mellor 3D Sxy radiation stress
+Hout(idW3yy) == F       ! Syy                WEC_Mellor 3D Syy radiation stress
+Hout(idW3zx) == F       ! Szx                WEC_Mellor 3D Szx radiation stress
+Hout(idW3zy) == F       ! Szy                WEC_Mellor 3D Szy radiation stress
 
-Hout(idWztw) == T       ! zetaw              WEC_VF quasi-static sea level adjustment
-Hout(idWqsp) == T       ! qsp                WEC_VF quasi-static pressure
-Hout(idWbeh) == T       ! bh                 WEC_VF Bernoulli head
+Hout(idWztw) == F       ! zetaw              WEC_VF quasi-static sea level adjustment
+Hout(idWqsp) == F       ! qsp                WEC_VF quasi-static pressure
+Hout(idWbeh) == F       ! bh                 WEC_VF Bernoulli head
 
-Hout(idU2rs) == T       ! ubar_Wecstress     WEC 2D U-stress
-Hout(idV2rs) == T       ! vbar_Wecstress     WEC 2D V-stress
-Hout(idU3rs) == T       ! u_Rstress          WEC 3D U-stress
-Hout(idV3rs) == T       ! v_Rstress          WEC 3D V-stress
+Hout(idU2rs) == F       ! ubar_Wecstress     WEC 2D U-stress
+Hout(idV2rs) == F       ! vbar_Wecstress     WEC 2D V-stress
+Hout(idU3rs) == F       ! u_Rstress          WEC 3D U-stress
+Hout(idV3rs) == F       ! v_Rstress          WEC 3D V-stress
 
-Hout(idU2Sd) == T       ! ubar_stokes        2D U-Stokes velocity
-Hout(idV2Sd) == T       ! vbar_stokes        2D V-Stokes velocity
-Hout(idU3Sd) == T       ! u_stokes           3D U-Stokes velocity
-Hout(idV3Sd) == T       ! v_stokes           3D V-Stokes velocity
-Hout(idW3Sd) == T       ! omega_stokes       3D Omega-Stokes velocity
-Hout(idW3St) == T       ! w_stokes           3D W-Stokes velocity
-Hout(idWamp) == T       ! Hwave              wave height
-Hout(idWlen) == T       ! Lwave              wave length-mean
-Hout(idWlep) == T       ! Lwavep             wave length-peak
-Hout(idWdir) == T       ! Dwave              wave direction
-Hout(idWptp) == T       ! Pwave_top          wave surface period
-Hout(idWpbt) == T       ! Pwave_bot          wave bottom period
-Hout(idWorb) == T       ! Uwave_rms          wave bottom orbital velocity
-Hout(idWbrk) == T       ! Wave_break         wave breaking (percent)
-Hout(idUwav) == T       ! uWave              wave-depth avgeraged U-velocity
-Hout(idVwav) == T       ! vWave              wave-depth avgeraged V-velocity
-Hout(idWdif) == T       ! Dissip_fric        wave dissipation due to bottom friction
-Hout(idWdib) == T       ! Dissip_break       wave dissipation due to breaking
-Hout(idWdiw) == T       ! Dissip_wcap        wave dissipation due to white capping
-Hout(idWdis) == T       ! Dissip_roller      wave roller dissipation
-Hout(idWrol) == T       ! rollA              wave roller action density
+Hout(idU2Sd) == F       ! ubar_stokes        2D U-Stokes velocity
+Hout(idV2Sd) == F       ! vbar_stokes        2D V-Stokes velocity
+Hout(idU3Sd) == F       ! u_stokes           3D U-Stokes velocity
+Hout(idV3Sd) == F       ! v_stokes           3D V-Stokes velocity
+Hout(idW3Sd) == F       ! omega_stokes       3D Omega-Stokes velocity
+Hout(idW3St) == F       ! w_stokes           3D W-Stokes velocity
+Hout(idWamp) == F       ! Hwave              wave height
+Hout(idWlen) == F       ! Lwave              wave length-mean
+Hout(idWlep) == F       ! Lwavep             wave length-peak
+Hout(idWdir) == F       ! Dwave              wave direction
+Hout(idWptp) == F       ! Pwave_top          wave surface period
+Hout(idWpbt) == F       ! Pwave_bot          wave bottom period
+Hout(idWorb) == F       ! Uwave_rms          wave bottom orbital velocity
+Hout(idWbrk) == F       ! Wave_break         wave breaking (percent)
+Hout(idUwav) == F       ! uWave              wave-depth avgeraged U-velocity
+Hout(idVwav) == F       ! vWave              wave-depth avgeraged V-velocity
+Hout(idWdif) == F       ! Dissip_fric        wave dissipation due to bottom friction
+Hout(idWdib) == F       ! Dissip_break       wave dissipation due to breaking
+Hout(idWdiw) == F       ! Dissip_wcap        wave dissipation due to white capping
+Hout(idWdis) == F       ! Dissip_roller      wave roller dissipation
+Hout(idWrol) == F       ! rollA              wave roller action density
 
 Hout(idRunoff) == F     ! Runoff             surface runoff from land
 Hout(idPair) == F       ! Pair               surface air pressure
 Hout(idTsur) == F F     ! shflux, ssflux     surface net heat and salt flux
-Hout(idLhea) == T       ! latent             latent heat flux
-Hout(idShea) == T       ! sensible           sensible heat flux
-Hout(idLrad) == T       ! lwrad              longwave radiation flux
-Hout(idSrad) == T       ! swrad              shortwave radiation flux
-Hout(idEmPf) == T       ! EminusP            E-P flux
-Hout(idevap) == T       ! evaporation        evaporation rate
-Hout(idrain) == T       ! rain               precipitation rate
+Hout(idLhea) == F       ! latent             latent heat flux
+Hout(idShea) == F       ! sensible           sensible heat flux
+Hout(idLrad) == F       ! lwrad              longwave radiation flux
+Hout(idSrad) == F       ! swrad              shortwave radiation flux
+Hout(idEmPf) == F       ! EminusP            E-P flux
+Hout(idevap) == F       ! evaporation        evaporation rate
+Hout(idrain) == F       ! rain               precipitation rate
 
 Hout(idDano) == F       ! rho                density anomaly
-Hout(idVvis) == T       ! AKv                vertical viscosity
+Hout(idVvis) == F       ! AKv                vertical viscosity
 Hout(idTdif) == F       ! AKt                vertical T-diffusion
-Hout(idSdif) == F       ! AKs                vertical Salinity diffusion
+Hout(idSdif) == T       ! AKs                vertical Salinity diffusion
 Hout(idHsbl) == F       ! Hsbl               depth of surface boundary layer
 Hout(idHbbl) == F       ! Hbbl               depth of bottom boundary layer
-Hout(idMtke) == T       ! tke                turbulent kinetic energy
-Hout(idMtls) == T       ! gls                turbulent length scale
+Hout(idMtke) == F       ! tke                turbulent kinetic energy
+Hout(idMtls) == F       ! gls                turbulent length scale
 
 ! Logical switches (TRUE/FALSE) to activate writing of extra inert passive
 ! tracers other than biological and sediment tracers into the HISTORY
@@ -942,8 +942,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Grid/TokyoBay2_grd_v2.0.nc
-     ININAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Ini/TokyoBay2_ini_JCOPET_Nz30_20180605.00.nc
+     GRDNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc
+     ININAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_JCOPET_Nz15_20191231.21.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,7 +966,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Bry/TokyoBay2_bry_JCOPE-T_Nz30_20180605.00.nc
+     BRYNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_20190101.00.nc  |
+                F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_20200101.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -978,7 +979,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input tidal forcing file name.
 
-    TIDENAME == ../../Data/Yaeyama/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -1000,14 +1001,17 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
-                F:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_2.nc
+     FRCNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20190101_1.nc |  ! forcing file 1, grid 1
+                F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20200101_1.nc \  ! forcing file 1, grid 1
+                F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20190101_2.nc |  ! forcing file 2, grid 1
+                F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20200101_2.nc    ! forcing file 2, grid 1
+
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == TokyoBay2_rst_20180605.nc
-     HISNAME == TokyoBay2_his_20180605.nc
+     RSTNAME == Yaeyama1_rst_20191231.nc
+     HISNAME == Yaeyama1_his_20191231.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

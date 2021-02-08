@@ -8,7 +8,7 @@
 **
 ** Options for Inlet Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   YAEYAMA1
+** Application flag:   TOKYOBAY1_2
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
@@ -22,7 +22,7 @@
 /*#define HDF5*/
 /*#define PNETCDF*/
 
-/*#define NESTING*/
+#define NESTING
 /*#define NESTING_DEBUG*/
 /*#define ONE_WAY*/
 /*#define QUADRATIC_WEIGHTS*/
@@ -82,9 +82,10 @@
 /*** Option for tidal forcing ***/
 /*#define SSH_TIDES*/
 /*#define UV_TIDES*/
+/*#define RAMP_TIDES*/
 /*#define ADD_FSOBC*/
 /*#define ADD_M2OBC*/
-/*#define RAMP_TIDES*/ /*Not use*/
+
 
 /*#define ANA_INITIAL*/
 /*#define ANA_FSOBC*/
@@ -104,7 +105,7 @@
 /*# define ANA_TAIR*/
 /*# define ANA_RAIN*/
 /*# define ANA_WINDS*/
-/*# define ANA_SRFLUX*/  /* can deactivate after 2018 run */
+/*# define ANA_SRFLUX*/  /* swrad data of JMA-MSM is available from 2018 */
 # define ALBEDO_CLOUD
 /*# define LOCAL_TIME +9.0*/
 /*# define DIURNAL_SRFLUX*/

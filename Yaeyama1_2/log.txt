@@ -1,0 +1,1288 @@
+--------------------------------------------------------------------------------
+ Model Input Parameters:  ROMS/TOMS version 3.7  
+                          Wednesday - January 27, 2021 -  6:42:52 PM
+ --------------------------------------------------------------------------------
+
+ Y1Y2 Test Case
+
+ Operating system : CYGWIN
+ CPU/hardware     : x86_64
+ Compiler system  : gfortran
+ Compiler command : /usr/bin/mpif90
+ Compiler flags   : -frepack-arrays -w -fallow-argument-mismatch -O3 -ffree-form -ffree-line-length-none
+
+ Input Script  : 
+
+ SVN Root URL  : https:://myroms.org/svn/src
+ SVN Revision  : Unversioned directory
+
+ Local Root    : /home/Takashi/COAWST/COAWST_Eco
+ Header Dir    : /home/Takashi/COAWST/Projects/Y1Y2
+ Header file   : yaeyama1_2.h
+ Analytical Dir: /home/Takashi/COAWST/Projects/Y1Y2
+
+ Resolution, Grid 01: 0308x0278x015,  Parallel Nodes:  10,  Tiling: 005x002
+
+
+ Physical Parameters, Grid: 01
+ =============================
+
+     172800  ntimes            Number of timesteps for 3-D equations.
+     40.000  dt                Timestep size (s) for 3-D equations.
+         20  ndtfast           Number of timesteps for 2-D equations between
+                                 each 3D timestep.
+          1  ERstr             Starting ensemble/perturbation run number.
+          1  ERend             Ending ensemble/perturbation run number.
+          0  nrrec             Number of restart records to read from disk.
+          T  LcycleRST         Switch to recycle time-records in restart file.
+       2160  nRST              Number of timesteps between the writing of data
+                                 into restart fields.
+          1  ninfo             Number of timesteps between print of information
+                                 to standard output.
+          T  ldefout           Switch to create a new output NetCDF file(s).
+          5  nHIS              Number of timesteps between the writing fields
+                                 into history file.
+          0  nQCK              Number of timesteps between the writing fields
+                                 into quicksave file.
+ 0.0000E+00  nl_tnu2(01)       NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for tracer 01: temp
+ 0.0000E+00  nl_tnu2(02)       NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for tracer 02: salt
+ 0.0000E+00  nl_visc2          NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for momentum.
+          F  LuvSponge         Turning OFF sponge on horizontal momentum.
+          F  LtracerSponge(01) Turning OFF sponge on tracer 01: temp
+          F  LtracerSponge(02) Turning OFF sponge on tracer 02: salt
+ 5.0000E-06  Akt_bak(01)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 01: temp
+ 5.0000E-06  Akt_bak(02)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 02: salt
+ 5.0000E-05  Akv_bak           Background vertical mixing coefficient (m2/s)
+                                 for momentum.
+ 5.0000E-06  Akk_bak           Background vertical mixing coefficient (m2/s)
+                                 for turbulent energy.
+ 5.0000E-06  Akp_bak           Background vertical mixing coefficient (m2/s)
+                                 for turbulent generic statistical field.
+      3.000  gls_p             GLS stability exponent.
+      1.500  gls_m             GLS turbulent kinetic energy exponent.
+     -1.000  gls_n             GLS turbulent length scale exponent.
+ 7.6000E-06  gls_Kmin          GLS minimum value of turbulent kinetic energy.
+ 1.0000E-12  gls_Pmin          GLS minimum value of dissipation.
+ 5.4770E-01  gls_cmu0          GLS stability coefficient.
+ 1.4400E+00  gls_c1            GLS shear production coefficient.
+ 1.9200E+00  gls_c2            GLS dissipation coefficient.
+-4.0000E-01  gls_c3m           GLS stable buoyancy production coefficient.
+ 1.0000E+00  gls_c3p           GLS unstable buoyancy production coefficient.
+ 1.0000E+00  gls_sigk          GLS constant Schmidt number for TKE.
+ 1.3000E+00  gls_sigp          GLS constant Schmidt number for PSI.
+   1400.000  charnok_alpha     Charnok factor for Zos calculation.
+      0.500  zos_hsig_alpha    Factor for Zos calculation using Hsig(Awave).
+      0.020  sz_alpha          Factor for Wave dissipation surface tke flux .
+    100.000  crgban_cw         Factor for Craig/Banner surface tke flux.
+      0.500  wec_alpha         WEC factor for roller/breaking energy distribution.
+ 3.0000E-04  rdrg              Linear bottom drag coefficient (m/s).
+ 2.5000E-02  rdrg2             Quadratic bottom drag coefficient.
+ 3.0000E-02  Zob               Bottom roughness (m).
+ 5.0000E-01  Zos               Surface roughness (m).
+ 1.0000E+01  blk_ZQ            Height (m) of surface air humidity measurement.
+ 1.0000E+01  blk_ZT            Height (m) of surface air temperature measurement.
+ 1.0000E+01  blk_ZW            Height (m) of surface winds measurement.
+ 1.0000E-01  Dcrit             Minimum depth for wetting and drying (m).
+          2  lmd_Jwt           Jerlov water type.
+          2  Vtransform        S-coordinate transformation equation.
+          4  Vstretching       S-coordinate stretching function.
+ 7.0000E+00  theta_s           S-coordinate surface control parameter.
+ 1.0000E-01  theta_b           S-coordinate bottom  control parameter.
+    200.000  Tcline            S-coordinate surface/bottom layer width (m) used
+                                 in vertical coordinate stretching.
+   1025.000  rho0              Mean density (kg/m3) for Boussinesq approximation.
+      0.000  dstart            Time-stamp assigned to model initialization (days).
+      0.000  tide_start        Reference time origin for tidal forcing (days).
+20000101.00  time_ref          Reference time for units attribute (yyyymmdd.dd)
+ 1.0000E+02  Tnudg(01)         Nudging/relaxation time scale (days)
+                                 for tracer 01: temp
+ 1.0000E+02  Tnudg(02)         Nudging/relaxation time scale (days)
+                                 for tracer 02: salt
+ 9.0000E+00  Znudg             Nudging/relaxation time scale (days)
+                                 for free-surface.
+ 6.0000E+00  M2nudg            Nudging/relaxation time scale (days)
+                                 for 2D momentum.
+ 1.0000E+02  M3nudg            Nudging/relaxation time scale (days)
+                                 for 3D momentum.
+ 5.0000E+02  obcfac            Factor between passive and active
+                                 open boundary conditions.
+          F  VolCons(1)        NLM western  edge boundary volume conservation.
+          F  VolCons(2)        NLM southern edge boundary volume conservation.
+          F  VolCons(3)        NLM eastern  edge boundary volume conservation.
+          F  VolCons(4)        NLM northern edge boundary volume conservation.
+      5.000  T0                Background potential temperature (C) constant.
+     35.000  S0                Background salinity (PSU) constant.
+      1.000  gamma2            Slipperiness variable: free-slip (1.0) or 
+                                                      no-slip (-1.0).
+          F  LuvSrc            Turning OFF momentum point Sources/Sinks.
+          F  LwSrc             Turning OFF volume influx point Sources/Sinks.
+          F  LtracerSrc(01)    Turning OFF point Sources/Sinks on tracer 01: temp
+          F  LtracerSrc(02)    Turning OFF point Sources/Sinks on tracer 02: salt
+          F  LsshCLM           Turning OFF processing of SSH climatology.
+          F  Lm2CLM            Turning OFF processing of 2D momentum climatology.
+          F  Lm3CLM            Turning OFF processing of 3D momentum climatology.
+          F  LtracerCLM(01)    Turning OFF processing of climatology tracer 01: temp
+          F  LtracerCLM(02)    Turning OFF processing of climatology tracer 02: salt
+          F  LnudgeM2CLM       Turning OFF nudging of 2D momentum climatology.
+          F  LnudgeM3CLM       Turning OFF nudging of 3D momentum climatology.
+          F  LnudgeTCLM(01)    Turning OFF nudging of climatology tracer 01: temp
+          F  LnudgeTCLM(02)    Turning OFF nudging of climatology tracer 02: salt
+
+          T  Hout(idFsur)      Write out free-surface.
+          T  Hout(idUbar)      Write out 2D U-momentum component.
+          T  Hout(idVbar)      Write out 2D V-momentum component.
+          T  Hout(idUvel)      Write out 3D U-momentum component.
+          T  Hout(idVvel)      Write out 3D V-momentum component.
+          T  Hout(idWvel)      Write out W-momentum component.
+          T  Hout(idOvel)      Write out omega vertical velocity.
+          T  Hout(idTvar)      Write out tracer 01: temp
+          T  Hout(idTvar)      Write out tracer 02: salt
+          T  Hout(idUbms)      Write out bottom U-momentum stress.
+          T  Hout(idVbms)      Write out bottom V-momentum stress.
+          T  Hout(idPair)      Write out surface air pressure.
+          T  Hout(idTsur)      Write out surface net heat flux.
+          T  Hout(idTsur)      Write out surface net salt flux.
+          T  Hout(idSrad)      Write out shortwave radiation flux.
+          T  Hout(idLrad)      Write out longwave radiation flux.
+          T  Hout(idLhea)      Write out latent heat flux.
+          T  Hout(idShea)      Write out sensible heat flux.
+          T  Hout(idEmPf)      Write out E-P flux.
+          T  Hout(idevap)      Write out evaporation rate.
+          T  Hout(idrain)      Write out rain rate.
+          T  Hout(idVvis)      Write out vertical viscosity: AKv.
+          T  Hout(idTdif)      Write out vertical diffusion: AKt(itemp).
+          T  Hout(idMtke)      Write out turbulent kinetic energy.
+          T  Hout(idMtls)      Write out turbulent generic length-scale.
+
+ Output/Input Files:
+
+             Output Restart File:  Y1_rst_nst_eco_140502.nc
+             Output History File:  Y1_his_nst_eco_140502.nc
+                 Input Grid File:  F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc
+  Nesting grid connectivity File:  F:/COAWST_DATA/Yaeyama/nest/Yaeyama_ngc_2g_Y1Y2_v1.1.nc
+    Input Nonlinear Initial File:  F:/COAWST_DATA/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_HYCOMwNAO_Nz15_20140502.00.nc
+              Tidal Forcing File:  F:/COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
+           Input Forcing File 01:  F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMnc_20140101_1.nc
+           Input Forcing File 02:  F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMnc_20140101_2.nc
+         Input Boundary File 01:  F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140501.00.nc
+                                   F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140601.00.nc
+                                   F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140701.00.nc
+                                   F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140801.00.nc
+                                   F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140901.00.nc
+         Biology Parameters File:  bio_reef_ecosys.in
+
+ Resolution, Grid 02: 0300x0300x015,  Parallel Nodes:  10,  Tiling: 005x002
+
+
+ Physical Parameters, Grid: 02
+ =============================
+
+     345600  ntimes            Number of timesteps for 3-D equations.
+     20.000  dt                Timestep size (s) for 3-D equations.
+         20  ndtfast           Number of timesteps for 2-D equations between
+                                 each 3D timestep.
+          1  ERstr             Starting ensemble/perturbation run number.
+          1  ERend             Ending ensemble/perturbation run number.
+          0  nrrec             Number of restart records to read from disk.
+          T  LcycleRST         Switch to recycle time-records in restart file.
+       4320  nRST              Number of timesteps between the writing of data
+                                 into restart fields.
+          1  ninfo             Number of timesteps between print of information
+                                 to standard output.
+          T  ldefout           Switch to create a new output NetCDF file(s).
+         10  nHIS              Number of timesteps between the writing fields
+                                 into history file.
+          0  nQCK              Number of timesteps between the writing fields
+                                 into quicksave file.
+ 0.0000E+00  nl_tnu2(01)       NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for tracer 01: temp
+ 0.0000E+00  nl_tnu2(02)       NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for tracer 02: salt
+ 0.0000E+00  nl_visc2          NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for momentum.
+          F  LuvSponge         Turning OFF sponge on horizontal momentum.
+          F  LtracerSponge(01) Turning OFF sponge on tracer 01: temp
+          F  LtracerSponge(02) Turning OFF sponge on tracer 02: salt
+ 5.0000E-06  Akt_bak(01)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 01: temp
+ 5.0000E-06  Akt_bak(02)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 02: salt
+ 5.0000E-05  Akv_bak           Background vertical mixing coefficient (m2/s)
+                                 for momentum.
+ 5.0000E-06  Akk_bak           Background vertical mixing coefficient (m2/s)
+                                 for turbulent energy.
+ 5.0000E-06  Akp_bak           Background vertical mixing coefficient (m2/s)
+                                 for turbulent generic statistical field.
+      3.000  gls_p             GLS stability exponent.
+      1.500  gls_m             GLS turbulent kinetic energy exponent.
+     -1.000  gls_n             GLS turbulent length scale exponent.
+ 7.6000E-06  gls_Kmin          GLS minimum value of turbulent kinetic energy.
+ 1.0000E-12  gls_Pmin          GLS minimum value of dissipation.
+ 5.4770E-01  gls_cmu0          GLS stability coefficient.
+ 1.4400E+00  gls_c1            GLS shear production coefficient.
+ 1.9200E+00  gls_c2            GLS dissipation coefficient.
+-4.0000E-01  gls_c3m           GLS stable buoyancy production coefficient.
+ 1.0000E+00  gls_c3p           GLS unstable buoyancy production coefficient.
+ 1.0000E+00  gls_sigk          GLS constant Schmidt number for TKE.
+ 1.3000E+00  gls_sigp          GLS constant Schmidt number for PSI.
+   1400.000  charnok_alpha     Charnok factor for Zos calculation.
+      0.500  zos_hsig_alpha    Factor for Zos calculation using Hsig(Awave).
+      0.020  sz_alpha          Factor for Wave dissipation surface tke flux .
+    100.000  crgban_cw         Factor for Craig/Banner surface tke flux.
+      0.500  wec_alpha         WEC factor for roller/breaking energy distribution.
+ 3.0000E-04  rdrg              Linear bottom drag coefficient (m/s).
+ 2.5000E-02  rdrg2             Quadratic bottom drag coefficient.
+ 3.0000E-02  Zob               Bottom roughness (m).
+ 5.0000E-01  Zos               Surface roughness (m).
+ 1.0000E+01  blk_ZQ            Height (m) of surface air humidity measurement.
+ 1.0000E+01  blk_ZT            Height (m) of surface air temperature measurement.
+ 1.0000E+01  blk_ZW            Height (m) of surface winds measurement.
+ 1.0000E-01  Dcrit             Minimum depth for wetting and drying (m).
+          2  lmd_Jwt           Jerlov water type.
+          2  Vtransform        S-coordinate transformation equation.
+          4  Vstretching       S-coordinate stretching function.
+ 7.0000E+00  theta_s           S-coordinate surface control parameter.
+ 1.0000E-01  theta_b           S-coordinate bottom  control parameter.
+    200.000  Tcline            S-coordinate surface/bottom layer width (m) used
+                                 in vertical coordinate stretching.
+   1025.000  rho0              Mean density (kg/m3) for Boussinesq approximation.
+      0.000  dstart            Time-stamp assigned to model initialization (days).
+      0.000  tide_start        Reference time origin for tidal forcing (days).
+20000101.00  time_ref          Reference time for units attribute (yyyymmdd.dd)
+ 1.0000E+02  Tnudg(01)         Nudging/relaxation time scale (days)
+                                 for tracer 01: temp
+ 1.0000E+02  Tnudg(02)         Nudging/relaxation time scale (days)
+                                 for tracer 02: salt
+ 9.0000E+00  Znudg             Nudging/relaxation time scale (days)
+                                 for free-surface.
+ 6.0000E+00  M2nudg            Nudging/relaxation time scale (days)
+                                 for 2D momentum.
+ 1.0000E+02  M3nudg            Nudging/relaxation time scale (days)
+                                 for 3D momentum.
+ 5.0000E+02  obcfac            Factor between passive and active
+                                 open boundary conditions.
+          F  VolCons(1)        NLM western  edge boundary volume conservation.
+          F  VolCons(2)        NLM southern edge boundary volume conservation.
+          F  VolCons(3)        NLM eastern  edge boundary volume conservation.
+          F  VolCons(4)        NLM northern edge boundary volume conservation.
+      5.000  T0                Background potential temperature (C) constant.
+     35.000  S0                Background salinity (PSU) constant.
+      1.000  gamma2            Slipperiness variable: free-slip (1.0) or 
+                                                      no-slip (-1.0).
+          F  LuvSrc            Turning OFF momentum point Sources/Sinks.
+          F  LwSrc             Turning OFF volume influx point Sources/Sinks.
+          F  LtracerSrc(01)    Turning OFF point Sources/Sinks on tracer 01: temp
+          F  LtracerSrc(02)    Turning OFF point Sources/Sinks on tracer 02: salt
+          F  LsshCLM           Turning OFF processing of SSH climatology.
+          F  Lm2CLM            Turning OFF processing of 2D momentum climatology.
+          F  Lm3CLM            Turning OFF processing of 3D momentum climatology.
+          F  LtracerCLM(01)    Turning OFF processing of climatology tracer 01: temp
+          F  LtracerCLM(02)    Turning OFF processing of climatology tracer 02: salt
+          F  LnudgeM2CLM       Turning OFF nudging of 2D momentum climatology.
+          F  LnudgeM3CLM       Turning OFF nudging of 3D momentum climatology.
+          F  LnudgeTCLM(01)    Turning OFF nudging of climatology tracer 01: temp
+          F  LnudgeTCLM(02)    Turning OFF nudging of climatology tracer 02: salt
+
+          T  Hout(idFsur)      Write out free-surface.
+          T  Hout(idUbar)      Write out 2D U-momentum component.
+          T  Hout(idVbar)      Write out 2D V-momentum component.
+          T  Hout(idUvel)      Write out 3D U-momentum component.
+          T  Hout(idVvel)      Write out 3D V-momentum component.
+          T  Hout(idWvel)      Write out W-momentum component.
+          T  Hout(idOvel)      Write out omega vertical velocity.
+          T  Hout(idTvar)      Write out tracer 01: temp
+          T  Hout(idTvar)      Write out tracer 02: salt
+          T  Hout(idUbms)      Write out bottom U-momentum stress.
+          T  Hout(idVbms)      Write out bottom V-momentum stress.
+          T  Hout(idPair)      Write out surface air pressure.
+          T  Hout(idTsur)      Write out surface net heat flux.
+          T  Hout(idTsur)      Write out surface net salt flux.
+          T  Hout(idSrad)      Write out shortwave radiation flux.
+          T  Hout(idLrad)      Write out longwave radiation flux.
+          T  Hout(idLhea)      Write out latent heat flux.
+          T  Hout(idShea)      Write out sensible heat flux.
+          T  Hout(idEmPf)      Write out E-P flux.
+          T  Hout(idevap)      Write out evaporation rate.
+          T  Hout(idrain)      Write out rain rate.
+          T  Hout(idVvis)      Write out vertical viscosity: AKv.
+          T  Hout(idTdif)      Write out vertical diffusion: AKt(itemp).
+          T  Hout(idMtke)      Write out turbulent kinetic energy.
+          T  Hout(idMtls)      Write out turbulent generic length-scale.
+
+ Output/Input Files:
+
+             Output Restart File:  Y2_rst_nst_eco_140502.nc
+             Output History File:  Y2_his_nst_eco_140502.nc
+                 Input Grid File:  F:/COAWST_DATA/Yaeyama/Yaeyama2/Grid/Yaeyama2_grd_v11.nc
+  Nesting grid connectivity File:  F:/COAWST_DATA/Yaeyama/nest/Yaeyama_ngc_2g_Y1Y2_v1.1.nc
+    Input Nonlinear Initial File:  F:/COAWST_DATA/Yaeyama/Yaeyama2/Ini/Yaeyama2_ini_HYCOMwNAO_Nz15_20140502.00.nc
+           Input Forcing File 01:  F:/COAWST_DATA/Yaeyama/Yaeyama2/Air/Yaeyama2_frc_MSMnc_20140101_1.nc
+           Input Forcing File 02:  F:/COAWST_DATA/Yaeyama/Yaeyama2/Air/Yaeyama2_frc_MSMnc_20140101_2.nc
+         Biology Parameters File:  bio_reef_ecosys.in
+
+ Tile partition information for Grid 01:  0308x0278x0015  tiling: 005x002
+
+     tile     Istr     Iend     Jstr     Jend     Npts
+
+ Number of tracers:           35
+        0        1       61        1      139   127185
+        1       62      123        1      139   129270
+        2      124      185        1      139   129270
+        3      186      247        1      139   129270
+        4      248      308        1      139   127185
+        5        1       61      140      278   127185
+        6       62      123      140      278   129270
+        7      124      185      140      278   129270
+        8      186      247      140      278   129270
+        9      248      308      140      278   127185
+
+ Tile partition information for Grid 02:  0300x0300x0015  tiling: 005x002
+
+     tile     Istr     Iend     Jstr     Jend     Npts
+
+ Number of tracers:           35
+        0        1       60        1      150   135000
+        1       61      120        1      150   135000
+        2      121      180        1      150   135000
+        3      181      240        1      150   135000
+        4      241      300        1      150   135000
+        5        1       60      151      300   135000
+        6       61      120      151      300   135000
+        7      121      180      151      300   135000
+        8      181      240      151      300   135000
+        9      241      300      151      300   135000
+
+ Tile minimum and maximum fractional coordinates for Grid 01:
+   (interior points only)
+
+     tile     Xmin     Xmax     Ymin     Ymax     grid
+ DEBUG :           1           8           1           3
+ DEBUG :           2           9           1           4
+ DEBUG :           1           8           1           3
+ DEBUG :           1           8           1           3
+ DEBUG :           2           9           1           4
+ DEBUG :           1           8           1           3
+ DEBUG :           2           9           1           4
+ DEBUG :           1           8           1           3
+ DEBUG :           2           9           1           4
+ DEBUG :           1           8           1           3
+ DEBUG :           2           9           1           4
+ DEBUG :           1           8           1           3
+ DEBUG :           1           8           1           3
+ DEBUG :           2           9           1           4
+ DEBUG :           1           8           1           3
+ DEBUG :           2           9           1           4
+
+ DEBUG :           2           9           1           4
+ DEBUG :           2           9           1           4
+        0     0.50    61.50     0.50   139.50  RHO-points
+        1    61.50   123.50     0.50   139.50  RHO-points
+        2   123.50   185.50     0.50   139.50  RHO-points
+        3   185.50   247.50     0.50   139.50  RHO-points
+        4   247.50   308.50     0.50   139.50  RHO-points
+        5     0.50    61.50   139.50   278.50  RHO-points
+        6    61.50   123.50   139.50   278.50  RHO-points
+        7   123.50   185.50   139.50   278.50  RHO-points
+        8   185.50   247.50   139.50   278.50  RHO-points
+        9   247.50   308.50   139.50   278.50  RHO-points
+
+        0     1.00    61.50     0.50   139.50    U-points
+        1    61.50   123.50     0.50   139.50    U-points
+        2   123.50   185.50     0.50   139.50    U-points
+        3   185.50   247.50     0.50   139.50    U-points
+        4   247.50   308.00     0.50   139.50    U-points
+        5     1.00    61.50   139.50   278.50    U-points
+        6    61.50   123.50   139.50   278.50    U-points
+        7   123.50   185.50   139.50   278.50    U-points
+        8   185.50   247.50   139.50   278.50    U-points
+        9   247.50   308.00   139.50   278.50    U-points
+
+        0     0.50    61.50     1.00   139.50    V-points
+        1    61.50   123.50     1.00   139.50    V-points
+        2   123.50   185.50     1.00   139.50    V-points
+        3   185.50   247.50     1.00   139.50    V-points
+        4   247.50   308.50     1.00   139.50    V-points
+        5     0.50    61.50   139.50   278.00    V-points
+        6    61.50   123.50   139.50   278.00    V-points
+        7   123.50   185.50   139.50   278.00    V-points
+        8   185.50   247.50   139.50   278.00    V-points
+        9   247.50   308.50   139.50   278.00    V-points
+
+ Tile minimum and maximum fractional coordinates for Grid 02:
+   (interior points only)
+
+     tile     Xmin     Xmax     Ymin     Ymax     grid
+
+        0     0.50    60.50     0.50   150.50  RHO-points
+        1    60.50   120.50     0.50   150.50  RHO-points
+        2   120.50   180.50     0.50   150.50  RHO-points
+        3   180.50   240.50     0.50   150.50  RHO-points
+        4   240.50   300.50     0.50   150.50  RHO-points
+        5     0.50    60.50   150.50   300.50  RHO-points
+        6    60.50   120.50   150.50   300.50  RHO-points
+        7   120.50   180.50   150.50   300.50  RHO-points
+        8   180.50   240.50   150.50   300.50  RHO-points
+        9   240.50   300.50   150.50   300.50  RHO-points
+
+        0     1.00    60.50     0.50   150.50    U-points
+        1    60.50   120.50     0.50   150.50    U-points
+        2   120.50   180.50     0.50   150.50    U-points
+        3   180.50   240.50     0.50   150.50    U-points
+        4   240.50   300.00     0.50   150.50    U-points
+        5     1.00    60.50   150.50   300.50    U-points
+        6    60.50   120.50   150.50   300.50    U-points
+        7   120.50   180.50   150.50   300.50    U-points
+        8   180.50   240.50   150.50   300.50    U-points
+        9   240.50   300.00   150.50   300.50    U-points
+
+        0     0.50    60.50     1.00   150.50    V-points
+        1    60.50   120.50     1.00   150.50    V-points
+        2   120.50   180.50     1.00   150.50    V-points
+        3   180.50   240.50     1.00   150.50    V-points
+        4   240.50   300.50     1.00   150.50    V-points
+        5     0.50    60.50   150.50   300.00    V-points
+        6    60.50   120.50   150.50   300.00    V-points
+        7   120.50   180.50   150.50   300.00    V-points
+        8   180.50   240.50   150.50   300.00    V-points
+        9   240.50   300.50   150.50   300.00    V-points
+
+ Maximum halo size in XI and ETA directions:
+
+               HaloSizeI(1) =     228
+               HaloSizeJ(1) =     456
+                TileSide(1) =     146
+                TileSize(1) =   10220
+
+
+ Maximum halo size in XI and ETA directions:
+
+               HaloSizeI(2) =     225
+               HaloSizeJ(2) =     495
+                TileSide(2) =     159
+                TileSize(2) =   10971
+
+ DEBUG :           1           8           1           3
+ DEBUG :           2           9           1           4
+
+
+ Reef Ecosys Model Parameters, Grid: 01
+ =================================
+
+        100  CrlIter         Number of iterations for nonlinear convergence.
+          1  SedIter         Number of iterations for nonlinear convergence.
+ 1.8200E+00  PARfrac         Fraction of shortwave radiation that is
+                               photosynthetically active (nondimensional).
+ 4.0000E+02  pCO2air         CO2 partial pressure in air (ppm by volume).
+ 2.2320E+03  TAlk0           Total alkalinity  (umol/kg).
+ 1.9150E+03  TIC_0           Total dissolved inorganic carbon (umol/kg).
+ 2.0000E+02  Oxyg0           Dissolved oxygen (umol/L).
+ 5.0000E+00  DOC_0: 01       Dissolved organic carbon (umolC/L).
+ 5.0000E+01  DOC_0: 02       Dissolved organic carbon (umolC/L).
+ 1.0000E+00  POC_0: 01       Particulate organic carbon (umolC/L).
+ 0.0000E+00  POC_0: 02       Particulate organic carbon (umolC/L).
+ 5.0000E-01  Phyt_0: 01      Phytoplankton (umolC/L).
+ 5.0000E-01  Phyt_0: 02      Phytoplankton (umolC/L).
+ 5.0000E-01  Phyt_0: 03      Phytoplankton (umolC/L).
+ 1.0000E-01  Zoop_0: 01      Zooplankton (umolC/L).
+ 7.0000E-01  d13C_TIC0       d13C of DIC (permil VPDB).
+-1.5000E+01  d13C_DOC_0: 01  d13C of DOC (permil VPDB).
+-1.5000E+01  d13C_DOC_0: 02  d13C of DOC (permil VPDB).
+-1.5000E+01  d13C_POC_0: 01  d13C of POC (permil VPDB).
+-1.5000E+01  d13C_POC_0: 02  d13C of POC (permil VPDB).
+-1.5000E+01  d13C_Phyt_0: 01 d13C of phytoplankton (permil VPDB).
+-1.5000E+01  d13C_Phyt_0: 02 d13C of phytoplankton (permil VPDB).
+-1.5000E+01  d13C_Phyt_0: 03 d13C of phytoplankton (permil VPDB).
+-2.0000E+01  d13C_Zoop_0: 01 d13C of zooplankton (permil VPDB).
+-2.0000E+01  d13C_Zoop_0: 01 d13C of zooplankton (permil VPDB).
+ 1.0000E-01  NO3_0           NO3 (umol/L).
+ 2.6000E-01  NH4_0           NH4 (umol/L).
+ 4.0000E-02  PO4_0           PO4 (umol/L).
+ 1.0000E+00  DON_0: 01       DON (umolN/L).
+ 1.0000E+01  DON_0: 02       DON (umolN/L).
+ 6.0000E-01  PON_0: 01       PON (umolN/L).
+ 0.0000E+00  PON_0: 02       PON (umolN/L).
+ 6.0000E-02  DOP_0: 01       DOP (umolP/L).
+ 6.0000E-01  DOP_0: 02       DOP (umolP/L).
+ 4.0000E-02  POP_0: 01       POP (umolP/L).
+ 0.0000E+00  POP_0: 02       POP (umolP/L).
+ 0.0000E+00  nl_tnu2(03)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 03: TIC
+ 0.0000E+00  nl_tnu2(04)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 04: alkalinity
+ 0.0000E+00  nl_tnu2(05)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 05: oxygen
+ 0.0000E+00  nl_tnu2(06)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 06: DOC_01
+ 0.0000E+00  nl_tnu2(07)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 07: DOC_02
+ 0.0000E+00  nl_tnu2(08)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 08: POC_01
+ 0.0000E+00  nl_tnu2(09)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 09: POC_02
+ 0.0000E+00  nl_tnu2(10)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 10: phytoplankton_01
+ 0.0000E+00  nl_tnu2(11)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 11: phytoplankton_02
+ 0.0000E+00  nl_tnu2(12)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 12: phytoplankton_03
+ 0.0000E+00  nl_tnu2(13)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 13: zooplankton_01
+ 0.0000E+00  nl_tnu2(14)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 14: PIC_01
+ 0.0000E+00  nl_tnu2(15)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 15: TI13C
+ 0.0000E+00  nl_tnu2(16)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 16: DO13C_01
+ 0.0000E+00  nl_tnu2(17)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 17: DO13C_02
+ 0.0000E+00  nl_tnu2(18)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 18: PO13C_01
+ 0.0000E+00  nl_tnu2(19)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 19: PO13C_02
+ 0.0000E+00  nl_tnu2(20)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 20: phyt13C_01
+ 0.0000E+00  nl_tnu2(21)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 21: phyt13C_02
+ 0.0000E+00  nl_tnu2(22)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 22: phyt13C_03
+ 0.0000E+00  nl_tnu2(23)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 23: zoop13C_01
+ 0.0000E+00  nl_tnu2(24)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 24: PI13C_01
+ 0.0000E+00  nl_tnu2(25)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 25: NO3
+ 0.0000E+00  nl_tnu2(26)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 26: NH4
+ 0.0000E+00  nl_tnu2(27)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 27: PO4
+ 0.0000E+00  nl_tnu2(28)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 28: DON_01
+ 0.0000E+00  nl_tnu2(29)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 29: DON_02
+ 0.0000E+00  nl_tnu2(30)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 30: PON_01
+ 0.0000E+00  nl_tnu2(31)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 31: PON_02
+ 0.0000E+00  nl_tnu2(32)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 32: DOP_01
+ 0.0000E+00  nl_tnu2(33)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 33: DOP_02
+ 0.0000E+00  nl_tnu2(34)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 34: POP_01
+ 0.0000E+00  nl_tnu2(35)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 35: POP_02
+ 1.0000E-06  Akt_bak(03)     Background vertical mixing coefficient (m2/s)
+                               for tracer 03: TIC
+ 1.0000E-06  Akt_bak(04)     Background vertical mixing coefficient (m2/s)
+                               for tracer 04: alkalinity
+ 1.0000E-06  Akt_bak(05)     Background vertical mixing coefficient (m2/s)
+                               for tracer 05: oxygen
+ 1.0000E-06  Akt_bak(06)     Background vertical mixing coefficient (m2/s)
+                               for tracer 06: DOC_01
+ 1.0000E-06  Akt_bak(07)     Background vertical mixing coefficient (m2/s)
+                               for tracer 07: DOC_02
+ 1.0000E-06  Akt_bak(08)     Background vertical mixing coefficient (m2/s)
+                               for tracer 08: POC_01
+ 1.0000E-06  Akt_bak(09)     Background vertical mixing coefficient (m2/s)
+                               for tracer 09: POC_02
+ 1.0000E-06  Akt_bak(10)     Background vertical mixing coefficient (m2/s)
+                               for tracer 10: phytoplankton_01
+ 1.0000E-06  Akt_bak(11)     Background vertical mixing coefficient (m2/s)
+                               for tracer 11: phytoplankton_02
+ 1.0000E-06  Akt_bak(12)     Background vertical mixing coefficient (m2/s)
+                               for tracer 12: phytoplankton_03
+ 1.0000E-06  Akt_bak(13)     Background vertical mixing coefficient (m2/s)
+                               for tracer 13: zooplankton_01
+ 1.0000E-06  Akt_bak(14)     Background vertical mixing coefficient (m2/s)
+                               for tracer 14: PIC_01
+ 1.0000E-06  Akt_bak(15)     Background vertical mixing coefficient (m2/s)
+                               for tracer 15: TI13C
+ 1.0000E-06  Akt_bak(16)     Background vertical mixing coefficient (m2/s)
+                               for tracer 16: DO13C_01
+ 1.0000E-06  Akt_bak(17)     Background vertical mixing coefficient (m2/s)
+                               for tracer 17: DO13C_02
+ 1.0000E-06  Akt_bak(18)     Background vertical mixing coefficient (m2/s)
+                               for tracer 18: PO13C_01
+ 1.0000E-06  Akt_bak(19)     Background vertical mixing coefficient (m2/s)
+                               for tracer 19: PO13C_02
+ 1.0000E-06  Akt_bak(20)     Background vertical mixing coefficient (m2/s)
+                               for tracer 20: phyt13C_01
+ 1.0000E-06  Akt_bak(21)     Background vertical mixing coefficient (m2/s)
+                               for tracer 21: phyt13C_02
+ 1.0000E-06  Akt_bak(22)     Background vertical mixing coefficient (m2/s)
+                               for tracer 22: phyt13C_03
+ 1.0000E-06  Akt_bak(23)     Background vertical mixing coefficient (m2/s)
+                               for tracer 23: zoop13C_01
+ 1.0000E-06  Akt_bak(24)     Background vertical mixing coefficient (m2/s)
+                               for tracer 24: PI13C_01
+ 1.0000E-06  Akt_bak(25)     Background vertical mixing coefficient (m2/s)
+                               for tracer 25: NO3
+ 1.0000E-06  Akt_bak(26)     Background vertical mixing coefficient (m2/s)
+                               for tracer 26: NH4
+ 1.0000E-06  Akt_bak(27)     Background vertical mixing coefficient (m2/s)
+                               for tracer 27: PO4
+ 1.0000E-06  Akt_bak(28)     Background vertical mixing coefficient (m2/s)
+                               for tracer 28: DON_01
+ 1.0000E-06  Akt_bak(29)     Background vertical mixing coefficient (m2/s)
+                               for tracer 29: DON_02
+ 1.0000E-06  Akt_bak(30)     Background vertical mixing coefficient (m2/s)
+                               for tracer 30: PON_01
+ 1.0000E-06  Akt_bak(31)     Background vertical mixing coefficient (m2/s)
+                               for tracer 31: PON_02
+ 1.0000E-06  Akt_bak(32)     Background vertical mixing coefficient (m2/s)
+                               for tracer 32: DOP_01
+ 1.0000E-06  Akt_bak(33)     Background vertical mixing coefficient (m2/s)
+                               for tracer 33: DOP_02
+ 1.0000E-06  Akt_bak(34)     Background vertical mixing coefficient (m2/s)
+                               for tracer 34: POP_01
+ 1.0000E-06  Akt_bak(35)     Background vertical mixing coefficient (m2/s)
+                               for tracer 35: POP_02
+ 1.8000E+02  Tnudg(03)       Nudging/relaxation time scale (days)
+                               for tracer 03: TIC
+ 1.8000E+02  Tnudg(04)       Nudging/relaxation time scale (days)
+                               for tracer 04: alkalinity
+ 1.8000E+02  Tnudg(05)       Nudging/relaxation time scale (days)
+                               for tracer 05: oxygen
+ 1.8000E+02  Tnudg(06)       Nudging/relaxation time scale (days)
+                               for tracer 06: DOC_01
+ 1.8000E+02  Tnudg(07)       Nudging/relaxation time scale (days)
+                               for tracer 07: DOC_02
+ 1.8000E+02  Tnudg(08)       Nudging/relaxation time scale (days)
+                               for tracer 08: POC_01
+ 1.8000E+02  Tnudg(09)       Nudging/relaxation time scale (days)
+                               for tracer 09: POC_02
+ 1.8000E+02  Tnudg(10)       Nudging/relaxation time scale (days)
+                               for tracer 10: phytoplankton_01
+ 1.8000E+02  Tnudg(11)       Nudging/relaxation time scale (days)
+                               for tracer 11: phytoplankton_02
+ 1.8000E+02  Tnudg(12)       Nudging/relaxation time scale (days)
+                               for tracer 12: phytoplankton_03
+ 1.8000E+02  Tnudg(13)       Nudging/relaxation time scale (days)
+                               for tracer 13: zooplankton_01
+ 1.8000E+02  Tnudg(14)       Nudging/relaxation time scale (days)
+                               for tracer 14: PIC_01
+ 1.8000E+02  Tnudg(15)       Nudging/relaxation time scale (days)
+                               for tracer 15: TI13C
+ 1.8000E+02  Tnudg(16)       Nudging/relaxation time scale (days)
+                               for tracer 16: DO13C_01
+ 1.8000E+02  Tnudg(17)       Nudging/relaxation time scale (days)
+                               for tracer 17: DO13C_02
+ 1.8000E+02  Tnudg(18)       Nudging/relaxation time scale (days)
+                               for tracer 18: PO13C_01
+ 1.8000E+02  Tnudg(19)       Nudging/relaxation time scale (days)
+                               for tracer 19: PO13C_02
+ 1.8000E+02  Tnudg(20)       Nudging/relaxation time scale (days)
+                               for tracer 20: phyt13C_01
+ 1.8000E+02  Tnudg(21)       Nudging/relaxation time scale (days)
+                               for tracer 21: phyt13C_02
+ 1.8000E+02  Tnudg(22)       Nudging/relaxation time scale (days)
+                               for tracer 22: phyt13C_03
+ 1.8000E+02  Tnudg(23)       Nudging/relaxation time scale (days)
+                               for tracer 23: zoop13C_01
+ 1.8000E+02  Tnudg(24)       Nudging/relaxation time scale (days)
+                               for tracer 24: PI13C_01
+ 1.8000E+02  Tnudg(25)       Nudging/relaxation time scale (days)
+                               for tracer 25: NO3
+ 1.8000E+02  Tnudg(26)       Nudging/relaxation time scale (days)
+                               for tracer 26: NH4
+ 1.8000E+02  Tnudg(27)       Nudging/relaxation time scale (days)
+                               for tracer 27: PO4
+ 1.8000E+02  Tnudg(28)       Nudging/relaxation time scale (days)
+                               for tracer 28: DON_01
+ 1.8000E+02  Tnudg(29)       Nudging/relaxation time scale (days)
+                               for tracer 29: DON_02
+ 1.8000E+02  Tnudg(30)       Nudging/relaxation time scale (days)
+                               for tracer 30: PON_01
+ 1.8000E+02  Tnudg(31)       Nudging/relaxation time scale (days)
+                               for tracer 31: PON_02
+ 1.8000E+02  Tnudg(32)       Nudging/relaxation time scale (days)
+                               for tracer 32: DOP_01
+ 1.8000E+02  Tnudg(33)       Nudging/relaxation time scale (days)
+                               for tracer 33: DOP_02
+ 1.8000E+02  Tnudg(34)       Nudging/relaxation time scale (days)
+                               for tracer 34: POP_01
+ 1.8000E+02  Tnudg(35)       Nudging/relaxation time scale (days)
+                               for tracer 35: POP_02
+          T  Hout(idTvar)    Write out tracer 03: TIC
+          T  Hout(idTvar)    Write out tracer 04: alkalinity
+          T  Hout(idTvar)    Write out tracer 05: oxygen
+          T  Hout(idTvar)    Write out tracer 06: DOC_01
+          T  Hout(idTvar)    Write out tracer 07: DOC_02
+          T  Hout(idTvar)    Write out tracer 08: POC_01
+          T  Hout(idTvar)    Write out tracer 09: POC_02
+          T  Hout(idTvar)    Write out tracer 10: phytoplankton_01
+          T  Hout(idTvar)    Write out tracer 11: phytoplankton_02
+          T  Hout(idTvar)    Write out tracer 12: phytoplankton_03
+          T  Hout(idTvar)    Write out tracer 13: zooplankton_01
+          T  Hout(idTvar)    Write out tracer 14: PIC_01
+          T  Hout(idTvar)    Write out tracer 15: TI13C
+          T  Hout(idTvar)    Write out tracer 16: DO13C_01
+          T  Hout(idTvar)    Write out tracer 17: DO13C_02
+          T  Hout(idTvar)    Write out tracer 18: PO13C_01
+          T  Hout(idTvar)    Write out tracer 19: PO13C_02
+          T  Hout(idTvar)    Write out tracer 20: phyt13C_01
+          T  Hout(idTvar)    Write out tracer 21: phyt13C_02
+          T  Hout(idTvar)    Write out tracer 22: phyt13C_03
+          T  Hout(idTvar)    Write out tracer 23: zoop13C_01
+          T  Hout(idTvar)    Write out tracer 24: PI13C_01
+          T  Hout(idTvar)    Write out tracer 25: NO3
+          T  Hout(idTvar)    Write out tracer 26: NH4
+          T  Hout(idTvar)    Write out tracer 27: PO4
+          T  Hout(idTvar)    Write out tracer 28: DON_01
+          T  Hout(idTvar)    Write out tracer 29: DON_02
+          T  Hout(idTvar)    Write out tracer 30: PON_01
+          T  Hout(idTvar)    Write out tracer 31: PON_02
+          T  Hout(idTvar)    Write out tracer 32: DOP_01
+          T  Hout(idTvar)    Write out tracer 33: DOP_02
+          T  Hout(idTvar)    Write out tracer 34: POP_01
+          T  Hout(idTvar)    Write out tracer 35: POP_02
+          T  Hout(iHbio2)    Write out pH
+          T  Hout(iHbio2)    Write out Omega_arg
+          T  Hout(iHbio2)    Write out CO2_airsea
+          T  Hout(iHbio2)    Write out pCO2
+          T  Hout(iHbio2)    Write out O2_airsea
+          T  Hout(iHbio2)    Write out PARbot
+          T  Hout(iHbio2)    Write out Tau_ave
+          T  Hout(iHbio3)    Write out d13C_DIC
+
+
+ Reef Ecosys Model Parameters, Grid: 02
+ =================================
+
+         50  CrlIter         Number of iterations for nonlinear convergence.
+          1  SedIter         Number of iterations for nonlinear convergence.
+ 1.8200E+00  PARfrac         Fraction of shortwave radiation that is
+                               photosynthetically active (nondimensional).
+ 4.0000E+02  pCO2air         CO2 partial pressure in air (ppm by volume).
+ 2.2320E+03  TAlk0           Total alkalinity  (umol/kg).
+ 1.9150E+03  TIC_0           Total dissolved inorganic carbon (umol/kg).
+ 2.0000E+02  Oxyg0           Dissolved oxygen (umol/L).
+ 5.0000E+00  DOC_0: 01       Dissolved organic carbon (umolC/L).
+ 5.0000E+01  DOC_0: 02       Dissolved organic carbon (umolC/L).
+ 1.0000E+00  POC_0: 01       Particulate organic carbon (umolC/L).
+ 0.0000E+00  POC_0: 02       Particulate organic carbon (umolC/L).
+ 5.0000E-01  Phyt_0: 01      Phytoplankton (umolC/L).
+ 5.0000E-01  Phyt_0: 02      Phytoplankton (umolC/L).
+ 5.0000E-01  Phyt_0: 03      Phytoplankton (umolC/L).
+ 1.0000E-01  Zoop_0: 01      Zooplankton (umolC/L).
+ 7.0000E-01  d13C_TIC0       d13C of DIC (permil VPDB).
+-1.5000E+01  d13C_DOC_0: 01  d13C of DOC (permil VPDB).
+-1.5000E+01  d13C_DOC_0: 02  d13C of DOC (permil VPDB).
+-1.5000E+01  d13C_POC_0: 01  d13C of POC (permil VPDB).
+-1.5000E+01  d13C_POC_0: 02  d13C of POC (permil VPDB).
+-1.5000E+01  d13C_Phyt_0: 01 d13C of phytoplankton (permil VPDB).
+-1.5000E+01  d13C_Phyt_0: 02 d13C of phytoplankton (permil VPDB).
+-1.5000E+01  d13C_Phyt_0: 03 d13C of phytoplankton (permil VPDB).
+-2.0000E+01  d13C_Zoop_0: 01 d13C of zooplankton (permil VPDB).
+-2.0000E+01  d13C_Zoop_0: 01 d13C of zooplankton (permil VPDB).
+ 1.0000E-01  NO3_0           NO3 (umol/L).
+ 2.6000E-01  NH4_0           NH4 (umol/L).
+ 4.0000E-02  PO4_0           PO4 (umol/L).
+ 1.0000E+00  DON_0: 01       DON (umolN/L).
+ 1.0000E+01  DON_0: 02       DON (umolN/L).
+ 6.0000E-01  PON_0: 01       PON (umolN/L).
+ 0.0000E+00  PON_0: 02       PON (umolN/L).
+ 6.0000E-02  DOP_0: 01       DOP (umolP/L).
+ 6.0000E-01  DOP_0: 02       DOP (umolP/L).
+ 4.0000E-02  POP_0: 01       POP (umolP/L).
+ 0.0000E+00  POP_0: 02       POP (umolP/L).
+ 0.0000E+00  nl_tnu2(03)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 03: TIC
+ 0.0000E+00  nl_tnu2(04)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 04: alkalinity
+ 0.0000E+00  nl_tnu2(05)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 05: oxygen
+ 0.0000E+00  nl_tnu2(06)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 06: DOC_01
+ 0.0000E+00  nl_tnu2(07)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 07: DOC_02
+ 0.0000E+00  nl_tnu2(08)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 08: POC_01
+ 0.0000E+00  nl_tnu2(09)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 09: POC_02
+ 0.0000E+00  nl_tnu2(10)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 10: phytoplankton_01
+ 0.0000E+00  nl_tnu2(11)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 11: phytoplankton_02
+ 0.0000E+00  nl_tnu2(12)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 12: phytoplankton_03
+ 0.0000E+00  nl_tnu2(13)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 13: zooplankton_01
+ 0.0000E+00  nl_tnu2(14)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 14: PIC_01
+ 0.0000E+00  nl_tnu2(15)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 15: TI13C
+ 0.0000E+00  nl_tnu2(16)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 16: DO13C_01
+ 0.0000E+00  nl_tnu2(17)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 17: DO13C_02
+ 0.0000E+00  nl_tnu2(18)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 18: PO13C_01
+ 0.0000E+00  nl_tnu2(19)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 19: PO13C_02
+ 0.0000E+00  nl_tnu2(20)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 20: phyt13C_01
+ 0.0000E+00  nl_tnu2(21)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 21: phyt13C_02
+ 0.0000E+00  nl_tnu2(22)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 22: phyt13C_03
+ 0.0000E+00  nl_tnu2(23)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 23: zoop13C_01
+ 0.0000E+00  nl_tnu2(24)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 24: PI13C_01
+ 0.0000E+00  nl_tnu2(25)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 25: NO3
+ 0.0000E+00  nl_tnu2(26)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 26: NH4
+ 0.0000E+00  nl_tnu2(27)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 27: PO4
+ 0.0000E+00  nl_tnu2(28)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 28: DON_01
+ 0.0000E+00  nl_tnu2(29)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 29: DON_02
+ 0.0000E+00  nl_tnu2(30)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 30: PON_01
+ 0.0000E+00  nl_tnu2(31)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 31: PON_02
+ 0.0000E+00  nl_tnu2(32)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 32: DOP_01
+ 0.0000E+00  nl_tnu2(33)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 33: DOP_02
+ 0.0000E+00  nl_tnu2(34)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 34: POP_01
+ 0.0000E+00  nl_tnu2(35)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 35: POP_02
+ 1.0000E-06  Akt_bak(03)     Background vertical mixing coefficient (m2/s)
+                               for tracer 03: TIC
+ 1.0000E-06  Akt_bak(04)     Background vertical mixing coefficient (m2/s)
+                               for tracer 04: alkalinity
+ 1.0000E-06  Akt_bak(05)     Background vertical mixing coefficient (m2/s)
+                               for tracer 05: oxygen
+ 1.0000E-06  Akt_bak(06)     Background vertical mixing coefficient (m2/s)
+                               for tracer 06: DOC_01
+ 1.0000E-06  Akt_bak(07)     Background vertical mixing coefficient (m2/s)
+                               for tracer 07: DOC_02
+ 1.0000E-06  Akt_bak(08)     Background vertical mixing coefficient (m2/s)
+                               for tracer 08: POC_01
+ 1.0000E-06  Akt_bak(09)     Background vertical mixing coefficient (m2/s)
+                               for tracer 09: POC_02
+ 1.0000E-06  Akt_bak(10)     Background vertical mixing coefficient (m2/s)
+                               for tracer 10: phytoplankton_01
+ 1.0000E-06  Akt_bak(11)     Background vertical mixing coefficient (m2/s)
+                               for tracer 11: phytoplankton_02
+ 1.0000E-06  Akt_bak(12)     Background vertical mixing coefficient (m2/s)
+                               for tracer 12: phytoplankton_03
+ 1.0000E-06  Akt_bak(13)     Background vertical mixing coefficient (m2/s)
+                               for tracer 13: zooplankton_01
+ 1.0000E-06  Akt_bak(14)     Background vertical mixing coefficient (m2/s)
+                               for tracer 14: PIC_01
+ 1.0000E-06  Akt_bak(15)     Background vertical mixing coefficient (m2/s)
+                               for tracer 15: TI13C
+ 1.0000E-06  Akt_bak(16)     Background vertical mixing coefficient (m2/s)
+                               for tracer 16: DO13C_01
+ 1.0000E-06  Akt_bak(17)     Background vertical mixing coefficient (m2/s)
+                               for tracer 17: DO13C_02
+ 1.0000E-06  Akt_bak(18)     Background vertical mixing coefficient (m2/s)
+                               for tracer 18: PO13C_01
+ 1.0000E-06  Akt_bak(19)     Background vertical mixing coefficient (m2/s)
+                               for tracer 19: PO13C_02
+ 1.0000E-06  Akt_bak(20)     Background vertical mixing coefficient (m2/s)
+                               for tracer 20: phyt13C_01
+ 1.0000E-06  Akt_bak(21)     Background vertical mixing coefficient (m2/s)
+                               for tracer 21: phyt13C_02
+ 1.0000E-06  Akt_bak(22)     Background vertical mixing coefficient (m2/s)
+                               for tracer 22: phyt13C_03
+ 1.0000E-06  Akt_bak(23)     Background vertical mixing coefficient (m2/s)
+                               for tracer 23: zoop13C_01
+ 1.0000E-06  Akt_bak(24)     Background vertical mixing coefficient (m2/s)
+                               for tracer 24: PI13C_01
+ 1.0000E-06  Akt_bak(25)     Background vertical mixing coefficient (m2/s)
+                               for tracer 25: NO3
+ 1.0000E-06  Akt_bak(26)     Background vertical mixing coefficient (m2/s)
+                               for tracer 26: NH4
+ 1.0000E-06  Akt_bak(27)     Background vertical mixing coefficient (m2/s)
+                               for tracer 27: PO4
+ 1.0000E-06  Akt_bak(28)     Background vertical mixing coefficient (m2/s)
+                               for tracer 28: DON_01
+ 1.0000E-06  Akt_bak(29)     Background vertical mixing coefficient (m2/s)
+                               for tracer 29: DON_02
+ 1.0000E-06  Akt_bak(30)     Background vertical mixing coefficient (m2/s)
+                               for tracer 30: PON_01
+ 1.0000E-06  Akt_bak(31)     Background vertical mixing coefficient (m2/s)
+                               for tracer 31: PON_02
+ 1.0000E-06  Akt_bak(32)     Background vertical mixing coefficient (m2/s)
+                               for tracer 32: DOP_01
+ 1.0000E-06  Akt_bak(33)     Background vertical mixing coefficient (m2/s)
+                               for tracer 33: DOP_02
+ 1.0000E-06  Akt_bak(34)     Background vertical mixing coefficient (m2/s)
+                               for tracer 34: POP_01
+ 1.0000E-06  Akt_bak(35)     Background vertical mixing coefficient (m2/s)
+                               for tracer 35: POP_02
+ 1.8000E+02  Tnudg(03)       Nudging/relaxation time scale (days)
+                               for tracer 03: TIC
+ 1.8000E+02  Tnudg(04)       Nudging/relaxation time scale (days)
+                               for tracer 04: alkalinity
+ 1.8000E+02  Tnudg(05)       Nudging/relaxation time scale (days)
+                               for tracer 05: oxygen
+ 1.8000E+02  Tnudg(06)       Nudging/relaxation time scale (days)
+                               for tracer 06: DOC_01
+ 1.8000E+02  Tnudg(07)       Nudging/relaxation time scale (days)
+                               for tracer 07: DOC_02
+ 1.8000E+02  Tnudg(08)       Nudging/relaxation time scale (days)
+                               for tracer 08: POC_01
+ 1.8000E+02  Tnudg(09)       Nudging/relaxation time scale (days)
+                               for tracer 09: POC_02
+ 1.8000E+02  Tnudg(10)       Nudging/relaxation time scale (days)
+                               for tracer 10: phytoplankton_01
+ 1.8000E+02  Tnudg(11)       Nudging/relaxation time scale (days)
+                               for tracer 11: phytoplankton_02
+ 1.8000E+02  Tnudg(12)       Nudging/relaxation time scale (days)
+                               for tracer 12: phytoplankton_03
+ 1.8000E+02  Tnudg(13)       Nudging/relaxation time scale (days)
+                               for tracer 13: zooplankton_01
+ 1.8000E+02  Tnudg(14)       Nudging/relaxation time scale (days)
+                               for tracer 14: PIC_01
+ 1.8000E+02  Tnudg(15)       Nudging/relaxation time scale (days)
+                               for tracer 15: TI13C
+ 1.8000E+02  Tnudg(16)       Nudging/relaxation time scale (days)
+                               for tracer 16: DO13C_01
+ 1.8000E+02  Tnudg(17)       Nudging/relaxation time scale (days)
+                               for tracer 17: DO13C_02
+ 1.8000E+02  Tnudg(18)       Nudging/relaxation time scale (days)
+                               for tracer 18: PO13C_01
+ 1.8000E+02  Tnudg(19)       Nudging/relaxation time scale (days)
+                               for tracer 19: PO13C_02
+ 1.8000E+02  Tnudg(20)       Nudging/relaxation time scale (days)
+                               for tracer 20: phyt13C_01
+ 1.8000E+02  Tnudg(21)       Nudging/relaxation time scale (days)
+                               for tracer 21: phyt13C_02
+ 1.8000E+02  Tnudg(22)       Nudging/relaxation time scale (days)
+                               for tracer 22: phyt13C_03
+ 1.8000E+02  Tnudg(23)       Nudging/relaxation time scale (days)
+                               for tracer 23: zoop13C_01
+ 1.8000E+02  Tnudg(24)       Nudging/relaxation time scale (days)
+                               for tracer 24: PI13C_01
+ 1.8000E+02  Tnudg(25)       Nudging/relaxation time scale (days)
+                               for tracer 25: NO3
+ 1.8000E+02  Tnudg(26)       Nudging/relaxation time scale (days)
+                               for tracer 26: NH4
+ 1.8000E+02  Tnudg(27)       Nudging/relaxation time scale (days)
+                               for tracer 27: PO4
+ 1.8000E+02  Tnudg(28)       Nudging/relaxation time scale (days)
+                               for tracer 28: DON_01
+ 1.8000E+02  Tnudg(29)       Nudging/relaxation time scale (days)
+                               for tracer 29: DON_02
+ 1.8000E+02  Tnudg(30)       Nudging/relaxation time scale (days)
+                               for tracer 30: PON_01
+ 1.8000E+02  Tnudg(31)       Nudging/relaxation time scale (days)
+                               for tracer 31: PON_02
+ 1.8000E+02  Tnudg(32)       Nudging/relaxation time scale (days)
+                               for tracer 32: DOP_01
+ 1.8000E+02  Tnudg(33)       Nudging/relaxation time scale (days)
+                               for tracer 33: DOP_02
+ 1.8000E+02  Tnudg(34)       Nudging/relaxation time scale (days)
+                               for tracer 34: POP_01
+ 1.8000E+02  Tnudg(35)       Nudging/relaxation time scale (days)
+                               for tracer 35: POP_02
+          T  Hout(idTvar)    Write out tracer 03: TIC
+          T  Hout(idTvar)    Write out tracer 04: alkalinity
+          T  Hout(idTvar)    Write out tracer 05: oxygen
+          T  Hout(idTvar)    Write out tracer 06: DOC_01
+          T  Hout(idTvar)    Write out tracer 07: DOC_02
+          T  Hout(idTvar)    Write out tracer 08: POC_01
+          T  Hout(idTvar)    Write out tracer 09: POC_02
+          T  Hout(idTvar)    Write out tracer 10: phytoplankton_01
+          T  Hout(idTvar)    Write out tracer 11: phytoplankton_02
+          T  Hout(idTvar)    Write out tracer 12: phytoplankton_03
+          T  Hout(idTvar)    Write out tracer 13: zooplankton_01
+          T  Hout(idTvar)    Write out tracer 14: PIC_01
+          T  Hout(idTvar)    Write out tracer 15: TI13C
+          T  Hout(idTvar)    Write out tracer 16: DO13C_01
+          T  Hout(idTvar)    Write out tracer 17: DO13C_02
+          T  Hout(idTvar)    Write out tracer 18: PO13C_01
+          T  Hout(idTvar)    Write out tracer 19: PO13C_02
+          T  Hout(idTvar)    Write out tracer 20: phyt13C_01
+          T  Hout(idTvar)    Write out tracer 21: phyt13C_02
+          T  Hout(idTvar)    Write out tracer 22: phyt13C_03
+          T  Hout(idTvar)    Write out tracer 23: zoop13C_01
+          T  Hout(idTvar)    Write out tracer 24: PI13C_01
+          T  Hout(idTvar)    Write out tracer 25: NO3
+          T  Hout(idTvar)    Write out tracer 26: NH4
+          T  Hout(idTvar)    Write out tracer 27: PO4
+          T  Hout(idTvar)    Write out tracer 28: DON_01
+          T  Hout(idTvar)    Write out tracer 29: DON_02
+          T  Hout(idTvar)    Write out tracer 30: PON_01
+          T  Hout(idTvar)    Write out tracer 31: PON_02
+          T  Hout(idTvar)    Write out tracer 32: DOP_01
+          T  Hout(idTvar)    Write out tracer 33: DOP_02
+          T  Hout(idTvar)    Write out tracer 34: POP_01
+          T  Hout(idTvar)    Write out tracer 35: POP_02
+          T  Hout(iHbio2)    Write out pH
+          T  Hout(iHbio2)    Write out Omega_arg
+          T  Hout(iHbio2)    Write out CO2_airsea
+          T  Hout(iHbio2)    Write out pCO2
+          T  Hout(iHbio2)    Write out O2_airsea
+          T  Hout(iHbio2)    Write out PARbot
+          T  Hout(iHbio2)    Write out Tau_ave
+          T  Hout(iHbio3)    Write out d13C_DIC
+
+ Lateral Boundary Conditions: NLM
+ ============================
+
+ Variable               Grid  West Edge    South Edge   East Edge    North Edge
+ ---------              ----  ----------   ----------   ----------   ----------
+
+ zeta                     1   Chapman Imp  Chapman Imp  Chapman Imp  Chapman Imp
+                          2   Nested       Nested       Nested       Nested
+
+ ubar                     1   Flather      Flather      Flather      Flather
+                          2   Nested       Nested       Nested       Nested
+
+ vbar                     1   Flather      Flather      Flather      Flather
+                          2   Nested       Nested       Nested       Nested
+
+ u                        1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nested
+
+ v                        1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nested
+
+ temp                     1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nested
+
+ salt                     1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nested
+
+ TIC                      1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ alkalinity               1   Nested       Nested       Nested       Nested
+                          2   Nested       Nested       Nested       Nes`       
+
+ oxygen                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ DOC_01                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ DOC_02                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ POC_01                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ POC_02                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ phytoplankton_01         1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ phytoplankton_02         1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ phytoplankton_03         1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ zooplankton_01           1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ PIC_01                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ TI13C                    1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ Node #  7 (pid=       0) is active.
+ Node #  2 (pid=       0) is active.
+ Node #  1 (pid=       0) is active.
+ Node #  3 (pid=       0) is active.
+ Node #  4 (pid=       0) is active.
+ Node #  5 (pid=       0) is active.
+ Node #  6 (pid=       0) is active.
+ Node #  9 (pid=       0) is active.
+ Node #  8 (pid=       0) is active.
+ DO13C_01                 1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ DO13C_02                 1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ PO13C_01                 1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ PO13C_02                 1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ phyt13C_01               1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ phyt13C_02               1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ phyt13C_03               1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ zoop13C_01               1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ PI13C_01                 1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ NO3                      1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ NH4                      1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ PO4                      1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ DON_01                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ DON_02                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ PON_01                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ PON_02                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ DOP_01                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ DOP_02                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ POP_01                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ POP_02                   1   Rad + Nud    Rad + Nud    Rad + Nud    Rad + Nud
+                          2   Nested       Nested       Nested       Nes`       
+
+ tke                      1   Gradient     Gradient     Gradient     Gradient
+                          2   Nested       Nested       Nested       Nested
+
+ Activated C-preprocessing Options:
+
+ YAEYAMA1_2          Y1Y2 Test Case
+ ADD_FSOBC           Adding tidal elevation to processed OBC data.
+ ADD_M2OBC           Adding tidal currents to processed OBC data.
+ ALBEDO              Shortwave radiation with albedo correction.
+ ALBEDO_CLOUD        Albedo as a function of cloudiness.
+ ANA_BIOLOGY         Analytical biology initial conditions.
+ ANA_BPFLUX          Analytical bottom passive tracers fluxes.
+ ANA_BSFLUX          Analytical kinematic bottom salinity flux.
+ ANA_BTFLUX          Analytical kinematic bottom temperature flux.
+ ANA_SPFLUX          Analytical surface passive tracer fluxes.
+ ANA_SRFLUX          Analytical kinematic shortwave radiation flux.
+ !ASSEMBLE_ALL...    Using mpi_isend/mpi_recv in mp_assemble routine.
+ ASSUMED_SHAPE       Using assumed-shape arrays.
+ ATM_PRESS           Impose atmospheric pressure onto sea surface.
+ !BOUNDARY_ALLGATHER Using mpi_allreduce in mp_boundary routine.
+ BULK_FLUXES         Surface bulk fluxes parameterization.
+ !COLLECT_ALL...     Using mpi_isend/mpi_recv in mp_collect routine.
+ DIFF_3DCOEF         Horizontal, time-dependent 3D diffusion coefficient.
+ DJ_GRADPS           Parabolic Splines density Jacobian (Shchepetkin, 2002).
+ DOUBLE_PRECISION    Double precision arithmetic.
+ EMINUSP             Compute Salt Flux using E-P.
+ GLS_MIXING          Generic Length-Scale turbulence closure.
+ LIMIT_BSTRESS       Limit bottom stress to maintain bottom velocity direction.
+ KANTHA_CLAYSON      Kantha and Clayson stability function formulation.
+ LONGWAVE            Compute net longwave radiation internally.
+ MASKING             Land/Sea masking.
+ MIX_S_TS            Mixing of tracers along constant S-surfaces.
+ MIX_S_UV            Mixing of momentum along constant S-surfaces.
+ MPI                 MPI distributed-memory configuration.
+ NESTING             Nesting grids: Composite and Refinement.
+ NONLINEAR           Nonlinear Model.
+ NONLIN_EOS          Nonlinear Equation of State for seawater.
+ NO_LBC_ATT          Not checking NetCDF global attribute NLM_LBC during restart.
+ !ONE_WAY            Two-way nesting in refinement grids.
+ POWER_LAW           Power-law shape time-averaging barotropic filter.
+ PROFILE             Time profiling activated .
+ K_GSCHEME           Third-order upstream advection of TKE fields.
+ RADIATION_2D        Use tangential phase speed in radiation conditions.
+ REDUCE_ALLGATHER    Using mpi_allgather in mp_reduce routine.
+ !RST_SINGLE         Double precision fields in restart NetCDF file.
+ SALINITY            Using salinity.
+ SOLAR_SOURCE        Solar Radiation Source Term.
+ SOLVE3D             Solving 3D Primitive Equations.
+ SSH_TIDES           Add tidal elevation to SSH climatology.
+ TS_U3HADVECTION     Third-order upstream horizontal advection of tracers.
+ TS_C4VADVECTION     Fourth-order centered vertical advection of tracers.
+ TS_DIF2             Harmonic mixing of tracers.
+ TS_SMAGORINSKY      Smagorinksy-like time-dependent diffusion coefficients.
+ UV_ADV              Advection of momentum.
+ UV_COR              Coriolis term.
+ UV_U3HADVECTION     Third-order upstream horizontal advection of 3D momentum.
+ UV_C4VADVECTION     Fourth-order centered vertical advection of momentum.
+ UV_LOGDRAG          Logarithmic bottom stress.
+ UV_TIDES            Add tidal currents to 2D momentum climatologies.
+ UV_VIS2             Harmonic mixing of momentum.
+ UV_SMAGORINSKY      Smagorinksy-like time-dependent viscosity coefficients.
+ VAR_RHO_2D          Variable density barotropic mode.
+ VISC_3DCOEF         Horizontal, time-dependent 3D viscosity coefficient.
+ WET_DRY             Wetting and drying activated.
+
+ CHECKADJ - use caution when activating: TS_SMAGORINSKY
+            REASON: stability problems, WARNING.
+
+ CHECKADJ - use caution when activating: UV_SMAGORINSKY
+            REASON: stability problems, WARNING.
+
+ Process Information:
+
+ Node #  0 (pid=       0) is active.
+
+ INITIAL: Configuring and initializing forward nonlinear model ...
+ *******
+
+    GET_GRID    - angle between XI-axis and EAST: angler
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  0.00000000E+00 Max =  0.00000000E+00)
+    GET_GRID    - Coriolis parameter at RHO-points: f
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  5.72892376E-05 Max =  6.60613253E-05)
+    GET_GRID    - bathymetry at RHO-points: h
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min = -1.00000000E+02 Max =  6.63210010E+03)
+    GET_GRID    - latitude of RHO-points lat_rho
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  2.31369545E+01 Max =  2.69424628E+01)
+    GET_GRID    - latitude of PSI-points lat_psi
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  2.31438538E+01 Max =  2.69356915E+01)
+    GET_GRID    - latitude of U-points: lat_u
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  2.31370873E+01 Max =  2.69424630E+01)
+    GET_GRID    - latitude of V-points: lat_v
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  2.31437209E+01 Max =  2.69356913E+01)
+    GET_GRID    - longitude of RHO-points: lon_rho
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  1.21285592E+02 Max =  1.25952990E+02)
+    GET_GRID    - longitude of PSI-points: lon_psi
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  1.21293246E+02 Max =  1.25945271E+02)
+    GET_GRID    - longitude of U-points: lon_u
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  1.21293144E+02 Max =  1.25945447E+02)
+    GET_GRID    - longitude of V-points: lon_v
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  1.21285695E+02 Max =  1.25952814E+02)
+    GET_GRID    - y-location of RHO-points: y_rho
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  2.56156250E+06 Max =  2.98006250E+06)
+    GET_GRID    - y-location of PSI-points: y-psi
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  2.56231250E+06 Max =  2.97931250E+06)
+    GET_GRID    - y-location of U-points: y_u
+                   (Grid = 01, File: F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc)
+                   (Min =  2.56156250E+06 Max =  2.98006250E+06)
