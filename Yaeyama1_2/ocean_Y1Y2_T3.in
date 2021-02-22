@@ -74,7 +74,7 @@
 ! first so all information arrays can be initialized properly.
 
 !     VARNAME = varinfo.dat
-     VARNAME = ../../COAWST_Eco/ROMS/External/varinfo.dat
+     VARNAME = /gs/hs1/tga-NakamuLab/COAWST/COAWST_Eco/ROMS/External/varinfo.dat
 
 ! Number of nested grids.
 
@@ -107,8 +107,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 5  5                            ! I-direction partition
-      NtileJ == 2  2                            ! J-direction partition
+      NtileI == 8  8                            ! I-direction partition
+      NtileJ == 7  7                            ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -215,8 +215,8 @@ ad_VolCons(north) ==  F F                         ! northern boundary
 ! Time-Stepping parameters.
 
       NTIMES == 172800  345600
-          DT == 60.0d0  30.0d0
-     NDTFAST == 30      30
+          DT == 40.0d0  20.0d0
+     NDTFAST == 20      20
 
 ! Model iteration loops parameters.
 
@@ -238,7 +238,7 @@ ad_VolCons(north) ==  F F                         ! northern boundary
        NRREC == 0      0
 !       NRREC == -1     -1
    LcycleRST == T      T
-        NRST == 1440   2880
+        NRST == 2160   4320
 !        NRST == 1      1   !!!!!!!!!!!! for Debug
         NSTA == 1      1
         NFLT == 1      1
@@ -247,7 +247,7 @@ ad_VolCons(north) ==  F F                         ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T     T
-        NHIS == 60    120  ! 1 hour interval
+        NHIS == 90    180  ! 1 hour interval
 !        NHIS == 5    10
      NDEFHIS == 0     0
         NQCK == 0     0
@@ -539,7 +539,7 @@ Hout(idVbar) == 2*T       ! vbar               2D V-velocity
 Hout(idu2dE) == 2*F       ! ubar_eastward      2D U-eastward  at RHO-points
 Hout(idv2dN) == 2*F       ! vbar_northward     2D V-northward at RHO-points
 Hout(idFsur) == 2*T       ! zeta               free-surface
-Hout(idBath) == 2*T       ! bath               time-dependent bathymetry
+Hout(idBath) == 2*F       ! bath               time-dependent bathymetry
 
 Hout(idTvar) == 2*T 2*T     ! temp, salt         temperature and salinity
 
@@ -954,12 +954,12 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc   \
-                F:/COAWST_DATA/Yaeyama/Yaeyama2/Grid/Yaeyama2_grd_v11.nc
-!     ININAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_HYCOMwNAO_Nz15_20140502.00.nc  \
-!                F:/COAWST_DATA/Yaeyama/Yaeyama2/Ini/Yaeyama2_ini_HYCOMwNAO_Nz15_20140502.00.nc   
-     ININAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_JCOPET_Nz15_20190801.00.nc \
-                F:/COAWST_DATA/Yaeyama/Yaeyama2/Ini/Yaeyama2_ini_JCOPET_Nz15_20190801.00.nc   
+     GRDNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc   \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Grid/Yaeyama2_grd_v11.nc
+!     ININAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_HYCOMwNAO_Nz15_20140502.00.nc  \
+!                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Ini/Yaeyama2_ini_HYCOMwNAO_Nz15_20140502.00.nc   
+     ININAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_JCOPET_Nz15_20190801.00.nc \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Ini/Yaeyama2_ini_JCOPET_Nz15_20190801.00.nc   
      ITLNAME ==
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -970,7 +970,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 ! NetCDF file is special and complex. It is currently generated using
 ! the script "matlab/grid/contact.m" from the Matlab repository.
 
-     NGCNAME =  F:/COAWST_DATA/Yaeyama/nest/Yaeyama_ngc_2g_Y1Y2_v1.1.nc
+     NGCNAME =  /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/nest/Yaeyama_ngc_2g_Y1Y2_v1.1.nc
 
 ! Input lateral boundary conditions and climatology file names.  The
 ! USER has the option to split input data time records into several
@@ -982,12 +982,12 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-!     BRYNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140501.00.nc  |
-!                F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140601.00.nc  |
-!                F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140701.00.nc  |
-!                F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140801.00.nc  |
-!                F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140901.00.nc
-     BRYNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_20190101.00.nc
+!     BRYNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140501.00.nc  |
+!                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140601.00.nc  |
+!                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140701.00.nc  |
+!                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140801.00.nc  |
+!                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20140901.00.nc
+     BRYNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_20190101.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -995,12 +995,12 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == F:/COAWST_DATA/Yaeyama/Yaeyama2/River/Yaeyama2_river_Nz15_const_CarbonTrace_1900_2100.nc  \ ! dummy
-                F:/COAWST_DATA/Yaeyama/Yaeyama2/River/Yaeyama2_river_Nz15_const_CarbonTrace_1900_2100.nc
+     SSFNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/River/Yaeyama2_river_Nz15_const_CarbonTrace_1900_2100.nc  \ ! dummy
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/River/Yaeyama2_river_Nz15_const_CarbonTrace_1900_2100.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -1022,10 +1022,10 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2 2                        ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20190101_1.nc   \  ! forcing file 1, grid 1
-                F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20190101_2.nc   \  ! forcing file 1, grid 1
-                F:/COAWST_DATA/Yaeyama/Yaeyama2/Air/Yaeyama2_frc_MSMgb_20190101_1.nc   \  ! forcing file 1, grid 1
-                F:/COAWST_DATA/Yaeyama/Yaeyama2/Air/Yaeyama2_frc_MSMgb_20190101_2.nc      ! forcing file 1, grid 1
+     FRCNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20190101_1.nc   \  ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20190101_2.nc   \  ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Air/Yaeyama2_frc_MSMgb_20190101_1.nc   \  ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Air/Yaeyama2_frc_MSMgb_20190101_2.nc      ! forcing file 1, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
@@ -1035,10 +1035,10 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 !                D:/ROMS/output/Yaeyama/test_2g/Y3_rst_14.nc
 !     HISNAME == D:/ROMS/output/Yaeyama/test_2g/Y2_his_14.nc  \
 !                D:/ROMS/output/Yaeyama/test_2g/Y3_his_14.nc
-     RSTNAME == Y1_rst_nst_190801.nc  \
-                Y2_rst_nst_190801.nc
-     HISNAME == Y1_his_nst_190801.nc  \
-                Y2_his_nst_190801.nc
+     RSTNAME == Y1_rst_nst_ctrace_20190801.nc  \
+                Y2_rst_nst_ctrace_20190801.nc
+     HISNAME == Y1_his_nst_ctrace_20190801.nc  \
+                Y2_his_nst_ctrace_20190801.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

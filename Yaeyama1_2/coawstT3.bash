@@ -189,8 +189,8 @@ export   WW3_SWITCH_FILE=sandy_coupled
 
 #export        USE_OpenMP=on            # shared-memory parallelism
 
-#export              FORT=ifort
- export              FORT=gfortran
+ export              FORT=ifort
+#export              FORT=gfortran
 #export              FORT=pgi
 
 #export         USE_DEBUG=on            # use Fortran debugging flags
@@ -327,7 +327,7 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
             export     NF_CONFIG=/opt/intelsoft/mpich2/netcdf4/bin/nf-config
             export NETCDF_INCDIR=/opt/intelsoft/mpich2/netcdf4/include
           elif [ "${which_MPI}" = "openmpi" ]; then
-            module load hdf5
+            module load hdf5-parallel
             module load netcdf-parallel
           fi
         else
@@ -377,7 +377,7 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
             export     NF_CONFIG=/opt/pgisoft/mpich2/netcdf4/bin/nf-config
             export NETCDF_INCDIR=/opt/pgisoft/mpich2/netcdf4/include
           elif [ "${which_MPI}" = "openmpi" ]; then
-            module load hdf5
+            module load hdf5-parallel
             module load netcdf-parallel
           fi
         else
@@ -419,7 +419,7 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
             export     NF_CONFIG=/opt/gfortransoft/mpich2/netcdf4/bin/nf-config
             export NETCDF_INCDIR=/opt/gfortransoft/mpich2/netcdf4/include
           elif [ "${which_MPI}" = "openmpi" ]; then
-            module load hdf5
+            module load hdf5-parallel
             module load netcdf-parallel
           fi
         else
