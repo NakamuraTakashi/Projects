@@ -14,10 +14,16 @@
 **                     sediment_inlet_test.in
 */
 #define ROMS_MODEL
-/*#define SWAN_MODEL*/
-/*#define MCT_LIB*/
 
 #define NO_LBC_ATT
+/*#define PARALLEL_IO*/
+/*#define HDF5*/
+/*#define PNETCDF*/
+
+/*#define NESTING*/
+/*#define NESTING_DEBUG*/
+/*#define ONE_WAY*/
+/*#define QUADRATIC_WEIGHTS*/
 
 #define SOLVE3D
 
@@ -87,15 +93,16 @@
 #ifdef BULK_FLUXES
 # define LONGWAVE
 # define EMINUSP
-# define ANA_SRFLUX
-# define COOL_SKIN
-# define ALBEDO_CLOUD
 /*# define ANA_CLOUD*/
 /*# define ANA_HUMID*/
 /*# define ANA_PAIR*/
 /*# define ANA_TAIR*/
 /*# define ANA_RAIN*/
 /*# define ANA_WINDS*/
+# define ANA_SRFLUX
+# define ALBEDO_CLOUD
+/*# define LOCAL_TIME +9.0*/
+/*# define DIURNAL_SRFLUX*/
 #else
 # define ANA_SMFLUX
 # define ANA_STFLUX
@@ -103,12 +110,15 @@
 
 
 /*** waves-ocean (SWAN/ROMS) two-way coupling. ***/
-#ifdef SWAN_MODEL
+
+/*#define SWAN_COUPLING*/
+#ifdef SWAN_COUPLING
 # define WEC_MELLOR
 /*# define WEC_VF*/
 # define WDISS_WAVEMOD
 # define UV_KIRBY
 #endif
+/*#define AIR_OCEAN*/
 
 /* define only one of the following 5 */
 #define UV_LOGDRAG
@@ -191,6 +201,23 @@
 # endif
 #endif
 
+/*** Vegetation ***/
+/*#define VEGETATION*/
+#ifdef VEGETATION 
+# define MANGROVE /*** Original CPP flag ***/
+# define ANA_VEGETATION 
+# define VEG_DRAG
+# ifdef VEG_DRAG
+/*#  define VEG_FLEX*/
+/*#  define VEG_TURB*/
+# endif
+/*# define VEG_SWAN_COUPLING*/
+# ifdef VEG_SWAN_COUPLING
+#  define VEG_STREAMING ! dependence to WEC_VF/BOTTOM_STREAMING
+# endif
+/*# define MARSH_WAVE_THRUST*/
+#endif
+
 /*** submarine groundwater discharge ***/
 
 /*#define SGD_ON*/    /*Original CPP flag */
@@ -198,13 +225,14 @@
 /***  Biological model options. (Original CPP flags) ***/
 
 /*#define REEF_ECOSYS*/
+
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
-# define ANA_TOBC_BIO   /*Original CPP flag */
+/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 /* compartments */
-/*# define ORGANIC_MATTER*/
+# define ORGANIC_MATTER
 /*# define CARBON_ISOTOPE*/
 # define NUTRIENTS
 
@@ -223,13 +251,12 @@
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
-#  define CORAL_ZOOXANTHELLAE
-#  define CORAL_PHOTOINHIBITION
-/*#  define CORAL_MUCUS*/           /*Mucus release from coral */
+/*#  define CORAL_ZOOXANTHELLAE*/
+#  define CORAL_MUCUS           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
-/*#   define CORAL_INGESTION*/
+#   define CORAL_INGESTION
 #  endif
-#  define CORAL_SIZE_DYNAMICS
+/*#  define CORAL_SIZE_DYNAMICS*/
 #  if defined CARBON_ISOTOPE
 #   define CORAL_CARBON_ISOTOPE
 /*#   define CORAL_NONE_CO2_EQ*/
@@ -241,4 +268,3 @@
 # endif
 
 #endif
-

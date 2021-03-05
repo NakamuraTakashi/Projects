@@ -110,7 +110,7 @@ export   ROMS_APPLICATION=${COAWST_APPLICATION}
 
 # Set a local environmental variable to define the path to the directories
 # where all this project's files are kept.
-export   MY_ROOT_DIR=${HOME}/COAWST/COAWST_Eco
+export   MY_ROOT_DIR=/gs/hs1/tga-NakamuLab/COAWST/COAWST_Eco
 export   MY_PROJECT_DIR=${PWD}
 
 # The path to the user's local current ROMS source code.
@@ -186,17 +186,18 @@ export   WW3_SWITCH_FILE=sandy_coupled
 #export         which_MPI=mpich         # compile with MPICH library
 #export         which_MPI=mpich2        # compile with MPICH2 library
  export         which_MPI=openmpi       # compile with OpenMPI library
+#export         which_MPI=intelmpi      # compile with IntelMPI library
 
 #export        USE_OpenMP=on            # shared-memory parallelism
 
-#export              FORT=ifort
- export              FORT=gfortran
+ export              FORT=ifort
+#export              FORT=gfortran
 #export              FORT=pgi
 
 #export         USE_DEBUG=on            # use Fortran debugging flags
  export         USE_LARGE=on            # activate 64-bit compilation
  export       USE_NETCDF4=on            # compile with NetCDF-4 library
-#export   USE_PARALLEL_IO=on            # Parallel I/O with Netcdf-4/HDF5
+ export   USE_PARALLEL_IO=on            # Parallel I/O with Netcdf-4/HDF5
 
  export       USE_MY_LIBS=on            # use my library paths below
 
@@ -215,22 +216,30 @@ export   WW3_SWITCH_FILE=sandy_coupled
 if [ -n "${USE_MPIF90:+1}" ]; then
   case "$FORT" in
     ifort )
+
+      module load cuda intel
+      
       if [ "${which_MPI}" = "mpich" ]; then
         export PATH=/opt/intelsoft/mpich/bin:$PATH
       elif [ "${which_MPI}" = "mpich2" ]; then
         export PATH=/opt/intelsoft/mpich2/bin:$PATH
       elif [ "${which_MPI}" = "openmpi" ]; then
-        export PATH=/opt/intelsoft/openmpi/bin:$PATH
+        module load openmpi
+      elif [ "${which_MPI}" = "intelmpi" ]; then
+        module load intel-mpi
       fi
       ;;
 
     pgi )
+      
+      module load cuda pgi
+      
       if [ "${which_MPI}" = "mpich" ]; then
         export PATH=/opt/pgisoft/mpich/bin:$PATH
       elif [ "${which_MPI}" = "mpich2" ]; then
         export PATH=/opt/pgisoft/mpich2/bin:$PATH
       elif [ "${which_MPI}" = "openmpi" ]; then
-        export PATH=/opt/pgisoft/openmpi/bin:$PATH
+        module load openmpi
       fi
       ;;
 
@@ -238,7 +247,7 @@ if [ -n "${USE_MPIF90:+1}" ]; then
       if [ "${which_MPI}" = "mpich2" ]; then
         export PATH=/opt/gfortransoft/mpich2/bin:$PATH
       elif [ "${which_MPI}" = "openmpi" ]; then
-        export PATH=/usr/bin:$PATH
+        module load cuda openmpi
       fi
       ;;
 
@@ -299,9 +308,14 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
           export  PARPACK_LIBDIR=/opt/intelsoft/mpich2/PARPACK
         elif [ "${which_MPI}" = "openmpi" ]; then
           export        ESMF_DIR=/opt/intelsoft/openmpi/esmf
-          export      MCT_INCDIR=/opt/intelsoft/openmpi/mct/include
-          export      MCT_LIBDIR=/opt/intelsoft/openmpi/mct/lib
+          export      MCT_INCDIR=/gs/hs1/tga-NakamuLab/opt/intel/openmpi/mct/include
+          export      MCT_LIBDIR=/gs/hs1/tga-NakamuLab/opt/intel/openmpi/mct/lib
           export  PARPACK_LIBDIR=/opt/intelsoft/openmpi/PARPACK
+        elif [ "${which_MPI}" = "intelmpi" ]; then
+#          export        ESMF_DIR=/opt/intel/intelmpi/esmf
+          export      MCT_INCDIR=/gs/hs1/tga-NakamuLab/opt/intel/intelmpi/mct2.9.0/include
+          export      MCT_LIBDIR=/gs/hs1/tga-NakamuLab/opt/intel/intelmpi/mct2.9.0/lib
+#          export  PARPACK_LIBDIR=/opt/intelsoft/openmpi/PARPACK
         fi
       fi
 
@@ -314,12 +328,12 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
             export     NF_CONFIG=/opt/intelsoft/mpich2/netcdf4/bin/nf-config
             export NETCDF_INCDIR=/opt/intelsoft/mpich2/netcdf4/include
           elif [ "${which_MPI}" = "openmpi" ]; then
-            export     NF_CONFIG=/opt/intelsoft/openmpi/netcdf4/bin/nf-config
-            export NETCDF_INCDIR=/opt/intelsoft/openmpi/netcdf4/include
+            module load hdf5-parallel
+            module load netcdf-parallel
           fi
         else
-          export       NF_CONFIG=/opt/intelsoft/serial/netcdf4/bin/nf-config
-          export   NETCDF_INCDIR=/opt/intelsoft/serial/netcdf4/include
+          export       NF_CONFIG=/gs/hs1/tga-NakamuLab/opt/intel/netcdf-fortran-4.4.4/bin/nf-config
+          export   NETCDF_INCDIR=/gs/hs1/tga-NakamuLab/opt/intel/netcdf-fortran-4.4.4/include
         fi
       else
         export     NETCDF_INCDIR=/opt/intelsoft/serial/netcdf3/include
@@ -349,8 +363,8 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
           export  PARPACK_LIBDIR=/opt/pgisoft/mpich2/PARPACK
         elif [ "${which_MPI}" = "openmpi" ]; then
           export        ESMF_DIR=/opt/pgisoft/openmpi/esmf
-          export      MCT_INCDIR=/opt/pgisoft/openmpi/mct/include
-          export      MCT_LIBDIR=/opt/pgisoft/openmpi/mct/lib
+          export      MCT_INCDIR=/gs/hs1/tga-NakamuLab/opt/pgi/openmpi/mct/include
+          export      MCT_LIBDIR=/gs/hs1/tga-NakamuLab/opt/pgi/openmpi/mct/lib
           export  PARPACK_LIBDIR=/opt/pgisoft/openmpi/PARPACK
         fi
       fi
@@ -364,8 +378,8 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
             export     NF_CONFIG=/opt/pgisoft/mpich2/netcdf4/bin/nf-config
             export NETCDF_INCDIR=/opt/pgisoft/mpich2/netcdf4/include
           elif [ "${which_MPI}" = "openmpi" ]; then
-            export     NF_CONFIG=/opt/pgisoft/openmpi/netcdf4/bin/nf-config
-            export NETCDF_INCDIR=/opt/pgisoft/openmpi/netcdf4/include
+            module load hdf5-parallel
+            module load netcdf-parallel
           fi
         else
           export       NF_CONFIG=/opt/pgisoft/serial/netcdf4/bin/nf-config
@@ -378,7 +392,7 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
       ;;
 
     gfortran )
-      export             ESMF_OS=GYGWIN
+      export             ESMF_OS=Linux
       export       ESMF_COMPILER=gfortran
       export           ESMF_BOPT=O
       export            ESMF_ABI=64
@@ -394,8 +408,8 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
           export  PARPACK_LIBDIR=/opt/gfortransoft/mpich2/PARPACK
         elif [ "${which_MPI}" = "openmpi" ]; then
           export        ESMF_DIR=/opt/gfortransoft/openmpi/esmf
-          export      MCT_INCDIR=/usr/local/include
-          export      MCT_LIBDIR=/usr/local/lib
+          export      MCT_INCDIR=/gs/hs1/tga-NakamuLab/opt/gnu/openmpi/mct/include
+          export      MCT_LIBDIR=/gs/hs1/tga-NakamuLab/opt/gnu/openmpi/mct/lib
           export  PARPACK_LIBDIR=/opt/gfortransoft/openmpi/PARPACK
         fi
       fi
@@ -406,8 +420,8 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
             export     NF_CONFIG=/opt/gfortransoft/mpich2/netcdf4/bin/nf-config
             export NETCDF_INCDIR=/opt/gfortransoft/mpich2/netcdf4/include
           elif [ "${which_MPI}" = "openmpi" ]; then
-            export     NF_CONFIG=/usr/bin/nf-config
-            export NETCDF_INCDIR=/usr/include
+            module load hdf5-parallel
+            module load netcdf-parallel
           fi
         else
           export       NF_CONFIG=/usr/bin/nf-config

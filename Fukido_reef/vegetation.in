@@ -51,17 +51,17 @@
 ! Logical switches (TRUE/FALSE) to activate writing of vegetation fields
 ! into HISTORY output file: [1:NVEG,Ngrids].
 
-Hout(ipdens)   == F T       ! Plant_density      Density of the plant for each vegetation
-Hout(iphght)   == F T       ! Plant_height       Height of the plant for each vegetation
-Hout(ipdiam)   == F T       ! Plant_diameter     Diameter of the plant for each vegetation
-Hout(ipthck)   == F T       ! Plant_thickness    Thickness of the plant for each vegetation
-Hout(ipagbm)   == F T       ! Plant_agb          Above ground plant biomass
-Hout(ipbgbm)   == F T       ! Plant_bgb          Below ground plant biomass
-Hout(idWdvg)   == F T       ! Dissip_veg         Wave dissipation due to vegetation
-Hout(idTims)   == F T       ! marsh_mask         masking for getting thrust due to waves
-Hout(idTmsk)   == F T       ! mask_thrust        masking for getting thrust due to waves
-Hout(idTmax)   == F T       ! Thrust_max         maxmimum thrust due to waves
-Hout(idTton)   == F T       ! Thrust_tonelli     Tonelli masking based thrust due to waves
+Hout(ipdens)   == T T       ! Plant_density      Density of the plant for each vegetation
+Hout(iphght)   == T T       ! Plant_height       Height of the plant for each vegetation
+Hout(ipdiam)   == T T       ! Plant_diameter     Diameter of the plant for each vegetation
+Hout(ipthck)   == T T       ! Plant_thickness    Thickness of the plant for each vegetation
+Hout(ipagbm)   == T T       ! Plant_agb          Above ground plant biomass
+Hout(ipbgbm)   == T T       ! Plant_bgb          Below ground plant biomass
+Hout(idWdvg)   == T T       ! Dissip_veg         Wave dissipation due to vegetation
+Hout(idTims)   == T T       ! marsh_mask         masking for getting thrust due to waves
+Hout(idTmsk)   == T T       ! mask_thrust        masking for getting thrust due to waves
+Hout(idTmax)   == T T       ! Thrust_max         maxmimum thrust due to waves
+Hout(idTton)   == T T       ! Thrust_tonelli     Tonelli masking based thrust due to waves
 
 !
 !  GLOSSARY:

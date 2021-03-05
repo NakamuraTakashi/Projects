@@ -24,6 +24,9 @@
 /*#define NESTING_DEBUG*/
 /*#define ONE_WAY*/
 /*#define QUADRATIC_WEIGHTS*/
+#define REFINE_LINIEAR_DUV_AVE2_BOUNDS   /*Original CPP flag */
+
+#define AVERAGES
 
 #define SOLVE3D
 
@@ -86,7 +89,6 @@
 /*#define ANA_FSOBC*/
 /*#define ANA_M2OBC*/
 /*#define ANA_TOBC*/
-/*#define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 #define SOLAR_SOURCE
 
@@ -230,6 +232,7 @@
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
+/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 /* compartments */
 # define ORGANIC_MATTER

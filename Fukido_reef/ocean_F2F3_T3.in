@@ -74,7 +74,7 @@
 ! first so all information arrays can be initialized properly.
 
 !     VARNAME = varinfo.dat
-     VARNAME = ../../COAWST_Eco/ROMS/External/varinfo.dat
+     VARNAME = /gs/hs1/tga-NakamuLab/COAWST/COAWST_Eco/ROMS/External/varinfo.dat
 
 ! Number of nested grids.
 
@@ -107,8 +107,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 1   5                            ! I-direction partition
-      NtileJ == 10  2                            ! J-direction partition
+      NtileI == 1   28                            ! I-direction partition
+      NtileJ == 28  1                            ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -242,7 +242,7 @@ ad_VolCons(north) ==  F F                         ! northern boundary
 !       NRREC == -1     -1
    LcycleRST == T      T
 !        NRST == 450   1800
-        NRST == 15     60
+        NRST == 10800 43200
 !        NRST == 1     1   !!!!!!!!!!!! for Debug
         NSTA == 1      1
         NFLT == 1      1
@@ -257,7 +257,7 @@ ad_VolCons(north) ==  F F                         ! northern boundary
         NQCK == 0     0
      NDEFQCK == 0     0
       NTSAVG == 1     1
-        NAVG == 900   3600
+        NAVG == 10800 43200
 !        NAVG == 600   1800
      NDEFAVG == 0     0
       NTSDIA == 1     1
@@ -959,10 +959,10 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/Yaeyama/Fukido2/Grid/Fukido2_20m_grd_v6.7.nc   \
-                F:/COAWST_DATA/Yaeyama/Fukido3/Grid/Fukido3_4m_grd_v4.1.nc
-     ININAME == F:/COAWST_DATA/Yaeyama/Fukido2/Ini/Fukido2_ini_Nz8_20190805.00.nc \
-                F:/COAWST_DATA/Yaeyama/Fukido3/Ini/Fukido3_ini_Nz8_20190805.00.nc
+     GRDNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Fukido2/Grid/Fukido2_20m_grd_v6.7.nc   \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Fukido3/Grid/Fukido3_4m_grd_v4.1.nc
+     ININAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Fukido2/Ini/Fukido2_ini_Nz8_20190805.00.nc \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Fukido3/Ini/Fukido3_ini_Nz8_20190805.00.nc
 !     ININAME == Fukido2_2wnst_his_20190805_2.nc \
 !                Fukido3_2wnst_his_20190805_2.nc
      ITLNAME == ocean_itl.nc
@@ -975,7 +975,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 ! NetCDF file is special and complex. It is currently generated using
 ! the script "matlab/grid/contact.m" from the Matlab repository.
 
-     NGCNAME =  F:/COAWST_DATA/Yaeyama/nest/Fukido_ngc_2g_F2F3_v5.0.nc
+     NGCNAME =  /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/nest/Fukido_ngc_2g_F2F3_v5.0.nc
 
 ! Input lateral boundary conditions and climatology file names.  The
 ! USER has the option to split input data time records into several
@@ -987,7 +987,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/Yaeyama/Fukido2/Bry/Fukido2_bry_Nz8_20190803.00.nc
+     BRYNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Fukido2/Bry/Fukido2_bry_Nz8_20190803.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -995,8 +995,8 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == F:/COAWST_DATA/Yaeyama/Fukido2/River/Fukido2_river_Lw_const_1990_2050.nc \  ! dummy input for Fukido2
-                F:/COAWST_DATA/Yaeyama/Fukido3/River/Fukido3_river_Lw_const_1990_2050.nc
+     SSFNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Fukido2/River/Fukido2_river_Lw_const_1990_2050.nc \  ! dummy input for Fukido2
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Fukido3/River/Fukido3_river_Lw_const_1990_2050.nc
 
 ! Input forcing NetCDF file name(s).  The USER has the option to enter
 ! several file names for each nested grid.  For example, the USER may
@@ -1012,31 +1012,31 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 8 8                        ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_cloud.nc \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_swrad.nc \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_lwrad_down.nc \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_cloud.nc \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_swrad.nc \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_lwrad_down.nc
+     FRCNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_cloud.nc \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_swrad.nc \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_lwrad_down.nc \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_cloud.nc \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_swrad.nc \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_lwrad_down.nc
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == Fukido2_2wnst_rst_20190805_2.nc  \
-                Fukido3_2wnst_rst_20190805_2.nc
-     HISNAME == Fukido2_2wnst_his_20190805_2.nc  \
-                Fukido3_2wnst_his_20190805_2.nc
+     RSTNAME == Fukido2_2wnst_rst_20190805.nc  \
+                Fukido3_2wnst_rst_20190805.nc
+     HISNAME == Fukido2_2wnst_his_20190805.nc  \
+                Fukido3_2wnst_his_20190805.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
