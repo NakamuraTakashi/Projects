@@ -946,7 +946,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! Input NetCDF file names, [1:Ngrids].
 
      GRDNAME == F:/COAWST_DATA/Yaeyama/Fukido2/Grid/Fukido2_20m_grd_v6.6.nc
-     ININAME == F:/COAWST_DATA/Yaeyama/Fukido2/ini/Fukido2_ini_Nz8_20190805.00.nc
+     ININAME == F:/COAWST_DATA/Yaeyama/Fukido2/Ini/Fukido2_ini_Nz8_20190805.00.nc
 !     ININAME == Fukido1_his_20190803.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc

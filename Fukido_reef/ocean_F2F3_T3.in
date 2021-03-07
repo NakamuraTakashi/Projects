@@ -107,8 +107,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 1   28                            ! I-direction partition
-      NtileJ == 28  1                            ! J-direction partition
+      NtileI == 2   14                            ! I-direction partition
+      NtileJ == 14  2                            ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -246,7 +246,7 @@ ad_VolCons(north) ==  F F                         ! northern boundary
 !        NRST == 1     1   !!!!!!!!!!!! for Debug
         NSTA == 1      1
         NFLT == 1      1
-       NINFO == 1      1
+       NINFO == 45     180
 
 ! Output history, average, diagnostic files parameters.
 
@@ -452,7 +452,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! (like river runoff) and to specify which tracer variables to consider:
 ! [1:NAT+NPT,Ngrids].  See glossary below for details.
 
-  LtracerSrc == T T  T T                        ! temperature, salinity, inert
+  LtracerSrc == F T  F T                        ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to read and process climatology fields.
 ! See glossary below for details.

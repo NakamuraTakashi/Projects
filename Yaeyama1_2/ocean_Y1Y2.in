@@ -214,8 +214,8 @@ ad_VolCons(north) ==  F F                         ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 172800  345600
-          DT == 60.0d0  30.0d0
+      NTIMES == 216000  648000
+          DT == 60.0d0  20.0d0
      NDTFAST == 30      30
 
 ! Model iteration loops parameters.
@@ -238,7 +238,7 @@ ad_VolCons(north) ==  F F                         ! northern boundary
        NRREC == 0      0
 !       NRREC == -1     -1
    LcycleRST == T      T
-        NRST == 1440   2880
+        NRST == 1440   4320
 !        NRST == 1      1   !!!!!!!!!!!! for Debug
         NSTA == 1      1
         NFLT == 1      1
@@ -247,7 +247,7 @@ ad_VolCons(north) ==  F F                         ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T     T
-        NHIS == 60    120  ! 1 hour interval
+        NHIS == 60    180  ! 1 hour interval
 !        NHIS == 5    10
      NDEFHIS == 0     0
         NQCK == 0     0
@@ -447,7 +447,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! (like river runoff) and to specify which tracer variables to consider:
 ! [1:NAT+NPT,Ngrids].  See glossary below for details.
 
-  LtracerSrc == T T  T T                   ! temperature, salinity, inert
+  LtracerSrc == F T  F T                   ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to read and process climatology fields.
 ! See glossary below for details.
@@ -955,7 +955,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 ! Input NetCDF file names, [1:Ngrids].
 
      GRDNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc   \
-                F:/COAWST_DATA/Yaeyama/Yaeyama2/Grid/Yaeyama2_grd_v11.nc
+                F:/COAWST_DATA/Yaeyama/Yaeyama2/Grid/Yaeyama2_grd_v11.1.nc
 !     ININAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_HYCOMwNAO_Nz15_20140502.00.nc  \
 !                F:/COAWST_DATA/Yaeyama/Yaeyama2/Ini/Yaeyama2_ini_HYCOMwNAO_Nz15_20140502.00.nc   
      ININAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_JCOPET_Nz15_20190801.00.nc \
@@ -970,7 +970,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 ! NetCDF file is special and complex. It is currently generated using
 ! the script "matlab/grid/contact.m" from the Matlab repository.
 
-     NGCNAME =  F:/COAWST_DATA/Yaeyama/nest/Yaeyama_ngc_2g_Y1Y2_v1.1.nc
+     NGCNAME =  F:/COAWST_DATA/Yaeyama/nest/Yaeyama_ngc_2g_Y1Y2_v1.2.nc
 
 ! Input lateral boundary conditions and climatology file names.  The
 ! USER has the option to split input data time records into several

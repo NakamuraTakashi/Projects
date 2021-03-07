@@ -452,7 +452,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! (like river runoff) and to specify which tracer variables to consider:
 ! [1:NAT+NPT,Ngrids].  See glossary below for details.
 
-  LtracerSrc == T T  T T                        ! temperature, salinity, inert
+  LtracerSrc == F T  F T                        ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to read and process climatology fields.
 ! See glossary below for details.
@@ -1033,16 +1033,16 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == Fukido2_2wnst_rst_20190805_2.nc  \
-                Fukido3_2wnst_rst_20190805_2.nc
-     HISNAME == Fukido2_2wnst_his_20190805_2.nc  \
-                Fukido3_2wnst_his_20190805_2.nc
+     RSTNAME == Fukido2_2wnst_rst_20190805_riverLwtest.nc  \
+                Fukido3_2wnst_rst_20190805_riverLwtest.nc
+     HISNAME == Fukido2_2wnst_his_20190805_riverLwtest.nc  \
+                Fukido3_2wnst_his_20190805_riverLwtest.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
-     AVGNAME == Fukido2_2wnst_avg_20190805.nc  \
-                Fukido3_2wnst_avg_20190805.nc
+     AVGNAME == Fukido2_2wnst_avg_20190805_riverLwtest.nc  \
+                Fukido3_2wnst_avg_20190805_riverLwtest.nc
      DIANAME == ocean_dia.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc

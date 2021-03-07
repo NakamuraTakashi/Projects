@@ -226,8 +226,8 @@ Dout(iTvdif) == 24*F    ! NO3_vdiff, ...     vertical diffusion
 !  =========
 !
 !------------------------------------------------------------------------------
-! Fennel et al (2006), Nitrogen-based Biological Model Parameters. Currently,
-! it can be configured with 12 biological tracers:
+! Coral Reef Ecosystem Model Parameters. Currently,
+! it can be configured with 45 biological tracers:
 !
 ! idbio( 1), idbio( 1), idbio( 1), idbio( 1),   alkalinity
 ! idbio( 2), idbio( 2), idbio( 2), idbio( 2),   TIC
