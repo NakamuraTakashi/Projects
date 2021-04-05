@@ -977,7 +977,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 ! NetCDF file is special and complex. It is currently generated using
 ! the script "matlab/grid/contact.m" from the Matlab repository.
 
-     NGCNAME =  /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/nest/Yaeyama_ngc_2g_Y1Y2_v1.2.nc
+     NGCNAME =  /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/nest/Yaeyama_ngc_2g_Y1Y2_v1.3.nc
 
 ! Input lateral boundary conditions and climatology file names.  The
 ! USER has the option to split input data time records into several
