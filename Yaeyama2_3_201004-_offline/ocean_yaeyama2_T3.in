@@ -64,16 +64,16 @@
 !
 ! Application title.
 
-       TITLE = Shiraho Reef Case
+       TITLE = YAEYAMA2 Test Case
 
 ! C-preprocessing Flag.
 
-    MyAppCPP = SHIRAHO_REEF
+    MyAppCPP = YAEYAMA2_3
 
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
 
-     VARNAME = ../../COAWST_Eco/ROMS/External/varinfo.dat
+     VARNAME = /gs/hs1/tga-NakamuLab/COAWST/COAWST_Eco/ROMS/External/varinfo.dat
 
 ! Number of nested grids.
 
@@ -91,23 +91,23 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 62            ! Number of I-direction INTERIOR RHO-points
-          Mm == 190           ! Number of J-direction INTERIOR RHO-points
-           N == 8             ! Number of vertical levels
+          Lm == 300           ! Number of I-direction INTERIOR RHO-points
+          Mm == 300           ! Number of J-direction INTERIOR RHO-points
+           N == 15            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
 
          NAT =  2             ! Number of active tracers (usually, 2)
          NPT =  0             ! Number of inactive passive tracers
-         NCS =  2             ! Number of cohesive (mud) sediment tracers  !!! changed for Ando-kun's simulation
+         NCS =  1             ! Number of cohesive (mud) sediment tracers
          NNS =  0             ! Number of non-cohesive (sand) sediment tracers
 
 ! Domain decomposition parameters for serial, distributed-memory or
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 1   !1   !2   !6                            ! I-direction partition
-      NtileJ == 10   !3   !10  !20                            ! J-direction partition
+      NtileI == 7                               ! I-direction partition
+      NtileJ == 8                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -145,15 +145,15 @@
 !
 !                   1       2       3       4
 
-   LBC(isFsur) ==   Clo     Clo     Cha     Clo         ! free-surface
-   LBC(isUbar) ==   Clo     Clo     Fla     Clo         ! 2D U-momentum
-   LBC(isVbar) ==   Clo     Clo     Rad     Clo         ! 2D V-momentum
-   LBC(isUvel) ==   Clo     Clo     Rad     Clo         ! 3D U-momentum
-   LBC(isVvel) ==   Clo     Clo     Rad     Clo         ! 3D V-momentum
-   LBC(isMtke) ==   Clo     Clo     Gra     Clo         ! mixing TKE
+   LBC(isFsur) ==   Cha     Cha     Cha     Cha         ! free-surface
+   LBC(isUbar) ==   Fla     Fla     Fla     Fla         ! 2D U-momentum
+   LBC(isVbar) ==   Fla     Fla     Fla     Fla         ! 2D V-momentum
+   LBC(isUvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D U-momentum
+   LBC(isVvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D V-momentum
+   LBC(isMtke) ==   Gra     Gra     Gra     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
                                                
-   LBC(isTvar) ==   Clo     Clo     RadNud  Clo   \    ! temperature
-                    Clo     Clo     RadNud  Clo        ! salinity
+   LBC(isTvar) ==   RadNud  RadNud  RadNud  RadNud \    ! temperature
+                    RadNud  RadNud  RadNud  RadNud      ! salinity
 
 ! Wec boundary conditions
 
@@ -205,9 +205,9 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 259200  ! 259200 -> 15 days
-          DT == 5.0d0    !!!1.0d0
-     NDTFAST == 20
+      NTIMES == 1576800  !! 1576800 => 365 days @ DT=20
+          DT == 20.0d0
+     NDTFAST == 20    
 
 ! Model iteration loops parameters.
 
@@ -228,15 +228,15 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
        NRREC == 0
    LcycleRST == T
-        NRST == 10000
+        NRST == 4320
         NSTA == 1
         NFLT == 1
-       NINFO == 12
+       NINFO == 30
 
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 120
+        NHIS == 180
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
@@ -272,7 +272,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Harmonic/biharmonic horizontal diffusion of tracer for nonlinear model
 ! and adjoint-based algorithms: [1:NAT+NPT,Ngrids].
 
-        TNU2 == 0.5d0  0.5d0                    ! m2/s
+        TNU2 == 0.0d0  0.0d0                    ! m2/s
         TNU4 == 0.0d0  0.0d0                    ! m4/s
 
      ad_TNU2 == 0.0d0  0.0d0                    ! m2/s
@@ -367,13 +367,13 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! stretching function (see below for details), [1:Ngrids].
 
   Vtransform == 2                          !!! transformation equation
- Vstretching == 3                          !!! stretching function
+ Vstretching == 4                          !!! stretching function
 
 ! Vertical S-coordinates parameters (see below for details), [1:Ngrids].
 
-     THETA_S == 1.0d0   !!! 1.0d0                      ! surface stretching parameter
-     THETA_B == 1.0d0   !!! 1.0d0                      ! bottom  stretching parameter
-      TCLINE == 30.0d0  !!! 0.0d0                      ! critical depth (m)
+     THETA_S == 7.0d0   !!! 1.0d0                      ! surface stretching parameter
+     THETA_B == 0.1d0   !!! 1.0d0                      ! bottom  stretching parameter
+      TCLINE == 200.0d0 !!! 0.0d0                      ! critical depth (m)
 
 ! Mean Density and Brunt-Vaisala frequency.
 
@@ -384,7 +384,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! origin for tidal forcing, and model reference time for output
 ! NetCDF units attribute.
 
-      DSTART =  7030.0d0 !0.0d0            ! days   !!!Start time 7030.0d0: 2019/04/01 start
+      DSTART =  0.0d0 !0.0d0               ! days   !!!Start time !0.3d0, 0.54d0, 0.76d0, 1.05d0
   TIDE_START =  0.0d0                      ! days
     TIME_REF =  20000101.00                ! yyyymmdd.dd  !!!Changed
 
@@ -414,11 +414,10 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 
 ! Linear equation of State parameters:
 
-          R0 == 1024.0d0                   ! kg/m3
-!          T0 == 29.5d0                     ! Celsius   !!! Nakamura et al 2018a
-          T0 == 25.0d0                     ! Celsius    !!! For 2019.04 test!!
-          S0 == 34.7d0                     ! nondimensional (PSU)    !!! For 2019.04 test!!
-       TCOEF == 1.7d-4                     ! 1/Celsius
+          R0 == 1028.0d0                   ! kg/m3
+          T0 == 5.0d0                      ! Celsius
+          S0 == 35.0d0                     ! nondimensional
+       TCOEF == 1.0d-4                     ! 1/Celsius
        SCOEF == 7.6d-4                     ! nondimensional
 
 ! Slipperiness parameter: 1.0 (free slip) or -1.0 (no slip)
@@ -429,14 +428,14 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! point Sources/Sinks (like river runoff transport) and mass point
 ! Sources/Sinks (like volume vertical influx), [1:Ngrids].
 
-      LuvSrc == T                          ! horizontal momentum transport
+      LuvSrc == F                          ! horizontal momentum transport
        LwSrc == F                          ! volume vertical influx
 
 ! Logical switches (TRUE/FALSE) to activate tracers point Sources/Sinks
 ! (like river runoff) and to specify which tracer variables to consider:
 ! [1:NAT+NPT,Ngrids].  See glossary below for details.
 
-  LtracerSrc == T T                        ! temperature, salinity, inert
+  LtracerSrc == F F                        ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to read and process climatology fields.
 ! See glossary below for details.
@@ -522,13 +521,13 @@ Hout(idVvel) == T       ! v                  3D V-velocity
 Hout(idu3dE) == F       ! u_eastward         3D U-eastward  at RHO-points
 Hout(idv3dN) == F       ! v_northward        3D V-northward at RHO-points
 Hout(idWvel) == T       ! w                  3D W-velocity
-Hout(idOvel) == T       ! omega              omega vertical velocity
+Hout(idOvel) == F       ! omega              omega vertical velocity
 Hout(idUbar) == T       ! ubar               2D U-velocity
 Hout(idVbar) == T       ! vbar               2D V-velocity
 Hout(idu2dE) == F       ! ubar_eastward      2D U-eastward  at RHO-points
 Hout(idv2dN) == F       ! vbar_northward     2D V-northward at RHO-points
 Hout(idFsur) == T       ! zeta               free-surface
-Hout(idBath) == T       ! bath               time-dependent bathymetry
+Hout(idBath) == F       ! bath               time-dependent bathymetry
 
 Hout(idTvar) == T T     ! temp, salt         temperature and salinity
 
@@ -546,13 +545,13 @@ Hout(idVsms) == F       ! svstr              surface V-stress
 Hout(idUbms) == T       ! bustr              bottom U-stress
 Hout(idVbms) == T       ! bvstr              bottom V-stress
 
-Hout(idUbrs) == F       ! bustrc             bottom U-current stress
-Hout(idVbrs) == F       ! bvstrc             bottom V-current stress
-Hout(idUbws) == F       ! bustrw             bottom U-wave stress
-Hout(idVbws) == F       ! bvstrw             bottom V-wave stress
-Hout(idUbcs) == F       ! bustrcwmax         bottom max wave-current U-stress
-Hout(idVbcs) == F       ! bvstrcwmax         bottom max wave-current V-stress
-Hout(idUVwc) == F       ! bstrcwmax          bottom max wave-current stress magnitude
+Hout(idUbrs) == T       ! bustrc             bottom U-current stress
+Hout(idVbrs) == T       ! bvstrc             bottom V-current stress
+Hout(idUbws) == T       ! bustrw             bottom U-wave stress
+Hout(idVbws) == T       ! bvstrw             bottom V-wave stress
+Hout(idUbcs) == T       ! bustrcwmax         bottom max wave-current U-stress
+Hout(idVbcs) == T       ! bvstrcwmax         bottom max wave-current V-stress
+Hout(idUVwc) == T       ! bstrcwmax          bottom max wave-current stress magnitude
 
 Hout(idUbot) == F       ! Ubot               bed wave orbital U-velocity
 Hout(idVbot) == F       ! Vbot               bed wave orbital V-velocity
@@ -583,10 +582,10 @@ Hout(idU3Sd) == F       ! u_stokes           3D U-Stokes velocity
 Hout(idV3Sd) == F       ! v_stokes           3D V-Stokes velocity
 Hout(idW3Sd) == F       ! omega_stokes       3D Omega-Stokes velocity
 Hout(idW3St) == F       ! w_stokes           3D W-Stokes velocity
-Hout(idWamp) == T       ! Hwave              wave height
-Hout(idWlen) == T       ! Lwave              wave length-mean
-Hout(idWlep) == T       ! Lwavep             wave length-peak
-Hout(idWdir) == T       ! Dwave              wave direction
+Hout(idWamp) == F       ! Hwave              wave height
+Hout(idWlen) == F       ! Lwave              wave length-mean
+Hout(idWlep) == F       ! Lwavep             wave length-peak
+Hout(idWdir) == F       ! Dwave              wave direction
 Hout(idWptp) == F       ! Pwave_top          wave surface period
 Hout(idWpbt) == F       ! Pwave_bot          wave bottom period
 Hout(idWorb) == F       ! Uwave_rms          wave bottom orbital velocity
@@ -602,22 +601,22 @@ Hout(idWrol) == F       ! rollA              wave roller action density
 Hout(idRunoff) == F     ! Runoff             surface runoff from land
 Hout(idPair) == F       ! Pair               surface air pressure
 Hout(idTsur) == F F     ! shflux, ssflux     surface net heat and salt flux
-Hout(idLhea) == T       ! latent             latent heat flux
-Hout(idShea) == T       ! sensible           sensible heat flux
-Hout(idLrad) == T       ! lwrad              longwave radiation flux
+Hout(idLhea) == F       ! latent             latent heat flux
+Hout(idShea) == F       ! sensible           sensible heat flux
+Hout(idLrad) == F       ! lwrad              longwave radiation flux
 Hout(idSrad) == T       ! swrad              shortwave radiation flux
-Hout(idEmPf) == T       ! EminusP            E-P flux
+Hout(idEmPf) == F       ! EminusP            E-P flux
 Hout(idevap) == F       ! evaporation        evaporation rate
 Hout(idrain) == F       ! rain               precipitation rate
 
 Hout(idDano) == F       ! rho                density anomaly
-Hout(idVvis) == T       ! AKv                vertical viscosity
+Hout(idVvis) == F       ! AKv                vertical viscosity
 Hout(idTdif) == F       ! AKt                vertical T-diffusion
-Hout(idSdif) == F       ! AKs                vertical Salinity diffusion
+Hout(idSdif) == T       ! AKs                vertical Salinity diffusion
 Hout(idHsbl) == F       ! Hsbl               depth of surface boundary layer
 Hout(idHbbl) == F       ! Hbbl               depth of bottom boundary layer
-Hout(idMtke) == T       ! tke                turbulent kinetic energy
-Hout(idMtls) == T       ! gls                turbulent length scale
+Hout(idMtke) == F       ! tke                turbulent kinetic energy
+Hout(idMtls) == F       ! gls                turbulent length scale
 
 ! Logical switches (TRUE/FALSE) to activate writing of extra inert passive
 ! tracers other than biological and sediment tracers into the HISTORY
@@ -943,8 +942,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_reef_grid16.3.nc   ! New bathymetry, with new coverage
-     ININAME == ocean_ini.nc
+     GRDNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Grid/Yaeyama2_grd_v11.2.nc
+     ININAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Ini/Yaeyama2_ini_ROMS_Nz15_20100402.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -967,7 +966,16 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == ../../Data/Shiraho_reef2/Bry/shiraho_bry_tide_20190401_lamptide.nc
+     BRYNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20100101.00.nc |
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20110101.00.nc |
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20120101.00.nc |
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20130101.00.nc |
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20140101.00.nc |
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20150101.00.nc |
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20160101.00.nc |
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20170101.00.nc |
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20180101.00.nc |
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20190101.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -975,7 +983,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../Data/Shiraho_reef2/River/todoroki_river_Nz8_20180101_20190930v2.nc
+     SSFNAME == /gs/hs1/tga-NakamuLab/ROMS/Data/Yaeyama/Yaeyama2_river_Nz15_const.nc
 
 ! Input tidal forcing file name.
 
@@ -1001,20 +1009,83 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 7                          ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \  ! forcing file 1, grid 1
-                F:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \
-                F:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_cloud.nc \
-                F:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_swrad.nc  
+     FRCNAME == /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_wind.nc  | ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_wind.nc  | ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_wind.nc  | ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_wind.nc  | ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_wind.nc  | ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_wind.nc  | ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_wind.nc  | ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_wind.nc  | ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_wind.nc  | ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \ ! forcing file 1, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_Tair.nc  | ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_Tair.nc  | ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_Tair.nc  | ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_Tair.nc  | ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_Tair.nc  | ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_Tair.nc  | ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_Tair.nc  | ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_Tair.nc  | ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_Tair.nc  | ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \ ! forcing file 2, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_swrad.nc | ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_swrad.nc | ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_swrad.nc | ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_swrad.nc | ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_swrad.nc | ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_swrad.nc | ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_swrad.nc | ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_swrad.nc | ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_swrad.nc | ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_swrad.nc \ ! forcing file 3, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_rain.nc  | ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_rain.nc  | ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_rain.nc  | ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_rain.nc  | ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_rain.nc  | ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_rain.nc  | ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_rain.nc  | ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_rain.nc  | ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_rain.nc  | ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \ ! forcing file 4, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_Qair.nc  | ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_Qair.nc  | ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_Qair.nc  | ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_Qair.nc  | ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_Qair.nc  | ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_Qair.nc  | ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_Qair.nc  | ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_Qair.nc  | ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_Qair.nc  | ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \ ! forcing file 5, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_Pair.nc  | ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_Pair.nc  | ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_Pair.nc  | ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_Pair.nc  | ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_Pair.nc  | ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_Pair.nc  | ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_Pair.nc  | ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_Pair.nc  | ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_Pair.nc  | ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \ ! forcing file 6, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_lwrad_down.nc | ! forcing file 7, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_lwrad_down.nc | ! forcing file 7, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_lwrad_down.nc | ! forcing file 7, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_lwrad_down.nc | ! forcing file 7, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_lwrad_down.nc | ! forcing file 7, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_lwrad_down.nc | ! forcing file 7, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_lwrad_down.nc | ! forcing file 7, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_lwrad_down.nc | ! forcing file 7, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_lwrad_down.nc | ! forcing file 7, grid 1
+                /gs/hs1/tga-NakamuLab/COAWST/Data/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_lwrad_down.nc   ! forcing file 7, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == shiraho_eco_rst_201904.nc
-     HISNAME == shiraho_eco_his_201904.nc
+     RSTNAME == Yaeyama2_rst_20100402.nc
+     HISNAME == Yaeyama2_his_20100402.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
@@ -1028,9 +1099,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      APARNAM =  s4dvar.in
      SPOSNAM =  stations.in
-     FPOSNAM =  floats_shiraho_reef.in         !!! used
+     FPOSNAM =  floats_yaeyama2_fdt.in         !!! used
      BPARNAM =  bio_reef_ecosys.in             !!! used
-     SPARNAM =  sediment_shiraho_reef.in       !!! used
+     SPARNAM =  sediment_yaeyama1.in       !!! used
      USRNAME =  MyFile.dat
 
 !
