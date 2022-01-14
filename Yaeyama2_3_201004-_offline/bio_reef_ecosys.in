@@ -44,10 +44,11 @@
 
     Lbiology == T
 
-! Maximum number of iterations to achieve convergence of the nonlinear
-! solution.
+! Number of iterations for calculating coral polyp model. 
+! Sould be set: CrlIter >= DT/0.05 
 
-     CrlIter == 40 !!!!!!!!!
+!     CrlIter == 40 !!!!!!!!! 
+     CrlIter == 400 !!!!!!!!! YAeyama 2 (DT = 20 sec) 
 
 ! Maximum number of iterations to achieve convergence of the nonlinear
 ! solution.

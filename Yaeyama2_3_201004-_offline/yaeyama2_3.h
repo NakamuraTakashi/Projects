@@ -15,7 +15,7 @@
 */
 #define OFFLINE
 #define OFFLINE_BIOLOGY
-#define OFFLINE_FLOATS
+/*#define OFFLINE_FLOATS*/
 #ifdef OFFLINE
 # define ANA_FSOBC
 # define ANA_M2OBC
@@ -208,7 +208,7 @@
 #endif
 
 
-#define FLOATS
+/*#define FLOATS*/
 #if defined FLOATS
 # define FLOAT_BIOLOGY
 # if defined FLOAT_BIOLOGY
@@ -231,11 +231,11 @@
 # define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
 
 /* compartments */
-# define ORGANIC_MATTER
+/*# define ORGANIC_MATTER*/
 /*# define CARBON_ISOTOPE*/
-# define NUTRIENTS
+/*# define NUTRIENTS*/
 
-/*# define CORAL_POLYP*/  /* USE coral module */
+# define CORAL_POLYP  /* USE coral module */
 /*# define SEAGRASS*/     /* USE seagrass module */
 /*# define MACROALGAE*/        /* USE algae module  */
 /*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
@@ -250,7 +250,7 @@
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
-/*#  define CORAL_ZOOXANTHELLAE*/
+#  define CORAL_ZOOXANTHELLAE
 #  define CORAL_MUCUS           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
 #   define CORAL_INGESTION
