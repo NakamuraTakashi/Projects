@@ -48,7 +48,7 @@
 ! Sould be set: CrlIter >= DT/0.05 
 
 !     CrlIter == 40 !!!!!!!!! 
-     CrlIter == 400 !!!!!!!!! YAeyama 2 (DT = 20 sec) 
+     CrlIter == 1200 !!!!!!!!! YAeyama 2 (DT = 60 sec) 
 
 ! Maximum number of iterations to achieve convergence of the nonlinear
 ! solution.
