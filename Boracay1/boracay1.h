@@ -13,16 +13,6 @@
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
 */
-#define OFFLINE
-#define OFFLINE_BIOLOGY
-/*#define OFFLINE_FLOATS*/
-#ifdef OFFLINE
-# define ANA_FSOBC
-# define ANA_M2OBC
-# define ANA_M3OBC
-# define ANA_TOBC
-#endif
-
 #define ROMS_MODEL
 /*#define SWAN_MODEL*/
 /*#define MCT_LIB*/
@@ -59,7 +49,7 @@
 #define TS_U3HADVECTION
 /*#define TS_C2HADVECTION*/
 /*#define TS_C2VADVECTION*/
-#define TS_C4VADVECTION    /* activate for OFFLINE option */
+#define TS_C4VADVECTION
 /*#define TS_SVADVECTION*/
 /*#define TS_MPDATA*/
 
@@ -90,10 +80,10 @@
 #define RADIATION_2D
 
 /*** Option for tidal forcing ***/
-/*#define SSH_TIDES*/
-/*#define UV_TIDES*/
-/*#define ADD_FSOBC*/
-/*#define ADD_M2OBC*/
+#define SSH_TIDES  /* deactivate when the case of JCOPE-T boundary */
+#define UV_TIDES   /* deactivate when the case of JCOPE-T boundary */
+#define ADD_FSOBC  /* deactivate when the case of JCOPE-T boundary */
+#define ADD_M2OBC  /* deactivate when the case of JCOPE-T boundary */
 /*#define RAMP_TIDES*/ /*Not use*/
 
 /*#define ANA_INITIAL*/
@@ -103,14 +93,14 @@
 
 #define BULK_FLUXES
 #ifdef BULK_FLUXES
-/*# define ANA_SRFLUX*/
-/*# define CLOUDS*/          /* activate 199401-201003 */
-/*# define ALBEDO_CLOUD*/    /* activate 199401-201003 */
+/*# define ANA_SRFLUX*/  /* activate 200603-201805 */
+/*# define CLOUDS*/        /* activate 201806- */
+/*# define ALBEDO_CLOUD*/  /* activate 200603- */
 /*# define LONGWAVE*/
 # define LONGWAVE_OUT
-/*# define ANA_LRFLUX*/  /* activate 199401-201003 */
-/*# define ANA_LONGWAVE_DOWN*/  /* activate 199401-201003; Original CPP flag */ 
-/*# define JMAMSM_FLUXES*/  /* Original CPP flag for JMAMSM data */ 
+/*# define ANA_LRFLUX*/  /* activate 200603- */
+/*# define ANA_LONGWAVE_DOWN*/  /* activate 200603-; Original CPP flag */ 
+/*# define JMAMSM_FLUXES*/  /* activate 200603-; Original CPP flag for JMAMSM data */ 
 /*# define JMAOBS_FLUXES*/  /* Original CPP flag for JMA weather station data */ 
 # define EMINUSP
 /*# define ANA_CLOUD*/
@@ -222,23 +212,19 @@
 
 /***  Biological model options. (Original CPP flags) ***/
 
-#define REEF_ECOSYS
+/*#define REEF_ECOSYS*/
 
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
-# define ANA_TOBC_BIO   /*Original CPP flag */
-# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
+/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 /* compartments */
 # define ORGANIC_MATTER
-# define NUTRIENTS
 /*# define CARBON_ISOTOPE*/
-# if defined CARBON_ISOTOPE
-#  define CARBON_TRACE
-# endif
+# define NUTRIENTS
 
-# define CORAL_POLYP  /* USE coral module */
+/*# define CORAL_POLYP*/  /* USE coral module */
 /*# define SEAGRASS*/     /* USE seagrass module */
 /*# define MACROALGAE*/        /* USE algae module  */
 /*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
@@ -253,8 +239,8 @@
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
-#  define CORAL_ZOOXANTHELLAE
-/*#  define CORAL_MUCUS*/           /*Mucus release from coral */
+/*#  define CORAL_ZOOXANTHELLAE*/
+#  define CORAL_MUCUS           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
 #   define CORAL_INGESTION
 #  endif

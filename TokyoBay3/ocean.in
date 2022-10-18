@@ -205,7 +205,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 501120   !!! 259200 step = 30 days, 267840 step = 31 days, 95040 = 11 days
+      NTIMES == 95040   !!! 259200 step = 30 days, 267840 step = 31 days, 95040 = 11 days
           DT == 20.0d0    !!!1.0d0
      NDTFAST == 20    
 
@@ -429,13 +429,13 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! Sources/Sinks (like volume vertical influx), [1:Ngrids].
 
       LuvSrc == F                          ! horizontal momentum transport
-       LwSrc == F                          ! volume vertical influx
+       LwSrc == T                          ! volume vertical influx
 
 ! Logical switches (TRUE/FALSE) to activate tracers point Sources/Sinks
 ! (like river runoff) and to specify which tracer variables to consider:
 ! [1:NAT+NPT,Ngrids].  See glossary below for details.
 
-  LtracerSrc == F F                        ! temperature, salinity, inert
+  LtracerSrc == T T                        ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to read and process climatology fields.
 ! See glossary below for details.
@@ -942,8 +942,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Grid/TokyoBay3_grd_v1.0.nc
-     ININAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_ROMS_Nz30_20180608.00.nc
+     GRDNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Grid/TokyoBay3_grd_v2.1.nc
+     ININAME == R:/COAWST_DATA/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_ROMS_Nz30_20060101.03.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,7 +966,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Bry/TokyoBay3_bry_ROMS_Nz30_20180605.00.nc
+     BRYNAME == R:/COAWST_DATA/TokyoBay/TokyoBay3/Bry/TokyoBay3_bry_ROMS_Nz30_20060101.03.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -974,7 +974,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../Data/Yaeyama/Yaeyama2_river_Nz15_arakawa_pop_up_conn_nomal_14.nc
+     SSFNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/River/TokyoBay3_river_NZ30_1990_2011v3.nc
 
 ! Input tidal forcing file name.
 
@@ -1000,14 +1000,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
-                F:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_2.nc
+     FRCNAME == R:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_DSJRA55_20060101_1.nc \     ! forcing file 1, grid 1
+                R:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_DSJRA55_20060101_2.nc
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == TokyoBay3_rst_20180608.nc
-     HISNAME == TokyoBay3_his_20180608.nc
+     RSTNAME == TokyoBay3_rst_20060101.nc
+     HISNAME == TokyoBay3_his_20060101.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

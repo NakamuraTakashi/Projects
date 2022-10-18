@@ -226,7 +226,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Input/Output parameters.
 
-       NRREC == 7633
+       NRREC == 7609
    LcycleRST == T
         NRST == 4320
         NSTA == 1
@@ -944,7 +944,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! Input NetCDF file names, [1:Ngrids].
 
      GRDNAME == F:/COAWST_DATA/Yaeyama/Yaeyama2/Grid/Yaeyama2_grd_v11.2.nc
-     ININAME == E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20150930.nc
+     ININAME == E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20140930.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -964,9 +964,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! except the last one.
 
      NCLMFILES == 1                         ! number of climate files
-     CLMNAME == E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20150930.nc |
-                E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20160927.nc |
-                E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20160929.nc
+     CLMNAME == E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20140930.nc |
+                E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20150823.nc |
+                E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20150825.nc |
+                E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20150928.nc |
+                E:/COAWTS_OUTPUT/Yaeyama2/Yaeyama2_his_20150930.nc
 
      NBCFILES == 1                          ! number of boundary files
      BRYNAME == F:/COAWST_DATA/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_20110101.00.nc |
@@ -1086,8 +1088,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == Yaeyama2_rst_20160813.nc
-     HISNAME == Yaeyama2_his_20160813.nc
+     RSTNAME == Yaeyama2_rst_20150813.nc
+     HISNAME == Yaeyama2_his_20150813.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
@@ -1095,7 +1097,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      AVGNAME == ocean_avg.nc
      DIANAME == ocean_dia.nc
      STANAME == ocean_sta.nc
-     FLTNAME == Yaeyama2_flt_20160718.nc
+     FLTNAME == Yaeyama2_flt_20150813.nc
 
 ! Input ASCII parameter filenames.
 

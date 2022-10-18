@@ -101,7 +101,7 @@ done
 # Set the CPP option defining the particular application. This will
 # determine the name of the ".h" header file with the application
 # CPP definitions. Also this will activate the switch file for WW3.
-export   COAWST_APPLICATION=YAEYAMA2_3
+export   COAWST_APPLICATION=BORACAY1
 
 # Set the ROMS_APPLICATION to be the same as the COAWST_APP.
 # Do not change this. We use the COAWST APP for other checks.
@@ -192,8 +192,6 @@ export   WW3_SWITCH_FILE=sandy_coupled
  export              FORT=ifort
 #export              FORT=gfortran
 #export              FORT=pgi
-
-#export       USE_OpenACC=on            # OpenACC with pgi compiler
 
 #export         USE_DEBUG=on            # use Fortran debugging flags
  export         USE_LARGE=on            # activate 64-bit compilation
@@ -367,8 +365,6 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
           export      MCT_INCDIR=/gs/hs1/tga-NakamuLab/opt/pgi/openmpi/mct/include
           export      MCT_LIBDIR=/gs/hs1/tga-NakamuLab/opt/pgi/openmpi/mct/lib
           export  PARPACK_LIBDIR=/opt/pgisoft/openmpi/PARPACK
-          module load hdf5-parallel
-          module load netcdf-parallel
         fi
       fi
 

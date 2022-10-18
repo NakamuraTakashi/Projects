@@ -64,11 +64,11 @@
 !
 ! Application title.
 
-       TITLE = SHIZUGAWA1 Test Case
+       TITLE = SHIZUGAWA2 Test Case
 
 ! C-preprocessing Flag.
 
-    MyAppCPP = SHIZUGAWA1
+    MyAppCPP = SHIZUGAWA2_3
 
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
@@ -91,8 +91,8 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 100           ! Number of I-direction INTERIOR RHO-points
-          Mm == 160           ! Number of J-direction INTERIOR RHO-points
+          Lm == 70            ! Number of I-direction INTERIOR RHO-points
+          Mm == 280           ! Number of J-direction INTERIOR RHO-points
            N == 15            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 2                               ! I-direction partition
-      NtileJ == 5                               ! J-direction partition
+      NtileI == 1                               ! I-direction partition
+      NtileJ == 10                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -145,15 +145,15 @@
 !
 !                   1       2       3       4
 
-   LBC(isFsur) ==   Clo     Cha     Cha     Cha         ! free-surface
-   LBC(isUbar) ==   Clo     Fla     Fla     Fla         ! 2D U-momentum
-   LBC(isVbar) ==   Clo     Fla     Fla     Fla         ! 2D V-momentum
-   LBC(isUvel) ==   Clo     RadNud  RadNud  RadNud      ! 3D U-momentum
-   LBC(isVvel) ==   Clo     RadNud  RadNud  RadNud      ! 3D V-momentum
-   LBC(isMtke) ==   Clo     Gra     Gra     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
-                                               
-   LBC(isTvar) ==   Clo     RadNud  RadNud  RadNud \    ! temperature
-                    Clo     RadNud  RadNud  RadNud      ! salinity
+   LBC(isFsur) ==   Clo     Clo     Cha     Clo         ! free-surface
+   LBC(isUbar) ==   Clo     Clo     Fla     Clo         ! 2D U-momentum
+   LBC(isVbar) ==   Clo     Clo     Fla     Clo         ! 2D V-momentum
+   LBC(isUvel) ==   Clo     Clo     RadNud  Clo         ! 3D U-momentum
+   LBC(isVvel) ==   Clo     Clo     RadNud  Clo         ! 3D V-momentum
+   LBC(isMtke) ==   Clo     Clo     Gra     Clo         ! mixing TKE !!!(Turbulence Kinetic Energy?)
+                                                  
+   LBC(isTvar) ==   Clo     Clo     RadNud  Clo    \    ! temperature
+                    Clo     Clo     RadNud  Clo         ! salinity
 
 ! Wec boundary conditions
 
@@ -205,8 +205,8 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 6449760
-          DT == 60.0d0
+      NTIMES == 256320 ! 2022/1/2~2022/4/1
+          DT == 30.0d0
      NDTFAST == 30    
 
 ! Model iteration loops parameters.
@@ -232,12 +232,12 @@ ad_VolCons(north) ==  F                            ! northern boundary
         NRST == 1440
         NSTA == 1
         NFLT == 1
-       NINFO == 10
+       NINFO == 20
 
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 60
+        NHIS == 120
      NDEFHIS == 0
 !     NDEFHIS == 527040  ! 527040 => 366 days;  525600 => 365 days
         NQCK == 0
@@ -944,8 +944,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/Shizugawa/Shizugawa1/Grid/Shizugawa1_grd_v0.1.nc
-     ININAME == F:/COAWST_DATA/Shizugawa/Shizugawa1/Ini/Shizugawa1_ini_HYCOM_Nz15_20210102.00.nc
+     GRDNAME == F:/COAWST_DATA/Shizugawa/Shizugawa2/Grid/Shizugawa2_grd_v0.0.nc
+!     ININAME == F:/COAWST_DATA/Shizugawa/Shizugawa2/Ini/Shizugawa2_ini_ROMS_Nz15_20210103.00.nc
+     ININAME == E:/COAWTS_OUTPUT/Shizugawa2/Shizugawa2_his_20210103.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -968,7 +969,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/Shizugawa/Shizugawa1/Bry/Shizugawa1_bry_HYCOM_Nz15_20210101.00.nc
+     BRYNAME == F:/COAWST_DATA/Shizugawa/Shizugawa2/Bry/Shizugawa2_bry_ROMS_Nz15_20210102.00.nc |
+                F:/COAWST_DATA/Shizugawa/Shizugawa2/Bry/Shizugawa2_bry_ROMS_Nz15_20220101.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -1002,15 +1004,17 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/Shizugawa/Shizugawa1/Air/Shizugawa1_frc_MSMgb_20210101_1.nc \  ! forcing file 1, grid 1
-                F:/COAWST_DATA/Shizugawa/Shizugawa1/Air/Shizugawa1_frc_MSMgb_20210101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == F:/COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20210101_1.nc |  ! forcing file 1, grid 1
+                F:/COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20220101_1.nc \  ! forcing file 1, grid 1
+                F:/COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20210101_2.nc |  ! forcing file 2, grid 1
+                F:/COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20220101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == Shizugawa1_rst_20210102.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == Shizugawa1_his_20210102.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     RSTNAME == E:/COAWTS_OUTPUT/Shizugawa2/Shizugawa2_rst_20220102.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == E:/COAWTS_OUTPUT/Shizugawa2/Shizugawa2_his_20220102.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
