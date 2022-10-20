@@ -80,18 +80,19 @@
 #define RADIATION_2D
 
 /*** Option for tidal forcing ***/
-/*#define SSH_TIDES*/
-/*#define UV_TIDES*/
+#define SSH_TIDES
+#define UV_TIDES
 /*#define RAMP_TIDES*/
-/*#define ADD_FSOBC*/
-/*#define ADD_M2OBC*/
-
+#define ADD_FSOBC
+#define ADD_M2OBC
 
 /*#define ANA_INITIAL*/
 /*#define ANA_FSOBC*/
 /*#define ANA_M2OBC*/
 /*#define ANA_TOBC*/
 /*#define ANA_TOBC_BIO*/   /*Original CPP flag */
+
+
 
 #define SOLAR_SOURCE
 

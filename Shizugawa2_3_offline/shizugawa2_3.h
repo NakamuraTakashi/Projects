@@ -8,11 +8,21 @@
 **
 ** Options for Inlet Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   YAEYAMA1
+** Application flag:   SHIZUGAWA2_3
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
 */
+#define OFFLINE
+#define OFFLINE_BIOLOGY
+/*#define OFFLINE_FLOATS*/
+#ifdef OFFLINE
+# define ANA_FSOBC
+# define ANA_M2OBC
+# define ANA_M3OBC
+# define ANA_TOBC
+#endif
+
 #define ROMS_MODEL
 /*#define SWAN_MODEL*/
 /*#define MCT_LIB*/
@@ -49,7 +59,7 @@
 #define TS_U3HADVECTION
 /*#define TS_C2HADVECTION*/
 /*#define TS_C2VADVECTION*/
-#define TS_C4VADVECTION
+#define TS_C4VADVECTION    /* activate for OFFLINE option */
 /*#define TS_SVADVECTION*/
 /*#define TS_MPDATA*/
 
@@ -82,18 +92,14 @@
 /*** Option for tidal forcing ***/
 /*#define SSH_TIDES*/
 /*#define UV_TIDES*/
-/*#define RAMP_TIDES*/
 /*#define ADD_FSOBC*/
 /*#define ADD_M2OBC*/
-
+/*#define RAMP_TIDES*/ /*Not use*/
 
 /*#define ANA_INITIAL*/
 /*#define ANA_FSOBC*/
 /*#define ANA_M2OBC*/
 /*#define ANA_TOBC*/
-/*#define ANA_TOBC_BIO*/   /*Original CPP flag */
-
-#define SOLAR_SOURCE
 
 #define BULK_FLUXES
 #ifdef BULK_FLUXES
@@ -119,6 +125,7 @@
 # define ANA_SMFLUX
 # define ANA_STFLUX
 #endif
+
 
 /*** waves-ocean (SWAN/ROMS) two-way coupling. ***/
 #ifdef SWAN_MODEL
@@ -215,21 +222,26 @@
 
 /***  Biological model options. (Original CPP flags) ***/
 
-/*#define REEF_ECOSYS*/
+#define REEF_ECOSYS
 
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
+# define ANA_TOBC_BIO   /*Original CPP flag */
+# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
 
 /* compartments */
 # define ORGANIC_MATTER
-/*# define CARBON_ISOTOPE*/
 # define NUTRIENTS
+/*# define CARBON_ISOTOPE*/
+# if defined CARBON_ISOTOPE
+#  define CARBON_TRACE
+# endif
 
 /*# define CORAL_POLYP*/  /* USE coral module */
 /*# define SEAGRASS*/     /* USE seagrass module */
 /*# define MACROALGAE*/        /* USE algae module  */
-/*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
+# define SEDIMENT_ECOSYS        /* USE sedecosys module  */
 # if defined SEDIMENT_ECOSYS
 #  define SEDIMENT_EMPIRICAL     /* USE empirical sediment module  */
 # endif
@@ -241,8 +253,8 @@
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
-/*#  define CORAL_ZOOXANTHELLAE*/
-#  define CORAL_MUCUS           /*Mucus release from coral */
+#  define CORAL_ZOOXANTHELLAE
+/*#  define CORAL_MUCUS*/           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
 #   define CORAL_INGESTION
 #  endif

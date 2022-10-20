@@ -8,7 +8,7 @@
 **
 ** Options for Inlet Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   TOKYOBAY1_2
+** Application flag:   TOKYOBAY2_3
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
@@ -22,7 +22,7 @@
 /*#define HDF5*/
 /*#define PNETCDF*/
 
-#define NESTING
+/*#define NESTING*/
 /*#define NESTING_DEBUG*/
 /*#define ONE_WAY*/
 /*#define QUADRATIC_WEIGHTS*/
@@ -80,24 +80,28 @@
 #define RADIATION_2D
 
 /*** Option for tidal forcing ***/
-/*#define SSH_TIDES*/
-/*#define UV_TIDES*/
-/*#define RAMP_TIDES*/
-/*#define ADD_FSOBC*/
-/*#define ADD_M2OBC*/
-
+/*#define SSH_TIDES*/  /* deactivate when the case of JCOPE-T boundary */
+/*#define UV_TIDES*/   /* deactivate when the case of JCOPE-T boundary */
+/*#define ADD_FSOBC*/  /* deactivate when the case of JCOPE-T boundary */
+/*#define ADD_M2OBC*/  /* deactivate when the case of JCOPE-T boundary */
+/*#define RAMP_TIDES*/ /*Not use*/
 
 /*#define ANA_INITIAL*/
 /*#define ANA_FSOBC*/
 /*#define ANA_M2OBC*/
 /*#define ANA_TOBC*/
-/*#define ANA_TOBC_BIO*/   /*Original CPP flag */
-
-#define SOLAR_SOURCE
 
 #define BULK_FLUXES
 #ifdef BULK_FLUXES
-# define LONGWAVE
+/*# define ANA_SRFLUX*/  /* activate 200603-201805 */
+# define CLOUDS        /* activate 201806- */
+# define ALBEDO_CLOUD  /* activate 200603- */
+/*# define LONGWAVE*/
+# define LONGWAVE_OUT
+# define ANA_LRFLUX  /* activate 200603- */
+# define ANA_LONGWAVE_DOWN  /* activate 200603-; Original CPP flag */ 
+# define JMAMSM_FLUXES  /* activate 200603-; Original CPP flag for JMAMSM data */ 
+/*# define JMAOBS_FLUXES*/  /* Original CPP flag for JMA weather station data */ 
 # define EMINUSP
 /*# define ANA_CLOUD*/
 /*# define ANA_HUMID*/
@@ -105,8 +109,6 @@
 /*# define ANA_TAIR*/
 /*# define ANA_RAIN*/
 /*# define ANA_WINDS*/
-/*# define ANA_SRFLUX*/  /* swrad data of JMA-MSM is available from 2018 */
-# define ALBEDO_CLOUD
 /*# define LOCAL_TIME +9.0*/
 /*# define DIURNAL_SRFLUX*/
 #else
@@ -215,6 +217,7 @@
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
+/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 /* compartments */
 # define ORGANIC_MATTER
