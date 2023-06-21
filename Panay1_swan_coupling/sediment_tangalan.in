@@ -99,7 +99,7 @@
 !
 !                   1       2       3       4
 
-   LBC(isTvar) ==   RadNud  Clo     Clo     RadNud  ! idsed(:), compact
+   LBC(isTvar) ==   RadNud  Clo     RadNud  RadNud  ! idsed(:), compact
 
 ! Adjoint-based algorithms can have different lateral boundary
 ! conditions keywords.
@@ -128,7 +128,7 @@ ad_LBC(isTvar) ==   Clo     Rad     Cla     Rad      ! idsed(:), compact
 
 ! Surface erosion rate (kg/m2/s).
 
-   MUD_ERATE == 1.0d-6  1.0d-6   1.0d-6  1.0d-6
+   MUD_ERATE == 1.0d-7  1.0d-6   1.0d-6  1.0d-6
 
 ! Critical shear for erosion and deposition (N/m2).
 

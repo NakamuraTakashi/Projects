@@ -944,9 +944,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/Boracay/Boracay1/Grid/Boracay1_grd_v1.0.nc
-     ININAME == F:/COAWST_DATA/Boracay/Boracay1/Ini/Boracay1_ini_HYCOM_Nz15_20210102.00.nc
-!     ININAME == E:/COAWTS_OUTPUT/Boracay1/Boracay1_his_20210102.nc
+     GRDNAME == F:/COAWST_DATA/Panay/Panay0/Grid/Panay0_grd_v1.0.nc
+     ININAME == F:/COAWST_DATA/Panay/Panay0/Ini/Panay0_ini_HYCOM_Nz15_20210102.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -969,7 +968,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/Boracay/Boracay1/Bry/Boracay1_bry_HYCOM_Nz15_20210101.00.nc
+     BRYNAME == F:/COAWST_DATA/Panay/Panay0/Bry/Panay0_bry_HYCOM_Nz15_20210101.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -977,11 +976,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == F:/COAWST_DATA/Boracay/Boracay1/Tide/river.nc
+     SSFNAME == F:/COAWST_DATA/Panay/Panay0/Tide/Panay0_river_Nz15_daily.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == F:/COAWST_DATA/Boracay/Boracay1/Tide/Boracay1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == F:/COAWST_DATA/Panay/Panay0/Tide/Panay0_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !

@@ -91,8 +91,8 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 285           ! Number of I-direction INTERIOR RHO-points
-          Mm == 125           ! Number of J-direction INTERIOR RHO-points
+          Lm == 190           ! Number of I-direction INTERIOR RHO-points
+          Mm == 185           ! Number of J-direction INTERIOR RHO-points
            N == 15            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
@@ -145,15 +145,15 @@
 !
 !                   1       2       3       4
 
-   LBC(isFsur) ==   Cha     Clo     Clo     Cha         ! free-surface
-   LBC(isUbar) ==   Fla     Clo     Clo     Fla         ! 2D U-momentum
-   LBC(isVbar) ==   Fla     Clo     Clo     Fla         ! 2D V-momentum
-   LBC(isUvel) ==   RadNud  Clo     Clo     RadNud      ! 3D U-momentum
-   LBC(isVvel) ==   RadNud  Clo     Clo     RadNud      ! 3D V-momentum
-   LBC(isMtke) ==   Gra     Clo     Clo     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
+   LBC(isFsur) ==   Cha     Clo     Cha     Cha         ! free-surface
+   LBC(isUbar) ==   Fla     Clo     Fla     Fla         ! 2D U-momentum
+   LBC(isVbar) ==   Fla     Clo     Fla     Fla         ! 2D V-momentum
+   LBC(isUvel) ==   RadNud  Clo     RadNud  RadNud      ! 3D U-momentum
+   LBC(isVvel) ==   RadNud  Clo     RadNud  RadNud      ! 3D V-momentum
+   LBC(isMtke) ==   Gra     Clo     Gra     Gra         ! mixing TKE !!!(Turbulence Kinetic Energy?)
                                                   
-   LBC(isTvar) ==   RadNud  Clo     Clo     RadNud \    ! temperature
-                    RadNud  Clo     Clo     RadNud      ! salinity
+   LBC(isTvar) ==   RadNud  Clo     RadNud  RadNud \    ! temperature
+                    RadNud  Clo     RadNud  RadNud      ! salinity
 
 ! Wec boundary conditions
 
@@ -205,8 +205,8 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 112320 ! 2022/1/5~2022/1/31
-          DT == 20.0d0
+      NTIMES == 276480 ! 2022/1/7~2022/1/23
+          DT == 5.0d0
      NDTFAST == 30    
 
 ! Model iteration loops parameters.
@@ -229,7 +229,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
        NRREC == 0
 !       NRREC == -1
    LcycleRST == T
-        NRST == 1440
+        NRST == 17280
         NSTA == 1
         NFLT == 1
        NINFO == 1
@@ -237,7 +237,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 180
+        NHIS == 720
      NDEFHIS == 0
 !     NDEFHIS == 527040  ! 527040 => 366 days;  525600 => 365 days
         NQCK == 0
@@ -944,8 +944,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/Panay/Panay1/Grid/Panay1_grd_v1.3.nc
-     ININAME == F:/COAWST_DATA/Panay/Panay1/Ini/Panay1_ini_ROMS_Nz15_20210105.00.nc
+     GRDNAME == F:/COAWST_DATA/Panay/Tangalan/Grid/Tangalan_grd_v1.0.nc
+     ININAME == F:/COAWST_DATA/Panay/Tangalan/Ini/Tangalan_ini_ROMS_Nz15_20210107.00.nc
 !     ININAME == E:/COAWTS_OUTPUT/Boracay2/Boracay2_his_20210103.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -969,7 +969,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/Panay/Panay1/Bry/Panay1_bry_ROMS_Nz15_20210102.00.nc
+     BRYNAME == F:/COAWST_DATA/Panay/Tangalan/Bry/Tangalan_bry_ROMS_Nz15_20210105.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -977,7 +977,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == F:/COAWST_DATA/Panay/Panay1/River/Panay1_river_Nz15_daily.nc
+     SSFNAME == F:/COAWST_DATA/Panay/Tangalan/River/Tangalan_river_Nz15_daily.nc
 
 ! Input tidal forcing file name.
 
@@ -1003,15 +1003,15 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/Panay/Panay1/Air/Panay1_frc_ERA5_20210101_1.nc \ 
-                F:/COAWST_DATA/Panay/Panay1/Air/Panay1_frc_ERA5_20210101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == F:/COAWST_DATA/Panay/Tangalan/Air/Tangalan_frc_ERA5_20210101_1.nc \ 
+                F:/COAWST_DATA/Panay/Tangalan/Air/Tangalan_frc_ERA5_20210101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == E:/COAWTS_OUTPUT/Panay/Panay1/Panay1_rst_20210105_4.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == E:/COAWTS_OUTPUT/Panay/Panay1/Panay1_his_20210105_4.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     RSTNAME == E:/COAWTS_OUTPUT/Panay/Tangalan/Tangalan_rst_20210107_2.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == E:/COAWTS_OUTPUT/Panay/Tangalan/Tangalan_his_20210107_2.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
@@ -1027,7 +1027,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      SPOSNAM =  stations.in
      FPOSNAM =  floats_yaeyama2_fdt.in         !!! used
      BPARNAM =  bio_reef_ecosys.in             !!! used
-     SPARNAM =  sediment_panay1.in       !!! used
+     SPARNAM =  sediment_tangalan.in       !!! used
      USRNAME =  MyFile.dat
 
 !
