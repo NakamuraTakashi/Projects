@@ -47,12 +47,8 @@
 ! Maximum number of iterations to achieve convergence of the nonlinear
 ! solution.
 
-     CrlIter == 100 !!!!!!!!!
-
-! Maximum number of iterations to achieve convergence of the nonlinear
-! solution.
-
-     SedIter == 1   !!!!!!!!!
+    ! CrlIter == 100 !!!!!!!!!
+    CrlIter == 10 !!!!!!!!!
 
 ! Fraction of shortwave radiation that is photosynthetically active
 ! (nondimensional), {0.43d0}.
@@ -104,6 +100,19 @@
 
        COTe0 == 0.0d0        ! COTS eggs (umol L-1) 
        COTl0 == 0.0d0        ! COTS larvae (umol L-1) 
+
+!!! yuta_edits_for_masa >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>YT:Add
+! Nsed is the number of biological sediment layers. Ex. Nsed == 5
+! SedEcoLayerDepths is the list of depths in cm (bottom of the layer) of each layer from the surface towards deeper. Ex. SedEcoLayerDepths == 0.5d0 1.0d0 2.0d0 3.0d0 5.0d0
+! you can use different number of layers for each Ngrid (might not work though, haven't debugged yet) Ex. Nsed == 5 3
+! add the next set of depths to the list (make sure the totals match) Ex. SedEcoLayerDepths == 0.5d0 1.0d0 2.0d0 3.0d0 5.0d0 0.1d0 1.0d0 10.0d0
+
+            !  Nsed == 101         ! Number of vertical biological sediment layers for SEDIMENT_ECOSYS
+             Nsed == 19          ! Number of vertical biological sediment layers for SEDIMENT_ECOSYS
+SedEcoLayerDepths == 0.1d0 0.2d0 0.3d0 0.4d0 0.5d0 0.6d0 0.7d0 0.8d0 0.9d0 1.0d0 2.0d0 3.0d0 4.0d0 5.0d0 6.0d0 7.0d0 8.0d0 9.0d0 10.0d0  ! depth (cm) from surface at bottom of each biological sediment layer
+
+
+!!!<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<YT:Add
 
 ! Harmonic/biharmonic horizontal diffusion of biological tracer for
 ! nonlinear model and adjoint-based algorithms: [1:NBT,Ngrids].
@@ -213,10 +222,17 @@ Hout(idCorl) == F       ! p_coral            time-dependent coral coverage
 Hout(idSgrs) == F       ! p_seagrass         time-dependent seagrass coverage
 Hout(idAlga) == F       ! p_algae            time-dependent algal coverage
 
-Hout(iHbio2) == 19*T
+! Hout(iHbio2) == 19*T
+Hout(iHbio2) == 31*T ! yuta_edits_for_masa
 Hout(iHbio3) == 3*F
 
 !!!<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<TN:Add
+
+!!! yuta_edits_for_masa >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>YT:Add
+Hout(iHbiosed3) == 35*T ! yuta_edits_for_masa
+!!!<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<YT:Add
+
+
 ! Logical switches (TRUE/FALSE) to activate writing of biological fields
 ! into QUICKSAVE output file: [1:NBT,Ngrids].
 
@@ -313,6 +329,54 @@ Dout(iTvdif) == 45*F    ! ..., NO3_vdiff, ...     vertical diffusion
 ! idbio(43), idbio(43),                         zoop15N_01
 ! idbio(44),                                    COTS eggs
 ! idbio(45),                                    COTS larvae
+!------------------------------------------------------------------------------
+!!------------------------------------------------------------------------------
+! Biological Sediment Model 3D Sediment Parameters:
+! #ifdef SEDIMENT_ECOSYS  
+! poro         Porosity (cm_w3 cm_s-3)
+! Tmp          Temperature    (ºC)
+! Sal          Salinity       (PSU)
+! TA           Total Alkanity (umol kg-1)
+! O2           Dissolved Oxygen    (µmol l-1)
+! CO2          Carbon dyoxide      (µmol l-1)
+! N2           Nitrogen            (µmol l-1)
+! # if defined ORGANIC_MATTER
+! DOCf         Dissolved organic carbon   (fast :Labile)       (µmol l-1)
+! DOCs         Dissolved organic carbon   (slow :Refractory)   (µmol l-1)
+! POCf         Particulate organic carbon (fast :Labile)       (nmol g-1)
+! POCs         Particulate organic carbon (slow :Refractory)   (nmol g-1)
+! POCn         Particulate organic carbon (non-degradable)     (nmol g-1)
+! # endif
+! # if defined NUTRIENTS
+! NO3          Nitrate     (µmol l-1)
+! NH4          Ammonium    (µmol l-1)
+! PO4          Phosphate   (µmol l-1)
+! #  if defined ORGANIC_MATTER
+! DONf         Dissolved organic nitrogen   (fast :Labile)       (µmol l-1)
+! DONs         Dissolved organic nitrogen   (slow :Refractory)   (µmol l-1)
+! PONf         Particulate organic nitrogen (fast :Labile)       (nmol g-1)
+! PONs         Particulate organic nitrogen (slow :Refractory)   (nmol g-1)
+! PONn         Particulate organic nitrogen (non-degradable)     (nmol g-1)
+! DOPf         Dissolved organic phosphorus   (fast :Labile)       (µmol l-1)
+! DOPs         Dissolved organic phosphorus   (slow :Refractory)   (µmol l-1)
+! POPf         Particulate organic phosphorus (fast :Labile)       (nmol g-1)
+! POPs         Particulate organic phosphorus (slow :Refractory)   (nmol g-1)
+! POPn         Particulate organic phosphorus (non-degradable)     (nmol g-1)
+! #  endif
+! # endif
+! # if defined SULFATE
+! Mn2          Manganese ion        (µmol l-1)
+! MnO2         Manganese dioxide    (nmol g-1)
+! Fe2          iron(II)          (µmol l-1)
+! FeS          iron sulfide      (nmol g-1)
+! FeS2         pyrite            (nmol g-1)
+! FeOOH        iron hydroxide    (nmol g-1)
+! FeOOH_PO4    iron-bound phosphate (FeOOH=PO43-)   (nmol g-1)
+! H2S          hydrogen sulfide         (µmol l-1)
+! SO4          sulfate   (µmol l-1)
+! S0           sulfur    (nmol g-1)
+! # endif
+! #endif
 !------------------------------------------------------------------------------
 !
 !  Lbiology       Switch to control the computation of a particular module

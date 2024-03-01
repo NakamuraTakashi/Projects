@@ -210,8 +210,14 @@
 # define SEAGRASS     /* USE seagrass module */
 # define MACROALGAE        /* USE algae module  */
 # define SEDIMENT_ECOSYS        /* USE sedecosys module  */
-# if defined SEDIMENT_ECOSYS
-#  define SEDIMENT_EMPIRICAL     /* USE empirical sediment module  */
+# define SEDIMENT_ECOSYS_INITIAL_MODE /* For starting new run */
+
+# if defined SEDIMENT_ECOSYS  /* Masa_edits */
+#  define SULFATE      /* For sulfate reduction in sediment */
+#  define Burial       /* For Burial term in sediment transport (massbalance) */
+#  define sedBC_closed /* closed boundary condition at the bottom sediment layer */
+#  define ORGANIC_MATTER
+#  define NUTRIENTS
 # endif
 
 # if defined ORGANIC_MATTER
