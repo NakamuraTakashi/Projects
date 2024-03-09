@@ -239,6 +239,15 @@ Dout(iTvdif) == 45*F    ! NO3_vdiff, ...     vertical diffusion
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged,
 ! biological processes diagnostics terms into DIAGNOSTIC output file [Ngrids].
 
+
+! Qout(idTvar) == 45*F    ! NO3, ...           biological tracer
+! Qout(idTsur) == 45*F    ! NO3_sflux, ...     surface tracer flux
+! Qout(iHbio2) == 31*F ! yuta_edits_for_masa
+! Qout(iHbio3) == 3*F
+! Qout(iHbiosed3) == 35*T ! yuta_edits_for_masa
+
+
+
 !
 !  GLOSSARY:
 !  =========
