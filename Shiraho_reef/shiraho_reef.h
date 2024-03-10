@@ -201,11 +201,13 @@
 # define ANA_BIOLOGY
 /*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
+# define DIAGNOSTICS_BIO
+
+
 /* compartments */
 # define ORGANIC_MATTER
 # define NUTRIENTS
 /*# define CARBON_ISOTOPE*/
-/*# define NUTRIENTS*/
 
 # define CORAL_POLYP  /* USE coral module */
 # define SEAGRASS     /* USE seagrass module */
