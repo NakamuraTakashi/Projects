@@ -246,10 +246,10 @@
 # if defined SEAGRASS
 /*#  define SEAGRASS_GROWTH*/ /* seagrass growth dynamics */
 #  if defined NUTRIENTS
-#   define SEAGRASS_LEAF_NUTRIENT_UPTAKE
+/*#   define SEAGRASS_LEAF_NUTRIENT_UPTAKE*/
 #  endif
 #  if defined SEDIMENT_ECOSYS
-#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE
+/*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
 #  endif
 #  if defined NUTRIENTS && defined SEDIMENT_ECOSYS
 #   define SEAGRASS_ROOT_NUTRIENT_UPTAKE
