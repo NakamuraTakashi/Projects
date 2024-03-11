@@ -244,7 +244,6 @@
 
 /*** Seagrass model options. ***/
 # if defined SEAGRASS
-/*#  define SEAGRASS_GROWTH*/ /* seagrass growth dynamics */
 #  if defined NUTRIENTS
 /*#   define SEAGRASS_LEAF_NUTRIENT_UPTAKE*/
 #  endif
