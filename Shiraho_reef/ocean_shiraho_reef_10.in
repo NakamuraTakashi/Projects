@@ -236,16 +236,16 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 360 ! 120 = 10min; 360 = 30min; 720 = 1hr; 17280 = 1day;
+        NHIS == 720 ! 120 = 10min; 360 = 30min; 720 = 1hr; 17280 = 1day;
      NDEFHIS == 0
      !  NQCK == 0
-        NQCK == 360
+        NQCK == 2160
      NDEFQCK == 0
       NTSAVG == 1
         NAVG == 0
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 360
+        NDIA == 1440
      NDEFDIA == 0
 
 
