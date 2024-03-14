@@ -239,7 +239,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
         NHIS == 720 ! 120 = 10min; 360 = 30min; 720 = 1hr; 17280 = 1day;
      NDEFHIS == 0
      !  NQCK == 0
-        NQCK == 2160
+        NQCK == 2160 ! 2160 = 3hr
      NDEFQCK == 0
       NTSAVG == 1
         NAVG == 0
