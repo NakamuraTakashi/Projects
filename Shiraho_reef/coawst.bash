@@ -237,7 +237,8 @@ if [ -n "${USE_MPIF90:+1}" ]; then
       if [ "${which_MPI}" = "mpich2" ]; then
         export PATH=/opt/gfortransoft/mpich2/bin:$PATH
       elif [ "${which_MPI}" = "openmpi" ]; then
-        export PATH=/usr/bin:$PATH
+#        export PATH=/usr/bin:$PATH
+        export PATH=/usr/local/Cellar/open-mpi/4.0.2/bin:$PATH
       fi
       ;;
 
@@ -405,16 +406,22 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
             export     NF_CONFIG=/opt/gfortransoft/mpich2/netcdf4/bin/nf-config
             export NETCDF_INCDIR=/opt/gfortransoft/mpich2/netcdf4/include
           elif [ "${which_MPI}" = "openmpi" ]; then
-            export     NF_CONFIG=/usr/bin/nf-config
-            export NETCDF_INCDIR=/usr/include
+#            export     NF_CONFIG=/usr/bin/nf-config
+#            export NETCDF_INCDIR=/usr/include
+            export     NF_CONFIG=/usr/local/Cellar/netcdf/4.9.0/bin/nf-config
+            export NETCDF_INCDIR=/usr/local/Cellar/netcdf/4.9.0/include
           fi
         else
-          export       NF_CONFIG=/usr/bin/nf-config
-          export   NETCDF_INCDIR=/usr/include
+#          export       NF_CONFIG=/usr/bin/nf-config
+#          export   NETCDF_INCDIR=/usr/include
+          export       NF_CONFIG=/usr/local/bin/nf-config
+          export   NETCDF_INCDIR=/usr/local/Cellar/netcdf-fortran/4.6.0/include
         fi
       else
-        export     NETCDF_INCDIR=/usr/include
-        export     NETCDF_LIBDIR=/usr/lib
+#        export     NETCDF_INCDIR=/usr/include
+#        export     NETCDF_LIBDIR=/usr/lib
+        export     NETCDF_INCDIR=/usr/local/Cellar/netcdf/4.9.0/include
+        export     NETCDF_LIBDIR=/usr/local/Cellar/netcdf/4.9.0/lib
       fi
       ;;
 

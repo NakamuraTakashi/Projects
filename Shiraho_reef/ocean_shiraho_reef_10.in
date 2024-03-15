@@ -228,7 +228,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
        NRREC == 0
    LcycleRST == T
-        NRST == 10000
+        NRST == 360
         NSTA == 1
         NFLT == 1
        NINFO == 1
@@ -236,16 +236,18 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 120
+        NHIS == 720 ! 120 = 10min; 360 = 30min; 720 = 1hr; 17280 = 1day;
      NDEFHIS == 0
-        NQCK == 0
+     !  NQCK == 0
+        NQCK == 2160 ! 2160 = 3hr
      NDEFQCK == 0
       NTSAVG == 1
-        NAVG == 1000
+        NAVG == 0
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 1000
+        NDIA == 1440
      NDEFDIA == 0
+
 
 ! Output tangent linear and adjoint models parameters.
 
@@ -1014,14 +1016,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == ocean_rst_10.nc
-     HISNAME == ocean_his_10.nc
-     QCKNAME == ocean_qck.nc
+     RSTNAME == ../../Results/Shiraho_reef/ocean_seagrass_01_rst.nc
+     HISNAME == ../../Results/Shiraho_reef/ocean_seagrass_01_his.nc
+     QCKNAME == ../../Results/Shiraho_reef/ocean_seagrass_01_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == ocean_dia.nc
+     DIANAME == ../../Results/Shiraho_reef/ocean_seagrass_01_dia.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 

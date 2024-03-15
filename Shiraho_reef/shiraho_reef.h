@@ -201,23 +201,26 @@
 # define ANA_BIOLOGY
 /*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
+# define DIAGNOSTICS_BIO
+
+
 /* compartments */
-/*# define ORGANIC_MATTER*/
+# define ORGANIC_MATTER
+# define NUTRIENTS
 /*# define CARBON_ISOTOPE*/
-/*# define NUTRIENTS*/
 
 # define CORAL_POLYP  /* USE coral module */
 # define SEAGRASS     /* USE seagrass module */
 # define MACROALGAE        /* USE algae module  */
 # define SEDIMENT_ECOSYS        /* USE sedecosys module  */
-# if defined SEDIMENT_ECOSYS
-#  define SEDIMENT_EMPIRICAL     /* USE empirical sediment module  */
-# endif
 
 # if defined ORGANIC_MATTER
 #  define FOODWEB      /* USE foodweb module */
 # endif
 # define AIR_SEA_GAS_EXCHANGE
+
+/*# define DYNAMIC_COVERAGE*/ /* yt_edit not yet implemented in coawst */
+
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
@@ -237,6 +240,38 @@
 #  endif
 /*#  define CORAL_BORON_ISOTOPE*/
 # endif
+
+
+/*** Seagrass model options. ***/
+# if defined SEAGRASS
+#  if defined NUTRIENTS
+/*#   define SEAGRASS_LEAF_NUTRIENT_UPTAKE*/
+#  endif
+#  if defined SEDIMENT_ECOSYS
+/*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
+#  endif
+#  if defined NUTRIENTS && defined SEDIMENT_ECOSYS
+#   define SEAGRASS_ROOT_NUTRIENT_UPTAKE
+#  endif
+#  if defined ORGANIC_MATTER
+#   define SEAGRASS_LEAF_POM
+#   if defined SEDIMENT_ECOSYS
+#    define SEAGRASS_ROOT_POM
+#   endif
+#  endif
+# endif
+
+
+/*** Sediment model options. ***/
+# if defined SEDIMENT_ECOSYS  /* Masa_edits */
+#  define SEDIMENT_ECOSYS_INITIAL_MODE /* For starting new run */
+#  define SULFATE      /* For sulfate reduction in sediment */
+#  define Burial       /* For Burial term in sediment transport (massbalance) */
+#  define sedBC_closed /* closed boundary condition at the bottom sediment layer */
+#  define ORGANIC_MATTER
+#  define NUTRIENTS
+# endif
+
 
 #endif
 
