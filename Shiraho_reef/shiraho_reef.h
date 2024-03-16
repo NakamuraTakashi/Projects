@@ -251,12 +251,12 @@
 /*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
 #  endif
 #  if defined NUTRIENTS && defined SEDIMENT_ECOSYS
-#   define SEAGRASS_ROOT_NUTRIENT_UPTAKE
+/*#   define SEAGRASS_ROOT_NUTRIENT_UPTAKE*/
 #  endif
 #  if defined ORGANIC_MATTER
-#   define SEAGRASS_LEAF_POM
+/*#   define SEAGRASS_LEAF_POM*/
 #   if defined SEDIMENT_ECOSYS
-#    define SEAGRASS_ROOT_POM
+/*#    define SEAGRASS_ROOT_POM*/
 #   endif
 #  endif
 # endif
@@ -264,7 +264,6 @@
 
 /*** Sediment model options. ***/
 # if defined SEDIMENT_ECOSYS  /* Masa_edits */
-#  define SEDIMENT_ECOSYS_INITIAL_MODE /* For starting new run */
 #  define SULFATE      /* For sulfate reduction in sediment */
 #  define Burial       /* For Burial term in sediment transport (massbalance) */
 #  define sedBC_closed /* closed boundary condition at the bottom sediment layer */

@@ -226,9 +226,9 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Input/Output parameters.
 
-       NRREC == 0
+       NRREC == -1  ! 0 = new run; -1 = re-start         ! yt_edit restart    don't forget to change LReadBioINI in bio_reef_ecosys.in as well!
    LcycleRST == T
-        NRST == 360
+        NRST == 720 ! should match largest output interval (NHIS,NQCK,NDIA)    ! yt_edit write restart data interval
         NSTA == 1
         NFLT == 1
        NINFO == 1
@@ -236,16 +236,16 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 720 ! 120 = 10min; 360 = 30min; 720 = 1hr; 17280 = 1day;
+        NHIS == 720 ! 120 = 10min; 360 = 30min; 720 = 1hr; 17280 = 1day;       ! yt_edit write history data interval
      NDEFHIS == 0
      !  NQCK == 0
-        NQCK == 2160 ! 2160 = 3hr
+        NQCK == 720 ! 2160 = 3hr       ! yt_edit write quick history data interval
      NDEFQCK == 0
       NTSAVG == 1
         NAVG == 0
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 1440
+        NDIA == 720       ! yt_edit write diagnostic data interval
      NDEFDIA == 0
 
 
@@ -947,8 +947,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../Data/Shiraho_reef/shiraho_reef_grid16.3.nc   ! New bathymetry, with new coverage
-     ININAME == ocean_ini.nc
+     GRDNAME == ../../Data/Shiraho_reef/shiraho_reef_grid16.4.nc   ! New bathymetry, with new coverage
+     ! ININAME == ocean_ini.nc         ! start new run    yt_edit restart
+     ININAME == ../../Results/Shiraho_reef/ocean_seagrass_test_rst.nc     ! restart from rst file    yt_edit restart
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -1016,14 +1017,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == ../../Results/Shiraho_reef/ocean_seagrass_01_rst.nc
-     HISNAME == ../../Results/Shiraho_reef/ocean_seagrass_01_his.nc
-     QCKNAME == ../../Results/Shiraho_reef/ocean_seagrass_01_qck.nc
+     RSTNAME == ../../Results/Shiraho_reef/ocean_seagrass_test2_rst.nc        ! rename file when restart     yt_edit restart
+     HISNAME == ../../Results/Shiraho_reef/ocean_seagrass_test2_his.nc        ! rename file when restart     yt_edit restart
+     QCKNAME == ../../Results/Shiraho_reef/ocean_seagrass_test2_qck.nc        ! rename file when restart     yt_edit restart
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == ../../Results/Shiraho_reef/ocean_seagrass_01_dia.nc
+     DIANAME == ../../Results/Shiraho_reef/ocean_seagrass_test2_dia.nc        ! rename file when restart     yt_edit restart
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 
