@@ -53,8 +53,8 @@
 !    2: coral, seagass, macroalgae, sediment, etc.
 !
 !               1 2   
-!LReadBioINI == F F       ! yt_edit restart
- LReadBioINI == T T       ! yt_edit restart
+ LReadBioINI == F F       ! yt_edit restart
+!LReadBioINI == T T       ! yt_edit restart
 
 ! Maximum number of iterations to achieve convergence of the nonlinear
 ! solution.
