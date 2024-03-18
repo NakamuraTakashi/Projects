@@ -31,3 +31,5 @@ fort.*
 */stdout*.txt
 test.txt
 test.F
+
+*/coawst.bash
