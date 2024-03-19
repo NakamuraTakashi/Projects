@@ -190,7 +190,7 @@
 
 /*** submarine groundwater discharge ***/
 
-/*#define SGD_ON*/    /*Original CPP flag */
+#define SGD_ON    /*Original CPP flag */
 
 /***  Biological model options. (Original CPP flags) ***/
 

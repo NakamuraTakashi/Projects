@@ -53,7 +53,7 @@
 !    2: coral, seagass, macroalgae, sediment, etc.
 !
 !               1 2   
- LReadBioINI == F F       ! yt_edit restart
+ LReadBioINI == F F       ! yt_edit start from new
 !LReadBioINI == T T       ! yt_edit restart
 
 ! Maximum number of iterations to achieve convergence of the nonlinear
@@ -211,9 +211,8 @@ ad_LBC(isTvar) == Clo     Clo     RadNud  Clo   ! idbio(:), compact
 
 !                                    1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 6
 !                  1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
-!  LtracerSrc   == T T T T T T T F F F F F T T T T T T T T T T T ! For no d13C version
-!  LtracerSrc   == T T T T T T T F F F F F T T T T T F F F F F T T T T T T T T T T T ! For d13C version
-   LtracerSrc   == 23*F
+   LtracerSrc   == T T T F F F F F F F F F T T T F F F F F F F F
+!  LtracerSrc   == 23*F
 !  LtracerSrc   == 45*T
 
 ! Logical switches (TRUE/FALSE) to activate writing of biological fields
