@@ -107,7 +107,7 @@
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
       NtileI == 1   !1   !2   !6                            ! I-direction partition
-      NtileJ == 6   !3   !10  !20                            ! J-direction partition
+      NtileJ == 25  !3   !10  !20                            ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -205,7 +205,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 259200  !!!1800=1h,   43200=1day,  86400=2days,  648000=15day (8/25 0:00-9/9 0:000)
+      NTIMES == 708481  ! 1hr=720; 1day=17280;    yt_edit
           DT == 5.0d0    !!!1.0d0
      NDTFAST == 20
 
@@ -387,8 +387,8 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! NetCDF units attribute.
 
 !      DSTART =  0.0d0 !0.0d0               ! days   !!!Start time !0.3d0, 0.54d0, 0.76d0, 1.05d0
-      DSTART =  3884.0d0 !0.0d0            ! days   !!!Start time 3884.0d0: 2010/08/20 start
-  TIDE_START =  0.0d0                      ! days
+     DSTART =  3884.0d0 !0.0d0            ! days   !!!Start time 3884.0d0: 2010/08/20 start
+ TIDE_START =  0.0d0                      ! days
 !    TIME_REF =  20100820.00                ! yyyymmdd.dd  !!!Changed
     TIME_REF =  20000101.00                ! yyyymmdd.dd  !!!Changed
 
@@ -947,9 +947,10 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../Data/Shiraho_reef/shiraho_reef_grid16.4.nc   ! New bathymetry, with new coverage
+     ! GRDNAME == ../../Data/Shiraho_reef/shiraho_reef_grid16.4.nc   ! New bathymetry, with new coverage
+     GRDNAME == ../../Data/Shiraho_reef/shiraho_reef_grid16_unconstrained_seagrass.nc   ! Seagrass covers everything except coral
      ININAME == ocean_ini.nc         ! start new run    yt_edit restart
-     ! ININAME == ../../Results/Shiraho_reef/ocean_seagrass_test_rst.nc     ! restart from rst file    yt_edit restart
+     ! ININAME == ../../Results/Shiraho_reef/ocean_seagrass_01_rst.nc     ! 2010-09-04 00:00  restart from rst file    yt_edit restart
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -1017,14 +1018,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == ../../Results/Shiraho_reef/ocean_seagrass_02_rst.nc        ! rename file when restart     yt_edit restart
-     HISNAME == ../../Results/Shiraho_reef/ocean_seagrass_02_his.nc        ! rename file when restart     yt_edit restart
-     QCKNAME == ../../Results/Shiraho_reef/ocean_seagrass_02_qck.nc        ! rename file when restart     yt_edit restart
+     RSTNAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_01_rst.nc        ! rename file when restart     yt_edit restart
+     HISNAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_01_his.nc        ! rename file when restart     yt_edit restart
+     QCKNAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_01_qck.nc        ! rename file when restart     yt_edit restart
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == ../../Results/Shiraho_reef/ocean_seagrass_02_dia.nc        ! rename file when restart     yt_edit restart
+     DIANAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_01_dia.nc        ! rename file when restart     yt_edit restart
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 
