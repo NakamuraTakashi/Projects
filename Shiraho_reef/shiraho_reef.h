@@ -246,6 +246,7 @@
 # if defined SEAGRASS
 #  if defined NUTRIENTS
 #   define SEAGRASS_LEAF_NUTRIENT_UPTAKE
+#   define NET_ZERO_MASS_START /*Calculate initial seagrass mass balance and destroy (erase) equivalent amount of mass output until net zero is reached, before switching to normal flux*/
 #  endif
 #  if defined SEDIMENT_ECOSYS
 /*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
