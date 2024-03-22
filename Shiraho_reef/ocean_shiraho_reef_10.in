@@ -985,7 +985,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../Data/Shiraho_reef/frc_freshwater_SGD_test.nc
+     SSFNAME == ../../Data/Shiraho_reef/frc_freshwater_SGD_test2.nc
     !  SSFNAME == ../../Data/Shiraho_reef/frc_freshwater6.nc
 !     SSFNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/frc_freshwater_10tmp.nc
 
