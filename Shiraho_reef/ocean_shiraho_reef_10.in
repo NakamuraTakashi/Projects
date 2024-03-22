@@ -947,7 +947,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../Data/Shiraho_reef/shiraho_reef_grid16.4.nc   ! New bathymetry, with new coverage
+    !  GRDNAME == ../../Data/Shiraho_reef/shiraho_reef_grid16.3.nc   ! 
+     GRDNAME == ../../Data/Shiraho_reef/shiraho_reef_grid16_unconstrained_seagrass.nc
      ININAME == ocean_ini.nc         ! start new run    yt_edit restart
      ! ININAME == ../../Results/Shiraho_reef/ocean_seagrass_test_rst.nc     ! restart from rst file    yt_edit restart
      ITLNAME == ocean_itl.nc
@@ -984,7 +985,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../Data/Shiraho_reef/frc_freshwater_SGD_test.nc
+     SSFNAME == ../../Data/Shiraho_reef/frc_freshwater_SGD_test2.nc
+    !  SSFNAME == ../../Data/Shiraho_reef/frc_freshwater6.nc
 !     SSFNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/frc_freshwater_10tmp.nc
 
 ! Input tidal forcing file name.
