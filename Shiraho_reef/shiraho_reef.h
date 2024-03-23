@@ -267,7 +267,7 @@
 # if defined SEDIMENT_ECOSYS  /* Masa_edits */
 #  define SULFATE      /* For sulfate reduction in sediment */
 #  define SEDECO_BURIAL       /* For Burial term in sediment transport (massbalance) */
-#  define SEDECO_CLOSED_BOTTOM_BOUNDARY /* closed boundary condition at the bottom sediment layer */
+#  define SEDECO_CLOSED_BOTTOM_DIFFUSION_BOUNDARY /* closed boundary condition at the bottom sediment layer */
 #  define SEDECO_ADVECTION /* Requires SGD_ON : advection flux is defined by river forcing file last source multiplied by grid file sgd_src. If enabled with SEDECO_CLOSED_BOTTOM_BOUNDARY then diffusionn is closed, but advection is from forcing */
 #  define ORGANIC_MATTER
 #  define NUTRIENTS
