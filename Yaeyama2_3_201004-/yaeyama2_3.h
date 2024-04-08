@@ -8,7 +8,7 @@
 **
 ** Options for Inlet Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   YAEYAMA1
+** Application flag:   YAEYAMA2
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
@@ -119,8 +119,8 @@
 
 /*** waves-ocean (SWAN/ROMS) two-way coupling. ***/
 #ifdef SWAN_MODEL
-# define WEC_MELLOR
-/*# define WEC_VF*/
+/*# define WEC_MELLOR*/
+# define WEC_VF
 # define WDISS_WAVEMOD
 # define UV_KIRBY
 #endif
@@ -187,8 +187,8 @@
 /*#  define SED_MORPH*/
 # endif
 # if defined SEDIMENT || defined SG_BBL || defined MB_BBL || defined SSW_BBL
-#  define ANA_SEDIMENT
-#  define REVER_SEDIMENT
+/*#  define ANA_SEDIMENT*/
+/*#  define ANA_SED_UNIFORM */   /*Original CPP flag */
 # endif
 # define ANA_BPFLUX
 # define ANA_BTFLUX
@@ -216,8 +216,7 @@
 
 #if defined REEF_ECOSYS
 # define BIOLOGY
-# define ANA_BIOLOGY
-/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
+/*# define ANA_BIOLOGY*/
 
 /* compartments */
 # define ORGANIC_MATTER

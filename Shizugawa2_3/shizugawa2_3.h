@@ -14,8 +14,8 @@
 **                     sediment_inlet_test.in
 */
 #define ROMS_MODEL
-/*#define SWAN_MODEL*/
-/*#define MCT_LIB*/
+#define SWAN_MODEL
+#define MCT_LIB
 
 #define NO_LBC_ATT
 /*#define PARALLEL_IO*/
@@ -119,18 +119,18 @@
 
 /*** waves-ocean (SWAN/ROMS) two-way coupling. ***/
 #ifdef SWAN_MODEL
-# define WEC_MELLOR
-/*# define WEC_VF*/
+/*# define WEC_MELLOR*/
+# define WEC_VF
 # define WDISS_WAVEMOD
 # define UV_KIRBY
 #endif
 
 /* define only one of the following 5 */
-#define UV_LOGDRAG
+/*#define UV_LOGDRAG*/
 /*#define UV_QDRAG*/
 /*#define MB_BBL*/
 /*#define SG_BBL*/
-/*#define SSW_BBL*/
+#define SSW_BBL
 
 #ifdef MB_BBL
 /*# define MB_CALC_ZNOT*/
@@ -157,8 +157,8 @@
 /*#  define K_C4ADVECTION*/
 /*#  define K_C2ADVECTION*/
 /*#  define N2S2_HORAVG*/
-/*#  define ZOS_HSIG*/
-/*#  define TKE_WAVEDISS*/
+#  define ZOS_HSIG
+#  define TKE_WAVEDISS
 # endif
 
 # if defined MY25_MIXING
@@ -179,7 +179,7 @@
 # endif
 
 
-/*# define SEDIMENT*/
+# define SEDIMENT
 # ifdef SEDIMENT
 #  define SUSPLOAD
 #  undef  BEDLOAD_SOULSBY
@@ -188,7 +188,7 @@
 # endif
 # if defined SEDIMENT || defined SG_BBL || defined MB_BBL || defined SSW_BBL
 #  define ANA_SEDIMENT
-#  define REVER_SEDIMENT
+#  define ANA_SED_UNIFORM    /*Original CPP flag */
 # endif
 # define ANA_BPFLUX
 # define ANA_BTFLUX
@@ -214,32 +214,38 @@
 
 /*#define REEF_ECOSYS*/
 
+#if defined REEF_ECOSYS || defined SEDIMENT
+# define ANA_TOBC_BIO  /*Original CPP flag */
+# define ANA_TOBC_SED   /*Original CPP flag */
+# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
+#endif
+
 #if defined REEF_ECOSYS
 # define BIOLOGY
+# define DIAGNOSTICS_BIO
 # define ANA_BIOLOGY
-/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 /* compartments */
 # define ORGANIC_MATTER
 /*# define CARBON_ISOTOPE*/
 # define NUTRIENTS
 
-/*# define CORAL_POLYP*/  /* USE coral module */
-/*# define SEAGRASS*/     /* USE seagrass module */
-/*# define MACROALGAE*/        /* USE algae module  */
-/*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
-# if defined SEDIMENT_ECOSYS
-#  define SEDIMENT_EMPIRICAL     /* USE empirical sediment module  */
-# endif
+# define CORAL_POLYP  /* USE coral module */
+# define SEAGRASS     /* USE seagrass module */
+# define MACROALGAE        /* USE algae module  */
+# define SEDIMENT_ECOSYS        /* USE sedecosys module  */
 
 # if defined ORGANIC_MATTER
 #  define FOODWEB      /* USE foodweb module */
 # endif
 # define AIR_SEA_GAS_EXCHANGE
 
+/*# define DYNAMIC_COVERAGE*/ /* yt_edit not yet implemented in coawst */
+
+
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
-/*#  define CORAL_ZOOXANTHELLAE*/
+#  define CORAL_ZOOXANTHELLAE
 #  define CORAL_MUCUS           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
 #   define CORAL_INGESTION
@@ -254,5 +260,38 @@
 #  endif
 /*#  define CORAL_BORON_ISOTOPE*/
 # endif
+
+
+/*** Seagrass model options. ***/
+# if defined SEAGRASS
+#  if defined NUTRIENTS
+/*#   define SEAGRASS_LEAF_NUTRIENT_UPTAKE*/
+#  endif
+#  if defined SEDIMENT_ECOSYS
+/*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
+#  endif
+#  if defined NUTRIENTS && defined SEDIMENT_ECOSYS
+#   define SEAGRASS_ROOT_NUTRIENT_UPTAKE
+#  endif
+#  if defined ORGANIC_MATTER
+#   define SEAGRASS_LEAF_POM
+#   if defined SEDIMENT_ECOSYS
+#    define SEAGRASS_ROOT_POM
+#   endif
+#  endif
+# endif
+
+
+/*** Sediment model options. ***/
+# if defined SEDIMENT_ECOSYS  /* Masa_edits */
+/*#  define SEDIMENT_EMPIRICAL*/     /* USE empirical sediment module  */
+#  define SEDIMENT_ECOSYS_INITIAL_MODE /* For starting new run */
+#  define SULFATE      /* For sulfate reduction in sediment */
+#  define Burial       /* For Burial term in sediment transport (massbalance) */
+#  define sedBC_closed /* closed boundary condition at the bottom sediment layer */
+#  define ORGANIC_MATTER
+#  define NUTRIENTS
+# endif
+
 
 #endif

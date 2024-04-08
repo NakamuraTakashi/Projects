@@ -224,10 +224,12 @@
 
 #define REEF_ECOSYS
 
+# define ANA_TOBC_BIO   /*Original CPP flag */
+/*# define ANA_TOBC_SED*/   /*Original CPP flag */
+
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
-# define ANA_TOBC_BIO   /*Original CPP flag */
 # define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
 
 /* compartments */
