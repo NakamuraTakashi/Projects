@@ -18,6 +18,7 @@ fort.*
 
 */output/*
 */Build/*
+*/Build*/*
 */Data/*
 */.o*
 */.e*

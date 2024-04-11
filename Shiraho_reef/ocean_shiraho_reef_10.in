@@ -985,6 +985,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
+     ! SSFNAME == ../../Data/Shiraho_reef/frc_freshwater_no_SGD_test.nc
      SSFNAME == ../../Data/Shiraho_reef/frc_freshwater_SGD_test.nc
     !  SSFNAME == ../../Data/Shiraho_reef/frc_freshwater6.nc
 !     SSFNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/frc_freshwater_10tmp.nc
@@ -1019,14 +1020,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_SGD_01_rst.nc        ! rename file when restart     yt_edit restart
-     HISNAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_SGD_01_his.nc        ! rename file when restart     yt_edit restart
-     QCKNAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_SGD_01_qck.nc        ! rename file when restart     yt_edit restart
+     RSTNAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_low_SGD_01_rst.nc        ! rename file when restart     yt_edit restart
+     HISNAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_low_SGD_01_his.nc        ! rename file when restart     yt_edit restart
+     QCKNAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_low_SGD_01_qck.nc        ! rename file when restart     yt_edit restart
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_SGD_01_dia.nc        ! rename file when restart     yt_edit restart
+     DIANAME == ../../Results/Shiraho_reef/ocean_seagrass_unconstrained_low_SGD_01_dia.nc        ! rename file when restart     yt_edit restart
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 

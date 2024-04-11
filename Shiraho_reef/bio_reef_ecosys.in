@@ -269,7 +269,7 @@ Qout(iHbiosed3) == 35*T
 
    Dout(iDbio2) == 28*T
 !  Dout(iDbio2) == 30*T
-!  Dout(iDbio3) == 1*F
+   Dout(iDbio3) == 2*T
 
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged,
 ! biological processes diagnostics terms into DIAGNOSTIC output file [Ngrids].
