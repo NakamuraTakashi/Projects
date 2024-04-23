@@ -1,0 +1,197 @@
+ Coupled Input File name = coupling_S3.in
+
+ Model Coupling: 
+
+
+       Ocean Model MPI nodes: 000 - 029
+
+       Waves Model MPI nodes: 030 - 030
+
+       WAVgrid 01 dt= 600.0 -to- OCNgrid 01 dt=   6.0, CplInt:   600.0 Steps: 001
+
+       OCNgrid 01 dt=   6.0 -to- WAVgrid 01 dt= 600.0, CplInt:   600.0 Steps: 100
+--------------------------------------------------------------------------------
+ Model Input Parameters:  ROMS/TOMS version 3.7  
+                          Sunday - March 17, 2024 - 12:12:38 PM
+ --------------------------------------------------------------------------------
+
+SWAN grid   1 is preparing computation
+
+
+ SHIZUGAWA3 Test Case
+
+ Operating system : CYGWIN
+ CPU/hardware     : x86_64
+ Compiler system  : gfortran
+ Compiler command : /usr/bin/mpif90
+ Compiler flags   : -frepack-arrays -w -fallow-argument-mismatch -mcmodel=large -O3 -I/usr/local/include -ffree-form -ffree-line-length-none
+
+ Input Script  : 
+
+ SVN Root URL  : https:://myroms.org/svn/src
+ SVN Revision  : Unversioned directory
+
+ Local Root    : /home/nakamulab2/COAWST/COAWST_Eco
+ Header Dir    : /home/nakamulab2/COAWST/Projects/Shizugawa2_3_eco
+ Header file   : shizugawa2_3.h
+ Analytical Dir: /home/nakamulab2/COAWST/Projects/Shizugawa2_3_eco
+
+ Resolution, Grid 01: 0145x0170x015,  Parallel Nodes:  30,  Tiling: 002x015
+
+
+ Physical Parameters, Grid: 01
+ =============================
+
+     360000  ntimes            Number of timesteps for 3-D equations.
+      6.000  dt                Timestep size (s) for 3-D equations.
+         30  ndtfast           Number of timesteps for 2-D equations between
+                                 each 3D timestep.
+          1  ERstr             Starting ensemble/perturbation run number.
+          1  ERend             Ending ensemble/perturbation run number.
+          0  nrrec             Number of restart records to read from disk.
+          T  LcycleRST         Switch to recycle time-records in restart file.
+      14400  nRST              Number of timesteps between the writing of data
+                                 into restart fields.
+         10  ninfo             Number of timesteps between print of information
+                                 to standard output.
+          T  ldefout           Switch to create a new output NetCDF file(s).
+        600  nHIS              Number of timesteps between the writing fields
+                                 into history file.
+        600  nQCK              Number of timesteps between the writing fields
+                                 into quicksave file.
+          1  ntsDIA            Starting timestep for the accumulation of output
+                                 time-averaged diagnostics data.
+        600  nDIA              Number of timesteps between the writing of
+                                 time-averaged data into diagnostics file.
+ 0.0000E+00  nl_tnu2(01)       NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for tracer 01: temp
+ 0.0000E+00  nl_tnu2(02)       NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for tracer 02: salt
+ 1.0000E-01  nl_visc2          NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for momentum.
+          F  LuvSponge         Turning OFF sponge on horizontal momentum.
+          F  LtracerSponge(01) Turning OFF sponge on tracer 01: temp
+          F  LtracerSponge(02) Turning OFF sponge on tracer 02: salt
+ 5.0000E-06  Akt_bak(01)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 01: temp
+ 5.0000E-06  Akt_bak(02)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 02: salt
+ 5.0000E-05  Akv_bak           Background vertical mixing coefficient (m2/s)
+                                 for momentum.
+ 5.0000E-06  Akk_bak           Background vertical mixing coefficient (m2/s)
+                                 for turbulent energy.
+ 5.0000E-06  Akp_bak           Background vertical mixing coefficient (m2/s)
+                                 for turbulent generic statistical field.
+      3.000  gls_p             GLS stability exponent.
+      1.500  gls_m             GLS turbulent kinetic energy exponent.
+     -1.000  gls_n             GLS turbulent length scale exponent.
+ 7.6000E-06  gls_Kmin          GLS minimum value of turbulent kinetic energy.
+ 1.0000E-12  gls_Pmin          GLS minimum value of dissipation.
+ 5.4770E-01  gls_cmu0          GLS stability coefficient.
+ 1.4400E+00  gls_c1            GLS shear production coefficient.
+ 1.9200E+00  gls_c2            GLS dissipation coefficient.
+-4.0000E-01  gls_c3m           GLS stable buoyancy production coefficient.
+ 1.0000E+00  gls_c3p           GLS unstable buoyancy production coefficient.
+ 1.0000E+00  gls_sigk          GLS constant Schmidt number for TKE.
+ 1.3000E+00  gls_sigp          GLS constant Schmidt number for PSI.
+   1400.000  charnok_alpha     Charnok factor for Zos calculation.
+      0.500  zos_hsig_alpha    Factor for Zos calculation using Hsig(Awave).
+      0.250  sz_alpha          Factor for Wave dissipation surface tke flux .
+    100.000  crgban_cw         Factor for Craig/Banner surface tke flux.
+      0.000  wec_alpha         WEC factor for roller/breaking energy distribution.
+ 3.0000E-04  rdrg              Linear bottom drag coefficient (m/s).
+ 2.5000E-02  rdrg2             Quadratic bottom drag coefficient.
+ 2.0000E-03  Zob               Bottom roughness (m).
+ 2.0000E-02  Zos               Surface roughness (m).
+ 1.0000E+01  blk_ZQ            Height (m) of surface air humidity measurement.
+ 1.0000E+01  blk_ZT            Height (m) of surface air temperature measurement.
+ 1.0000E+01  blk_ZW            Height (m) of surface winds measurement.
+ 1.0000E-01  Dcrit             Minimum depth for wetting and drying (m).
+          2  Vtransform        S-coordinate transformation equation.
+          4  Vstretching       S-coordinate stretching function.
+ 7.0000E+00  theta_s           S-coordinate surface control parameter.
+ 1.0000E-01  theta_b           S-coordinate bottom  control parameter.
+    200.000  Tcline            S-coordinate surface/bottom layer width (m) used
+                                 in vertical coordinate stretching.
+   1025.000  rho0              Mean density (kg/m3) for Boussinesq approximation.
+      0.000  dstart            Time-stamp assigned to model initialization (days).
+20000101.00  time_ref          Reference time for units attribute (yyyymmdd.dd)
+ 1.0000E+00  Tnudg(01)         Nudging/relaxation time scale (days)
+                                 for tracer 01: temp
+ 1.0000E+00  Tnudg(02)         Nudging/relaxation time scale (days)
+                                 for tracer 02: salt
+ 9.0000E+00  Znudg             Nudging/relaxation time scale (days)
+                                 for free-surface.
+ 6.0000E+00  M2nudg            Nudging/relaxation time scale (days)
+                                 for 2D momentum.
+ 1.0000E+00  M3nudg            Nudging/relaxation time scale (days)
+                                 for 3D momentum.
+ 5.0000E+02  obcfac            Factor between passive and active
+                                 open boundary conditions.
+          F  VolCons(1)        NLM western  edge boundary volume conservation.
+          F  VolCons(2)        NLM southern edge boundary volume conservation.
+          F  VolCons(3)        NLM eastern  edge boundary volume conservation.
+          F  VolCons(4)        NLM northern edge boundary volume conservation.
+      5.000  T0                Background potential temperature (C) constant.
+     35.000  S0                Background salinity (PSU) constant.
+      1.000  gamma2            Slipperiness variable: free-slip (1.0) or 
+                                                      no-slip (-1.0).
+          F  LuvSrc            Turning OFF momentum point Sources/Sinks.
+          T  LwSrc             Turning ON  volume influx point Sources/Sinks.
+          F  LtracerSrc(01)    Turning OFF point Sources/Sinks on tracer 01: temp
+          T  LtracerSrc(02)    Turning ON  point Sources/Sinks on tracer 02: salt
+          F  LsshCLM           Turning OFF processing of SSH climatology.
+          F  Lm2CLM            Turning OFF processing of 2D momentum climatology.
+          F  Lm3CLM            Turning OFF processing of 3D momentum climatology.
+          F  LtracerCLM(01)    Turning OFF processing of climatology tracer 01: temp
+          F  LtracerCLM(02)    Turning OFF processing of climatology tracer 02: salt
+          F  LnudgeM2CLM       Turning OFF nudging of 2D momentum climatology.
+          F  LnudgeM3CLM       Turning OFF nudging of 3D momentum climatology.
+          F  LnudgeTCLM(01)    Turning OFF nudging of climatology tracer 01: temp
+          F  LnudgeTCLM(02)    Turning OFF nudging of climatology tracer 02: salt
+
+          T  Hout(idFsur)      Write out free-surface.
+          T  Hout(idUbar)      Write out 2D U-momentum component.
+          T  Hout(idVbar)      Write out 2D V-momentum component.
+          T  Hout(idUvel)      Write out 3D U-momentum component.
+          T  Hout(idVvel)      Write out 3D V-momentum component.
+          T  Hout(idWvel)      Write out W-momentum component.
+          T  Hout(idTvar)      Write out tracer 01: temp
+          T  Hout(idTvar)      Write out tracer 02: salt
+          T  Hout(idUVwc)      Write out max wind + current, bottom UV-wave stress.
+          T  Hout(idWamp)      Write out wave height.
+          T  Hout(idWlen)      Write out wavelength.
+          T  Hout(idWdir)      Write out wave direction.
+          T  Hout(idWptp)      Write out wave surface period.
+          T  Hout(idWpbt)      Write out wave bottom period.
+          T  Hout(idSrad)      Write out shortwave radiation flux.
+          T  Hout(idLrad)      Write out longwave radiation flux.
+          T  Hout(idVvis)      Write out vertical viscosity: AKv.
+          T  Hout(idTdif)      Write out vertical diffusion: AKt(itemp).
+          T  Hout(idSdif)      Write out vertical diffusion: AKt(isalt).
+          T  Hout(idMtke)      Write out turbulent kinetic energy.
+
+ Output/Input Files:
+
+             Output Restart File:  E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20210701.nc
+             Output History File:  E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20210701.nc
+         Output Diagnostics File:  E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_dia_20210701.nc
+        Physical parameters File:  
+                 Input Grid File:  D:/COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.0.nc
+    Input Nonlinear Initial File:  D:/COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20210701.00.nc
+
+ READ_PHYPAR - Grid 01, could not find input file:  F:/COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_Nz15_const_1900_2100_v0.nc
+ Found Error: 04   Line: 7936     Source: ROMS/Utility/read_phypar.F
+ Found Error: 04   Line: 160      Source: ROMS/Utility/inp_par.F
+ Found Error: 04   Line: 114      Source: ROMS/Drivers/nl_ocean.h
+
+ Elapsed CPU time (seconds):
+
+
+ ROMS/TOMS - Output NetCDF summary for Grid 01:
+ Found Error: 04   Line: 456      Source: ROMS/Utility/close_io.F
+
+ ROMS/TOMS - I/O error ............... exit_flag:   4
+
+
+ ERROR: I/O related problem.

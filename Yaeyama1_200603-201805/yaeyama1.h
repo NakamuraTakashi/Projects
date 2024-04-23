@@ -14,8 +14,8 @@
 **                     sediment_inlet_test.in
 */
 #define ROMS_MODEL
-/*#define SWAN_MODEL*/
-/*#define MCT_LIB*/
+#define SWAN_MODEL
+#define MCT_LIB
 
 #define NO_LBC_ATT
 /*#define PARALLEL_IO*/
@@ -118,18 +118,18 @@
 
 /*** waves-ocean (SWAN/ROMS) two-way coupling. ***/
 #ifdef SWAN_MODEL
-# define WEC_MELLOR
-/*# define WEC_VF*/
+/*# define WEC_MELLOR*/
+# define WEC_VF
 # define WDISS_WAVEMOD
 # define UV_KIRBY
 #endif
 
 /* define only one of the following 5 */
-#define UV_LOGDRAG
+/*#define UV_LOGDRAG*/
 /*#define UV_QDRAG*/
 /*#define MB_BBL*/
 /*#define SG_BBL*/
-/*#define SSW_BBL*/
+#define SSW_BBL
 
 #ifdef MB_BBL
 /*# define MB_CALC_ZNOT*/
@@ -156,7 +156,7 @@
 /*#  define K_C4ADVECTION*/
 /*#  define K_C2ADVECTION*/
 /*#  define N2S2_HORAVG*/
-/*#  define ZOS_HSIG*/
+#  define ZOS_HSIG
 /*#  define TKE_WAVEDISS*/
 # endif
 
@@ -178,7 +178,7 @@
 # endif
 
 
-/*# define SEDIMENT*/
+# define SEDIMENT
 # ifdef SEDIMENT
 #  define SUSPLOAD
 #  undef  BEDLOAD_SOULSBY
@@ -187,7 +187,7 @@
 # endif
 # if defined SEDIMENT || defined SG_BBL || defined MB_BBL || defined SSW_BBL
 #  define ANA_SEDIMENT
-#  define REVER_SEDIMENT
+#  define ANA_SED_UNIFORM    /*Original CPP flag */
 # endif
 # define ANA_BPFLUX
 # define ANA_BTFLUX
@@ -213,10 +213,15 @@
 
 /*#define REEF_ECOSYS*/
 
+#if defined REEF_ECOSYS || defined SEDIMENT
+# define ANA_TOBC_BIO   /*Original CPP flag */
+# define ANA_TOBC_SED   /*Original CPP flag */
+/*# define BIO_VPROFILE_YAEYAMA*/   /*Original CPP flag */
+#endif
+
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
-/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 /* compartments */
 # define ORGANIC_MATTER

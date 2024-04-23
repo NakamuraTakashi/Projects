@@ -8,7 +8,7 @@
 **
 ** Options for Shiraho reef Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   SHIRAHO_REEF
+** Application flag:   SHIRAHO_REEF 2010-
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
@@ -18,6 +18,14 @@
 #define MCT_LIB
 
 #define NO_LBC_ATT
+/*#define PARALLEL_IO*/
+/*#define HDF5*/
+/*#define PNETCDF*/
+
+/*#define NESTING*/
+/*#define NESTING_DEBUG*/
+/*#define ONE_WAY*/
+/*#define QUADRATIC_WEIGHTS*/
 
 #define SOLVE3D
 
@@ -69,23 +77,31 @@
 
 
 /*** Option for Boundary condition ***/
-
 #define RADIATION_2D
+
+/*** Option for tidal forcing ***/
 /*#define SSH_TIDES*/
+/*#define UV_TIDES*/
 /*#define ADD_FSOBC*/
-/*#define FSOBC_REDUCED*/
+/*#define ADD_M2OBC*/
+/*#define RAMP_TIDES*/ /*Not use*/
 
-
-#define ANA_INITIAL
+/*#define ANA_INITIAL*/
 /*#define ANA_FSOBC*/
-#define ANA_M2OBC
-#define ANA_TOBC
-
-#define SOLAR_SOURCE
+/*#define ANA_M2OBC*/
+/*#define ANA_TOBC*/
 
 #define BULK_FLUXES
 #ifdef BULK_FLUXES
-# define LONGWAVE
+/*# define ANA_SRFLUX*/
+/*# define CLOUDS*/          /* activate 199401-201003 */
+/*# define ALBEDO_CLOUD*/    /* activate 199401-201003 */
+/*# define LONGWAVE*/
+# define LONGWAVE_OUT
+/*# define ANA_LRFLUX*/  /* activate 199401-201003 */
+/*# define ANA_LONGWAVE_DOWN*/  /* activate 199401-201003; Original CPP flag */ 
+/*# define JMAMSM_FLUXES*/  /* Original CPP flag for JMAMSM data */ 
+/*# define JMAOBS_FLUXES*/  /* Original CPP flag for JMA weather station data */ 
 # define EMINUSP
 /*# define ANA_CLOUD*/
 /*# define ANA_HUMID*/
@@ -93,6 +109,8 @@
 /*# define ANA_TAIR*/
 /*# define ANA_RAIN*/
 /*# define ANA_WINDS*/
+/*# define LOCAL_TIME +9.0*/
+/*# define DIURNAL_SRFLUX*/
 #else
 # define ANA_SMFLUX
 # define ANA_STFLUX
@@ -101,8 +119,8 @@
 
 /*** waves-ocean (SWAN/ROMS) two-way coupling. ***/
 #ifdef SWAN_MODEL
-# define WEC_MELLOR
-/*# define WEC_VF*/
+/*# define WEC_MELLOR*/
+# define WEC_VF
 # define WDISS_WAVEMOD
 # define UV_KIRBY
 #endif
@@ -170,7 +188,7 @@
 # endif
 # if defined SEDIMENT || defined SG_BBL || defined MB_BBL || defined SSW_BBL
 #  define ANA_SEDIMENT
-#  define REVER_SEDIMENT
+/*#  define ANA_SED_UNIFORM */   /*Original CPP flag */
 # endif
 # define ANA_BPFLUX
 # define ANA_BTFLUX
@@ -194,13 +212,17 @@
 
 /***  Biological model options. (Original CPP flags) ***/
 
-#define REEF_ECOSYS
+/*#define REEF_ECOSYS*/
+
+#if defined REEF_ECOSYS || defined SEDIMENT
+# define ANA_TOBC_BIO  /*Original CPP flag */
+# define ANA_TOBC_SED   /*Original CPP flag */
+# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
+#endif
 
 #if defined REEF_ECOSYS
 # define BIOLOGY
-# define ANA_BIOLOGY
-/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
-/*# define SIMPLE_BIO_BOUNDARY*/ /* USE ANA_TOBC_BIO option. for shimple boundaly test case */
+/*# define ANA_BIOLOGY*/
 
 /* compartments */
 # define ORGANIC_MATTER
@@ -208,9 +230,9 @@
 # define NUTRIENTS
 
 /*# define CORAL_POLYP*/  /* USE coral module */
-# define SEAGRASS     /* USE seagrass module */
-# define MACROALGAE        /* USE algae module  */
-# define SEDIMENT_ECOSYS        /* USE sedecosys module  */
+/*# define SEAGRASS*/     /* USE seagrass module */
+/*# define MACROALGAE*/        /* USE algae module  */
+/*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
 # if defined SEDIMENT_ECOSYS
 #  define SEDIMENT_EMPIRICAL     /* USE empirical sediment module  */
 # endif
@@ -222,13 +244,12 @@
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
-#  define CORAL_ZOOXANTHELLAE
-#  define CORAL_PHOTOINHIBITION
-/*#  define CORAL_MUCUS*/           /*Mucus release from coral */
+/*#  define CORAL_ZOOXANTHELLAE*/
+#  define CORAL_MUCUS           /*Mucus release from coral */
 #  if defined ORGANIC_MATTER
-/*#   define CORAL_INGESTION*/
+#   define CORAL_INGESTION
 #  endif
-#  define CORAL_SIZE_DYNAMICS
+/*#  define CORAL_SIZE_DYNAMICS*/
 #  if defined CARBON_ISOTOPE
 #   define CORAL_CARBON_ISOTOPE
 /*#   define CORAL_NONE_CO2_EQ*/
@@ -240,4 +261,3 @@
 # endif
 
 #endif
-

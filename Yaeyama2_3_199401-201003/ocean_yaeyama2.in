@@ -391,15 +391,15 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! Nudging/relaxation time scales, inverse scales will be computed
 ! internally, [1:Ngrids].
 
-       TNUDG == 100.0d0  100.0d0               ! days
+       TNUDG == 1.0d0  1.0d0               ! days
        ZNUDG == 9.0d0                      ! days
       M2NUDG == 6.0d0                      ! days
-      M3NUDG == 100.0d0                      ! days
+      M3NUDG == 1.0d0                      ! days
 
 ! Nudging/relaxation time scale for surface salinity nudging, inverse
 ! scales will be computed internally, [1:Ngrids].
 
-       TNUDG_SSS == 100.0d0                 ! days
+       TNUDG_SSS == 1.0d0                 ! days
 
 ! Threshold to trigger SSS correction toward climatolgy,
 ! needs SCORRECTION and SSSC_THRESHOLD defined
