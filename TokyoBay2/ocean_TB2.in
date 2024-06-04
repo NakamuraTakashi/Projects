@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 10                               ! I-direction partition
-      NtileJ == 1                                ! J-direction partition
+      NtileI == 7                               ! I-direction partition
+      NtileJ == 4                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -205,7 +205,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 501120   !!! 259200 step = 30 days, 267840 step = 31 days, 95040 = 11 days
+      NTIMES == 2880!501120   !!! 259200 step = 30 days, 267840 step = 31 days, 95040 = 11 days
           DT == 30.0d0    !!!1.0d0
      NDTFAST == 20    
 
@@ -942,8 +942,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Grid/TokyoBay2_grd_v2.0.nc
-     ININAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Ini/TokyoBay2_ini_JCOPET_Nz30_20180605.00.nc
+     GRDNAME == D:/COAWST_DATA/TokyoBay/TokyoBay2/Grid/TokyoBay2_grd_v2.1.nc
+     ININAME == D:/COAWST_DATA/TokyoBay/TokyoBay2/Ini/TokyoBay2_ini_JCOPET_Nz30_20200101.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,7 +966,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Bry/TokyoBay2_bry_JCOPE-T_Nz30_20180605.00.nc
+     BRYNAME == D:/COAWST_DATA/TokyoBay/TokyoBay2/Bry/TokyoBay2_bry_JCOPE-T_Nz30_20200101.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -1000,14 +1000,16 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
-                F:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_2.nc
+     FRCNAME == D:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20190101_1.nc |     ! forcing file 1, grid 1
+                D:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20200101_1.nc \     ! forcing file 1, grid 1
+                D:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20190101_2.nc |
+                D:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20200101_2.nc
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == TokyoBay2_rst_20180605.nc
-     HISNAME == TokyoBay2_his_20180605.nc
+     RSTNAME == TokyoBay2_rst_20200101.nc
+     HISNAME == TokyoBay2_his_20200101.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

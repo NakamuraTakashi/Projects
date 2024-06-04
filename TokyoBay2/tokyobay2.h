@@ -14,8 +14,8 @@
 **                     sediment_inlet_test.in
 */
 #define ROMS_MODEL
-/*#define SWAN_MODEL*/
-/*#define MCT_LIB*/
+#define SWAN_MODEL
+#define MCT_LIB
 
 #define NO_LBC_ATT
 /*#define PARALLEL_IO*/
@@ -122,8 +122,8 @@
 
 /*** waves-ocean (SWAN/ROMS) two-way coupling. ***/
 #ifdef SWAN_MODEL
-# define WEC_MELLOR
-/*# define WEC_VF*/
+/*# define WEC_MELLOR*/
+# define WEC_VF
 # define WDISS_WAVEMOD
 # define UV_KIRBY
 #endif
@@ -160,8 +160,8 @@
 /*#  define K_C4ADVECTION*/
 /*#  define K_C2ADVECTION*/
 /*#  define N2S2_HORAVG*/
-/*#  define ZOS_HSIG*/
-/*#  define TKE_WAVEDISS*/
+#  define ZOS_HSIG
+#  define TKE_WAVEDISS
 # endif
 
 # if defined MY25_MIXING
