@@ -170,7 +170,7 @@ ad_LBC(isTvar) ==   Clo     Rad     Cla     Rad      ! idsed(:), compact
 ! details.
 
 ! MUD_Ltracer == T T F
- MUD_Ltracer == F F F
+ MUD_Ltracer == T F F
 
 ! Logical switches (TRUE/FALSE) to activate writing of cohesive sediment
 ! fields into HISTORY output file.

@@ -208,7 +208,7 @@
 
 /*** submarine groundwater discharge ***/
 
-/*#define SGD_ON*/    /*Original CPP flag */
+#define SGD_ON    /*Original CPP flag */
 
 /***  Biological model options. (Original CPP flags) ***/
 
@@ -217,7 +217,7 @@
 #if defined REEF_ECOSYS || defined SEDIMENT
 # define ANA_TOBC_BIO  /*Original CPP flag */
 # define ANA_TOBC_SED   /*Original CPP flag */
-# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
+/*# define BIO_VPROFILE_YAEYAMA*/   /*Original CPP flag */
 #endif
 
 #if defined REEF_ECOSYS
@@ -265,7 +265,7 @@
 /*** Seagrass model options. ***/
 # if defined SEAGRASS
 #  if defined NUTRIENTS
-/*#   define SEAGRASS_LEAF_NUTRIENT_UPTAKE*/
+#   define SEAGRASS_LEAF_NUTRIENT_UPTAKE
 #  endif
 #  if defined SEDIMENT_ECOSYS
 /*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
@@ -285,10 +285,10 @@
 /*** Sediment model options. ***/
 # if defined SEDIMENT_ECOSYS  /* Masa_edits */
 /*#  define SEDIMENT_EMPIRICAL*/     /* USE empirical sediment module  */
-#  define SEDIMENT_ECOSYS_INITIAL_MODE /* For starting new run */
+#  define SEDECO_CLOSED_BOTTOM_DIFFUSION_BOUNDARY /* closed boundary condition at the bottom sediment layer */
 #  define SULFATE      /* For sulfate reduction in sediment */
-#  define Burial       /* For Burial term in sediment transport (massbalance) */
-#  define sedBC_closed /* closed boundary condition at the bottom sediment layer */
+/*#  define SEDECO_BURIAL*/    /* For Burial term in sediment transport (massbalance) */
+#  define SEDECO_ADVECTION
 #  define ORGANIC_MATTER
 #  define NUTRIENTS
 # endif

@@ -253,13 +253,13 @@ ad_VolCons(north) ==  F                            ! northern boundary
         NHIS == 360    ! DT=5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !        NHIS == 1800   ! DT=1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      NDEFHIS == 0
-        NQCK == 0
+        NQCK == 360
      NDEFQCK == 0
       NTSAVG == 1
         NAVG == 1000
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 1000
+        NDIA == 360
      NDEFDIA == 0
 
 ! Output tangent linear and adjoint models parameters.
@@ -445,13 +445,13 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! Sources/Sinks (like volume vertical influx), [1:Ngrids].
 
       LuvSrc == F                          ! horizontal momentum transport
-       LwSrc == F                          ! volume vertical influx
+       LwSrc == T                          ! volume vertical influx
 
 ! Logical switches (TRUE/FALSE) to activate tracers point Sources/Sinks
 ! (like river runoff) and to specify which tracer variables to consider:
 ! [1:NAT+NPT,Ngrids].  See glossary below for details.
 
-  LtracerSrc == F F                        ! temperature, salinity, inert
+  LtracerSrc == T T                        ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to read and process climatology fields.
 ! See glossary below for details.
@@ -958,7 +958,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_roms_grd_JCOPET_v17.0.nc   ! New bathymetry, with new coverage
+!     GRDNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_roms_grd_JCOPET_v17.1.nc   ! New bathymetry, with new coverage
+     GRDNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_roms_grd_JCOPET_v17.1_NoSeagrass.nc   ! New bathymetry, with new coverage
 !     ININAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Ini/Shiraho_reef_ini_ROMS_Nz8_20231001.00.nc
 !     ININAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231001.nc
 !     ININAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231003.nc
@@ -993,7 +994,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/River/todoroki_river_Nz8_20180101_20190930v2.nc
+     SSFNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/River/Shiraho_river_Nz8_daily_202201-0202312v2.nc
 
 ! Input tidal forcing file name.
 
@@ -1025,7 +1026,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
                 D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Qair.nc  \
                 D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_rain.nc  \
                 D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_swrad.nc \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023tmp_lwrad_down.nc
+                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_lwrad_down.nc
 
 ! Output NetCDF file names, [1:Ngrids].
 
@@ -1037,14 +1038,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 !     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231003.nc
 !     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231005.nc
 !     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231005.nc
-     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231007.nc
-     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231007.nc
-     QCKNAME == ocean_qck.nc
+     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2_eco/SR_eco_rst_20231007_nosg.nc
+     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2_eco/SR_eco_his_20231007_nosg.nc
+     QCKNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2_eco/SR_eco_qck_20231007_nosg.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == ocean_dia.nc
+     DIANAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2_eco/SR_eco_dia_20231007_nosg.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 

@@ -86,7 +86,7 @@
 
        DOC_0 == 0.1d0 50.0d0          ! DOC  (umol L-1) 
        POC_0 == 0.0d0  0.0d0          ! POC  (umol L-1) 
-      Phyt_0 == 0.3d0  0.1d0  0.1d0   ! Phytoplankton1 (umolC L-1) 
+      Phyt_0 == 0.3d0  0.1d0  0.01d0   ! Phytoplankton1 (umolC L-1) 
       Zoop_0 == 0.05d0                 ! Zooplankton (umol L-1)
        PIC_0 == 0.0d0                 ! PIC  (umol L-1) 
 
@@ -196,7 +196,7 @@ SedEcoLayerDepths == 1.5d0    2.0d0    3.0d0    4.0d0    5.0d0    6.0d0    7.0d0
 !                                                 
 !                   1       2       3       4     
 
-   LBC(isTvar) == Clo     Clo      RadNud   Clo   ! idbio(:), compact
+   LBC(isTvar) == Clo     RadNud   RadNud   RadNud ! idbio(:), compact
 
 ! Adjoint-based algorithms can have different lateral boundary
 ! conditions keywords.
@@ -221,7 +221,7 @@ ad_LBC(isTvar) == Clo     Clo     RadNud  Clo   ! idbio(:), compact
 Hout(idTvar) == 45*T    ! NO3, ...           biological tracer
 Hout(idTsur) == 45*F    ! NO3_sflux, ...     surface tracer flux
 
-Hout(iHbio2) == 44*T
+Hout(iHbio2) == 47*T
 Hout(iHbio3) == 3*F
 Hout(iHbiosed3) == 35*F
 
@@ -231,7 +231,7 @@ Hout(iHbiosed3) == 35*F
 Qout(idTvar) == 45*F    ! NO3, ...           biological tracer
 Qout(idTsur) == 45*F    ! NO3_sflux, ...     surface tracer flux
 
-Qout(iHbio2) == 44*F
+Qout(iHbio2) == 47*F
 Qout(iHbio3) == 3*F
 Qout(iHbiosed3) == 35*T 
 
@@ -244,8 +244,8 @@ Aout(idTvar) == 45*F    ! NO3, ...           biological tracer
 ! diagnostic terms into DIAGNOSTIC output file:
 ! [1:NBT,Ngrids].
 
-Dout(iDbio2) == 34*T  !!!!!!!!!!!!!!!!!! Check number
-Dout(iDbio3) == 2*F   !!!!!!!!!!!!!!!!!! Check number
+Dout(iDbio2) == 33*T  !!!!!!!!!!!!!!!!!! Check number
+Dout(iDbio3) == 4*T   !!!!!!!!!!!!!!!!!! Check number
 
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged,
 ! biological processes diagnostics terms into DIAGNOSTIC output file [Ngrids].
