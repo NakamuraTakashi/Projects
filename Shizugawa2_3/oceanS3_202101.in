@@ -944,7 +944,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.0.nc
+     GRDNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.1.nc
      ININAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20210701.00.nc
 !     ININAME == Shizugawa3_his_20210104.nc
      ITLNAME == ocean_itl.nc
@@ -1010,14 +1010,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_rst_20210701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_his_20210701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     QCKNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_qck_20210701.nc
+     RSTNAME == Shizugawa3_rst_20210701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == Shizugawa3_his_20210701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     QCKNAME == Shizugawa3_qck_20210701.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_dia_20210701.nc
+     DIANAME == Shizugawa3_dia_20210701.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 

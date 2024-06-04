@@ -38,8 +38,8 @@
 ! Their sum must be equal to the total number of processors.
 
   NnodesATM =  0                     ! atmospheric model
-  NnodesWAV =  2                     ! wave model
-  NnodesOCN =  29                     ! ocean model
+  NnodesWAV =  1                     ! wave model
+  NnodesOCN =  30                     ! ocean model
 
 ! Time interval (seconds) between exchange of fields between models.
 
@@ -54,8 +54,8 @@
 ! The Wav program needs multiple input files, one for each grid.
 
    ATM_name = namelist.input               ! WRF input file
-   WAV_name = swan_S2_2021.in      ! wave model
-   OCN_name = ocean_S2.in     ! ocean model
+   WAV_name = swanS3_202101.in      ! wave model
+   OCN_name = oceanS3_202101.in     ! ocean model
 
 ! Sparse matrix interpolation weights files. You have 2 options:
 ! Enter "1" for option 1, or "2" for option 2, and then list the 
@@ -68,7 +68,7 @@
 !           weights. This file is created using the code in
 !           Lib/SCRIP_COAWST/scrip_coawst[.exe]
 
-   SCRIP_COAWST_NAME = D:/COAWST_DATA/Shizugawa/Shizugawa2/Grid/scrip_Shizugawa2.nc
+   SCRIP_COAWST_NAME = D:/COAWST_DATA/Shizugawa/Shizugawa3/Grid/scrip_Shizugawa3.nc
 
 ! Option 2: THIS OPTION WILL BE REMOVED IN FUTURE VERSIONS.
 !           IF you set "SCRIP_WEIGHT_OPTION = 2", then enter 

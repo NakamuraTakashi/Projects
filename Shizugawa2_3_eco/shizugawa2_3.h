@@ -286,9 +286,10 @@
 # if defined SEDIMENT_ECOSYS  /* Masa_edits */
 /*#  define SEDIMENT_EMPIRICAL*/     /* USE empirical sediment module  */
 #  define SEDIMENT_ECOSYS_INITIAL_MODE /* For starting new run */
+#  define SEDECO_CLOSED_BOTTOM_DIFFUSION_BOUNDARY /* closed boundary condition at the bottom sediment layer */
 #  define SULFATE      /* For sulfate reduction in sediment */
-#  define Burial       /* For Burial term in sediment transport (massbalance) */
-#  define sedBC_closed /* closed boundary condition at the bottom sediment layer */
+/*#  define SEDECO_BURIAL*/    /* For Burial term in sediment transport (massbalance) */
+/*#  define SEDECO_ADVECTION*/
 #  define ORGANIC_MATTER
 #  define NUTRIENTS
 # endif

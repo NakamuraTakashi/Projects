@@ -205,7 +205,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 360000      !1958400   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      NTIMES == 892800      !7/1-9/1   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           DT == 6.0d0     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      NDTFAST == 30    
 
@@ -944,8 +944,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.0.nc
-     ININAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20210701.00.nc
+     GRDNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.2.nc
+     ININAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230701.00.nc
 !     ININAME == Shizugawa3_his_20210104.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -969,7 +969,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Bry/Shizugawa3_bry_ROMS_Nz15_20210601.00.nc
+     BRYNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Bry/Shizugawa3_bry_ROMS_Nz15_20230605.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -1003,21 +1003,21 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20210101_1.nc \  ! forcing file 1, grid 1
-                D:/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20210101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
+                D:/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20210701v2.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20210701v2.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     QCKNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_qck_20210701v2.nc
+     RSTNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     QCKNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_qck_20230701.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_dia_20210701v2.nc
+     DIANAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_dia_20230701.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 
@@ -1027,7 +1027,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      SPOSNAM =  stations.in
      FPOSNAM =  floats_yaeyama2_fdt.in         !!! used
      BPARNAM =  bio_reef_ecosys.in             !!! used
-     SPARNAM =  sediment_S3.in       !!! used
+     SPARNAM =  sedimentS3.in       !!! used
      USRNAME =  MyFile.dat
 
 !
