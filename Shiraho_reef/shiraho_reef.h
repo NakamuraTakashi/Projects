@@ -190,7 +190,7 @@
 
 /*** submarine groundwater discharge ***/
 
-/*#define SGD_ON*/    /*Original CPP flag */
+#define SGD_ON    /*Original CPP flag */
 
 /***  Biological model options. (Original CPP flags) ***/
 
@@ -201,23 +201,26 @@
 # define ANA_BIOLOGY
 /*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
+# define DIAGNOSTICS_BIO
+
+
 /* compartments */
-/*# define ORGANIC_MATTER*/
+# define ORGANIC_MATTER
+# define NUTRIENTS
 /*# define CARBON_ISOTOPE*/
-/*# define NUTRIENTS*/
 
 # define CORAL_POLYP  /* USE coral module */
 # define SEAGRASS     /* USE seagrass module */
 # define MACROALGAE        /* USE algae module  */
 # define SEDIMENT_ECOSYS        /* USE sedecosys module  */
-# if defined SEDIMENT_ECOSYS
-#  define SEDIMENT_EMPIRICAL     /* USE empirical sediment module  */
-# endif
 
 # if defined ORGANIC_MATTER
 #  define FOODWEB      /* USE foodweb module */
 # endif
 # define AIR_SEA_GAS_EXCHANGE
+
+/*# define DYNAMIC_COVERAGE*/ /* yt_edit not yet implemented in coawst */
+
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
@@ -237,6 +240,39 @@
 #  endif
 /*#  define CORAL_BORON_ISOTOPE*/
 # endif
+
+
+/*** Seagrass model options. ***/
+# if defined SEAGRASS
+#  if defined NUTRIENTS
+#   define SEAGRASS_LEAF_NUTRIENT_UPTAKE
+#   define NET_ZERO_MASS_START /*Calculate initial seagrass mass balance and destroy (erase) equivalent amount of mass output until net zero is reached, before switching to normal flux*/
+#  endif
+#  if defined SEDIMENT_ECOSYS
+/*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
+#  endif
+#  if defined NUTRIENTS && defined SEDIMENT_ECOSYS
+#   define SEAGRASS_ROOT_NUTRIENT_UPTAKE
+#  endif
+#  if defined ORGANIC_MATTER
+#   define SEAGRASS_LEAF_POM
+#   if defined SEDIMENT_ECOSYS
+#    define SEAGRASS_ROOT_POM
+#   endif
+#  endif
+# endif
+
+
+/*** Sediment model options. ***/
+# if defined SEDIMENT_ECOSYS  /* Masa_edits */
+#  define SULFATE      /* For sulfate reduction in sediment */
+#  define SEDECO_BURIAL       /* For Burial term in sediment transport (massbalance) */
+#  define SEDECO_CLOSED_BOTTOM_DIFFUSION_BOUNDARY /* closed boundary condition at the bottom sediment layer */
+#  define SEDECO_ADVECTION /* Requires SGD_ON : advection flux is defined by river forcing file last source multiplied by grid file sgd_src. If enabled with SEDECO_CLOSED_BOTTOM_BOUNDARY then diffusionn is closed, but advection is from forcing */
+#  define ORGANIC_MATTER
+#  define NUTRIENTS
+# endif
+
 
 #endif
 

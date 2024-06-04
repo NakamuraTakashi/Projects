@@ -18,6 +18,7 @@ fort.*
 
 */output/*
 */Build/*
+*/Build*/*
 */Data/*
 */.o*
 */.e*
@@ -26,3 +27,8 @@ fort.*
 
 /Yaeyama2_offline/*
 
+*/coawstM
+*/stdout.txt
+*/stdout*.txt
+test.txt
+test.F

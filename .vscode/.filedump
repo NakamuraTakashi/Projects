@@ -1,0 +1,6 @@
+
+		begin
+      f = addfile("/Users/yuta/COAWST/Projects/Shiraho_reef/ocean_dia_10.nc","r")
+      print(f)
+		end
+    
