@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 2                               ! I-direction partition
-      NtileJ == 15                                ! J-direction partition
+      NtileI == 7                               ! I-direction partition
+      NtileJ == 4                                ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -944,8 +944,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.2.nc
-     ININAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230701.00.nc
+     GRDNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.3b.nc
+     ININAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230701.00.nc
 !     ININAME == Shizugawa3_his_20210104.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -969,7 +969,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Bry/Shizugawa3_bry_ROMS_Nz15_20230605.00.nc
+     BRYNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Bry/Shizugawa3_bry_ROMS_Nz15_20230605.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -977,7 +977,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_Nz15_const_1900_2100_v0.nc
+     SSFNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_Nz15_const_1900_2100_v0.nc
 
 ! Input tidal forcing file name.
 
@@ -1003,21 +1003,24 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == D:/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
-                D:/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
+                /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     QCKNAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_qck_20230701.nc
+!     RSTNAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!     HISNAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!     QCKNAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_qck_20230701.nc
+     RSTNAME == SZ3_veg_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == SZ3_veg_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     QCKNAME == SZ3_veg_eco_qck_20230701.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == E:/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_dia_20230701.nc
+     DIANAME == SZ3_veg_eco_dia_20230701.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 
@@ -1029,6 +1032,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      BPARNAM =  bio_reef_ecosys.in             !!! used
      SPARNAM =  sedimentS3.in       !!! used
      USRNAME =  MyFile.dat
+     VEGNAM  =  vegetation.in
 
 !
 !  GLOSSARY:
@@ -2727,4 +2731,6 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! BPARNAM      Input biological parameters file name.
 ! SPARNAM      Input sediment transport parameters file name.
 ! USRNAME      USER's input generic file name.
+! VEGNAM       Input vegetation file name.
 !
+

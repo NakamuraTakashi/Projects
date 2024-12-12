@@ -68,7 +68,7 @@
 !           weights. This file is created using the code in
 !           Lib/SCRIP_COAWST/scrip_coawst[.exe]
 
-   SCRIP_COAWST_NAME = D:/COAWST_DATA/Shizugawa/Shizugawa3/Grid/scrip_Shizugawa3.nc
+   SCRIP_COAWST_NAME = /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Grid/scrip_Shizugawa3.nc
 
 ! Option 2: THIS OPTION WILL BE REMOVED IN FUTURE VERSIONS.
 !           IF you set "SCRIP_WEIGHT_OPTION = 2", then enter 

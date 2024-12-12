@@ -38,15 +38,15 @@
 ! NOTICE: Input parameter units are specified within brackets and default
 ! ******  values are specified within braces.
 !
-    NVEG   == 1
+    NVEG   == 4
 
-    CD_VEG == 1.0d0
+    CD_VEG == 1.0d0 1.0d0 1.0d0 1.0d0 1.0d0
 
-    E_VEG == 1.0d9
+    E_VEG == 1.0d9 1.0d9 1.0d9 1.0d9 1.0d9
 
-    VEG_MASSDENS  == 700.0d0
+    VEG_MASSDENS  == 700.0d0 700.0d0 700.0d0 700.0d0 700.0d0
 
-    VEGHMIXCOEF == 0.1d0
+    VEGHMIXCOEF == 0.1d0 0.1d0 0.1d0 0.1d0 0.1d0
 
     SPE_MANGR == 1
 

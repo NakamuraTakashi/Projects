@@ -39,7 +39,7 @@
 
   NnodesATM =  0                     ! atmospheric model
   NnodesWAV =  2                     ! wave model
-  NnodesOCN =  9                    ! ocean model
+  NnodesOCN =  28                    ! ocean model
 
 ! Time interval (seconds) between exchange of fields between models.
 

@@ -121,6 +121,7 @@
 #ifdef SWAN_MODEL
 /*# define WEC_MELLOR*/
 # define WEC_VF
+# define BOTTOM_STREAMING
 # define WDISS_WAVEMOD
 # define UV_KIRBY
 #endif
@@ -138,7 +139,7 @@
 
 #ifdef SSW_BBL
 /*# define SSW_CALC_ZNOT*/
-# define SSW_LOGINT
+/*# define SSW_LOGINT*/
 #endif
 #define LIMIT_BSTRESS
 
@@ -209,6 +210,24 @@
 /*** submarine groundwater discharge ***/
 
 /*#define SGD_ON*/    /*Original CPP flag */
+
+/*** Vegetation form drag ***/
+#define VEGETATION
+
+#if defined VEGETATION
+# define ANA_VEGETATION 
+# define VEG_DRAG
+# ifdef VEG_DRAG
+/*#  define VEG_FLEX*/
+#  define VEG_TURB
+# endif
+# define VEG_SWAN_COUPLING
+# ifdef VEG_SWAN_COUPLING
+#  define VEG_STREAMING  /* dependence to WEC_VF/BOTTOM_STREAMING */
+# endif
+/*** Aquaculture form drag ***/
+# define AQUACULTURE    /* Original CPP flag */
+#endif
 
 /***  Biological model options. (Original CPP flags) ***/
 

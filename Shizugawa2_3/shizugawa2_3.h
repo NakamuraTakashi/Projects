@@ -210,6 +210,25 @@
 
 /*#define SGD_ON*/    /*Original CPP flag */
 
+/*** Vegetation form drag ***/
+#define VEGETATION
+#if defined VEGETATION
+# define ANA_VEGETATION 
+# define VEG_DRAG
+# ifdef VEG_DRAG
+#  define VEG_FLEX
+#  define VEG_TURB
+# endif
+# define VEG_SWAN_COUPLING
+# ifdef VEG_SWAN_COUPLING
+#  define VEG_STREAMING  /* dependence to WEC_VF/BOTTOM_STREAMING */
+# endif
+# define MARSH_WAVE_THRUST
+/*** Aquaculture form drag ***/
+# define AQUACULTURE    /* Original CPP flag */
+#endif
+
+
 /***  Biological model options. (Original CPP flags) ***/
 
 /*#define REEF_ECOSYS*/

@@ -43,7 +43,7 @@
 #undef UV_LOGDRAG
 #define SSW_BBL
 #ifdef SSW_BBL
-# define SSW_CALC_ZNOT
+/*# define SSW_CALC_ZNOT*/
 #endif
 
 #define VEGETATION 
@@ -56,7 +56,7 @@
 #  endif
 #  define VEG_SWAN_COUPLING
 #  ifdef VEG_SWAN_COUPLING
-#   define VEG_STREAMING ! dependence to WEC_VF/BOTTOM_STREAMING
+#   define VEG_STREAMING /*dependence to WEC_VF/BOTTOM_STREAMING*/
 #  endif
 #  define MARSH_WAVE_THRUST
 # endif

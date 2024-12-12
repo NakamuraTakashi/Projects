@@ -305,13 +305,13 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
           export  PARPACK_LIBDIR=/opt/intelsoft/mpich2/PARPACK
         elif [ "${which_MPI}" = "openmpi" ]; then
           export        ESMF_DIR=/opt/intelsoft/openmpi/esmf
-          export      MCT_INCDIR=/gs/bs/tga-NakamuLab/opt/intel/openmpi/mct/include
-          export      MCT_LIBDIR=/gs/bs/tga-NakamuLab/opt/intel/openmpi/mct/lib
+          export      MCT_INCDIR=/gs/bs/tga-NakamuLab/opt/intel/openmpi/include
+          export      MCT_LIBDIR=/gs/bs/tga-NakamuLab/opt/intel/openmpi/lib
           export  PARPACK_LIBDIR=/opt/intelsoft/openmpi/PARPACK
         elif [ "${which_MPI}" = "intelmpi" ]; then
 #          export        ESMF_DIR=/opt/intel/intelmpi/esmf
-          export      MCT_INCDIR=/gs/hs1/tga-NakamuLab/opt/intel/intelmpi/mct2.9.0/include
-          export      MCT_LIBDIR=/gs/hs1/tga-NakamuLab/opt/intel/intelmpi/mct2.9.0/lib
+          export      MCT_INCDIR=/gs/bs/tga-NakamuLab/opt/intel/intelmpi/include
+          export      MCT_LIBDIR=/gs/bs/tga-NakamuLab/opt/intel/intelmpi/lib
 #          export  PARPACK_LIBDIR=/opt/intelsoft/openmpi/PARPACK
         fi
       fi
@@ -360,8 +360,8 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
           export  PARPACK_LIBDIR=/opt/pgisoft/mpich2/PARPACK
         elif [ "${which_MPI}" = "openmpi" ]; then
           export        ESMF_DIR=/opt/pgisoft/openmpi/esmf
-          export      MCT_INCDIR=/gs/bs/tga-NakamuLab/opt/nvhpc/openmpi/mct/include
-          export      MCT_LIBDIR=/gs/bs/tga-NakamuLab/opt/nvhpc/openmpi/mct/lib
+          export      MCT_INCDIR=/gs/bs/tga-NakamuLab/opt/nvhpc/openmpi/include
+          export      MCT_LIBDIR=/gs/bs/tga-NakamuLab/opt/nvhpc/openmpi/lib
           export  PARPACK_LIBDIR=/opt/pgisoft/openmpi/PARPACK
         fi
       fi
@@ -405,8 +405,8 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
           export  PARPACK_LIBDIR=/opt/gfortransoft/mpich2/PARPACK
         elif [ "${which_MPI}" = "openmpi" ]; then
           export        ESMF_DIR=/opt/gfortransoft/openmpi/esmf
-          export      MCT_INCDIR=/gs/bs/tga-NakamuLab/opt/gnu/openmpi/mct/include
-          export      MCT_LIBDIR=/gs/bs/tga-NakamuLab/opt/gnu/openmpi/mct/lib
+          export      MCT_INCDIR=/gs/bs/tga-NakamuLab/opt/gnu/openmpi/include
+          export      MCT_LIBDIR=/gs/bs/tga-NakamuLab/opt/gnu/openmpi/lib
           export  PARPACK_LIBDIR=/opt/gfortransoft/openmpi/PARPACK
         fi
       fi

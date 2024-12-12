@@ -12,6 +12,8 @@ fort.*
 */PRINT*
 */Errfile*
 */swaninit*
+*.dat
+*.dat*
 
 */backup/*
 *.back
@@ -23,8 +25,12 @@ fort.*
 */.e*
 */log/*
 !.gitkeep
+!roms_grid_veg_test.nc
+!init_veg_test.nc
 
 /Yaeyama2_offline/*
 
 */coawstM
 */coawstG
+*/coawstM.exe
+*/coawstG.exe
