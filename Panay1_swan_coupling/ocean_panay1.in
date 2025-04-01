@@ -946,7 +946,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      GRDNAME == L:/COAWST_DATA/Panay/Panay1/Grid/Panay1_grd_v1.4.nc
      ININAME == L:/COAWST_DATA/Panay/Panay1/Ini/Panay1_ini_ROMS_sed_Nz15_20210105.00.nc
-!     ININAME == E:/COAWTS_OUTPUT/Boracay2/Boracay2_his_20210103.nc
+!     ININAME == ../../COAWTS_OUTPUT/Boracay2/Boracay2_his_20210103.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -1010,8 +1010,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == E:/COAWST_OUTPUT/Panay/Panay1/Panay1_sed_wav_rst_20210105.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == E:/COAWST_OUTPUT/Panay/Panay1/Panay1_sed_wav_his_20210105.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     RSTNAME == ../../COAWST_OUTPUT/Panay/Panay1/Panay1_sed_wav_rst_20210105.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == ../../COAWST_OUTPUT/Panay/Panay1/Panay1_sed_wav_his_20210105.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

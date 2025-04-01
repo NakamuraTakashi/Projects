@@ -112,7 +112,7 @@ ad_LBC(isTvar) ==   Clo     Rad     Cla     Rad      ! idsed(:), compact
 
 ! Median sediment grain diameter (mm).
 
-    MUD_SD50 == 0.005d0  0.2d0
+    MUD_SD50 == 0.012d0   0.2d0  0.012d0 
 
 ! Sediment concentration (kg/m3).
 
@@ -124,20 +124,20 @@ ad_LBC(isTvar) ==   Clo     Rad     Cla     Rad      ! idsed(:), compact
 
 ! Particle settling velocity (mm/s).
 
-    MUD_WSED == 2.33d-5  0.0594d0  2.0d0
+    MUD_WSED == 0.1d0  1.0d0  0.1d0  0.0594d0  
 
 ! Surface erosion rate (kg/m2/s).
 
-   MUD_ERATE == 0.0d-5  0.0d-5
+   MUD_ERATE == 1.0d-5  1.0d-5
 
 ! Critical shear for erosion and deposition (N/m2).
 
-  MUD_TAU_CE == 100.0d0 100.0d0
-  MUD_TAU_CD == 0.001d0 0.001d0
+  MUD_TAU_CE == 0.07d0 1.00d0
+  MUD_TAU_CD == 0.02d0 0.5d0
 
 ! Porosity (nondimensional: 0.0-1.0):  Vwater/(Vwater+Vsed).
 
-   MUD_POROS == 0.0d0  0.0d0
+   MUD_POROS == 0.5d0  0.5d0
 
 ! Harmonic/biharmonic horizontal diffusion of tracer for nonlinear model
 ! and adjoint-based algorithms.

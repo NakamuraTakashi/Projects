@@ -944,8 +944,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc
-     ININAME == E:/COAWST_OUTPUT/Yaeyama/Yaeyama1/Yaeyama1_rst_20230629.nc
+     GRDNAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc
+     ININAME == ../../COAWST_OUTPUT/Yaeyama/Yaeyama1/Yaeyama1_rst_20230629.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -968,9 +968,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-!     BRYNAME == D:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_tmp_20230101.00.nc  |
-!                D:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_tmp_20230701.00.nc
-     BRYNAME == D:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_20230101.00.nc
+!     BRYNAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_tmp_20230101.00.nc  |
+!                ../../COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_tmp_20230701.00.nc
+     BRYNAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_JCOPET_Nz15_20230101.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -982,7 +982,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input tidal forcing file name.
 
-    TIDENAME == D:/COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -1004,19 +1004,19 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-!     FRCNAME == D:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20220101_1.nc |  ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20220101_2.nc |  ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
-     FRCNAME == D:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
-                D:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
+!     FRCNAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20220101_1.nc |  ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20220101_2.nc |  ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
+                ../../COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Yaeyama1/Yaeyama1_rst_20231130.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Yaeyama1/Yaeyama1_his_20231130.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Yaeyama1/Yaeyama1_rst_20231130.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Yaeyama1/Yaeyama1_his_20231130.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

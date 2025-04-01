@@ -956,9 +956,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/COAWST_DATA/Yaeyama/Yaeyama2/Grid/Yaeyama2_grd_v11.2.nc
-     ININAME == E:/COAWST_OUTPUT/Yaeyama/Yaeyama2/Yaeyama2_rst_20220914.nc
-!     ININAME == E:/COAWST_OUTPUT/Yaeyama/Yaeyama2_swan_eco/Yaeyama2_rst_20130714.nc
+     GRDNAME == ../../COAWST_DATA/Yaeyama/Yaeyama2/Grid/Yaeyama2_grd_v11.2.nc
+     ININAME == ../../COAWST_OUTPUT/Yaeyama/Yaeyama2/Yaeyama2_rst_20220914.nc
+!     ININAME == ../../COAWST_OUTPUT/Yaeyama/Yaeyama2_swan_eco/Yaeyama2_rst_20130714.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -981,10 +981,10 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-!     BRYNAME == D:/COAWST_DATA/Yaeyama/Yaeyama2/Bry_2/Yaeyama2_bry_ROMS_Nz15_20130101.00.nc
+!     BRYNAME == ../../COAWST_DATA/Yaeyama/Yaeyama2/Bry_2/Yaeyama2_bry_ROMS_Nz15_20130101.00.nc
 
-     BRYNAME == D:/COAWST_DATA/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_tmp_20230629.00.nc |
-                D:/COAWST_DATA/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_tmp_20231130.00.nc
+     BRYNAME == ../../COAWST_DATA/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_tmp_20230629.00.nc |
+                ../../COAWST_DATA/Yaeyama/Yaeyama2/Bry/Yaeyama2_bry_ROMS_Nz15_tmp_20231130.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -992,7 +992,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/COAWST_DATA/Yaeyama/Yaeyama2/River/Yaeyama2_river_Nz15_daily_2000-2022.nc
+     SSFNAME == ../../COAWST_DATA/Yaeyama/Yaeyama2/River/Yaeyama2_river_Nz15_daily_2000-2022.nc
 
 ! Input tidal forcing file name.
 
@@ -1018,91 +1018,91 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 7                          ! number of unique forcing files
 
-     FRCNAME == D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_wind.nc  \ ! forcing file 1, grid 1
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Tair.nc  \ ! forcing file 2, grid 1
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_swrad.nc \ ! forcing file 3, grid 1
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_rain.nc  \ ! forcing file 4, grid 1
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Qair.nc  \ ! forcing file 5, grid 1
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Pair.nc  \ ! forcing file 6, grid 1
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_lwrad_down.nc   ! forcing file 7, grid 1
+     FRCNAME == ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_wind.nc  \ ! forcing file 1, grid 1
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Tair.nc  \ ! forcing file 2, grid 1
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_swrad.nc \ ! forcing file 3, grid 1
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_rain.nc  \ ! forcing file 4, grid 1
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Qair.nc  \ ! forcing file 5, grid 1
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Pair.nc  \ ! forcing file 6, grid 1
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_lwrad_down.nc   ! forcing file 7, grid 1
 
-!     FRCNAME == D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_wind.nc  | ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_wind.nc  | ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_wind.nc  | ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_wind.nc  | ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_wind.nc  | ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_wind.nc  | ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_wind.nc  | ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_wind.nc  | ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_wind.nc  | ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \ ! forcing file 1, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_Tair.nc  | ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_Tair.nc  | ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_Tair.nc  | ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_Tair.nc  | ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_Tair.nc  | ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_Tair.nc  | ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_Tair.nc  | ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_Tair.nc  | ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_Tair.nc  | ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \ ! forcing file 2, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_swrad.nc | ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_swrad.nc | ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_swrad.nc | ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_swrad.nc | ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_swrad.nc | ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_swrad.nc | ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_swrad.nc | ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_swrad.nc | ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_swrad.nc | ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_swrad.nc \ ! forcing file 3, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_rain.nc  | ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_rain.nc  | ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_rain.nc  | ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_rain.nc  | ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_rain.nc  | ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_rain.nc  | ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_rain.nc  | ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_rain.nc  | ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_rain.nc  | ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \ ! forcing file 4, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_Qair.nc  | ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_Qair.nc  | ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_Qair.nc  | ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_Qair.nc  | ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_Qair.nc  | ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_Qair.nc  | ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_Qair.nc  | ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_Qair.nc  | ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_Qair.nc  | ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \ ! forcing file 5, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_Pair.nc  | ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_Pair.nc  | ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_Pair.nc  | ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_Pair.nc  | ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_Pair.nc  | ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_Pair.nc  | ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_Pair.nc  | ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_Pair.nc  | ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_Pair.nc  | ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \ ! forcing file 6, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_lwrad_down.nc | ! forcing file 7, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_lwrad_down.nc | ! forcing file 7, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_lwrad_down.nc | ! forcing file 7, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_lwrad_down.nc | ! forcing file 7, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_lwrad_down.nc | ! forcing file 7, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_lwrad_down.nc | ! forcing file 7, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_lwrad_down.nc | ! forcing file 7, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_lwrad_down.nc | ! forcing file 7, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_lwrad_down.nc | ! forcing file 7, grid 1
-!                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_lwrad_down.nc   ! forcing file 7, grid 1
+!     FRCNAME == ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_wind.nc  | ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_wind.nc  | ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_wind.nc  | ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_wind.nc  | ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_wind.nc  | ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_wind.nc  | ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_wind.nc  | ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_wind.nc  | ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_wind.nc  | ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \ ! forcing file 1, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_Tair.nc  | ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_Tair.nc  | ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_Tair.nc  | ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_Tair.nc  | ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_Tair.nc  | ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_Tair.nc  | ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_Tair.nc  | ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_Tair.nc  | ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_Tair.nc  | ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \ ! forcing file 2, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_swrad.nc | ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_swrad.nc | ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_swrad.nc | ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_swrad.nc | ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_swrad.nc | ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_swrad.nc | ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_swrad.nc | ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_swrad.nc | ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_swrad.nc | ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_swrad.nc \ ! forcing file 3, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_rain.nc  | ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_rain.nc  | ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_rain.nc  | ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_rain.nc  | ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_rain.nc  | ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_rain.nc  | ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_rain.nc  | ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_rain.nc  | ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_rain.nc  | ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \ ! forcing file 4, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_Qair.nc  | ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_Qair.nc  | ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_Qair.nc  | ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_Qair.nc  | ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_Qair.nc  | ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_Qair.nc  | ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_Qair.nc  | ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_Qair.nc  | ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_Qair.nc  | ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \ ! forcing file 5, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_Pair.nc  | ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_Pair.nc  | ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_Pair.nc  | ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_Pair.nc  | ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_Pair.nc  | ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_Pair.nc  | ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_Pair.nc  | ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_Pair.nc  | ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_Pair.nc  | ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \ ! forcing file 6, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2010_lwrad_down.nc | ! forcing file 7, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2011_lwrad_down.nc | ! forcing file 7, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2012_lwrad_down.nc | ! forcing file 7, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2013_lwrad_down.nc | ! forcing file 7, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2014_lwrad_down.nc | ! forcing file 7, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2015_lwrad_down.nc | ! forcing file 7, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2016_lwrad_down.nc | ! forcing file 7, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2017_lwrad_down.nc | ! forcing file 7, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2018_lwrad_down.nc | ! forcing file 7, grid 1
+!                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2019_lwrad_down.nc   ! forcing file 7, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Yaeyama2/Yaeyama2_rst_20231031.nc
-     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Yaeyama2/Yaeyama2_his_20231031.nc
+     RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Yaeyama2/Yaeyama2_rst_20231031.nc
+     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Yaeyama2/Yaeyama2_his_20231031.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

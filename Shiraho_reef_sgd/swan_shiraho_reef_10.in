@@ -17,7 +17,7 @@ CGRID REGULAR -25.0 -25.0 0.0 3150.0 9550.0 63 191                              
 
 && KEYWORDS TO CREATE AND READ BATHYMETRY GRID &&
 INPGRID BOTTOM REGULAR -25.0 -25.0 0.0 63 191 50.0 50.0 EXC 9.999000e+003         
-READINP BOTTOM  1 'D:/ROMS/Data/Shiraho_reef/swan_shiraho_bathy16.bot' 4 0 FREE
+READINP BOTTOM  1 '../../ROMS/Data/Shiraho_reef/swan_shiraho_bathy16.bot' 4 0 FREE
 
 && KEYWORD TO CREATE CURRENT GRID &&
 INPGRID CURRENT REGULAR -25.0 -25.0 0.0 63 191 50.0 50.0 EXC 9.999000e+003          &
@@ -40,7 +40,7 @@ BOUND SHAPESPEC JONSWAP 3.3 PEAK DSPR DEGREES
 &BOUNDSPEC SIDE East CONSTANT PAR 2.0 7.0 180. 30.
 &BOUNDSPEC SEGMENT IJ 25 0 63 0 63 191 45 191 CONSTANT PAR 1.0 7.0 180. 30.
 BOUNDSPEC SEGMENT IJ 25 0 63 0 63 191 45 191 CONSTANT FILE                      &
-        'D:/ROMS/Data/Shiraho_reef/swan_wave100819-0905.dat'
+        '../../ROMS/Data/Shiraho_reef/swan_wave100819-0905.dat'
 
 & Restart name **********************************
 &INIT HOTSTART 'swan_restart.dat'

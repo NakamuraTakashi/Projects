@@ -59,12 +59,14 @@
 ! Maximum number of iterations to achieve convergence of the nonlinear
 ! solution.
 
-     CrlIter == 100 !!!!!!!!!
+!     CrlIter == 100 !DT=5!!!!!!!!
+     CrlIter == 20  !DT=1!!!!!!!!
 
 ! Maximum number of iterations to achieve convergence of the nonlinear
 ! solution.
 
-     SedIter == 5   !!!!!!!!!
+!     SedIter == 5   !DT=5!!!!!!!!
+     SedIter == 10   !DT=1!!!!!!!!
 
 ! Fraction of shortwave radiation that is photosynthetically active
 ! (nondimensional), {0.43d0}.
@@ -80,64 +82,45 @@
 
 ! Linear equation of State parameters: !!! Initial and boundary conditions
 
-       TAlk0 == 2232.0d0     ! DIC  (umol kg-1) 
-       TIC_0 == 1915.0d0     ! TA  (umol kg-1)  !!! 2050.0d0 @ fCO2=800uatm;  2030.0d0 @ fCO2=700uatm 
-       Oxyg0 == 200.0d0      ! DO  (umol L-1)
-
-       DOC_0 == 0.1d0 50.0d0          ! DOC  (umol L-1) 
-       POC_0 == 0.0d0  0.0d0          ! POC  (umol L-1) 
-      Phyt_0 == 0.3d0  0.1d0  0.01d0   ! Phytoplankton1 (umolC L-1) 
-      Zoop_0 == 0.05d0                 ! Zooplankton (umol L-1)
-       PIC_0 == 0.0d0                 ! PIC  (umol L-1) 
-
-   d13C_TIC0 == 0.7d0                ! d13C_TIC (permill VPDB)
-  d13C_DOC_0 == -15.0d0 -15.0d0      ! d13C_DOC (permill VPDB)
-  d13C_POC_0 == -15.0d0 -15.0d0      ! d13C_POC (permill VPDB)
- d13C_Phyt_0 == -15.0d0 -15.0d0 -15.0d0   ! d13C_phytoplankton (permill VPDB)
- d13C_Zoop_0 == -20.0d0              ! d13C_zooplankton (permill VPDB)
-  d13C_PIC_0 == -5.0d0               ! d13C_PIC (permill VPDB)
-
-       NO3_0 == 0.1d0        ! NO3  (umol L-1)  0.5d0, 10.0d0 
-       NO2_0 == 0.02d0       ! NO2  (umol L-1) 
+        DO_0 == 200.0d0      ! DO  (umol L-1)
+        TA_0 == 2232.0d0     ! TA  (umol kg-1) 
+       DIC_0 == 1915.0d0     ! DIC (umol kg-1)  !!! 2050.0d0 @ fCO2=800uatm;  2030.0d0 @ fCO2=700uatm 
+       NO3_0 == 0.2d0        ! NO3  (umol L-1)  0.5d0, 10.0d0 
        NH4_0 == 0.26d0       ! NH4  (umol L-1) 
        PO4_0 == 0.04d0       ! PO4  (umol L-1) 0.05d0, 2.0d0 
 
+       DOC_0 == 0.1d0   50.0d0          ! DOC  (umol L-1) 
+       POC_0 == 0.0d0    0.0d0  0.0d0        ! POC  (umol L-1) 
        DON_0 == 0.015d0  5.0d0   ! DON  (umol L-1) 
-       PON_0 == 0.0d0   0.0d0   ! PON  (umol L-1) 
+       PON_0 == 0.0d0    0.0d0  0.0d0 ! PON  (umol L-1) 
        DOP_0 == 0.001d0  0.6d0   ! DOP  (umol L-1) 
-       POP_0 == 0.00d0  0.0d0   ! POP  (umol L-1) 
+       POP_0 == 0.00d0   0.0d0   ! POP  (umol L-1) 
+      PhyC_0 == 0.3d0    0.1d0  0.01d0   0.01d0  ! Phytoplankton1 (umolC L-1) 
+      ZooC_0 == 0.05d0                 ! Zooplankton (umol L-1)
+       PIC_0 == 0.0d0    0.0d0                 ! PIC  (umol L-1) 
+
+  d13C_DIC_0 ==   0.7d0              ! d13C_TIC (permill VPDB)
+  d13C_DOC_0 == -15.0d0 -15.0d0      ! d13C_DOC (permill VPDB)
+  d13C_POC_0 == -15.0d0 -15.0d0 -15.0d0     ! d13C_POC (permill VPDB)
+ d13C_PhyC_0 == -15.0d0 -15.0d0 -15.0d0  -15.0d0   ! d13C_phytoplankton (permill VPDB)
+ d13C_ZooC_0 == -20.0d0              ! d13C_zooplankton (permill VPDB)
+  d13C_PIC_0 == -5.0d0   -5.0d0      ! d13C_PIC (permill VPDB)
 
   d15N_NO3_0 == 0.7d0                ! d15N_NO3 (permill)
-!  d15N_NO2_0 == 0.7d0                ! d15N_TIC (permill)
   d15N_NH4_0 == 0.7d0                ! d15N_TIC (permill)
   d15N_DON_0 == -15.0d0 -15.0d0      ! d15N_DOC (permill)
   d15N_PON_0 == -15.0d0 -15.0d0      ! d15N_POC (permill)
- d15N_Phyt_0 == -15.0d0 -15.0d0 -15.0d0   ! d15N_phytoplankton (permill)
- d15N_Zoop_0 == -20.0d0              ! d15N_zooplankton (permill)
+ d15N_PhyN_0 == -15.0d0 -15.0d0 -15.0d0   ! d15N_phytoplankton (permill)
+ d15N_ZooP_0 == -20.0d0              ! d15N_zooplankton (permill)
 
        COTe0 == 0.0d0        ! COTS eggs (umol L-1) 
        COTl0 == 0.0d0        ! COTS larvae (umol L-1) 
 
-!!! yuta_edits_for_masa >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>YT:Add
-!!! yuta_seagrass >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>YT:Add
-! Nsed is the number of biological sediment layers. Ex. Nsed == 5
-!   Nsed must come before SedEcoLayerDepths
-! SedEcoLayerDepths is the list of depths in cm (bottom of the layer) of each layer from the surface towards deeper. Ex. SedEcoLayerDepths == 0.5d0 1.0d0 2.0d0 3.0d0 5.0d0
-!   you can use different number of layers for each Ngrid (might not work though, haven't debugged yet) Ex. Nsed == 5 3
-!   add the next set of depths to the list (make sure the totals match) Ex. SedEcoLayerDepths == 0.5d0 1.0d0 2.0d0 3.0d0 5.0d0 0.1d0 1.0d0 10.0d0
-!   split long lines into multiple rows assigned to 'SedEcoLayerDepths =='. The values will be read in sequence by row.
-! SeagrassRootProf is the fraction of root biomass in each sediment layer, representing the vertical root distribution profile. 
-!   the SeagrassRootProf layers correspond to the SedEcoLayerDepths layers, and must sum to 1.0 for each Ngrid. Ex. if roots are evenly distributed vertically (straight taproots) until 5cm, then SeagrassRootProf == 1.0d0 1.0d0 2.0d0 2.0d0 4.0d0 0.02d0 0.18d0 0.8d0
-!   if there are multiple species, append those within eache Ngrid such that [ ng1[ sp1[values] sp2[values] ] ng2[ sp1[values] sp2[values] ] ]
-
-            !  Nsed == 101         ! Number of vertical biological sediment layers for SEDIMENT_ECOSYS
-             Nsed == 20          ! Number of vertical biological sediment layers for SEDIMENT_ECOSYS
-SedEcoLayerDepths == 0.1d0    0.2d0    0.3d0    0.4d0    0.5d0    0.6d0    0.7d0    0.8d0    0.9d0    1.0d0    
-SedEcoLayerDepths == 1.5d0    2.0d0    3.0d0    4.0d0    5.0d0    6.0d0    7.0d0    8.0d0    9.0d0   10.0d0     ! depth (cm) from surface at bottom of each biological sediment layer
- SeagrassRootProf == 0.0125d0 0.0125d0 0.0125d0 0.0125d0 0.0125d0 0.0125d0 0.0125d0 0.0125d0 0.0125d0 0.0125d0
- SeagrassRootProf == 0.0625d0 0.0625d0 0.125d0  0.125d0  0.125d0  0.125d0  0.125d0  0.125d0  0.0d0    0.0d0     ! even vertical distribution (straight roots) until 8 cm depth
-!!!<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<YT:Add
-
+    MnO2_sed == 1.0d2   ! Manganese oxide (MnO2) concentration in sediments [nmol/g(DW)]
+   FeOOH_sed == 1.0d3   ! Iron hydroxide (FeOOH) concentration in sediments [nmol/g(DW)]
+    FeS2_sed == 1.0d3   ! Iron sulfide (FeS2) concentration in sediments [nmol/g(DW)]
+    OrgC_sed == 2.0d6   ! Organic carbon in sediments [nmol/g(DW)]
+  rCaCO3_sed == 0.8d0   ! Fraction of Calcium carbonate (CaCO3) in sediments [g(CaCO3)/g(DW)]
 
 ! Harmonic/biharmonic horizontal diffusion of biological tracer for
 ! nonlinear model and adjoint-based algorithms: [1:NBT,Ngrids].
@@ -210,20 +193,20 @@ ad_LBC(isTvar) == Clo     Clo     RadNud  Clo   ! idbio(:), compact
 !                                 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 5
 !               1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
 !
-!  LtracerSrc == 34*F
-!  LtracerSrc == 45*T
-  LtracerSrc == T T T T T T T F F F F F T T T T T T T T T T T ! For no d13C version
+!  LtracerSrc == 50*F
+  LtracerSrc == 50*T
+!  LtracerSrc == T T T T T T T F F F F F T T T T T T T T T T T ! For no d13C version
 !  LtracerSrc == T T T T T T T F F F F F T T T T T F F F F F T T T T T T T T T T T ! For d13C version
 
 ! Logical switches (TRUE/FALSE) to activate writing of biological fields
 ! into HISTORY output file: [1:NBT,Ngrids].
 
-Hout(idTvar) == 45*T    ! NO3, ...           biological tracer
+Hout(idTvar) == 60*T    ! NO3, ...           biological tracer
 Hout(idTsur) == 45*F    ! NO3_sflux, ...     surface tracer flux
 
-Hout(iHbio2) == 47*T
+Hout(iHbio2) == 60*T
 Hout(iHbio3) == 3*F
-Hout(iHbiosed3) == 35*F
+Hout(iHbiosed3) == 60*F
 
 ! Logical switches (TRUE/FALSE) to activate writing of biological fields
 ! into QUICK output file: [1:NBT,Ngrids].
@@ -231,9 +214,9 @@ Hout(iHbiosed3) == 35*F
 Qout(idTvar) == 45*F    ! NO3, ...           biological tracer
 Qout(idTsur) == 45*F    ! NO3_sflux, ...     surface tracer flux
 
-Qout(iHbio2) == 47*F
+Qout(iHbio2) == 60*F
 Qout(iHbio3) == 3*F
-Qout(iHbiosed3) == 35*T 
+Qout(iHbiosed3) == 60*T 
 
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged fields
 ! into AVERAGE output file: [1:NBT,Ngrids].
@@ -258,57 +241,104 @@ Dout(iDbio3) == 4*T   !!!!!!!!!!!!!!!!!! Check number
 ! Reef Ecosystem Model Tracer Parameters. Currently,
 ! it can be configured with 45 biological tracers:
 !
-! ORGANIC_MATTER    ORGANIC_MATTER      ORGANIC_MATTER      ORGANIC_MATTER
-! CARBON_ISOTOPE    CARBON_ISOTOPE      CARBON_ISOTOPE
-! NUTRIENTS         NUTRIENTS           NUTRIENTS           NUTRIENTS
-! NITROGEN_ISOTOPE  
-! COT_STARFISH      
+! CRUMPED_ISOTOPE/   CARBON_ISOTOPE/                
+!                      CARBON_TRACE                 
+! NITROGEN_ISOTOPE/  NITROGEN_ISOTOPE/              
+!   NITROGEN_TRACE     NITROGEN_TRACE               
+! PHOSPHOUS_TRACE    PHOSPHOUS_TRACE                
+! BLUE_TIDE                              BLUE_TIDE                   
+! SULFUR_ISOTOPE/                                                
+!   SULFUR_TRACE                                                 
 ! 
-! idbio( 1),        idbio( 1),          idbio( 1),          idbio( 1),     TIC
-! idbio( 2),        idbio( 2),          idbio( 2),          idbio( 2),     alkalinity
-! idbio( 3),        idbio( 3),          idbio( 3),          idbio( 3),     oxygen
-! idbio( 4),        idbio( 4),          idbio( 4),          idbio( 4),     DOC_01
-! idbio( 5),        idbio( 5),          idbio( 5),          idbio( 5),     DOC_02
-! idbio( 6),        idbio( 6),          idbio( 6),          idbio( 6),     POC_01
-! idbio( 7),        idbio( 7),          idbio( 7),          idbio( 7),     POC_02
-! idbio( 8),        idbio( 8),          idbio( 8),          idbio( 8),     Phytoplankton_01
-! idbio( 9),        idbio( 9),          idbio( 9),          idbio( 9),     Phytoplankton_02
-! idbio(10),        idbio(10),          idbio(10),          idbio(10),     Phytoplankton_03
-! idbio(11),        idbio(11),          idbio(11),          idbio(11),     Zooplankton_01
-! idbio(12),        idbio(12),          idbio(12),          idbio(12),     PIC_01
-! idbio(13),        idbio(13),          idbio(13),                         TI13C
-! idbio(14),        idbio(14),          idbio(14),                         DO13C_01
-! idbio(15),        idbio(15),          idbio(15),                         DO13C_02
-! idbio(16),        idbio(16),          idbio(16),                         PO13C_01
-! idbio(17),        idbio(17),          idbio(17),                         PO13C_02
-! idbio(18),        idbio(18),          idbio(18),                         Phyt13C_01
-! idbio(19),        idbio(19),          idbio(19),                         Phyt13C_02
-! idbio(20),        idbio(20),          idbio(20),                         Phyt13C_03
-! idbio(21),        idbio(21),          idbio(21),                         Zoop13C_01
-! idbio(22),        idbio(22),          idbio(22),                         PI13C_01
-! idbio(23),        idbio(23),          idbio(23),          idbio(13),     NO3
-! idbio(24),        idbio(24),          idbio(24),          idbio(14),     NH4
-! idbio(25),        idbio(25),          idbio(25),          idbio(15),     PO4
-! idbio(26),        idbio(26),          idbio(26),          idbio(16),     DON_01
-! idbio(27),        idbio(27),          idbio(27),          idbio(17),     DON_02
-! idbio(28),        idbio(28),          idbio(28),          idbio(18),     PON_01
-! idbio(29),        idbio(29),          idbio(29),          idbio(19),     PON_02
-! idbio(30),        idbio(30),          idbio(30),          idbio(20),     DOP_01
-! idbio(31),        idbio(31),          idbio(31),          idbio(21),     DOP_02
-! idbio(32),        idbio(32),          idbio(32),          idbio(22),     POP_01
-! idbio(33),        idbio(33),          idbio(33),          idbio(23),     POP_02
-! idbio(34),        idbio(34),                                             NO3_15N
-! idbio(35),        idbio(35),                                             NH4_15N
-! idbio(36),        idbio(36),                                             DO15N_01
-! idbio(37),        idbio(37),                                             DO15N_02
-! idbio(38),        idbio(38),                                             PO15N_01
-! idbio(39),        idbio(39),                                             PO15N_02
-! idbio(40),        idbio(40),                                             Phyt15N_01
-! idbio(41),        idbio(41),                                             Phyt15N_02
-! idbio(42),        idbio(42),                                             Phyt15N_03
-! idbio(43),        idbio(43),                                             Zoop15N_01
-! idbio(44),                                                               COTS eggs
-! idbio(45),                                                               COTS larvae
+! idbio( 1),         idbio( 1),          idbio( 1),          idbio( 1),     DO
+! idbio( 2),         idbio( 2),          idbio( 2),          idbio( 2),     TA
+! idbio( 3),         idbio( 3),          idbio( 3),          idbio( 3),     DIC_01
+! idbio( 4),         idbio( 4),                                             DIC_02
+! idbio( 5),                                                                DIC_03
+! idbio( 6),         idbio( 5),          idbio( 4),          idbio( 4),     NO3_01
+! idbio( 7),         idbio( 6),                                             NO3_02
+! idbio( 8),         idbio( 7),          idbio( 5),          idbio( 5),     NH4_01
+! idbio( 9),         idbio( 8),                                             NH4_02
+! idbio(10),         idbio( 9),          idbio( 6),          idbio( 6),     PO4_01
+! idbio(11),         idbio(10),                                             PO4_02
+! idbio(12),         idbio(11),          idbio( 7),          idbio( 7),     DOC01_01
+! idbio(13),         idbio(12),                                             DOC01_02
+! idbio(14),                                                                DOC01_03
+! idbio(15),         idbio(13),          idbio( 8),          idbio( 8),     DOC02_01
+! idbio(16),         idbio(14),                                             DOC02_02
+! idbio(17),                                                                DOC02_03
+! idbio(18),         idbio(15),          idbio( 9),          idbio( 9),     POC01_01
+! idbio(19),         idbio(16),                                             POC01_02
+! idbio(20),                                                                POC01_03
+! idbio(21),         idbio(17),          idbio(10),          idbio(10),     POC02_01
+! idbio(22),         idbio(18),                                             POC02_02
+! idbio(23),                                                                POC02_03
+! idbio(24),         idbio(19),          idbio(11),          idbio(11),     POC03_01
+! idbio(25),         idbio(20),                                             POC03_02
+! idbio(26),                                                                POC03_03
+! idbio(27),         idbio(21),          idbio(12),          idbio(12),     DON01_01
+! idbio(28),         idbio(22),                                             DON01_02
+! idbio(29),         idbio(23),          idbio(13),          idbio(13),     DON02_01
+! idbio(30),         idbio(24),                                             DON02_02
+! idbio(31),         idbio(25),          idbio(14),          idbio(14),     PON01_01
+! idbio(32),         idbio(26),                                             PON01_02
+! idbio(33),         idbio(27),          idbio(15),          idbio(15),     PON02_01
+! idbio(34),         idbio(28),                                             PON02_02
+! idbio(35),         idbio(29),          idbio(16),          idbio(16),     PON03_01
+! idbio(36),         idbio(30),                                             PON03_02
+! idbio(37),         idbio(31),          idbio(17),          idbio(17),     DOP01_01
+! idbio(38),         idbio(32),                                             DOP01_02
+! idbio(39),         idbio(33),          idbio(18),          idbio(18),     DOP02_01
+! idbio(40),         idbio(34),                                             DOP02_02
+! idbio(41),         idbio(35),          idbio(19),          idbio(19),     POP01_01
+! idbio(42),         idbio(36),                                             POP01_02
+! idbio(43),         idbio(37),          idbio(20),          idbio(20),     POP02_01
+! idbio(44),         idbio(38),                                             POP02_02
+! idbio(45),         idbio(39),          idbio(21),          idbio(21),     POP03_01
+! idbio(46),         idbio(40),                                             POP03_02
+! idbio(47),         idbio(41),          idbio(22),          idbio(22),     PhyC01_01
+! idbio(48),         idbio(42),                                             PhyC01_02
+! idbio(49),                                                                PhyC01_03
+! idbio(50),         idbio(43),          idbio(23),          idbio(23),     PhyC02_01
+! idbio(51),         idbio(44),                                             PhyC02_02
+! idbio(52),                                                                PhyC02_03
+! idbio(53),         idbio(45),          idbio(24),          idbio(24),     PhyC03_01
+! idbio(54),         idbio(46),                                             PhyC03_02
+! idbio(55),                                                                PhyC03_03
+! idbio(56),         idbio(47),          idbio(25),          idbio(25),     PhyC04_01
+! idbio(57),         idbio(48),                                             PhyC04_02
+! idbio(58),                                                                PhyC04_03
+! idbio(59),         idbio(49),          idbio(26),          idbio(26),     ZooC01_01
+! idbio(60),         idbio(50),                                             ZooC01_02
+! idbio(61),                                                                ZooC01_03
+! idbio(62),         idbio(51),          idbio(27),          idbio(27),     PhyN01_01
+! idbio(63),         idbio(52),                                             PhyN01_02
+! idbio(64),         idbio(53),          idbio(28),          idbio(28),     PhyN02_01
+! idbio(65),         idbio(54),                                             PhyN02_02
+! idbio(66),         idbio(55),          idbio(29),          idbio(29),     PhyN03_01
+! idbio(67),         idbio(56),                                             PhyN03_02
+! idbio(68),         idbio(57),          idbio(30),          idbio(30),     PhyN04_01
+! idbio(69),         idbio(58),                                             PhyN04_02
+! idbio(70),         idbio(59),          idbio(31),          idbio(31),     ZooN01_01
+! idbio(71),         idbio(60),                                             ZooN01_02
+! idbio(72),         idbio(61),          idbio(32),          idbio(32),     PhyP01_01
+! idbio(73),         idbio(62),                                             PhyP01_02
+! idbio(74),         idbio(63),          idbio(33),          idbio(33),     PhyP02_01
+! idbio(75),         idbio(64),                                             PhyP02_02
+! idbio(76),         idbio(65),          idbio(34),          idbio(34),     PhyP03_01
+! idbio(77),         idbio(66),                                             PhyP03_02
+! idbio(78),         idbio(67),          idbio(35),          idbio(35),     PhyP04_01
+! idbio(79),         idbio(68),                                             PhyP04_02
+! idbio(80),         idbio(69),          idbio(36),          idbio(36),     ZooP01_01
+! idbio(81),         idbio(70),                                             ZooP01_02
+! idbio(82),         idbio(71),          idbio(37),          idbio(37),     PIC01_01
+! idbio(83),         idbio(72),                                             PIC01_02
+! idbio(84),                                                                PIC01_03
+! idbio(85),         idbio(73),          idbio(38),          idbio(38),     PIC02_01
+! idbio(86),         idbio(74),                                             PIC02_02
+! idbio(87),                                                                PIC02_03
+! idbio(88),                             idbio(40),                         H2S_01
+! idbio(89),                                                                H2S_02
 !------------------------------------------------------------------------------
 ! Reef Ecosystem Model 2D History Parameters. 
 !

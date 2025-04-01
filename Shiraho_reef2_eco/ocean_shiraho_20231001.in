@@ -213,12 +213,14 @@ ad_VolCons(north) ==  F                            ! northern boundary
 !      NTIMES == 259200  ! 2018/10/10-10/25
 !      NTIMES == 345600  ! 2022/11/20-12/10
 
+      NTIMES == 1123200  ! 2023/10/07-10/20 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          DT == 1.0d0    !!!1.0d0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !      NTIMES == 328320  ! 2023/10/01-10/20 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !          DT == 5.0d0    !!!1.0d0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !      NTIMES == 172800  ! 2023/10/03-10/05 Typhoon !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !          DT == 1.0d0    !!!1.0d0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      NTIMES == 224640  ! 2023/10/07-10/20 Normal !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-          DT == 5.0d0    !!!1.0d0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!      NTIMES == 224640  ! 2023/10/07-10/20 Normal !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!          DT == 5.0d0    !!!1.0d0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      NDTFAST == 20
 
 ! Model iteration loops parameters.
@@ -238,11 +240,11 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Input/Output parameters.
 
-!       NRREC == 0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-       NRREC == 2 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+       NRREC == 0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       NRREC == 2 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    LcycleRST == T
-        NRST == 17280   ! DT=5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!        NRST == 86400   ! DT=1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!        NRST == 17280   ! DT=5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        NRST == 86400   ! DT=1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         NSTA == 1
         NFLT == 1
        NINFO == 12
@@ -250,16 +252,16 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 360    ! DT=5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!        NHIS == 1800   ! DT=1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!        NHIS == 12 !360    ! DT=5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        NHIS == 1800   ! DT=1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      NDEFHIS == 0
-        NQCK == 360
+        NQCK == 1800 !360
      NDEFQCK == 0
       NTSAVG == 1
         NAVG == 1000
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 360
+        NDIA == 1800 !360
      NDEFDIA == 0
 
 ! Output tangent linear and adjoint models parameters.
@@ -958,12 +960,13 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-!     GRDNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_roms_grd_JCOPET_v17.1.nc   ! New bathymetry, with new coverage
-     GRDNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_roms_grd_JCOPET_v17.1_NoSeagrass.nc   ! New bathymetry, with new coverage
-!     ININAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Ini/Shiraho_reef_ini_ROMS_Nz8_20231001.00.nc
-!     ININAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231001.nc
-!     ININAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231003.nc
-     ININAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231005.nc
+     GRDNAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_roms_grd_JCOPET_v18.1.nc   ! New bathymetry, with new coverage
+!     GRDNAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_roms_grd_JCOPET_v18.1_nosg.nc   ! New bathymetry, with new coverage
+!     ININAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/Ini/Shiraho_reef_ini_ROMS_Nz8_20231001.00.nc
+     ININAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/Ini/Shiraho_reef_ini_ROMS_Nz8_20231007.00.nc
+!     ININAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231001.nc
+!     ININAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231003.nc
+!     ININAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231005.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -986,7 +989,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Bry/Shiraho_reef_bry_ROMS_Nz8_20230930.00.nc
+     BRYNAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/Bry/Shiraho_reef_bry_ROMS_Nz8_20230930.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -994,7 +997,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/River/Shiraho_river_Nz8_daily_202201-0202312v2.nc
+     SSFNAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/River/Shiraho_river_Nz8_daily_202201-0202312v2.nc
 
 ! Input tidal forcing file name.
 
@@ -1020,32 +1023,36 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 7                          ! number of unique forcing files
 
-     FRCNAME == D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Pair.nc  \  ! forcing file 1, grid 1
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_wind.nc  \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Tair.nc  \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Qair.nc  \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_rain.nc  \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_swrad.nc \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_lwrad_down.nc
+     FRCNAME == ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Pair.nc  \  ! forcing file 1, grid 1
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_wind.nc  \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Tair.nc  \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_Qair.nc  \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_rain.nc  \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_swrad.nc \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2023_lwrad_down.nc
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-!     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231001.nc
-!     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231001.nc
-!     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231003.nc
-!     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231003.nc
-!     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231005.nc
-!     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231005.nc
-     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2_eco/SR_eco_rst_20231007_nosg.nc
-     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2_eco/SR_eco_his_20231007_nosg.nc
-     QCKNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2_eco/SR_eco_qck_20231007_nosg.nc
+!     RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231001.nc
+!     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231001.nc
+!     RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231003.nc
+!     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231003.nc
+!     RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231005.nc
+!     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231005.nc
+     RSTNAME == SR_veg_eco2_sg_rst_20231007_v3.nc
+     HISNAME == SR_veg_eco2_sg_his_20231007_v3.nc
+     QCKNAME == SR_veg_eco2_sg_qck_20231007_v3.nc
+!     RSTNAME == SR_veg_eco_nosg_rst_20231007.nc
+!     HISNAME == SR_veg_eco_nosg_his_20231007.nc
+!     QCKNAME == SR_veg_eco_nosg_qck_20231007.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2_eco/SR_eco_dia_20231007_nosg.nc
+     DIANAME == SR_veg_eco2_sg_dia_20231007_v3.nc
+!     DIANAME == SR_veg_eco2_nosg_dia_20231007.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 
@@ -1057,6 +1064,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      BPARNAM =  bio_reef_ecosys.in             !!! used
      SPARNAM =  sediment_shiraho_reef.in       !!! used
      USRNAME =  MyFile.dat
+     VEGNAM  =  vegetation.in
 
 !
 !  GLOSSARY:

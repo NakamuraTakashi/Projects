@@ -109,7 +109,7 @@ export   ROMS_APPLICATION=${COAWST_APPLICATION}
 
 # Set a local environmental variable to define the path to the directories
 # where all this project's files are kept.
-export   MY_ROOT_DIR=${HOME}/COAWST/COAWST_Eco
+export   MY_ROOT_DIR=../../COAWST_Eco
 export   MY_PROJECT_DIR=${PWD}
 
 # The path to the user's local current ROMS source code.
@@ -377,7 +377,7 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
       ;;
 
     gfortran )
-      export             ESMF_OS=GYGWIN
+      export             ESMF_OS=Linux
       export       ESMF_COMPILER=gfortran
       export           ESMF_BOPT=O
       export            ESMF_ABI=64

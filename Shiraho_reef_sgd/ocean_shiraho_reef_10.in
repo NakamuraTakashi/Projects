@@ -945,7 +945,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/ROMS/Data/Shiraho_reef/shiraho_reef_grid16.2.nc   ! New bathymetry, with new coverage
+     GRDNAME == ../../ROMS/Data/Shiraho_reef/shiraho_reef_grid16.2.nc   ! New bathymetry, with new coverage
      ININAME == ocean_ini.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -969,7 +969,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/ROMS/Data/Shiraho_reef/bry_tide_tr100820-0930v3_ref20000101.nc
+     BRYNAME == ../../ROMS/Data/Shiraho_reef/bry_tide_tr100820-0930v3_ref20000101.nc
 !     BRYNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/bry_tide_tr090825-0911_zeta_plus_63cm.nc  !!! RCP 8.5: zeta+63cm
 !     BRYNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/bry_tide_tr090825-0911_zeta_plus_48cm.nc  !!! RCP 6.0: zeta+48cm
 !     BRYNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/bry_tide_tr090825-0911_zeta_plus_47cm.nc  !!! RCP 4.5: zeta+47cm
@@ -981,7 +981,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/ROMS/Data/Shiraho_reef/frc_freshwater_10-15_ref20000101.nc
+     SSFNAME == ../../ROMS/Data/Shiraho_reef/frc_freshwater_10-15_ref20000101.nc
 !     SSFNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/frc_freshwater_10tmp.nc
 
 ! Input tidal forcing file name.
@@ -1008,7 +1008,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 1                          ! number of unique forcing files
 
-     FRCNAME == D:/ROMS/Data/Shiraho_reef/frc_air100820-1001v3_ref20000101.nc    ! forcing file 1, grid 1
+     FRCNAME == ../../ROMS/Data/Shiraho_reef/frc_air100820-1001v3_ref20000101.nc    ! forcing file 1, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 

@@ -41,7 +41,7 @@ READINP WIND 1 SERIES '/gs/hs1/tga-NakamuLab/COAWST/Data/Panay/Panay0/wind_2021/
 BOUNDNEST1  NEST '/gs/hs1/tga-NakamuLab/COAWST/Data/Panay/Tangalan/swan_bry/Tangalan_swan_nest_20210105.nst'  CLOSED
 
 & Restart name **********************************
-&INIT HOTSTART 'E:/COAWTS_OUTPUT/Panay/Panay1/swan/Panay1_swan_rst.dat'
+&INIT HOTSTART '../../COAWTS_OUTPUT/Panay/Panay1/swan/Panay1_swan_rst.dat'
 
 & PHYSICS  **************************************
 GEN3 KOMEN
@@ -52,12 +52,12 @@ WCAP KOM 2.36E-5 3.02E-3 2.0 1.0 1.0
 &NGRID 'Tangalan' 410059.09667979 1306854.124286 -42.971835 11460.000000 11160.000000 191 186
 &NGRID 'Aklan'    428291.27505397 1296037.469198 -42.971835 6033.333333 5133.333333 181 154
 
-&NESTOUT 'Tangalan'       'E:/COAWTS_OUTPUT/Panay/Panay1/Tangalan_swan_nest_20210105.nst'                 OUTPUT 20210107.000000 1 HR
-&NESTOUT 'Aklan'             'E:/COAWTS_OUTPUT/Panay/Panay1/Aklan_swan_nest_20210105.nst'                 OUTPUT 20210107.000000 1 HR
-&BLOCK 'COMPGRID' NOHEADER 'E:/COAWTS_OUTPUT/Panay/Tangalan/Tangalan_swan_Wind_20210105.mat' LAY 4 WIND  1.0 OUTPUT 20210107.000000 1 HR
-&BLOCK 'COMPGRID' NOHEADER 'E:/COAWTS_OUTPUT/Panay/Tangalan/Tangalan_swan_Hsig_20210105.mat' LAY 4 HSIGN 1.0 OUTPUT 20210107.000000 1 HR
-&BLOCK 'COMPGRID' NOHEADER 'E:/COAWTS_OUTPUT/Panay/Tangalan/Tangalan_swan_Tpk__20210105.mat' LAY 4 RTP   1.0 OUTPUT 20210107.000000 1 HR
-&BLOCK 'COMPGRID' NOHEADER 'E:/COAWTS_OUTPUT/Panay/Tangalan/Tangalan_swan_Dpk__20210105.mat' LAY 4 PDIR  1.0 OUTPUT 20210107.000000 1 HR
+&NESTOUT 'Tangalan'       '../../COAWTS_OUTPUT/Panay/Panay1/Tangalan_swan_nest_20210105.nst'                 OUTPUT 20210107.000000 1 HR
+&NESTOUT 'Aklan'             '../../COAWTS_OUTPUT/Panay/Panay1/Aklan_swan_nest_20210105.nst'                 OUTPUT 20210107.000000 1 HR
+&BLOCK 'COMPGRID' NOHEADER '../../COAWTS_OUTPUT/Panay/Tangalan/Tangalan_swan_Wind_20210105.mat' LAY 4 WIND  1.0 OUTPUT 20210107.000000 1 HR
+&BLOCK 'COMPGRID' NOHEADER '../../COAWTS_OUTPUT/Panay/Tangalan/Tangalan_swan_Hsig_20210105.mat' LAY 4 HSIGN 1.0 OUTPUT 20210107.000000 1 HR
+&BLOCK 'COMPGRID' NOHEADER '../../COAWTS_OUTPUT/Panay/Tangalan/Tangalan_swan_Tpk__20210105.mat' LAY 4 RTP   1.0 OUTPUT 20210107.000000 1 HR
+&BLOCK 'COMPGRID' NOHEADER '../../COAWTS_OUTPUT/Panay/Tangalan/Tangalan_swan_Dpk__20210105.mat' LAY 4 PDIR  1.0 OUTPUT 20210107.000000 1 HR
 
 PROP BSBT
 RESTART 'Tangalan_swan_rst.dat' FREE 1 DAY

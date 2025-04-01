@@ -942,7 +942,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/Grid/TokyoBay3_grd_v2.1.nc
+     GRDNAME == ../../COAWST_DATA/TokyoBay/TokyoBay3/Grid/TokyoBay3_grd_v2.1.nc
      ININAME == R:/COAWST_DATA/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_ROMS_Nz30_20060101.03.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -974,7 +974,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == F:/COAWST_DATA/TokyoBay/TokyoBay3/River/TokyoBay3_river_NZ30_1990_2011v3.nc
+     SSFNAME == ../../COAWST_DATA/TokyoBay/TokyoBay3/River/TokyoBay3_river_NZ30_1990_2011v3.nc
 
 ! Input tidal forcing file name.
 

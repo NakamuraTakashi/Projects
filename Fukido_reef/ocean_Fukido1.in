@@ -945,8 +945,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/Yaeyama/Fukido1/Grid/Fukido1_100m_grd_v3.3.nc
-     ININAME == F:/COAWST_DATA/Yaeyama/Fukido1/Ini/Fukido1_ini_Nz8_20190803.00.nc
+     GRDNAME == ../../COAWST_DATA/Yaeyama/Fukido1/Grid/Fukido1_100m_grd_v3.3.nc
+     ININAME == ../../COAWST_DATA/Yaeyama/Fukido1/Ini/Fukido1_ini_Nz8_20190803.00.nc
 !     ININAME == Fukido1_his_20190803.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -970,7 +970,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/Yaeyama/Fukido1/Bry/Fukido1_bry_Nz8_20190801.00.nc
+     BRYNAME == ../../COAWST_DATA/Yaeyama/Fukido1/Bry/Fukido1_bry_Nz8_20190801.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -978,7 +978,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == F:/COAWST_DATA/Yaeyama/Fukido1/River/Fukido1_river_Lw_const_1990_2050.nc
+     SSFNAME == ../../COAWST_DATA/Yaeyama/Fukido1/River/Fukido1_river_Lw_const_1990_2050.nc
 !     SSFNAME == /work1/t2gnakamulab/ROMS/Shiraho_reef/Data/frc_freshwater_10tmp.nc
 
 ! Input tidal forcing file name.
@@ -1005,14 +1005,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 8                          ! number of unique forcing files
 
-     FRCNAME ==  F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_cloud.nc \
-                 F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \
-                 F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \
-                 F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \
-                 F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_swrad.nc \
-                 F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \
-                 F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \
-                 F:/COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_lwrad_down.nc
+     FRCNAME ==  ../../COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_cloud.nc \
+                 ../../COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Pair.nc  \
+                 ../../COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Qair.nc  \
+                 ../../COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_rain.nc  \
+                 ../../COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_swrad.nc \
+                 ../../COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_Tair.nc  \
+                 ../../COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_wind.nc  \
+                 ../../COAWST_DATA/Yaeyama/Ishigak_Air/Ishigaki_frc_JMAobs_2019_lwrad_down.nc
 
 ! Output NetCDF file names, [1:Ngrids].
 

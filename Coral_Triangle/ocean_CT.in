@@ -945,9 +945,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_grd_v2.nc
-     ININAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOMwNAO_Nz30_20170402.00.nc
-!     ININAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOM_Nz30_20170402.00.nc
+     GRDNAME == ../../ROMS/Data/Coral_Triangle/CT_0.08_grd_v2.nc
+     ININAME == ../../ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOMwNAO_Nz30_20170402.00.nc
+!     ININAME == ../../ROMS/Data/Coral_Triangle/CT_0.08_ini_HYCOM_Nz30_20170402.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -970,7 +970,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_bry_HYCOM_Nz30_201704.nc
+     BRYNAME == ../../ROMS/Data/Coral_Triangle/CT_0.08_bry_HYCOM_Nz30_201704.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -978,11 +978,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/ROMS/Data/Yaeyama/Yaeyama2_river_Nz15_arakawa_pop_up_conn_nomal_14.nc
+     SSFNAME == ../../ROMS/Data/Yaeyama/Yaeyama2_river_Nz15_arakawa_pop_up_conn_nomal_14.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == D:/ROMS/Data/Coral_Triangle/CT_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == ../../ROMS/Data/Coral_Triangle/CT_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).  The USER has the option to enter
 ! several file names for each nested grid.  For example, the USER may
@@ -998,13 +998,13 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 7                          ! number of unique forcing files
 
-     FRCNAME == D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Tair_201704.nc      \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Uwind_201704.nc     \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Vwind_201704.nc     \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Pair_201704.nc      \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Qair_201704.nc      \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_cloud_201704.nc     \
-                D:/ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_rain_201704.nc
+     FRCNAME == ../../ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Tair_201704.nc      \
+                ../../ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Uwind_201704.nc     \
+                ../../ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Vwind_201704.nc     \
+                ../../ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Pair_201704.nc      \
+                ../../ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_Qair_201704.nc      \
+                ../../ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_cloud_201704.nc     \
+                ../../ROMS/Data/Coral_Triangle/CT_0.08_frc_JRA55_rain_201704.nc
    
 ! Output NetCDF file names, [1:Ngrids].
 

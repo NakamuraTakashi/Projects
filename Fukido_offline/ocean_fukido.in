@@ -760,7 +760,7 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/ROMS/Data/Fukido/fukido_grd_v7.nc
+     GRDNAME == ../../ROMS/Data/Fukido/fukido_grd_v7.nc
      ININAME == ocean_ini.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -780,12 +780,12 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 ! line per entry with a vertical bar (|) symbol after each entry,
 ! except the last one.
 
-     BRYNAME == D:/ROMS/Data/Fukido/bry_tide2_tr090825-0911.nc
-     CLMNAME == D:/ROMS/output/Fukido/test/ocean_his2.nc
+     BRYNAME == ../../ROMS/Data/Fukido/bry_tide2_tr090825-0911.nc
+     CLMNAME == ../../ROMS/output/Fukido/test/ocean_his2.nc
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/ROMS/Data/Fukido/fukido_river7_Nz4_v1.nc
+     SSFNAME == ../../ROMS/Data/Fukido/fukido_river7_Nz4_v1.nc
 
 
 ! Input forcing NetCDF file name(s).  The USER has the option to enter
@@ -802,20 +802,20 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 1                          ! number of unique forcing files
 
-     FRCNAME == D:/ROMS/Data/Fukido/frc3_air090825-0911.nc    ! forcing file 1, grid 1
+     FRCNAME == ../../ROMS/Data/Fukido/frc3_air090825-0911.nc    ! forcing file 1, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      GSTNAME == ocean_gst.nc
-     RSTNAME == D:/ROMS/output/Fukido/offline/ocean_rst1.nc
-     HISNAME == D:/ROMS/output/Fukido/offline/ocean_his1.nc
+     RSTNAME == ../../ROMS/output/Fukido/offline/ocean_rst1.nc
+     HISNAME == ../../ROMS/output/Fukido/offline/ocean_his1.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.n
      DIANAME == ocean_dia.nc
      STANAME == ocean_sta.nc
-     FLTNAME == D:/ROMS/output/Fukido/offline/ocean_flt.nc
+     FLTNAME == ../../ROMS/output/Fukido/offline/ocean_flt.nc
 
 ! Input ASCII parameter filenames.
 

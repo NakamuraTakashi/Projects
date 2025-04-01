@@ -944,8 +944,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.3b.nc
-     ININAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230701.00.nc
+     GRDNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.3b.nc
+     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230701.00.nc
 !     ININAME == Shizugawa3_his_20210104.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -969,7 +969,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Bry/Shizugawa3_bry_ROMS_Nz15_20230605.00.nc
+     BRYNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Bry/Shizugawa3_bry_ROMS_Nz15_20230605.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -977,11 +977,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_Nz15_const_1900_2100_v0.nc
+     SSFNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_Nz15_const_1900_2100_v0.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == F:/COAWST_DATA/Shizugawa/Shizugawa1/Tide/Shizugawa1_tide_nao99Jb_20000101.00.nc
+    TIDENAME == ../../COAWST_DATA/Shizugawa/Shizugawa1/Tide/Shizugawa1_tide_nao99Jb_20000101.00.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -1003,16 +1003,16 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
-                /mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
+                ../../COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-!     RSTNAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!     HISNAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!     QCKNAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_qck_20230701.nc
+!     RSTNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!     HISNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!     QCKNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_qck_20230701.nc
      RSTNAME == SZ3_veg_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      HISNAME == SZ3_veg_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      QCKNAME == SZ3_veg_eco_qck_20230701.nc

@@ -945,7 +945,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc
+     GRDNAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Grid/Yaeyama1_grd_v10.nc
 !     ININAME == S:/COAWST_DATA/Yaeyama/Yaeyama1/Ini/Yaeyama1_ini_HYCOMwNAO_Nz15_19940102.00.nc
      ININAME == H:/COAWST_OUTPUT/Yaeyama1/Yaeyama1_his_20060105.nc
      ITLNAME == ocean_itl.nc
@@ -970,7 +970,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20060101.00.nc
+     BRYNAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Bry/Yaeyama1_bry_HYCOM_Nz15_20060101.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -982,7 +982,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input tidal forcing file name.
 
-    TIDENAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -1004,8 +1004,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_DSJRA55_20060101_1.nc \  ! forcing file 2, grid 1
-                F:/COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_DSJRA55_20060101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_DSJRA55_20060101_1.nc \  ! forcing file 2, grid 1
+                ../../COAWST_DATA/Yaeyama/Yaeyama1/Air/Yaeyama1_frc_DSJRA55_20060101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
