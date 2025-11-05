@@ -950,8 +950,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_roms_grd_JCOPET_v17.0.nc   ! New bathymetry, with new coverage
-     ININAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Ini/Shiraho_reef_ini_ROMS_Nz8_20221120.00.nc
+     GRDNAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/shiraho_roms_grd_JCOPET_v17.0.nc   ! New bathymetry, with new coverage
+     ININAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/Ini/Shiraho_reef_ini_ROMS_Nz8_20221120.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -974,7 +974,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Bry/Shiraho_reef_bry_ROMS_Nz8_20221119.00.nc
+     BRYNAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/Bry/Shiraho_reef_bry_ROMS_Nz8_20221119.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -982,7 +982,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/COAWST_DATA/Yaeyama/Shiraho_reef2/River/Shiraho_river_Nz8_daily_202201-0202312.nc
+     SSFNAME == ../../COAWST_DATA/Yaeyama/Shiraho_reef2/River/Shiraho_river_Nz8_daily_202201-0202312.nc
 
 ! Input tidal forcing file name.
 
@@ -1008,20 +1008,20 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 7                          ! number of unique forcing files
 
-     FRCNAME == D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_Pair.nc  \  ! forcing file 1, grid 1
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_wind.nc  \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_Tair.nc  \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_Qair.nc  \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_rain.nc  \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_swrad.nc \
-                D:/COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_lwrad_down.nc
+     FRCNAME == ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_Pair.nc  \  ! forcing file 1, grid 1
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_wind.nc  \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_Tair.nc  \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_Qair.nc  \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_rain.nc  \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_swrad.nc \
+                ../../COAWST_DATA/Yaeyama/Ishigaki_Air/Ishigaki_frc_JMAobs_2022_lwrad_down.nc
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20221120.nc
-     HISNAME == E:/COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20221120.nc
+     RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20221120.nc
+     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20221120.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

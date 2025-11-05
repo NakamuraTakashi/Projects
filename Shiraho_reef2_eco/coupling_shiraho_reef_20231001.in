@@ -39,15 +39,15 @@
 
   NnodesATM =  0                     ! atmospheric model
   NnodesWAV =  3                     ! wave model
-  NnodesOCN =  28                     ! ocean model
+  NnodesOCN =  28                    ! ocean model
 
 ! Time interval (seconds) between exchange of fields between models.
 
   TI_ATM2WAV =     0.0d0              ! atmosphere to wave coupling interval
   TI_ATM2OCN =     0.0d0              ! atmosphere to ocean coupling interval
   TI_WAV2ATM =     0.0d0              ! wave to atmosphere coupling interval
-  TI_WAV2OCN =    600.0d0              ! wave to ocean coupling interval
-  TI_OCN2WAV =    600.0d0              ! ocean to wave coupling interval
+  TI_WAV2OCN =   600.0d0              ! wave to ocean coupling interval
+  TI_OCN2WAV =   600.0d0              ! ocean to wave coupling interval
   TI_OCN2ATM =     0.0d0              ! ocean to atmosphere coupling interval
 
 ! Enter names of Atm, Wav, and Ocn input files.
@@ -82,7 +82,7 @@
 !           weights. This file is created using the code in
 !           Lib/SCRIP_COAWST/scrip_coawst[.exe]
 
-   SCRIP_COAWST_NAME = D:/COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/scrip_shiraho_reef_grd_v17.0.nc
+   SCRIP_COAWST_NAME = Z:/COAWST_DATA/Yaeyama/Shiraho_reef2/Grid/scrip_shiraho_reef_grd_v18.0.nc
 
 ! Option 2: THIS OPTION WILL BE REMOVED IN FUTURE VERSIONS.
 !           IF you set "SCRIP_WEIGHT_OPTION = 2", then enter 
