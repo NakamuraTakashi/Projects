@@ -1,0 +1,168 @@
+      FINE2COARSE - exchanging data between grids: dg = 02 and rg = 01  at cr = 02
+  10308687 2019-08-07 19:27:00.00  2.039414E-02  1.586451E+04  1.586453E+04  2.738839E+14  01
+                     (184,088,12)  2.612254E-02  2.573229E-02  1.152062E+00  2.946983E+00
+  30926061 2019-08-07 19:27:00.00  2.101821E-02  7.126849E+03  7.126870E+03  5.990054E+12  02
+                     (120,102,05)  2.575808E-02  3.088242E-02  3.390338E+01  2.509688E+01
+ DIAG speed ijk    30.554742523242609              121         102          11           2
+ DIAG speed trouble    25.096877934359849     
+ Found Error: 01   Line: 351      Source: ROMS/Nonlinear/main3d.F
+ Found Error: 01   Line: 320      Source: ROMS/Drivers/nl_ocean.h
+
+ Blowing-up: Saving latest model state into  RESTART file
+
+      WRT_RST     - wrote re-start    fields (Index=1,2) in record = 0000003               01
+
+ Blowing-up: Saving latest model state into  RESTART file
+
+      WRT_RST     - wrote re-start    fields (Index=1,2) in record = 0000003               02
+
+ Elapsed CPU time (seconds):
+
+ Node   # 15 CPU:  171598.059
+ Node   # 14 CPU:  171592.610
+ Node   # 18 CPU:  171567.824
+ Node   #  4 CPU:  171584.632
+ Node   #  1 CPU:  171586.058
+ Node   #  2 CPU:  171579.766
+ Node   # 27 CPU:  171586.374
+ Node   # 16 CPU:  171596.914
+ Node   # 28 CPU:  171575.848
+ Node   # 24 CPU:  171353.825
+ Node   #  9 CPU:  171592.079
+ Node   #  5 CPU:  171491.676
+ Node   # 12 CPU:  171599.731
+ Node   # 11 CPU:  171585.095
+ Node   # 19 CPU:  171585.372
+ Node   # 17 CPU:  171575.772
+ Node   # 23 CPU:  171582.919
+ Node   #  3 CPU:  171595.912
+ Node   #  8 CPU:  171592.450
+ Node   # 25 CPU:  171587.382
+ Node   # 20 CPU:  171584.140
+ Node   # 22 CPU:  171592.003
+ Node   # 13 CPU:  171582.425
+ Node   #  7 CPU:  171591.931
+ Node   #  0 CPU:  150303.087
+ Total:           5125960.673
+
+ Nonlinear model elapsed CPU time profile, Grid: 01
+
+  Allocation and array initialization ..............        75.844  ( 0.0015 %)
+  Ocean state initialization .......................        72.716  ( 0.0014 %)
+  Reading of input data ............................      2636.167  ( 0.0514 %)
+  Processing of input data .........................      4705.501  ( 0.0918 %)
+  Processing of output time averaged data ..........        52.566  ( 0.0010 %)
+  Computation of vertical boundary conditions ......       336.609  ( 0.0066 %)
+  Computation of global information integrals ......      7327.117  ( 0.1429 %)
+  Writing of output data ...........................    358591.197  ( 6.9956 %)
+  Model 2D kernel ..................................     10975.955  ( 0.2141 %)
+  2D/3D coupling, vertical metrics .................      3171.728  ( 0.0619 %)
+  Omega vertical velocity ..........................       938.921  ( 0.0183 %)
+  Equation of state for seawater ...................      1100.925  ( 0.0215 %)
+  Biological module, source/sink terms .............    168221.368  ( 3.2818 %)
+  Atmosphere-Ocean bulk flux parameterization ......      3121.873  ( 0.0609 %)
+  GLS vertical mixing parameterization .............      8895.080  ( 0.1735 %)
+  3D equations right-side terms ....................       728.922  ( 0.0142 %)
+  3D equations predictor step ......................     81269.422  ( 1.5854 %)
+  Pressure gradient ................................       826.895  ( 0.0161 %)
+  Harmonic mixing of tracers, S-surfaces ...........     12288.211  ( 0.2397 %)
+  Biharmonic mixing of tracers, geopotentials ......       793.310  ( 0.0155 %)
+  Harmonic stress tensor, S-surfaces ...............       338.626  ( 0.0066 %)
+  Corrector time-step for 3D momentum ..............      1683.130  ( 0.0328 %)
+  Corrector time-step for tracers ..................    127104.240  ( 2.4796 %)
+  Nesting algorithm ................................    397655.511  ( 7.7577 %)
+  Reading model state vector .......................        42.564  ( 0.0008 %)
+  4D-Var minimization solver .......................      1836.049  ( 0.0358 %)
+                                              Total:   1194790.451   23.3086
+
+ Nonlinear model message Passage profile, Grid: 01
+
+  Message Passage: 2D halo exchanges ...............     13454.417  ( 0.2625 %)
+  Message Passage: 3D halo exchanges ...............      7358.094  ( 0.1435 %)
+  Message Passage: 4D halo exchanges ...............     78112.306  ( 1.5239 %)
+  Message Passage: data broadcast ..................    342825.857  ( 6.6880 %)
+  Message Passage: data reduction ..................      1061.662  ( 0.0207 %)
+  Message Passage: data gathering ..................     13909.156  ( 0.2713 %)
+  Message Passage: data scattering..................        72.026  ( 0.0014 %)
+  Message Passage: boundary data gathering .........       141.868  ( 0.0028 %)
+  Message Passage: nesting point data gathering ....    561076.866  (10.9458 %)
+  Message Passage: synchronization barrier .........         0.020  ( 0.0000 %)
+                                              Total:   1018012.273   19.8599
+ Node   # 21 CPU:  171589.649
+ Node   # 26 CPU:  171575.700
+ Node   # 10 CPU:  171591.238
+ Node   # 29 CPU:  171553.291
+ Node   #  6 CPU:  171586.913
+
+ Nonlinear model elapsed CPU time profile, Grid: 02
+
+  Allocation and array initialization ..............        75.844  ( 0.0015 %)
+  Ocean state initialization .......................        73.068  ( 0.0014 %)
+  Reading of input data ............................      1378.414  ( 0.0269 %)
+  Processing of input data .........................     10603.636  ( 0.2069 %)
+  Processing of output time averaged data ..........        77.558  ( 0.0015 %)
+  Computation of vertical boundary conditions ......      1018.141  ( 0.0199 %)
+  Computation of global information integrals ......     23391.864  ( 0.4563 %)
+  Writing of output data ...........................    359297.574  ( 7.0094 %)
+  Model 2D kernel ..................................     38374.033  ( 0.7486 %)
+  2D/3D coupling, vertical metrics .................      4795.367  ( 0.0936 %)
+  Omega vertical velocity ..........................      2926.464  ( 0.0571 %)
+  Equation of state for seawater ...................      3428.348  ( 0.0669 %)
+  Biological module, source/sink terms .............    259895.867  ( 5.0702 %)
+  Atmosphere-Ocean bulk flux parameterization ......     10816.887  ( 0.2110 %)
+  GLS vertical mixing parameterization .............     26782.551  ( 0.5225 %)
+  3D equations right-side terms ....................      2520.879  ( 0.0492 %)
+  3D equations predictor step ......................    260311.039  ( 5.0783 %)
+  Pressure gradient ................................      2741.230  ( 0.0535 %)
+  Harmonic mixing of tracers, S-surfaces ...........     42595.012  ( 0.8310 %)
+  Biharmonic mixing of tracers, geopotentials ......      2311.578  ( 0.0451 %)
+  Harmonic stress tensor, S-surfaces ...............      1133.910  ( 0.0221 %)
+  Corrector time-step for 3D momentum ..............      5238.940  ( 0.1022 %)
+  Corrector time-step for tracers ..................    374430.499  ( 7.3046 %)
+  Nesting algorithm ................................   2384730.646  (46.5226 %)
+  Reading model state vector .......................        50.992  ( 0.0010 %)
+  4D-Var minimization solver .......................      5721.870  ( 0.1116 %)
+                                              Total:   3824722.211   74.6147
+
+ Nonlinear model message Passage profile, Grid: 02
+
+  Message Passage: 2D halo exchanges ...............     34783.455  ( 0.6786 %)
+  Message Passage: 3D halo exchanges ...............     35948.677  ( 0.7013 %)
+  Message Passage: 4D halo exchanges ...............    272157.986  ( 5.3094 %)
+  Message Passage: data broadcast ..................    341262.809  ( 6.6575 %)
+  Message Passage: data reduction ..................      3630.563  ( 0.0708 %)
+  Message Passage: data gathering ..................     14711.900  ( 0.2870 %)
+  Message Passage: data scattering..................        76.174  ( 0.0015 %)
+  Message Passage: nesting point data gathering ....    100660.529  ( 1.9637 %)
+  Message Passage: nesting array data gathering ....   2078001.492  (40.5388 %)
+                                              Total:   2881233.586   56.2087
+
+  Unique code regions profiled .....................   5019512.662   97.9234 %
+  Residual, non-profiled code ......................    106448.012    2.0766 %
+
+
+ All percentages are with respect to total time =      5125960.673
+
+
+ ROMS/TOMS - Output NetCDF summary for Grid 01:
+             number of time records written in HISTORY file = 00000164
+             number of time records written in RESTART file = 00000007
+
+ ROMS/TOMS - Output NetCDF summary for Grid 02:
+             number of time records written in HISTORY file = 00000164
+             number of time records written in RESTART file = 00000007
+
+ Analytical header files used:
+
+     ROMS/Functionals/ana_biology.h
+     ROMS/Functionals/ana_btflux.h
+     ROMS/Functionals/ana_psource.h
+     ROMS/Functionals/ana_lrflux.h
+     ROMS/Functionals/ana_stflux.h
+     ROMS/Functionals/ana_tobc_bio.h
+
+ Biology model header files used:
+
+     ROMS/Nonlinear/Biology/reef_ecosys.h
+
+ ROMS/TOMS: DONE... Sunday - July 27, 2025 -  8:17:22 PM

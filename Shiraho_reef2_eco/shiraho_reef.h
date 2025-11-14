@@ -160,8 +160,6 @@
 /*#  define N2S2_HORAVG*/
 #  define ZOS_HSIG
 #  define TKE_WAVEDISS
-#  define LIMIT_VDIFF
-#  define LIMIT_VVISC
 # endif
 
 # if defined MY25_MIXING
@@ -191,6 +189,7 @@
 # endif
 # if defined SEDIMENT || defined SG_BBL || defined MB_BBL || defined SSW_BBL
 #  define ANA_SEDIMENT
+/*#  define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
 /*#  define ANA_SED_UNIFORM */   /*Original CPP flag */
 # endif
 # define ANA_BPFLUX
@@ -219,6 +218,7 @@
 #define VEGETATION
 
 #if defined VEGETATION
+/*# define SEAGRASS*/     /* USE seagrass drag only */
 # define ANA_VEGETATION 
 # define VEG_DRAG
 # ifdef VEG_DRAG
@@ -241,7 +241,7 @@
 #if defined REEF_ECOSYS || defined SEDIMENT
 # define ANA_TOBC_BIO  /*Original CPP flag */
 # define ANA_TOBC_SED   /*Original CPP flag */
-/*# define BIO_VPROFILE_YAEYAMA*/   /*Original CPP flag */
+# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
 #endif
 
 #if defined REEF_ECOSYS
@@ -270,7 +270,7 @@
 # define FOODWEB      /* USE foodweb module */
 # define SEDIMENT_ECOSYS        /* USE sedecosys module  */
 
-/*# define AIR_SEA_GAS_EXCHANGE*/
+# define AIR_SEA_GAS_EXCHANGE
 
 /*# define DYNAMIC_COVERAGE*/ /* yt_edit not yet implemented in coawst */
 
@@ -291,7 +291,7 @@
 # if defined SEAGRASS
 #  define SEAGRASS_LEAF_NUTRIENT_UPTAKE
 #  if defined SEDIMENT_ECOSYS
-/*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
+#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE
 #  endif
 #  if defined SEDIMENT_ECOSYS
 #   define SEAGRASS_ROOT_NUTRIENT_UPTAKE

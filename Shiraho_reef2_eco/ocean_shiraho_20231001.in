@@ -221,6 +221,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 !          DT == 1.0d0    !!!1.0d0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !      NTIMES == 224640  ! 2023/10/07-10/20 Normal !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !          DT == 5.0d0    !!!1.0d0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
      NDTFAST == 20
 
 ! Model iteration loops parameters.
@@ -252,17 +253,19 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-!        NHIS == 12 !360    ! DT=5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!        NHIS == 360    ! DT=5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         NHIS == 1800   ! DT=1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      NDEFHIS == 0
-        NQCK == 1800 !360
-     NDEFQCK == 0
+!        NQCK == 360    ! DT=5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        NQCK == 1800   ! DT=1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        NDEFQCK == 0
       NTSAVG == 1
         NAVG == 1000
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 1800 !360
-     NDEFDIA == 0
+!        NDIA == 360    ! DT=5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        NDIA == 1800   ! DT=1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        NDEFDIA == 0
 
 ! Output tangent linear and adjoint models parameters.
 
@@ -634,7 +637,7 @@ Hout(idSdif) == T       ! AKs                vertical Salinity diffusion
 Hout(idHsbl) == F       ! Hsbl               depth of surface boundary layer
 Hout(idHbbl) == F       ! Hbbl               depth of bottom boundary layer
 Hout(idMtke) == T       ! tke                turbulent kinetic energy
-Hout(idMtls) == F       ! gls                turbulent length scale
+Hout(idMtls) == T       ! gls                turbulent length scale
 
 ! Logical switches (TRUE/FALSE) to activate writing of extra inert passive
 ! tracers other than biological and sediment tracers into the HISTORY
@@ -1041,18 +1044,18 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 !     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231003.nc
 !     RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_rst_20231005.nc
 !     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_his_20231005.nc
-     RSTNAME == SR_veg_eco2_sg_rst_20231007_v3.nc
-     HISNAME == SR_veg_eco2_sg_his_20231007_v3.nc
-     QCKNAME == SR_veg_eco2_sg_qck_20231007_v3.nc
-!     RSTNAME == SR_veg_eco_nosg_rst_20231007.nc
-!     HISNAME == SR_veg_eco_nosg_his_20231007.nc
-!     QCKNAME == SR_veg_eco_nosg_qck_20231007.nc
+     RSTNAME == SR_veg_eco2_sg_rst_20231007_v5.nc
+     HISNAME == SR_veg_eco2_sg_his_20231007_v5.nc
+     QCKNAME == SR_veg_eco2_sg_qck_20231007_v5.nc
+!     RSTNAME == SR_veg_eco2_nosg_rst_20231007_v5.nc
+!     HISNAME == SR_veg_eco2_nosg_his_20231007_v5.nc
+!     QCKNAME == SR_veg_eco2_nosg_qck_20231007_v5.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == SR_veg_eco2_sg_dia_20231007_v3.nc
-!     DIANAME == SR_veg_eco2_nosg_dia_20231007.nc
+     DIANAME == SR_veg_eco2_sg_dia_20231007_v5.nc
+!     DIANAME == SR_veg_eco2_nosg_dia_20231007_v5.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 

@@ -76,8 +76,8 @@ PROP BSBT
 &RESTART '../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_reef_swan_rst_20231001.dat' FREE 1 DAY
 &RESTART '../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_reef_swan_rst_20231003.dat' FREE 1 DAY
 &RESTART '../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_reef_swan_rst_20231005.dat' FREE 1 DAY
-&RESTART 'SR_veg_eco2_sg_swan_rst_20231007.dat' FREE 1 DAY
-RESTART 'SR_veg_eco_nosg_swan_rst_20231007.dat' FREE 1 DAY
+RESTART 'SR_veg_eco2_sg_swan_rst_20231007_v5.dat' FREE 1 DAY
+&RESTART 'SR_veg_eco2_nosg_swan_rst_20231007_v5.dat' FREE 1 DAY
 
 &COMPUTE NONSTATIONARY 20231001.000000 600 SEC 20231020.000000
 &COMPUTE NONSTATIONARY 20231003.000000 600 SEC 20231005.000000

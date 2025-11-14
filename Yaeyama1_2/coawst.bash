@@ -188,6 +188,8 @@ export   WW3_SWITCH_FILE=sandy_coupled
 
 #export        USE_OpenMP=on            # shared-memory parallelism
 
+#export       USE_OpenACC=on            # compile with OpenACC
+
 #export              FORT=ifort
  export              FORT=gfortran
 #export              FORT=pgi
@@ -393,8 +395,8 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
           export  PARPACK_LIBDIR=/opt/gfortransoft/mpich2/PARPACK
         elif [ "${which_MPI}" = "openmpi" ]; then
           export        ESMF_DIR=/opt/gfortransoft/openmpi/esmf
-          export      MCT_INCDIR=/opt/gfortransoft/openmpi/mct/include
-          export      MCT_LIBDIR=/opt/gfortransoft/openmpi/mct/lib
+          export      MCT_INCDIR=/usr/local/include
+          export      MCT_LIBDIR=/usr/local/lib
           export  PARPACK_LIBDIR=/opt/gfortransoft/openmpi/PARPACK
         fi
       fi

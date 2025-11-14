@@ -207,10 +207,6 @@
 # endif
 #endif
 
-/*** submarine groundwater discharge ***/
-
-/*#define SGD_ON*/    /*Original CPP flag */
-
 /*** Vegetation form drag ***/
 #define VEGETATION
 
@@ -229,6 +225,13 @@
 # define AQUACULTURE    /* Original CPP flag */
 #endif
 
+/*** point Sources/Sinks (river runoff) ***/
+/*# define TWO_D_TRACER_SOURCE*/
+
+/*** submarine groundwater discharge ***/
+
+/*#define SGD_ON*/    /*Original CPP flag */
+
 /***  Biological model options. (Original CPP flags) ***/
 
 #define REEF_ECOSYS
@@ -236,7 +239,7 @@
 #if defined REEF_ECOSYS || defined SEDIMENT
 # define ANA_TOBC_BIO  /*Original CPP flag */
 # define ANA_TOBC_SED   /*Original CPP flag */
-# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
+# define BIO_VPROFILE_SHIZUGAWA   /*Original CPP flag */
 #endif
 
 #if defined REEF_ECOSYS
@@ -244,19 +247,28 @@
 # define DIAGNOSTICS_BIO
 # define ANA_BIOLOGY
 
-/* compartments */
-# define ORGANIC_MATTER
+/*** Isotopes or tracer options ***/
 /*# define CARBON_ISOTOPE*/
-# define NUTRIENTS
+/*# define CARBON_TRACE*/
+/*# define CLUMPED_ISOTOPE*/
 
+/*# define NITROGEN_ISOTOPE*/
+/*# define NITROGEN_TRACE*/
+
+/*# define PHOSPHOROUS_TRACE*/
+
+/*# define SULFUR_ISOTOPE*/
+/*# define SULFUR_TRACE*/
+
+
+/*** REEF_ECOSYS compartments ***/
 /*# define CORAL_POLYP*/  /* USE coral module */
-/*# define SEAGRASS*/     /* USE seagrass module */
-/*# define MACROALGAE*/        /* USE algae module  */
+/*# define SEAGRASS */    /* USE seagrass module */
+/*# define MACROALGAE*/   /* USE algae module  */
+# define FOODWEB      /* USE foodweb module */
 # define SEDIMENT_ECOSYS        /* USE sedecosys module  */
+# define BIVALVE      /* USE bivalve module */
 
-# if defined ORGANIC_MATTER
-#  define FOODWEB      /* USE foodweb module */
-# endif
 # define AIR_SEA_GAS_EXCHANGE
 
 /*# define DYNAMIC_COVERAGE*/ /* yt_edit not yet implemented in coawst */
@@ -266,52 +278,41 @@
 # if defined CORAL_POLYP
 #  define CORAL_ZOOXANTHELLAE
 #  define CORAL_MUCUS           /*Mucus release from coral */
-#  if defined ORGANIC_MATTER
-#   define CORAL_INGESTION
-#  endif
+#  define CORAL_INGESTION
+/*#  define CORAL_NONE_CO2_EQ*/
+/*#  define CORAL_NUTRIENTS*/
 /*#  define CORAL_SIZE_DYNAMICS*/
-#  if defined CARBON_ISOTOPE
-#   define CORAL_CARBON_ISOTOPE
-/*#   define CORAL_NONE_CO2_EQ*/
-#  endif
-#  if defined NUTRIENTS
-/*#   define CORAL_NUTRIENTS*/
-#  endif
 /*#  define CORAL_BORON_ISOTOPE*/
 # endif
 
 
 /*** Seagrass model options. ***/
 # if defined SEAGRASS
-#  if defined NUTRIENTS
-/*#   define SEAGRASS_LEAF_NUTRIENT_UPTAKE*/
+#  define SEAGRASS_LEAF_NUTRIENT_UPTAKE
+#  if defined SEDIMENT_ECOSYS
+#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE
 #  endif
 #  if defined SEDIMENT_ECOSYS
-/*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
-#  endif
-#  if defined NUTRIENTS && defined SEDIMENT_ECOSYS
 #   define SEAGRASS_ROOT_NUTRIENT_UPTAKE
 #  endif
-#  if defined ORGANIC_MATTER
-#   define SEAGRASS_LEAF_POM
-#   if defined SEDIMENT_ECOSYS
-#    define SEAGRASS_ROOT_POM
-#   endif
+#  define SEAGRASS_LEAF_POM
+#  if defined SEDIMENT_ECOSYS
+#   define SEAGRASS_ROOT_POM
 #  endif
 # endif
 
 
 /*** Sediment model options. ***/
-# if defined SEDIMENT_ECOSYS  /* Masa_edits */
 /*#  define SEDIMENT_EMPIRICAL*/     /* USE empirical sediment module  */
-#  define SEDIMENT_ECOSYS_INITIAL_MODE /* For starting new run */
-#  define SEDECO_CLOSED_BOTTOM_DIFFUSION_BOUNDARY /* closed boundary condition at the bottom sediment layer */
-#  define SULFATE      /* For sulfate reduction in sediment */
-/*#  define SEDECO_BURIAL*/    /* For Burial term in sediment transport (massbalance) */
-/*#  define SEDECO_ADVECTION*/
-#  define ORGANIC_MATTER
-#  define NUTRIENTS
+# if defined SEDIMENT_ECOSYS  /* Masa_edits */
+/*#  define SEDECO_CSV_RESTART*/  /* Restart from sedeco_rst.csv file if start_of_new_run = .true. */
+#  define BLUE_TIDE
+#  if defined SEDIMENT
+#   define SEDECO_BURIAL    /* For Burial term in sediment transport (massbalance) */
+#  endif
+#  if defined SGD_ON
+#   define SEDECO_SGD    /* For Burial term in sediment transport (massbalance) */
+#  endif
 # endif
-
 
 #endif
