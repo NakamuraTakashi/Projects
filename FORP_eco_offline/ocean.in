@@ -91,9 +91,9 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 650          ! Number of I-direction INTERIOR RHO-points
-          Mm == 686          ! Number of J-direction INTERIOR RHO-points
-           N == 30            ! Number of vertical levels
+          Lm == 736           ! Number of I-direction INTERIOR RHO-points
+          Mm == 775           ! Number of J-direction INTERIOR RHO-points
+           N == 40            ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
 
@@ -205,8 +205,8 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 60480   !
-          DT == 10.0d0    !!!1.0d0
+      NTIMES == 2880   !
+          DT == 60.0d0    !!!1.0d0
      NDTFAST == 20    
 
 ! Model iteration loops parameters.
@@ -229,7 +229,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
        NRREC == 0
 !       NRREC == 10
    LcycleRST == T
-        NRST == 2880
+        NRST == 1440
         NSTA == 1
         NFLT == 1
        NINFO == 1
@@ -237,15 +237,15 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 1
+        NHIS == 60
      NDEFHIS == 0
-        NQCK == 120
+        NQCK == 60
      NDEFQCK == 0
       NTSAVG == 1
-        NAVG == 1000
+        NAVG == 1440
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 6
+        NDIA == 60
      NDEFDIA == 0
 
 ! Output tangent linear and adjoint models parameters.
@@ -605,7 +605,7 @@ Hout(idTsur) == F F     ! shflux, ssflux     surface net heat and salt flux
 Hout(idLhea) == F       ! latent             latent heat flux
 Hout(idShea) == F       ! sensible           sensible heat flux
 Hout(idLrad) == F       ! lwrad              longwave radiation flux
-Hout(idSrad) == F       ! swrad              shortwave radiation flux
+Hout(idSrad) == T       ! swrad              shortwave radiation flux
 Hout(idEmPf) == F       ! EminusP            E-P flux
 Hout(idevap) == F       ! evaporation        evaporation rate
 Hout(idrain) == F       ! rain               precipitation rate
@@ -943,9 +943,10 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../COAWST_DATA/FORP_offline/Grid/forp-jpn-south_grd_v1.1.nc ! Present run
+     GRDNAME == ../../COAWST_DATA/FORP_offline/Grid/forp-jpn-south_grd_v2.1_rx0.2.nc ! Present run
 !     ININAME == ../../COAWST_DATA/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_ROMS_Nz30_20060101.03.nc
-     ININAME == ../../COAWST_DATA/FORP_offline/Ini/forp-jpn-south_Ini_Nz30_20060110.00.nc ! Present run
+!     ININAME == ../../COAWST_DATA/FORP_offline/his/forp-jpn-south_his_Nz10_20060101.00.nc ! Present run
+     ININAME == ../../COAWST_DATA/FORP_offline/his/forp-jpn-south_his_grd2.1_rx0.2_Nz40_20060101.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -965,7 +966,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! except the last one.
 
      NCLMFILES == 1                         ! number of climate files
-     CLMNAME == ../../COAWST_DATA/FORP_offline/his/forp-jpn-south_his_Nz30_20060101.00.nc ! Present run
+!     CLMNAME == ../../COAWST_DATA/FORP_offline/his/forp-jpn-south_his_Nz10_20060101.00.nc ! Present run
+     CLMNAME == ../../COAWST_DATA/FORP_offline/his/forp-jpn-south_his_grd2.1_rx0.2_Nz40_20060101.00.nc ! Present run
 
      NBCFILES == 1                          ! number of boundary files
      BRYNAME == ../../COAWST_DATA/TokyoBay/tky3/TDA/present_set/bry/TokyoBay3_bry_roms2roms_current_Nz30_20180605.00.nc ! Present run
@@ -1009,14 +1011,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == ../../COAWST_OUTPUT/FORP_offline/FORP_eco_offline_rst_20060110.nc
-     HISNAME == ../../COAWST_OUTPUT/FORP_offline/FORP_eco_offline_his_20060110.nc
-     QCKNAME == ../../COAWST_OUTPUT/FORP_offline/FORP_eco_offline_qck_20060110.nc
+     RSTNAME == ../../COAWST_OUTPUT/FORP_offline/FORP_eco_offline_rst_20060101.nc
+     HISNAME == ../../COAWST_OUTPUT/FORP_offline/FORP_eco_offline_his_20060101.nc
+     QCKNAME == ../../COAWST_OUTPUT/FORP_offline/FORP_eco_offline_qck_20060101.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == ../../COAWST_OUTPUT/FORP_offline/FORP_eco_offline_dia_20060110.nc
+     DIANAME == ../../COAWST_OUTPUT/FORP_offline/FORP_eco_offline_dia_20060101.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 

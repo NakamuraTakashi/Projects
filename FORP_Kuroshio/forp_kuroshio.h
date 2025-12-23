@@ -6,24 +6,13 @@
 **   See License_ROMS.txt                                                    **
 *******************************************************************************
 **
-** Options for Inlet Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
+** Options for Shiraho reef Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   SHIZUGAWA2_3
+** Application flag:   SHIRAHO_REEF 2010-
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
 */
-#define OFFLINE
-/*#define OFFLINE_BIOLOGY*/
-/*#define OFFLINE_FLOATS*/
-#define OFFLINE_T_PASSIVE
-#ifdef OFFLINE
-# define ANA_FSOBC
-# define ANA_M2OBC
-# define ANA_M3OBC
-# define ANA_TOBC
-#endif
-
 #define ROMS_MODEL
 /*#define SWAN_MODEL*/
 /*#define MCT_LIB*/
@@ -60,7 +49,7 @@
 #define TS_U3HADVECTION
 /*#define TS_C2HADVECTION*/
 /*#define TS_C2VADVECTION*/
-#define TS_C4VADVECTION    /* activate for OFFLINE option */
+#define TS_C4VADVECTION
 /*#define TS_SVADVECTION*/
 /*#define TS_MPDATA*/
 
@@ -91,10 +80,10 @@
 #define RADIATION_2D
 
 /*** Option for tidal forcing ***/
-/*#define SSH_TIDES*/
-/*#define UV_TIDES*/
-/*#define ADD_FSOBC*/
-/*#define ADD_M2OBC*/
+/*#define SSH_TIDES*/  /* deactivate when the case of JCOPE-T boundary */
+/*#define UV_TIDES*/   /* deactivate when the case of JCOPE-T boundary */
+/*#define ADD_FSOBC*/  /* deactivate when the case of JCOPE-T boundary */
+/*#define ADD_M2OBC*/  /* deactivate when the case of JCOPE-T boundary */
 /*#define RAMP_TIDES*/ /*Not use*/
 
 /*#define ANA_INITIAL*/
@@ -104,24 +93,24 @@
 
 #define BULK_FLUXES
 #ifdef BULK_FLUXES
-/*# define ANA_SRFLUX*/  /* activate 200603-201805 */
-# define CLOUDS        /* activate 201806- */
-# define ALBEDO_CLOUD  /* activate 200603- */
+/*# define ANA_SRFLUX*/  /* activate 2006-2017 */
+/*# define ALBEDO_CLOUD*/  /* activate 2006-2017 */
+# define DIURNAL_SRFLUX
 /*# define LONGWAVE*/
-# define LONGWAVE_OUT
-# define ANA_LRFLUX  /* activate 200603- */
-# define ANA_LONGWAVE_DOWN  /* activate 200603-; Original CPP flag */ 
-# define JMAMSM_FLUXES  /* activate 200603-; Original CPP flag for JMAMSM data */ 
+/*# define LONGWAVE_OUT*/
+/*# define ANA_LRFLUX*/  /* activate 2006-2017 */
+/*# define ANA_LONGWAVE_DOWN*/  /* activate 2006-2017; Original CPP flag */ 
+/*# define JMAMSM_FLUXES*/  /* activate 2006-2017; Original CPP flag for JMAMSM data */ 
 /*# define JMAOBS_FLUXES*/  /* Original CPP flag for JMA weather station data */ 
 # define EMINUSP
 /*# define ANA_CLOUD*/
-/*# define ANA_HUMID*/
+# define ANA_HUMIDITY
 /*# define ANA_PAIR*/
 /*# define ANA_TAIR*/
 /*# define ANA_RAIN*/
 /*# define ANA_WINDS*/
+# define ANA_ATM_CONST  /* For test run: Set constant ana atm values */
 /*# define LOCAL_TIME +9.0*/
-/*# define DIURNAL_SRFLUX*/
 #else
 # define ANA_SMFLUX
 # define ANA_STFLUX
@@ -132,6 +121,7 @@
 #ifdef SWAN_MODEL
 /*# define WEC_MELLOR*/
 # define WEC_VF
+# define BOTTOM_STREAMING
 # define WDISS_WAVEMOD
 # define UV_KIRBY
 #endif
@@ -149,7 +139,7 @@
 
 #ifdef SSW_BBL
 /*# define SSW_CALC_ZNOT*/
-# define SSW_LOGINT
+/*# define SSW_LOGINT*/
 #endif
 #define LIMIT_BSTRESS
 
@@ -199,7 +189,8 @@
 # endif
 # if defined SEDIMENT || defined SG_BBL || defined MB_BBL || defined SSW_BBL
 #  define ANA_SEDIMENT
-#  define REVER_SEDIMENT
+/*#  define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
+/*#  define ANA_SED_UNIFORM */   /*Original CPP flag */
 # endif
 # define ANA_BPFLUX
 # define ANA_BTFLUX
@@ -217,25 +208,40 @@
 # endif
 #endif
 
-/*** submarine groundwater discharge ***/
+/*** Analytical river discharge ***/
+/*#define ANA_PSOURCE*/
 
+/*** submarine groundwater discharge ***/
 /*#define SGD_ON*/    /*Original CPP flag */
 
-/***  Dye experiments ***/
-#define T_PASSIVE
-#define ANA_TOBC_BIO  /*Original CPP flag */
-#define ANA_TOBC_SED   /*Original CPP flag */
-#define ANA_TOBC_PASSIVE   /*Original CPP flag */
-# define BIO_VPROFILE_SOUTH_JAPAN /*Original CPP flag */
+/*** Vegetation form drag ***/
+/*#define VEGETATION*/
+
+#if defined VEGETATION
+/*# define SEAGRASS*/     /* USE seagrass drag only */
+# define ANA_VEGETATION 
+# define VEG_DRAG
+# ifdef VEG_DRAG
+#  define VEG_FLEX
+#  define VEG_TURB
+/*#  define VEG_HMIXING*/
+# endif
+# define VEG_SWAN_COUPLING
+# ifdef VEG_SWAN_COUPLING
+#  define VEG_STREAMING  /* dependence to WEC_VF/BOTTOM_STREAMING */
+# endif
+/*** Aquaculture form drag ***/
+/*# define AQUACULTURE*/    /* Original CPP flag */
+#endif
 
 /***  Biological model options. (Original CPP flags) ***/
 
-/*#define REEF_ECOSYS*/
+#define REEF_ECOSYS
 
 #if defined REEF_ECOSYS || defined SEDIMENT
 # define ANA_TOBC_BIO  /*Original CPP flag */
 # define ANA_TOBC_SED   /*Original CPP flag */
-# define BIO_VPROFILE_SHIZUGAWA   /*Original CPP flag */
+# define BIO_VPROFILE_SOUTH_JAPAN   /*Original CPP flag */
 #endif
 
 #if defined REEF_ECOSYS
@@ -259,10 +265,10 @@
 
 /*** REEF_ECOSYS compartments ***/
 /*# define CORAL_POLYP*/  /* USE coral module */
-/*# define SEAGRASS */    /* USE seagrass module */
+/*# define SEAGRASS*/     /* USE seagrass module */
 /*# define MACROALGAE*/   /* USE algae module  */
 # define FOODWEB      /* USE foodweb module */
-# define SEDIMENT_ECOSYS        /* USE sedecosys module  */
+/*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
 
 # define AIR_SEA_GAS_EXCHANGE
 

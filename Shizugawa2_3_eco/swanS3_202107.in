@@ -42,7 +42,7 @@ INPGRID NPLANTS REGULAR 537468.925767 4277698.809640 -18.907607 146 171 60.00000
 && VEGEtation  < [height] [diamtr] [nstems] [drag] >
 && Vegetation parameters set here are to be consistent
 && with the ones in ROMS input file 
-VEGETATION 5.0 0.1 1 1.0 
+VEGETATION 2.0 0.3 1 1.0 
 &&
 && New for SWAN 41.45 need to have an iveg number
 &&  < [iveg = 1 or 2] [height]  [diamtr]  [nstems]  [drag]>

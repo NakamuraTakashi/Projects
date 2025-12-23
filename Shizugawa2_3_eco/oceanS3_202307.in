@@ -977,7 +977,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_Nz15_const_1900_2100_v0.nc
+     SSFNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_Nz15_const_1900_2100_v1.nc
 
 ! Input tidal forcing file name.
 
@@ -1013,14 +1013,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 !     RSTNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !     HISNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !     QCKNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_qck_20230701.nc
-     RSTNAME == SZ3_veg_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == SZ3_veg_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     QCKNAME == SZ3_veg_eco_qck_20230701.nc
+     RSTNAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     QCKNAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_eco_qck_20230701.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == SZ3_veg_eco_dia_20230701.nc
+     DIANAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_eco_dia_20230701.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 

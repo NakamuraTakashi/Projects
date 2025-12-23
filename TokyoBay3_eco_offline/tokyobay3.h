@@ -258,7 +258,7 @@
 /*# define SEAGRASS */    /* USE seagrass module */
 /*# define MACROALGAE*/   /* USE algae module  */
 # define FOODWEB      /* USE foodweb module */
-/*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
+# define SEDIMENT_ECOSYS        /* USE sedecosys module  */
 
 # define AIR_SEA_GAS_EXCHANGE
 

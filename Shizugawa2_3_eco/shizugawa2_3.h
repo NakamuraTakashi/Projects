@@ -239,7 +239,8 @@
 #if defined REEF_ECOSYS || defined SEDIMENT
 # define ANA_TOBC_BIO  /*Original CPP flag */
 # define ANA_TOBC_SED   /*Original CPP flag */
-# define BIO_VPROFILE_SHIZUGAWA   /*Original CPP flag */
+/*# define BIO_VPROFILE_SHIZUGAWA*/  /*Original CPP flag */
+# define BIO_VPROFILE_SOUTH_JAPAN /*Original CPP flag */
 #endif
 
 #if defined REEF_ECOSYS

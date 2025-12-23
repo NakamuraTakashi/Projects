@@ -42,7 +42,7 @@ INPGRID NPLANTS REGULAR 537468.925767 4277698.809640 -18.907607 146 171 60.00000
 && VEGEtation  < [height] [diamtr] [nstems] [drag] >
 && Vegetation parameters set here are to be consistent
 && with the ones in ROMS input file 
-VEGETATION 5.0 0.1 1 1.0 
+VEGETATION 2.0 0.3 1 1.0 
 &&
 && New for SWAN 41.45 need to have an iveg number
 &&  < [iveg = 1 or 2] [height]  [diamtr]  [nstems]  [drag]>
@@ -70,7 +70,7 @@ WCAP KOM 2.36E-5 3.02E-3 2.0 1.0 1.0
 &BLOCK 'COMPGRID' NOHEADER '../../COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_Wind_20210107.mat' LAY 4 WIND  1.0 OUTPUT 20210101.000000 1 HR
 
 PROP BSBT
-RESTART 'SZ3_swan_rst_20230701.dat' FREE 1 DAY
+RESTART '../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_swan_rst_20230701.dat' FREE 1 DAY
 
 COMPUTE NONSTATIONARY 20230701.000000 600 SEC 20230901.000000
 

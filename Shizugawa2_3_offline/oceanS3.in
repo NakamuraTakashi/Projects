@@ -98,7 +98,7 @@
         Nbed =  1             ! Number of sediment bed layers
 
          NAT =  2             ! Number of active tracers (usually, 2)
-         NPT =  0             ! Number of inactive passive tracers
+         NPT =  1             ! Number of inactive passive tracers
          NCS =  1             ! Number of cohesive (mud) sediment tracers
          NNS =  0             ! Number of non-cohesive (sand) sediment tracers
 
@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 10                               ! I-direction partition
-      NtileJ == 1                                ! J-direction partition
+      NtileI == 5                               ! I-direction partition
+      NtileJ == 6                                ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -226,8 +226,8 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Input/Output parameters.
 
-!       NRREC == 0
-       NRREC == 49
+       NRREC == 0
+!       NRREC == 49
    LcycleRST == T
         NRST == 1440
         NSTA == 1
@@ -627,7 +627,7 @@ Hout(idMtls) == F       ! gls                turbulent length scale
 ! dyes, pollutants, oil spills, etc. NPT values are expected. However, these
 ! switches can be activated using compact parameter specification.
 
- Hout(inert) == F       ! dye_01, ...        inert passive tracers
+ Hout(inert) == T       ! dye_01, ...        inert passive tracers
 
 ! Logical switches (TRUE/FALSE) to activate writing of fields into
 ! QUICKSAVE output file.
@@ -944,9 +944,9 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.0.nc
+     GRDNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.4c.nc
 !     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20210104.00.nc
-     ININAME == ../../COAWTS_OUTPUT/Shizugawa3/Shizugawa3_his_20210104.nc
+     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230702.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,11 +966,10 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! except the last one.
 
      NCLMFILES == 1                         ! number of climate files
-     CLMNAME == ../../COAWTS_OUTPUT/Shizugawa3/Shizugawa3_his_20210104.nc |
-                ../../COAWTS_OUTPUT/Shizugawa3/Shizugawa3_his_20210824.nc
+     CLMNAME == /mnt/f/COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_eco_his_20230701.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Bry/Shizugawa3_bry_ROMS_Nz15_20210103.00.nc
+     BRYNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Bry/Shizugawa3_bry_ROMS_Nz15_20230605.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -978,7 +977,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../COAWST_DATA/Shizugawa/Shizugawa1/Tide/river.nc
+     SSFNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_Nz15_const_1900_2100_v1.nc
 
 ! Input tidal forcing file name.
 
@@ -1004,15 +1003,15 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20210101_1.nc \  ! forcing file 1, grid 1
-                ../../COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20210101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_1.nc \  ! forcing file 1, grid 1
+                ../../COAWST_DATA/Shizugawa/Shizugawa3/Air/Shizugawa3_frc_MSMgb_20230101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == Shizugawa3_rst_20210106_off_eco.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == Shizugawa3_his_20210106_off_eco.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     RSTNAME == Shizugawa3_rst_20230702_off_dye.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == Shizugawa3_his_20230702_off_dye.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
