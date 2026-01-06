@@ -232,9 +232,13 @@
 
 /*#define SGD_ON*/    /*Original CPP flag */
 
+/***  Dye experiments ***/
+#define T_PASSIVE
+#define ANA_TOBC_PASSIVE   /*Original CPP flag */
+
 /***  Biological model options. (Original CPP flags) ***/
 
-#define REEF_ECOSYS
+/*#define REEF_ECOSYS*/
 
 #if defined REEF_ECOSYS || defined SEDIMENT
 # define ANA_TOBC_BIO  /*Original CPP flag */

@@ -205,8 +205,8 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 360000 !=> 25 days
-          DT == 6.0d0
+      NTIMES == 1555200 !=> 25 days
+          DT == 1.0d0
      NDTFAST == 30    
 
 ! Model iteration loops parameters.
@@ -226,10 +226,10 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Input/Output parameters.
 
-       NRREC == 0
-!       NRREC == 49
+!       NRREC == 0
+       NRREC == 97
    LcycleRST == T
-        NRST == 14400
+        NRST == 86400
         NSTA == 1
         NFLT == 1
        NINFO == 30
@@ -237,16 +237,16 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 600
+        NHIS == 3600
      NDEFHIS == 0
 !     NDEFHIS == 527040  ! 527040 => 366 days;  525600 => 365 days
         NQCK == 0
      NDEFQCK == 0
       NTSAVG == 1
-        NAVG == 600
+        NAVG == 3600
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 600
+        NDIA == 3600
      NDEFDIA == 0
 
 ! Output tangent linear and adjoint models parameters.
@@ -437,7 +437,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! (like river runoff) and to specify which tracer variables to consider:
 ! [1:NAT+NPT,Ngrids].  See glossary below for details.
 
-  LtracerSrc == F F                        ! temperature, salinity, inert
+  LtracerSrc == F F F                      ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to read and process climatology fields.
 ! See glossary below for details.
@@ -446,7 +446,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
       Lm2CLM == T                          ! 2D momentum
       Lm3CLM == T                          ! 3D momentum
 
-  LtracerCLM == T T                        ! temperature, salinity, inert
+  LtracerCLM == T T F                      ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to nudge the desired climatology field(s).
 ! If not analytical climatology fields, users need to turn ON the logical
@@ -945,8 +945,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! Input NetCDF file names, [1:Ngrids].
 
      GRDNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.4c.nc
-!     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20210104.00.nc
-     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230702.00.nc
+!     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230702.00.nc
+     ININAME == Shizugawa3_his_20230702_off_dye.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -1010,8 +1010,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == Shizugawa3_rst_20230702_off_dye.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == Shizugawa3_his_20230702_off_dye.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     RSTNAME == Shizugawa3_rst_20230708_off_dye.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == Shizugawa3_his_20230708_off_dye.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
