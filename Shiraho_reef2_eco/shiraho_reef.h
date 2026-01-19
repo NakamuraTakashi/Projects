@@ -189,7 +189,6 @@
 # endif
 # if defined SEDIMENT || defined SG_BBL || defined MB_BBL || defined SSW_BBL
 #  define ANA_SEDIMENT
-/*#  define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
 /*#  define ANA_SED_UNIFORM */   /*Original CPP flag */
 # endif
 # define ANA_BPFLUX
@@ -242,7 +241,7 @@
 #if defined REEF_ECOSYS || defined SEDIMENT
 # define ANA_TOBC_BIO  /*Original CPP flag */
 # define ANA_TOBC_SED   /*Original CPP flag */
-# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
+/*# define BIO_VPROFILE_YAEYAMA*/   /*Original CPP flag */
 #endif
 
 #if defined REEF_ECOSYS
