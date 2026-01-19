@@ -17,8 +17,11 @@ export HDF5_DISABLE_VERSION_CHECK=1
 
 
 
-mpirun -use-hwthread-cpus -np 31 ./coawstM.exe coupling_shiraho_reef_200901.in
+mpirun -use-hwthread-cpus -np 31 ./coawstM.exe coupling_shiraho_reef_20090101.in
+# mpirun -use-hwthread-cpus -np 31 ./coawstM.exe coupling_shiraho_reef_20090102.in
+# mpirun -use-hwthread-cpus -np 31 ./coawstM.exe coupling_shiraho_reef_20090106.in
 
+# mpirun -use-hwthread-cpus -np 31 ./coawstG.exe coupling_shiraho_reef_20090101.in
 
 
 # mpirun -use-hwthread-cpus -np 31 ./coawstM.exe coupling_shiraho_reef_20231001.in

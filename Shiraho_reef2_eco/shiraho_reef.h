@@ -160,8 +160,6 @@
 /*#  define N2S2_HORAVG*/
 #  define ZOS_HSIG
 #  define TKE_WAVEDISS
-#  define LIMIT_VDIFF
-#  define LIMIT_VVISC
 # endif
 
 # if defined MY25_MIXING
@@ -210,7 +208,7 @@
 #endif
 
 /*** Analytical river discharge ***/
-#define ANA_PSOURCE
+/*#define ANA_PSOURCE*/
 
 /*** submarine groundwater discharge ***/
 #define SGD_ON    /*Original CPP flag */
@@ -234,6 +232,8 @@
 /*# define AQUACULTURE*/    /* Original CPP flag */
 #endif
 
+#  define YT_DEBUG_MODE
+
 /***  Biological model options. (Original CPP flags) ***/
 
 #define REEF_ECOSYS
@@ -251,13 +251,13 @@
 
 /*** Isotopes or tracer options ***/
 /*# define CARBON_ISOTOPE*/
-# define CARBON_TRACE
+/*# define CARBON_TRACE*/
 /*# define CLUMPED_ISOTOPE*/
 
 /*# define NITROGEN_ISOTOPE*/
-# define NITROGEN_TRACE
+/*# define NITROGEN_TRACE*/
 
-# define PHOSPHOROUS_TRACE
+/*# define PHOSPHOROUS_TRACE*/
 
 /*# define SULFUR_ISOTOPE*/
 /*# define SULFUR_TRACE*/
@@ -270,10 +270,9 @@
 # define FOODWEB      /* USE foodweb module */
 # define SEDIMENT_ECOSYS        /* USE sedecosys module  */
 
+# define BIO_VPROFILE_SOUTH_JAPAN /* change me after update yt_edit */
+
 /*# define AIR_SEA_GAS_EXCHANGE*/
-
-/*# define DYNAMIC_COVERAGE*/ /* yt_edit not yet implemented in coawst */
-
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
@@ -303,6 +302,8 @@
 #   define SEAGRASS_ROOT_POM
 #  endif
 #  define NET_ZERO_MASS_START
+#  define DYNAMIC_COVERAGE /* yt_edit lateral transfer not yet implemented in coawst */
+#  define SEEDING /* Add tiny amount of seagrass to sandy grids with no seagrass, slightly breaks mass conservation*/
 /*#  define FULL_STOCK_START*/
 /*#  define CHAMBER_EQUILIBRIUM_STOCK_START*/
 # endif
@@ -317,6 +318,7 @@
 #  endif
 #  if defined SGD_ON
 #   define SEDECO_SGD    /* For Burial term in sediment transport (massbalance) */
+#   define DYNAMIC_ISPLITSED /* replace constand isplitsed with one that dynamically adjusts so that SGD in a sub-timestep does not exceed the smallest sediment layer thickness */
 #  endif
 # endif
 
