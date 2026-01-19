@@ -944,8 +944,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == D:/cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_grd_v3.1.nc
-     ININAME == D:/cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_ini_ROMS_Nz15_20220107.00.nc
+     GRDNAME == ../../cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_grd_v3.1.nc
+     ININAME == ../../cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_ini_ROMS_Nz15_20220107.00.nc
 !     ININAME == Boracay3_his_20210104.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -969,7 +969,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == D:/cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_bry_ROMS_Nz15_20220105.00.nc
+     BRYNAME == ../../cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_bry_ROMS_Nz15_20220105.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -977,11 +977,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/cygwin64/home/Takashi/ROMS_prep/Projects/swat2roms/BatanBay_river_Nz15_daily.nc
+     SSFNAME == ../../cygwin64/home/Takashi/ROMS_prep/Projects/swat2roms/BatanBay_river_Nz15_daily.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == F:/COAWST_DATA/Boracay/Boracay1/Tide/Boracay1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == ../../COAWST_DATA/Boracay/Boracay1/Tide/Boracay1_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -1003,8 +1003,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == D:/cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_frc_JRA55_20220101_1.nc \ 
-                D:/cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_frc_JRA55_20220101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == ../../cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_frc_JRA55_20220101_1.nc \ 
+                ../../cygwin64/home/Takashi/ROMS_prep/Projects/Panay/BatanBay_frc_JRA55_20220101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 

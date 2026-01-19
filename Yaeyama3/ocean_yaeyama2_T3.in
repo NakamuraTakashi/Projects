@@ -761,11 +761,11 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 
      GRDNAME == /gs/hs1/tga-NakamuLab/amano/ROMS/Data/Yaeyama/Yaeyama2_grd_v9.3.nc
 !     ININAME == Data/Yaeyama1_init_jcope2_2.nc
-!     ININAME == D:/ROMS/Yaeyama/Data/Yaeyama2_ini_Nz15_ROMS_130525v2.nc
+!     ININAME == ../../ROMS/Yaeyama/Data/Yaeyama2_ini_Nz15_ROMS_130525v2.nc
 !     ININAME == /gs/hs1/tga-NakamuLab/amano/ROMS/Data/Yaeyama/Yaeyama2_ini_Nz15_ROMS_050415.nc
      ININAME == /gs/hs1/tga-NakamuLab/amano/ROMS/Projects/Yaeyama/Yaeyama2_his_050624.nc
 !     ININAME == C:/cygwin64/home/Amano/ROMS/Projects/Yaeyama/Yaeyama2_his_160501.nc
-!     ININAME == D:/ROMS/Yaeyama/Y2_13/ocean_his_Yaeyama2_130529.nc
+!     ININAME == ../../ROMS/Yaeyama/Y2_13/ocean_his_Yaeyama2_130529.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -786,12 +786,12 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 
      BRYNAME == /gs/hs1/tga-NakamuLab/amano/ROMS/Data/Yaeyama/Yaeyama2_bry_Nz15_ROMS_0509.nc
                 
-!     BRYNAME == D:/ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140501_140520.nc  |
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140520_140603.nc  |
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140603_140701.nc  |
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140701_140801.nc  |
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140801_140822.nc  |
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140822_140930.nc
+!     BRYNAME == ../../ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140501_140520.nc  |
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140520_140603.nc  |
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140603_140701.nc  |
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140701_140801.nc  |
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140801_140822.nc  |
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_bry_Nz15_ROMS_140822_140930.nc
 
      CLMNAME == ocean_clm.nc
 
@@ -814,17 +814,17 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 1                          ! number of unique forcing files
 
-!     FRCNAME == D:/ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1305.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1306.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1307.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1308.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1309.nc
+!     FRCNAME == ../../ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1305.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1306.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1307.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1308.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1309.nc
      FRCNAME == /gs/hs1/tga-NakamuLab/amano/ROMS/Data/Yaeyama/Yaeyama2_frc_JMA_0504-0509.nc
                 
-!     FRCNAME == D:/ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1506.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1507.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1508.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1509.nc
+!     FRCNAME == ../../ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1506.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1507.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1508.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama2_frc_JMA_1509.nc
 
 ! Output NetCDF file names, [1:Ngrids].
 
@@ -837,7 +837,7 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
      AVGNAME == ocean_avg.n
      DIANAME == ocean_dia.nc
      STANAME == ocean_sta.nc
-     FLTNAME == D:/ROMS/Yaeyama/output/Yaeyama2_flt_150610.nc
+     FLTNAME == ../../ROMS/Yaeyama/output/Yaeyama2_flt_150610.nc
 
 ! Input ASCII parameter filenames.
 

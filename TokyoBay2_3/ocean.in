@@ -953,12 +953,12 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Grid/TokyoBay2_grd_v2.0.nc   \
-                F:/COAWST_DATA/TokyoBay/TokyoBay3/Grid/TokyoBay3_grd_v1.0.nc
-     ININAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Ini/TokyoBay2_ini_JCOPET_Nz30_20180605.00.nc  \
-                F:/COAWST_DATA/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_JCOPET_Nz30_20180605.00.nc
-!     ININAME == D:/ROMS/output/Yaeyama/test_2g/Y2_his_14.nc  \
-!                D:/ROMS/output/Yaeyama/test_2g/Y3_his_14.nc
+     GRDNAME == ../../COAWST_DATA/TokyoBay/TokyoBay2/Grid/TokyoBay2_grd_v2.0.nc   \
+                ../../COAWST_DATA/TokyoBay/TokyoBay3/Grid/TokyoBay3_grd_v1.0.nc
+     ININAME == ../../COAWST_DATA/TokyoBay/TokyoBay2/Ini/TokyoBay2_ini_JCOPET_Nz30_20180605.00.nc  \
+                ../../COAWST_DATA/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_JCOPET_Nz30_20180605.00.nc
+!     ININAME == ../../ROMS/output/Yaeyama/test_2g/Y2_his_14.nc  \
+!                ../../ROMS/output/Yaeyama/test_2g/Y3_his_14.nc
      ITLNAME ==
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -969,7 +969,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 ! NetCDF file is special and complex. It is currently generated using
 ! the script "matlab/grid/contact.m" from the Matlab repository.
 
-     NGCNAME == F:/COAWST_DATA/TokyoBay/nest/TokyoBay_ngc_2g_T2T3_v2.0.nc
+     NGCNAME == ../../COAWST_DATA/TokyoBay/nest/TokyoBay_ngc_2g_T2T3_v2.0.nc
 
 ! Input lateral boundary conditions and climatology file names.  The
 ! USER has the option to split input data time records into several
@@ -981,7 +981,7 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Bry/TokyoBay2_bry_JCOPE-T_Nz30_20180605.00.nc
+     BRYNAME == ../../COAWST_DATA/TokyoBay/TokyoBay2/Bry/TokyoBay2_bry_JCOPE-T_Nz30_20180605.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -989,12 +989,12 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == D:/ROMS/Data/Yaeyama/Yaeyama2_river_Nz15_00_15.nc  \
-                D:/ROMS/Data/Yaeyama/Yaeyama3_river_Nz15_00_15.nc
+     SSFNAME == ../../ROMS/Data/Yaeyama/Yaeyama2_river_Nz15_00_15.nc  \
+                ../../ROMS/Data/Yaeyama/Yaeyama3_river_Nz15_00_15.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == F:/COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == ../../COAWST_DATA/Yaeyama/Yaeyama1/Tide/Yaeyama1_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -1016,10 +1016,10 @@ Dout(iTvdif) == 2*F 2*F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2 2                        ! number of unique forcing files
 
-     FRCNAME == F:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
-                F:/COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_2.nc \
-                F:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
-                F:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_2.nc
+     FRCNAME == ../../COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
+                ../../COAWST_DATA/TokyoBay/TokyoBay2/Air/TokyoBay2_frc_MSMgb_20180101_2.nc \
+                ../../COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_1.nc \     ! forcing file 1, grid 1
+                ../../COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20180101_2.nc
 
 ! Output NetCDF file names, [1:Ngrids].
 

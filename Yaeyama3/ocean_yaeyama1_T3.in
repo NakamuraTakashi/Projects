@@ -761,7 +761,7 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 !     ININAME == C:/cygwin64/home/Amano/ROMS/Projects/Yaeyama/Yaeyama1_his_160401.nc
 !     ININAME == /gs/hs1/tga-NakamuLab/amano/ROMS/Data/Yaeyama/Yaeyama1_ini_Nz15_HYCOMpNAO_050401.nc
      ININAME == /gs/hs1/tga-NakamuLab/amano/ROMS/Projects/Yaeyama/Yaeyama1_his_050401.nc
-!     ININAME == D:/ROMS/Yaeyama/output/ocean_his_Yaeyama1_130415.nc
+!     ININAME == ../../ROMS/Yaeyama/output/ocean_his_Yaeyama1_130415.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -780,8 +780,8 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 ! line per entry with a vertical bar (|) symbol after each entry,
 ! except the last one.
 
-!     BRYNAME == D:/ROMS/Yaeyama/Data/Yaeyama1_bry_Nz30_HYCOM_1308.nc  |
-!                D:/ROMS/Yaeyama/Data/Yaeyama1_bry_Nz30_HYCOM_1309.nc
+!     BRYNAME == ../../ROMS/Yaeyama/Data/Yaeyama1_bry_Nz30_HYCOM_1308.nc  |
+!                ../../ROMS/Yaeyama/Data/Yaeyama1_bry_Nz30_HYCOM_1309.nc
      BRYNAME ==  /gs/hs1/tga-NakamuLab/amano/ROMS/Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_0508.nc  |
                  /gs/hs1/tga-NakamuLab/amano/ROMS/Data/Yaeyama/Yaeyama1_bry_Nz15_HYCOM_0509.nc
                  
@@ -807,18 +807,18 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-!     FRCNAME == D:/ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1308.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1309.nc   \
-!                D:/ROMS/Yaeyama/Data/Yaeyama1_frc_OTPS_YS_20000101_v2.nc
+!     FRCNAME == ../../ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1308.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1309.nc   \
+!                ../../ROMS/Yaeyama/Data/Yaeyama1_frc_OTPS_YS_20000101_v2.nc
 
      FRCNAME == /gs/hs1/tga-NakamuLab/amano/ROMS/Data/Yaeyama/Yaeyama1_frc_JMA_0504-0509.nc   \
                 /gs/hs1/tga-NakamuLab/amano/ROMS/Data/Yaeyama/Yaeyama1_frc_OTPS_YS_20000101_v2.nc
 
-!     FRCNAME == D:/ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1306.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1307.nc   |    ! forcing file 1, grid 1
-!                D:/ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1308.nc
+!     FRCNAME == ../../ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1306.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1307.nc   |    ! forcing file 1, grid 1
+!                ../../ROMS/Yaeyama/Data/Yaeyama1_frc_JMA_1308.nc
                 
-!                D:/ROMS/Yaeyama/Data/Yaeyama1_frc_OTPS_YS_20000101.nc
+!                ../../ROMS/Yaeyama/Data/Yaeyama1_frc_OTPS_YS_20000101.nc
 
 ! Output NetCDF file names, [1:Ngrids].
 

@@ -17,7 +17,7 @@ CGRID REGULAR 537468.92576650 4277698.809640 -18.907607 8760.000000 10260.000000
 
 && KEYWORDS TO CREATE AND READ BATHYMETRY GRID &&
 INPGRID BOTTOM REGULAR 537468.925767 4277698.809640 -18.907607 146 171 60.000000 60.000000 EXC 9.999000e+003
-READINP BOTTOM  1 '/mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_swan_grd_v0.2.bot' 4 0 FREE
+READINP BOTTOM  1 '../../COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_swan_grd_v0.2.bot' 4 0 FREE
 
 && KEYWORD TO CREATE CURRENT GRID &&
 INPGRID CURRENT REGULAR 537468.925767 4277698.809640 -18.907607 146 171 60.000000 60.000000 EXC 9.999000e+003   &
@@ -42,7 +42,7 @@ INPGRID NPLANTS REGULAR 537468.925767 4277698.809640 -18.907607 146 171 60.00000
 && VEGEtation  < [height] [diamtr] [nstems] [drag] >
 && Vegetation parameters set here are to be consistent
 && with the ones in ROMS input file 
-VEGETATION 5.0 0.1 1 1.0 
+VEGETATION 2.0 0.3 1 1.0 
 &&
 && New for SWAN 41.45 need to have an iveg number
 &&  < [iveg = 1 or 2] [height]  [diamtr]  [nstems]  [drag]>
@@ -53,10 +53,10 @@ VEGETATION 5.0 0.1 1 1.0
 &VEGETATION 10.0 0.1 1 1.0 1.0e9
 
 & BOUNDARY FORCING &&
-BOUNDNEST1  NEST '/mnt/d/COAWST_DATA/Shizugawa/Shizugawa3/wave/nest/Shizugawa3_swan_nest_20210601.nst'  CLOSED
+BOUNDNEST1  NEST '../../COAWST_DATA/Shizugawa/Shizugawa3/wave/nest/Shizugawa3_swan_nest_20210601.nst'  CLOSED
 
 & Restart name **********************************
-&INIT HOTSTART '/mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_rst_20210725.dat'
+&INIT HOTSTART '../../COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_rst_20210725.dat'
 
 & PHYSICS  **************************************
 GEN3 KOMEN
@@ -64,16 +64,16 @@ FRICTION MADSEN 0.05
 BREAKING CONSTANT 1.0
 WCAP KOM 2.36E-5 3.02E-3 2.0 1.0 1.0
 
-&BLOCK 'COMPGRID' NOHEADER '/mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_Hsig_20210107.mat' LAY 4 HSIGN 1.0 OUTPUT 20210101.000000 1 HR
-&BLOCK 'COMPGRID' NOHEADER '/mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_Tpk__20210107.mat' LAY 4 RTP   1.0 OUTPUT 20210101.000000 1 HR
-&BLOCK 'COMPGRID' NOHEADER '/mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_Dpk__20210107.mat' LAY 4 PDIR  1.0 OUTPUT 20210101.000000 1 HR
-&BLOCK 'COMPGRID' NOHEADER '/mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_Wind_20210107.mat' LAY 4 WIND  1.0 OUTPUT 20210101.000000 1 HR
+&BLOCK 'COMPGRID' NOHEADER '../../COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_Hsig_20210107.mat' LAY 4 HSIGN 1.0 OUTPUT 20210101.000000 1 HR
+&BLOCK 'COMPGRID' NOHEADER '../../COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_Tpk__20210107.mat' LAY 4 RTP   1.0 OUTPUT 20210101.000000 1 HR
+&BLOCK 'COMPGRID' NOHEADER '../../COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_Dpk__20210107.mat' LAY 4 PDIR  1.0 OUTPUT 20210101.000000 1 HR
+&BLOCK 'COMPGRID' NOHEADER '../../COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_Wind_20210107.mat' LAY 4 WIND  1.0 OUTPUT 20210101.000000 1 HR
 
 PROP BSBT
-RESTART '/mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3/SZ3_swan_rst_20210701v2.dat' FREE 1 DAY
+RESTART '../../COAWST_OUTPUT/Shizugawa/Shizugawa3/SZ3_swan_rst_20210701v2.dat' FREE 1 DAY
 
 COMPUTE NONSTATIONARY 20210701.000000 600 SEC 20210726.000000
 
-&HOTFILE '/mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_20210107.hot'
+&HOTFILE '../../COAWST_OUTPUT/Shizugawa/Shizugawa3/Shizugawa3_swan_20210107.hot'
 
 STOP

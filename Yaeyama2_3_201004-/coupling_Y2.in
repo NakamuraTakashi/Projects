@@ -68,7 +68,7 @@
 !           weights. This file is created using the code in
 !           Lib/SCRIP_COAWST/scrip_coawst[.exe]
 
-   SCRIP_COAWST_NAME = D:/COAWST_DATA/Yaeyama/Yaeyama2/Grid/scrip_Yaeyama2.nc
+   SCRIP_COAWST_NAME = ../../COAWST_DATA/Yaeyama/Yaeyama2/Grid/scrip_Yaeyama2.nc
 
 ! Option 2: THIS OPTION WILL BE REMOVED IN FUTURE VERSIONS.
 !           IF you set "SCRIP_WEIGHT_OPTION = 2", then enter 

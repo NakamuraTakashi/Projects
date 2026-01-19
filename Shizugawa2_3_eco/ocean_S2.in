@@ -946,10 +946,10 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa2/Grid/Shizugawa2_grd_v0.2.nc
-     ININAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa2/Ini/Shizugawa2_ini_ROMS_Nz15_20210701.00.nc
-!     ININAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa2/Ini/Shizugawa2_ini_ROMS_Nz15_20210105.00.nc
-!     ININAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_rst_20210724.nc
+     GRDNAME == ../../COAWST_DATA/Shizugawa/Shizugawa2/Grid/Shizugawa2_grd_v0.2.nc
+     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa2/Ini/Shizugawa2_ini_ROMS_Nz15_20210701.00.nc
+!     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa2/Ini/Shizugawa2_ini_ROMS_Nz15_20210105.00.nc
+!     ININAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_rst_20210724.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -972,7 +972,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa2/Bry/Shizugawa2_bry_ROMS_Nz15_20210102.00.nc
+     BRYNAME == ../../COAWST_DATA/Shizugawa/Shizugawa2/Bry/Shizugawa2_bry_ROMS_Nz15_20210102.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -980,11 +980,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == F:/COAWST_DATA/Shizugawa/Shizugawa1/Tide/river.nc
+     SSFNAME == ../../COAWST_DATA/Shizugawa/Shizugawa1/Tide/river.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == F:/COAWST_DATA/Shizugawa/Shizugawa1/Tide/Shizugawa1_tide_nao99Jb_20000101.00.nc
+    TIDENAME == ../../COAWST_DATA/Shizugawa/Shizugawa1/Tide/Shizugawa1_tide_nao99Jb_20000101.00.nc
 
 ! Input forcing NetCDF file name(s).
 !
@@ -1006,23 +1006,23 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == /mnt/d/COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20210101_1.nc |  ! forcing file 1, grid 1
-                /mnt/d/COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20220101_1.nc \  ! forcing file 1, grid 1
-                /mnt/d/COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20210101_2.nc |  ! forcing file 2, grid 1
-                /mnt/d/COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20220101_2.nc    ! forcing file 2, grid 1
+     FRCNAME == ../../COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20210101_1.nc |  ! forcing file 1, grid 1
+                ../../COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20220101_1.nc \  ! forcing file 1, grid 1
+                ../../COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20210101_2.nc |  ! forcing file 2, grid 1
+                ../../COAWST_DATA/Shizugawa/Shizugawa2/Air/Shizugawa2_frc_MSMgb_20220101_2.nc    ! forcing file 2, grid 1
 
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_rst_20210701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_his_20210701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     QCKNAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_qck_20210701.nc
+     RSTNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_rst_20210701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_his_20210701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     QCKNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_qck_20210701.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == /mnt/e/COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_dia_20210701.nc
+     DIANAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa2/Shizugawa2_dia_20210701.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 

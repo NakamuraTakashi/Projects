@@ -946,7 +946,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      GRDNAME == C:/cygwin64/home/Takashi/ROMS_prep/Projects/Boracay/Panay_grd_v1.0.nc
      ININAME == C:/cygwin64/home/Takashi/ROMS_prep/Projects/Boracay/Panay_ini_ROMS_Nz15_20220105.00.nc
-!     ININAME == E:/COAWTS_OUTPUT/Boracay2/Boracay2_his_20210103.nc
+!     ININAME == ../../COAWTS_OUTPUT/Boracay2/Boracay2_his_20210103.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -977,11 +977,11 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == F:/COAWST_DATA/Boracay/Boracay1/Tide/river.nc
+     SSFNAME == ../../COAWST_DATA/Boracay/Boracay1/Tide/river.nc
 
 ! Input tidal forcing file name.
 
-    TIDENAME == F:/COAWST_DATA/Boracay/Boracay1/Tide/Boracay1_tide_tpxo9_atlas30_20000101.nc
+    TIDENAME == ../../COAWST_DATA/Boracay/Boracay1/Tide/Boracay1_tide_tpxo9_atlas30_20000101.nc
 
 ! Input forcing NetCDF file name(s).
 !
