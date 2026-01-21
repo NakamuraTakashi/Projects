@@ -106,8 +106,10 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
+      ! NtileI == 4   !1   !2   !6                            ! I-direction partition
+      ! NtileJ == 7   !3   !10  !20                            ! J-direction partition
       NtileI == 4   !1   !2   !6                            ! I-direction partition
-      NtileJ == 7   !3   !10  !20                            ! J-direction partition
+      NtileJ == 9   !3   !10  !20                            ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -1055,14 +1057,10 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     ! RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_rst_20090101.nc ! yt_edit
-     ! HISNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_his_20090101.nc
-     ! QCKNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_qck_20090101.nc
-     ! DIANAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_dia_20090101.nc
-     RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_rst_20090101_test.nc ! yt_edit
-     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_his_20090101_test.nc
-     QCKNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_qck_20090101_test.nc
-     DIANAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_dia_20090101_test.nc
+     RSTNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_rst_20090101.nc ! yt_edit
+     HISNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_his_20090101.nc
+     QCKNAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_qck_20090101.nc
+     DIANAME == ../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/roms/Shiraho_dia_20090101.nc
      ! QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

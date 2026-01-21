@@ -62,10 +62,13 @@ VEGETATION 0.08 0.01 1 1.0
 && BOUNDARY FORCING &&
 &BOUND SHAPESPEC JONSWAP 3.3 PEAK DSPR DEGREES
 &BOUNDNEST1  NEST '../../COAWST_DATA/Yaeyama/Shiraho_reef2/Wave/nest/Shiraho_swan_nest_200901.nst'  CLOSED
+&& yt_edit
 BOUNDNEST1  NEST '../../COAWST_OUTPUT/Yaeyama/Yaeyama2_swan/Shiraho_swan_nest_200901.nst'  CLOSED
 
 & Restart name **********************************
 &INIT HOTSTART '../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_reef_swan_rst_20090815v2.dat'
+&& yt_edit
+&INIT HOTSTART MULTIPLE '../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/swan/Shiraho_reef_swan_rst_20090101.dat'
 
 & PHYSICS  **************************************
 GEN3 KOMEN
@@ -79,8 +82,9 @@ WCAP KOM 2.36E-5 3.02E-3 2.0 1.0 1.0
 &BLOCK 'COMPGRID' NOHEADER '../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_reef_swan_Dpk__20090815.mat' LAY 4 PDIR  1.0 OUTPUT 20090815.000000 1 HR
 
 PROP BSBT
+&& yt_edit
 RESTART '../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/swan/Shiraho_reef_swan_rst_20090101.dat' FREE 1 DAY
-
+&& yt_edit
 COMPUTE NONSTATIONARY 20090101.000000 600 SEC 20090201.000000
 
 &HOTFILE '../../COAWST_OUTPUT/Yaeyama/Shiraho_reef2/Shiraho_reef_swan_20090815.hot'
