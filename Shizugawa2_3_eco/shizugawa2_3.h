@@ -226,25 +226,24 @@
 #endif
 
 /*** point Sources/Sinks (river runoff) ***/
-/*# define TWO_D_TRACER_SOURCE*/
+# define TWO_D_TRACER_SOURCE
 
 /*** submarine groundwater discharge ***/
 
 /*#define SGD_ON*/    /*Original CPP flag */
 
 /***  Dye experiments ***/
-#define T_PASSIVE
-#define ANA_TOBC_PASSIVE   /*Original CPP flag */
+/*#define T_PASSIVE*/
+/*#define ANA_TOBC_PASSIVE*/   /*Original CPP flag */
 
 /***  Biological model options. (Original CPP flags) ***/
 
-/*#define REEF_ECOSYS*/
+#define REEF_ECOSYS
 
 #if defined REEF_ECOSYS || defined SEDIMENT
 # define ANA_TOBC_BIO  /*Original CPP flag */
 # define ANA_TOBC_SED   /*Original CPP flag */
-/*# define BIO_VPROFILE_SHIZUGAWA*/  /*Original CPP flag */
-# define BIO_VPROFILE_SOUTH_JAPAN /*Original CPP flag */
+# define BIO_VPROFILE_SHIZUGAWA  /*Original CPP flag */
 #endif
 
 #if defined REEF_ECOSYS

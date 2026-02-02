@@ -51,7 +51,8 @@
 ! Aquaculture density factor, if AQUACULTURE is activated 
 !   plant(:,:,iveg,pdens)=dens_aqua(iveg,:,:)*F_AQUA_DENS(iveg)
     
-    F_AQUA_DENS == 1.0d0 1.0d0 1.0d0 1.0d0
+!    F_AQUA_DENS == 1.0d0 0.0d0 1.0d0 1.0d0
+    F_AQUA_DENS == 1.0d0 0.0d0 1.0d0 1.0d0
 
 ! Mangrove root drag related parameters, if MANGROVE_DRAG is activated
 

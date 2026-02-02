@@ -98,7 +98,8 @@
         Nbed =  1             ! Number of sediment bed layers
 
          NAT =  2             ! Number of active tracers (usually, 2)
-         NPT =  1             ! Number of inactive passive tracers
+         NPT =  0             ! Number of inactive passive tracers
+!         NPT =  1             ! Number of inactive passive tracers  !!! For Dye experiments
          NCS =  1             ! Number of cohesive (mud) sediment tracers
          NNS =  0             ! Number of non-cohesive (sand) sediment tracers
 
@@ -106,8 +107,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 7                               ! I-direction partition
-      NtileJ == 4                                ! J-direction partition
+      NtileI == 6                               ! I-direction partition
+      NtileJ == 5                                ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -944,8 +945,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.5.nc
-     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230702.00.nc
+     GRDNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Grid/Shizugawa3_grd_v0.5b.nc
+     ININAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/Ini/Shizugawa3_ini_ROMS_Nz15_20230701.00.nc
 !     ININAME == Shizugawa3_his_20210104.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
@@ -977,7 +978,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input Sources/Sinks forcing (like river runoff) file name.
 
-     SSFNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_Nz15_const_1900_2100_v1.nc
+     SSFNAME == ../../COAWST_DATA/Shizugawa/Shizugawa3/River/Shizugawa3_river_2D_const_1900_2100_v1.nc
 
 ! Input tidal forcing file name.
 
@@ -1010,17 +1011,18 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-!     RSTNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!     HISNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20230701.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!     QCKNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_qck_20230701.nc
-     RSTNAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_dye_rst_20230702_test1.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     HISNAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_dye_his_20230702_test1.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     QCKNAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_dye_qck_20230702_test1.nc
+     RSTNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_rst_20230701_sedLPOC5e4_OYSx1.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     HISNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_his_20230701_sedLPOC5e4_OYSx1.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     QCKNAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_qck_20230701_sedLPOC5e4_OYSx1.nc
+!     RSTNAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_dye_rst_20230702_test2.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!     HISNAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_dye_his_20230702_test2.nc  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!     QCKNAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_dye_qck_20230702_test2.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_dye_dia_20230702_test1.nc
+     DIANAME == ../../COAWST_OUTPUT/Shizugawa/Shizugawa3_eco/SZ3_eco_dia_20230701_sedLPOC5e4_OYSx1.nc
+!     DIANAME == ../../COAWST_OUTPUT/Shizugawa/SZ3_eco_oys_test1/SZ3_veg_dye_dia_20230702_test2.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 
