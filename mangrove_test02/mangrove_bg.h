@@ -79,6 +79,7 @@
 
 /*#define FUKIDO*/
 /*#define MANGROVE_DRAG*/
+/*#define MANGROVE_BRUGUIERA*/       /*Bruguiera*/
 /*#define BAK_EXPERI_STEMFAC*/       /*Include multiple-stem factors for Bakhawan drag experiment <= works under activation of VEGETATION*/
 /*#define BAK_EXPERI_BRY*/       /*Boundary condition for Bakhawan drag experiment <= activate with ANA_M2OBC*/
 /*#define ANA_M2OBC_SOUTH*/      /*Impose ANA_M2OBC for southern boundary*/
@@ -96,10 +97,11 @@
 /*#define ADD_FSOBC*/            /*add tidal elevation to processed OBC data*/
 /*#define FSOBC_REDUCED*/        /*SSH data and reduced physics conditions*/
 
-/*#define ANA_INITIAL*/          /*analytical initial conditions*/
-/*#define ANA_FSOBC*/            /*analytical free-surface boundary conditions*/
-/*#define ANA_M2OBC*/            /*analytical 2D momentum boundary conditions*/
-/*#define ANA_TOBC*/             /*analytical tracers boundary conditions*/
+#define ANA_GRID             /*analytical grid setting*/
+#define ANA_INITIAL          /*analytical initial conditions*/
+#define ANA_FSOBC            /*analytical free-surface boundary conditions*/
+#define ANA_M2OBC            /*analytical 2D momentum boundary conditions*/
+#define ANA_TOBC             /*analytical tracers boundary conditions*/
 /*#define ANA_TOBC_BIO*/         /*Original CPP flag*/
 
 #define SOLAR_SOURCE             /*solar radiation source term*/
@@ -150,7 +152,7 @@
 /*** Vegetation ***/
 /*#define VEGETATION*/               /*activate submerged/emergent vegetation effects*/
 # ifdef VEGETATION
-/*#  define ANA_VEGETATION*/
+#  define ANA_VEGETATION
 #  define VEG_DRAG
 #  ifdef VEG_DRAG
 /*#   define VEG_FLEX*/

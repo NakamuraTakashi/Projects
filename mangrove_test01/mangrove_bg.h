@@ -97,7 +97,8 @@
 /*#define ADD_FSOBC*/            /*add tidal elevation to processed OBC data*/
 /*#define FSOBC_REDUCED*/        /*SSH data and reduced physics conditions*/
 
-/*#define ANA_INITIAL*/          /*analytical initial conditions*/
+#define ANA_GRID             /*analytical grid setting*/
+#define ANA_INITIAL          /*analytical initial conditions*/
 #define ANA_FSOBC            /*analytical free-surface boundary conditions*/
 #define ANA_M2OBC            /*analytical 2D momentum boundary conditions*/
 #define ANA_TOBC             /*analytical tracers boundary conditions*/
@@ -151,7 +152,7 @@
 /*** Vegetation ***/
 #define VEGETATION               /*activate submerged/emergent vegetation effects*/
 # ifdef VEGETATION
-/*#  define ANA_VEGETATION*/
+#  define ANA_VEGETATION
 #  define VEG_DRAG
 #  ifdef VEG_DRAG
 /*#   define VEG_FLEX*/

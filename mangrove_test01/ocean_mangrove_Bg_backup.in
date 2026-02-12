@@ -91,9 +91,9 @@
 ! Grid dimension parameters. See notes below in the Glossary for how to set
 ! these parameters correctly.
 
-          Lm == 50            ! Number of I-direction INTERIOR RHO-points
-          Mm == 10            ! Number of J-direction INTERIOR RHO-points
-           N == 10            ! Number of vertical levels
+          Lm == 38            ! Number of I-direction INTERIOR RHO-points
+          Mm == 38            ! Number of J-direction INTERIOR RHO-points
+           N == 5             ! Number of vertical levels
 
         Nbed =  1             ! Number of sediment bed layers
 
@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 1                               ! I-direction partition
-      NtileJ == 1                               ! J-direction partition
+      NtileI == 6                               ! I-direction partition
+      NtileJ == 5                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -145,15 +145,15 @@
 !
 !                   1       2       3       4
 
-   LBC(isFsur) ==   Cha     Clo     Rad     Clo         ! free-surface
-   LBC(isUbar) ==   Fla     Clo     Rad     Clo         ! 2D U-momentum
-   LBC(isVbar) ==   Fla     Clo     Rad     Clo         ! 2D V-momentum
-   LBC(isUvel) ==   Gra     Clo     Rad     Clo         ! 3D U-momentum
-   LBC(isVvel) ==   Gra     Clo     Rad     Clo         ! 3D V-momentum
-   LBC(isMtke) ==   Gra     Clo     Gra     Clo         ! mixing TKE
+   LBC(isFsur) ==   Clo     Rad     Clo     Cha         ! free-surface
+   LBC(isUbar) ==   Clo     Rad     Clo     Fla         ! 2D U-momentum
+   LBC(isVbar) ==   Clo     Rad     Clo     Fla         ! 2D V-momentum
+   LBC(isUvel) ==   Clo     Rad     Clo     Gra         ! 3D U-momentum
+   LBC(isVvel) ==   Clo     Rad     Clo     Gra         ! 3D V-momentum
+   LBC(isMtke) ==   Clo     Gra     Clo     Gra         ! mixing TKE
                                                
-   LBC(isTvar) ==   Cla     Clo     Cla     Clo \       ! temperature
-                    Cla     Clo     Cla     Clo         ! salinity
+   LBC(isTvar) ==   Clo     Cla     Clo     Cla \       ! temperature
+                    Clo     Cla     Clo     Cla         ! salinity
 
 ! Wec boundary conditions
 
@@ -944,10 +944,8 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-!     GRDNAME == ../../COAWST_DATA/Mangrove_bak_exp/grd_files/mangrove_bak_exp_grd_v2.0.nc
-     GRDNAME == grd.nc ! not used
-!     ININAME == ../../COAWST_DATA/Mangrove_bak_exp/ini_files/mangrove_bak_exp_grd_v2.0_Nz5_ini.nc
-     ININAME == ini.nc ! not used
+     GRDNAME == ../../COAWST_DATA/Mangrove_bak_exp/grd_files/mangrove_bak_exp_grd_v2.0.nc
+     ININAME == ../../COAWST_DATA/Mangrove_bak_exp/ini_files/mangrove_bak_exp_grd_v2.0_Nz5_ini.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -1017,14 +1015,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test01_rst.nc
-     HISNAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test01_his.nc
+     RSTNAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test02_rst.nc
+     HISNAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test02_his.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test01_dia.nc
+     DIANAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test02_dia.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 
