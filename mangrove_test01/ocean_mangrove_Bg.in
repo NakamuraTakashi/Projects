@@ -68,7 +68,7 @@
 
 ! C-preprocessing Flag.
 
-    MyAppCPP = MANGROVE_RH
+    MyAppCPP = MANGROVE_BG
 
 ! Input variable information file name.  This file needs to be processed
 ! first so all information arrays can be initialized properly.
@@ -106,7 +106,7 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 1                               ! I-direction partition
+      NtileI == 5                               ! I-direction partition
       NtileJ == 1                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
@@ -145,15 +145,15 @@
 !
 !                   1       2       3       4
 
-   LBC(isFsur) ==   Cha     Clo     Rad     Clo         ! free-surface
-   LBC(isUbar) ==   Fla     Clo     Rad     Clo         ! 2D U-momentum
-   LBC(isVbar) ==   Fla     Clo     Rad     Clo         ! 2D V-momentum
-   LBC(isUvel) ==   Gra     Clo     Rad     Clo         ! 3D U-momentum
-   LBC(isVvel) ==   Gra     Clo     Rad     Clo         ! 3D V-momentum
-   LBC(isMtke) ==   Gra     Clo     Gra     Clo         ! mixing TKE
+   LBC(isFsur) ==   Cha     Per     Rad     Per         ! free-surface
+   LBC(isUbar) ==   Fla     Per     Rad     Per         ! 2D U-momentum
+   LBC(isVbar) ==   Fla     Per     Rad     Per         ! 2D V-momentum
+   LBC(isUvel) ==   Gra     Per     Rad     Per         ! 3D U-momentum
+   LBC(isVvel) ==   Gra     Per     Rad     Per         ! 3D V-momentum
+   LBC(isMtke) ==   Gra     Per     Gra     Per         ! mixing TKE
                                                
-   LBC(isTvar) ==   Cla     Clo     Cla     Clo \       ! temperature
-                    Cla     Clo     Cla     Clo         ! salinity
+   LBC(isTvar) ==   Cla     Per     Cla     Per \       ! temperature
+                    Cla     Per     Cla     Per         ! salinity
 
 ! Wec boundary conditions
 
@@ -205,8 +205,8 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 45000
-          DT == 2.0d0
+      NTIMES == 90000
+          DT == 1.0d0
      NDTFAST == 20
 
 ! Model iteration loops parameters.
@@ -236,7 +236,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 300! 600
+        NHIS == 600! 600
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
@@ -244,7 +244,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
         NAVG == 1000
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 300
+        NDIA == 600
      NDEFDIA == 0
 
 ! Output tangent linear and adjoint models parameters.
@@ -1017,14 +1017,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test01_rst.nc
-     HISNAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test01_his.nc
+     RSTNAME == mangrove_test01_rst.nc
+     HISNAME == mangrove_test01_his.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test01_dia.nc
+     DIANAME == mangrove_test01_dia.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 
