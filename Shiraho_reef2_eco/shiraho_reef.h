@@ -189,7 +189,6 @@
 # endif
 # if defined SEDIMENT || defined SG_BBL || defined MB_BBL || defined SSW_BBL
 #  define ANA_SEDIMENT
-/*#  define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
 /*#  define ANA_SED_UNIFORM */   /*Original CPP flag */
 # endif
 # define ANA_BPFLUX
@@ -209,16 +208,15 @@
 #endif
 
 /*** Analytical river discharge ***/
-#define ANA_PSOURCE
+/*#define ANA_PSOURCE*/
 
 /*** submarine groundwater discharge ***/
 #define SGD_ON    /*Original CPP flag */
 
 /*** Vegetation form drag ***/
-#define VEGETATION
+/*#define VEGETATION*/
 
 #if defined VEGETATION
-/*# define SEAGRASS*/     /* USE seagrass drag only */
 # define ANA_VEGETATION 
 # define VEG_DRAG
 # ifdef VEG_DRAG
@@ -234,6 +232,8 @@
 /*# define AQUACULTURE*/    /* Original CPP flag */
 #endif
 
+#  define YT_DEBUG_MODE
+
 /***  Biological model options. (Original CPP flags) ***/
 
 #define REEF_ECOSYS
@@ -241,7 +241,7 @@
 #if defined REEF_ECOSYS || defined SEDIMENT
 # define ANA_TOBC_BIO  /*Original CPP flag */
 # define ANA_TOBC_SED   /*Original CPP flag */
-# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
+/*# define BIO_VPROFILE_YAEYAMA*/   /*Original CPP flag */
 #endif
 
 #if defined REEF_ECOSYS
@@ -251,13 +251,13 @@
 
 /*** Isotopes or tracer options ***/
 /*# define CARBON_ISOTOPE*/
-# define CARBON_TRACE
+/*# define CARBON_TRACE*/
 /*# define CLUMPED_ISOTOPE*/
 
 /*# define NITROGEN_ISOTOPE*/
-# define NITROGEN_TRACE
+/*# define NITROGEN_TRACE*/
 
-# define PHOSPHOROUS_TRACE
+/*# define PHOSPHOROUS_TRACE*/
 
 /*# define SULFUR_ISOTOPE*/
 /*# define SULFUR_TRACE*/
@@ -270,10 +270,9 @@
 # define FOODWEB      /* USE foodweb module */
 # define SEDIMENT_ECOSYS        /* USE sedecosys module  */
 
-# define AIR_SEA_GAS_EXCHANGE
+# define BIO_VPROFILE_SOUTH_JAPAN /* change me after update yt_edit */
 
-/*# define DYNAMIC_COVERAGE*/ /* yt_edit not yet implemented in coawst */
-
+/*# define AIR_SEA_GAS_EXCHANGE*/
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
@@ -289,17 +288,22 @@
 
 /*** Seagrass model options. ***/
 # if defined SEAGRASS
+#  define SEAGRASS_DEBUG_MODE
+#  define SEAGRASS_IMMEDIATE_NO3_TO_NH4_CONVERSION /* Turn on to convert from nitrate to ammonium in internal stockpile upon uptake */
 #  define SEAGRASS_LEAF_NUTRIENT_UPTAKE
 #  if defined SEDIMENT_ECOSYS
-#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE
-#  endif
-#  if defined SEDIMENT_ECOSYS
+/*#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE*/
 #   define SEAGRASS_ROOT_NUTRIENT_UPTAKE
 #  endif
 #  define SEAGRASS_LEAF_POM
 #  if defined SEDIMENT_ECOSYS
 #   define SEAGRASS_ROOT_POM
 #  endif
+#  define NET_ZERO_MASS_START
+#  define DYNAMIC_COVERAGE /* yt_edit lateral transfer not yet implemented in coawst */
+#  define SEEDING /* Add tiny amount of seagrass to sandy grids with no seagrass, slightly breaks mass conservation*/
+/*#  define FULL_STOCK_START*/
+/*#  define CHAMBER_EQUILIBRIUM_STOCK_START*/
 # endif
 
 
@@ -312,6 +316,7 @@
 #  endif
 #  if defined SGD_ON
 #   define SEDECO_SGD    /* For Burial term in sediment transport (massbalance) */
+#   define DYNAMIC_ISPLITSED /* replace constand isplitsed with one that dynamically adjusts so that SGD in a sub-timestep does not exceed the smallest sediment layer thickness */
 #  endif
 # endif
 
