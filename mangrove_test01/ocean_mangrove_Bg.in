@@ -1017,14 +1017,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == mangrove_test01_rst.nc
-     HISNAME == mangrove_test01_his.nc
+     RSTNAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test01_rst.nc
+     HISNAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test01_his.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
      AVGNAME == ocean_avg.nc
-     DIANAME == mangrove_test01_dia.nc
+     DIANAME == ../../COAWST_OUTPUT/mangrove_test/mangrove_test01_dia.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
 

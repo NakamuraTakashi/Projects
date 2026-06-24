@@ -189,8 +189,8 @@ export   WW3_SWITCH_FILE=sandy_coupled
 #export        USE_OpenMP=on            # shared-memory parallelism
 
 #export              FORT=ifort
- export              FORT=gfortran
-#export              FORT=pgi
+#export              FORT=gfortran
+ export              FORT=pgi
 
 #export         USE_DEBUG=on            # use Fortran debugging flags
  export         USE_LARGE=on            # activate 64-bit compilation
@@ -229,7 +229,7 @@ if [ -n "${USE_MPIF90:+1}" ]; then
       elif [ "${which_MPI}" = "mpich2" ]; then
         export PATH=/opt/pgisoft/mpich2/bin:$PATH
       elif [ "${which_MPI}" = "openmpi" ]; then
-        export PATH=/opt/pgisoft/openmpi/bin:$PATH
+        export PATH=/opt/nvidia/hpc_sdk/Linux_x86_64/26.3/comm_libs/mpi/bin:$PATH
       fi
       ;;
 
@@ -363,16 +363,16 @@ if [ -n "${USE_MY_LIBS:+1}" ]; then
             export     NF_CONFIG=/opt/pgisoft/mpich2/netcdf4/bin/nf-config
             export NETCDF_INCDIR=/opt/pgisoft/mpich2/netcdf4/include
           elif [ "${which_MPI}" = "openmpi" ]; then
-            export     NF_CONFIG=/opt/pgisoft/openmpi/netcdf4/bin/nf-config
-            export NETCDF_INCDIR=/opt/pgisoft/openmpi/netcdf4/include
+            export     NF_CONFIG=/opt/netcdf-nvhpc/bin/nf-config
+            export NETCDF_INCDIR=/opt/netcdf-nvhpc/include
           fi
         else
-          export       NF_CONFIG=/opt/pgisoft/serial/netcdf4/bin/nf-config
-          export   NETCDF_INCDIR=/opt/pgisoft/serial/netcdf4/include
+          export       NF_CONFIG=/opt/netcdf-nvhpc/bin/nf-config
+          export   NETCDF_INCDIR=/opt/netcdf-nvhpc/include
         fi
       else
-        export     NETCDF_INCDIR=/opt/pgisoft/serial/netcdf3/include
-        export     NETCDF_LIBDIR=/opt/pgisoft/serial/netcdf3/lib
+        export     NETCDF_INCDIR=/opt/netcdf-nvhpc/include
+        export     NETCDF_LIBDIR=/opt/netcdf-nvhpc/lib
       fi
       ;;
 

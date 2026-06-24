@@ -8,7 +8,7 @@
 **
 ** Options for Inlet Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   TOKYOBAY3
+** Application flag:   YAEYAMA2
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
@@ -56,9 +56,9 @@
 #define TS_DIF2
 /*#define TS_DIF4*/
 #define TS_SMAGORINSKY
-/*#define MIX_S_TS*/
+#define MIX_S_TS
 /*#define MIX_GEO_TS*/
-#define MIX_ISO_TS
+/*#define MIX_ISO_TS*/
 
 #define MASKING
 
@@ -80,10 +80,10 @@
 #define RADIATION_2D
 
 /*** Option for tidal forcing ***/
-/*#define SSH_TIDES*/  /* deactivate when the case of JCOPE-T boundary */
-/*#define UV_TIDES*/   /* deactivate when the case of JCOPE-T boundary */
-/*#define ADD_FSOBC*/  /* deactivate when the case of JCOPE-T boundary */
-/*#define ADD_M2OBC*/  /* deactivate when the case of JCOPE-T boundary */
+/*#define SSH_TIDES*/
+/*#define UV_TIDES*/
+/*#define ADD_FSOBC*/
+/*#define ADD_M2OBC*/
 /*#define RAMP_TIDES*/ /*Not use*/
 
 /*#define ANA_INITIAL*/
@@ -93,14 +93,14 @@
 
 #define BULK_FLUXES
 #ifdef BULK_FLUXES
-/*# define ANA_SRFLUX*/  /* activate 200603-201805 */
-# define CLOUDS        /* activate 201806- */
-# define ALBEDO_CLOUD  /* activate 200603- */
+/*# define ANA_SRFLUX*/
+/*# define CLOUDS*/          /* activate 199401-201003 */
+/*# define ALBEDO_CLOUD*/    /* activate 199401-201003 */
 /*# define LONGWAVE*/
 # define LONGWAVE_OUT
-# define ANA_LRFLUX  /* activate 200603- */
-# define ANA_LONGWAVE_DOWN  /* activate 200603-; Original CPP flag */ 
-# define JMAMSM_FLUXES  /* activate 200603-; Original CPP flag for JMAMSM data */ 
+/*# define ANA_LRFLUX*/  /* activate 199401-201003 */
+/*# define ANA_LONGWAVE_DOWN*/  /* activate 199401-201003; Original CPP flag */ 
+/*# define JMAMSM_FLUXES*/  /* Original CPP flag for JMAMSM data */ 
 /*# define JMAOBS_FLUXES*/  /* Original CPP flag for JMA weather station data */ 
 # define EMINUSP
 /*# define ANA_CLOUD*/
@@ -179,7 +179,7 @@
 # endif
 
 
-/*# define SEDIMENT*/
+# define SEDIMENT
 # ifdef SEDIMENT
 #  define SUSPLOAD
 #  undef  BEDLOAD_SOULSBY
@@ -188,7 +188,7 @@
 # endif
 # if defined SEDIMENT || defined SG_BBL || defined MB_BBL || defined SSW_BBL
 #  define ANA_SEDIMENT
-#  define REVER_SEDIMENT
+#  define ANA_SED_UNIFORM   /*Original CPP flag */
 # endif
 # define ANA_BPFLUX
 # define ANA_BTFLUX
@@ -206,53 +206,116 @@
 # endif
 #endif
 
+/*** Vegetation form drag ***/
+/*#define VEGETATION*/
+
+#if defined VEGETATION
+# define ANA_VEGETATION 
+# define VEG_DRAG
+# ifdef VEG_DRAG
+/*#  define VEG_FLEX*/
+#  define VEG_TURB
+# endif
+# define VEG_SWAN_COUPLING
+# ifdef VEG_SWAN_COUPLING
+#  define VEG_STREAMING  /* dependence to WEC_VF/BOTTOM_STREAMING */
+# endif
+/*** Aquaculture form drag ***/
+# define AQUACULTURE    /* Original CPP flag */
+#endif
+
+/*** point Sources/Sinks (river runoff) ***/
+# define TWO_D_TRACER_SOURCE
+
 /*** submarine groundwater discharge ***/
 
-/*#define SGD_ON*/    /*Original CPP flag */
+#define SGD_ON    /*Original CPP flag */
+
+/***  Dye experiments ***/
+/*#define T_PASSIVE*/
+/*#define ANA_TOBC_PASSIVE*/   /*Original CPP flag */
 
 /***  Biological model options. (Original CPP flags) ***/
 
-/*#define REEF_ECOSYS*/
+#define REEF_ECOSYS
+
+#if defined REEF_ECOSYS || defined SEDIMENT
+# define ANA_TOBC_BIO  /*Original CPP flag */
+# define ANA_TOBC_SED   /*Original CPP flag */
+# define BIO_VPROFILE_YAEYAMA   /*Original CPP flag */
+#endif
 
 #if defined REEF_ECOSYS
 # define BIOLOGY
+# define DIAGNOSTICS_BIO
 # define ANA_BIOLOGY
-/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
-/* compartments */
-# define ORGANIC_MATTER
+/*** Isotopes or tracer options ***/
 /*# define CARBON_ISOTOPE*/
-# define NUTRIENTS
+/*# define CARBON_TRACE*/
+/*# define CLUMPED_ISOTOPE*/
 
+/*# define NITROGEN_ISOTOPE*/
+# define NITROGEN_TRACE
+
+# define PHOSPHOROUS_TRACE
+
+/*# define SULFUR_ISOTOPE*/
+/*# define SULFUR_TRACE*/
+
+
+/*** REEF_ECOSYS compartments ***/
 /*# define CORAL_POLYP*/  /* USE coral module */
 /*# define SEAGRASS*/     /* USE seagrass module */
-/*# define MACROALGAE*/        /* USE algae module  */
-/*# define SEDIMENT_ECOSYS*/        /* USE sedecosys module  */
-# if defined SEDIMENT_ECOSYS
-#  define SEDIMENT_EMPIRICAL     /* USE empirical sediment module  */
-# endif
+/*# define MACROALGAE*/   /* USE algae module  */
+# define FOODWEB      /* USE foodweb module */
+# define SEDIMENT_ECOSYS        /* USE sedecosys module  */
+/*# define BIVALVE*/      /* USE bivalve module */
 
-# if defined ORGANIC_MATTER
-#  define FOODWEB      /* USE foodweb module */
-# endif
 # define AIR_SEA_GAS_EXCHANGE
+
+/*# define DYNAMIC_COVERAGE*/ /* yt_edit not yet implemented in coawst */
+
 
 /*** Coral Polyp model options. ***/
 # if defined CORAL_POLYP
-/*#  define CORAL_ZOOXANTHELLAE*/
+#  define CORAL_ZOOXANTHELLAE
 #  define CORAL_MUCUS           /*Mucus release from coral */
-#  if defined ORGANIC_MATTER
-#   define CORAL_INGESTION
-#  endif
+#  define CORAL_INGESTION
+/*#  define CORAL_NONE_CO2_EQ*/
+/*#  define CORAL_NUTRIENTS*/
 /*#  define CORAL_SIZE_DYNAMICS*/
-#  if defined CARBON_ISOTOPE
-#   define CORAL_CARBON_ISOTOPE
-/*#   define CORAL_NONE_CO2_EQ*/
-#  endif
-#  if defined NUTRIENTS
-/*#   define CORAL_NUTRIENTS*/
-#  endif
 /*#  define CORAL_BORON_ISOTOPE*/
+# endif
+
+
+/*** Seagrass model options. ***/
+# if defined SEAGRASS
+#  define SEAGRASS_LEAF_NUTRIENT_UPTAKE
+#  if defined SEDIMENT_ECOSYS
+#   define SEAGRASS_ROOT_CARBON_OXYGEN_EXCHANGE
+#  endif
+#  if defined SEDIMENT_ECOSYS
+#   define SEAGRASS_ROOT_NUTRIENT_UPTAKE
+#  endif
+#  define SEAGRASS_LEAF_POM
+#  if defined SEDIMENT_ECOSYS
+#   define SEAGRASS_ROOT_POM
+#  endif
+# endif
+
+
+/*** Sediment model options. ***/
+/*#  define SEDIMENT_EMPIRICAL*/     /* USE empirical sediment module  */
+# if defined SEDIMENT_ECOSYS  /* Masa_edits */
+/*#  define SEDECO_CSV_RESTART*/  /* Restart from sedeco_rst.csv file if start_of_new_run = .true. */
+/*#  define BLUE_TIDE*/
+#  if defined SEDIMENT
+#   define SEDECO_BURIAL    /* For Burial term in sediment transport (massbalance) */
+#  endif
+#  if defined SGD_ON
+#   define SEDECO_SGD    /* For Burial term in sediment transport (massbalance) */
+#  endif
 # endif
 
 #endif

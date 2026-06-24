@@ -106,8 +106,8 @@
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 1                                 ! I-direction partition
-      NtileJ == 10                                ! J-direction partition
+      NtileI == 4                                 ! I-direction partition
+      NtileJ == 7                                 ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -205,8 +205,8 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 95040   !!! 259200 step = 30 days, 267840 step = 31 days, 95040 = 11 days
-          DT == 20.0d0    !!!1.0d0
+      NTIMES == 233280   !!! 259200 step = 30 days, 267840 step = 31 days, 95040 = 11 days
+          DT == 10.0d0    !!!1.0d0
      NDTFAST == 20    
 
 ! Model iteration loops parameters.
@@ -228,23 +228,23 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
        NRREC == 0
    LcycleRST == T
-        NRST == 4320
+        NRST == 8640
         NSTA == 1
         NFLT == 1
-       NINFO == 30
+       NINFO == 1
 
 ! Output history, average, diagnostic files parameters.
 
      LDEFOUT == T
-        NHIS == 180
+        NHIS == 360
      NDEFHIS == 0
         NQCK == 0
      NDEFQCK == 0
       NTSAVG == 1
-        NAVG == 1000
+        NAVG == 360
      NDEFAVG == 0
       NTSDIA == 1
-        NDIA == 1000
+        NDIA == 360
      NDEFDIA == 0
 
 ! Output tangent linear and adjoint models parameters.
@@ -391,15 +391,15 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! Nudging/relaxation time scales, inverse scales will be computed
 ! internally, [1:Ngrids].
 
-       TNUDG == 100.0d0  100.0d0               ! days
+       TNUDG == 1.0d0  1.0d0               ! days
        ZNUDG == 9.0d0                      ! days
       M2NUDG == 6.0d0                      ! days
-      M3NUDG == 100.0d0                      ! days
+      M3NUDG == 1.0d0                      ! days
 
 ! Nudging/relaxation time scale for surface salinity nudging, inverse
 ! scales will be computed internally, [1:Ngrids].
 
-       TNUDG_SSS == 100.0d0                 ! days
+       TNUDG_SSS == 1.0d0                 ! days
 
 ! Threshold to trigger SSS correction toward climatolgy,
 ! needs SCORRECTION and SSSC_THRESHOLD defined
@@ -429,13 +429,13 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! Sources/Sinks (like volume vertical influx), [1:Ngrids].
 
       LuvSrc == F                          ! horizontal momentum transport
-       LwSrc == T                          ! volume vertical influx
+       LwSrc == F                          ! volume vertical influx
 
 ! Logical switches (TRUE/FALSE) to activate tracers point Sources/Sinks
 ! (like river runoff) and to specify which tracer variables to consider:
 ! [1:NAT+NPT,Ngrids].  See glossary below for details.
 
-  LtracerSrc == T T                        ! temperature, salinity, inert
+  LtracerSrc == F F                        ! temperature, salinity, inert
 
 ! Logical switches (TRUE/FALSE) to read and process climatology fields.
 ! See glossary below for details.
@@ -943,7 +943,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 ! Input NetCDF file names, [1:Ngrids].
 
      GRDNAME == ../../COAWST_DATA/TokyoBay/TokyoBay3/Grid/TokyoBay3_grd_v2.1.nc
-     ININAME == R:/COAWST_DATA/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_ROMS_Nz30_20060101.03.nc
+     ININAME == ../../COAWST_DATA/TokyoBay/TokyoBay3/Ini/TokyoBay3_ini_ROMS_Nz30_20200705.00.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -966,7 +966,7 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
      CLMNAME == ocean_clm.nc
 
      NBCFILES == 1                          ! number of boundary files
-     BRYNAME == R:/COAWST_DATA/TokyoBay/TokyoBay3/Bry/TokyoBay3_bry_ROMS_Nz30_20060101.03.nc
+     BRYNAME == ../../COAWST_DATA/TokyoBay/TokyoBay3/Bry/TokyoBay3_bry_ROMS_Nz30_20200701.00.nc
 
 ! Input climatology nudging coefficients file name.
 
@@ -1000,14 +1000,14 @@ Dout(iTvdif) == F F     ! temp_vdiff, ...    vertical diffusion
 
      NFFILES == 2                          ! number of unique forcing files
 
-     FRCNAME == R:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_DSJRA55_20060101_1.nc \     ! forcing file 1, grid 1
-                R:/COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_DSJRA55_20060101_2.nc
+     FRCNAME == ../../COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20200630_1.nc \     ! forcing file 1, grid 1
+                ../../COAWST_DATA/TokyoBay/TokyoBay3/Air/TokyoBay3_frc_MSMgb_20200630_2.nc
 ! Output NetCDF file names, [1:Ngrids].
 
      DAINAME == ocean_dai.nc
      GSTNAME == ocean_gst.nc
-     RSTNAME == TokyoBay3_rst_20060101.nc
-     HISNAME == TokyoBay3_his_20060101.nc
+     RSTNAME == TokyoBay3_rst_20200705.nc
+     HISNAME == TokyoBay3_his_20200705.nc
      QCKNAME == ocean_qck.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc

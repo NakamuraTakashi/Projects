@@ -14,8 +14,8 @@
 **                     sediment_inlet_test.in
 */
 #define ROMS_MODEL
-#define SWAN_MODEL
-#define MCT_LIB
+/*#define SWAN_MODEL*/
+/*#define MCT_LIB*/
 
 #define NO_LBC_ATT
 /*#define PARALLEL_IO*/
@@ -56,9 +56,9 @@
 #define TS_DIF2
 /*#define TS_DIF4*/
 #define TS_SMAGORINSKY
-#define MIX_S_TS
+/*#define MIX_S_TS*/
 /*#define MIX_GEO_TS*/
-/*#define MIX_ISO_TS*/
+#define MIX_ISO_TS
 
 #define MASKING
 
@@ -80,12 +80,11 @@
 #define RADIATION_2D
 
 /*** Option for tidal forcing ***/
-/*#define SSH_TIDES*/
-/*#define UV_TIDES*/
+#define SSH_TIDES
+#define UV_TIDES
 /*#define RAMP_TIDES*/
-/*#define ADD_FSOBC*/
-/*#define ADD_M2OBC*/
-
+#define ADD_FSOBC
+#define ADD_M2OBC
 
 /*#define ANA_INITIAL*/
 /*#define ANA_FSOBC*/
@@ -160,8 +159,8 @@
 /*#  define K_C4ADVECTION*/
 /*#  define K_C2ADVECTION*/
 /*#  define N2S2_HORAVG*/
-#  define ZOS_HSIG
-#  define TKE_WAVEDISS
+/*#  define ZOS_HSIG*/
+/*#  define TKE_WAVEDISS*/
 # endif
 
 # if defined MY25_MIXING

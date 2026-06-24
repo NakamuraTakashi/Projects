@@ -102,6 +102,7 @@ done
 # determine the name of the ".h" header file with the application
 # CPP definitions. Also this will activate the switch file for WW3.
 export   COAWST_APPLICATION=TOKYOBAY2
+#export   COAWST_APPLICATION=TOKYOBAY2_WAV
 
 # Set the ROMS_APPLICATION to be the same as the COAWST_APP.
 # Do not change this. We use the COAWST APP for other checks.

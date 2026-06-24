@@ -8,14 +8,14 @@
 **
 ** Options for Inlet Test Case, waves-ocean (SWAN/ROMS) two-way coupling.
 **
-** Application flag:   TOKYOBAY3
+** Application flag:   YAEYAMA1
 ** Input script:       ocean_inlet_test.in
 **                     coupling_inlet_test.in
 **                     sediment_inlet_test.in
 */
 #define ROMS_MODEL
-/*#define SWAN_MODEL*/
-/*#define MCT_LIB*/
+#define SWAN_MODEL
+#define MCT_LIB
 
 #define NO_LBC_ATT
 /*#define PARALLEL_IO*/
@@ -80,16 +80,20 @@
 #define RADIATION_2D
 
 /*** Option for tidal forcing ***/
-/*#define SSH_TIDES*/  /* deactivate when the case of JCOPE-T boundary */
-/*#define UV_TIDES*/   /* deactivate when the case of JCOPE-T boundary */
-/*#define ADD_FSOBC*/  /* deactivate when the case of JCOPE-T boundary */
-/*#define ADD_M2OBC*/  /* deactivate when the case of JCOPE-T boundary */
-/*#define RAMP_TIDES*/ /*Not use*/
+/*#define SSH_TIDES*/
+/*#define UV_TIDES*/
+/*#define RAMP_TIDES*/
+/*#define ADD_FSOBC*/
+/*#define ADD_M2OBC*/
+
 
 /*#define ANA_INITIAL*/
 /*#define ANA_FSOBC*/
 /*#define ANA_M2OBC*/
 /*#define ANA_TOBC*/
+/*#define ANA_TOBC_BIO*/   /*Original CPP flag */
+
+#define SOLAR_SOURCE
 
 #define BULK_FLUXES
 #ifdef BULK_FLUXES
@@ -115,7 +119,6 @@
 # define ANA_SMFLUX
 # define ANA_STFLUX
 #endif
-
 
 /*** waves-ocean (SWAN/ROMS) two-way coupling. ***/
 #ifdef SWAN_MODEL
@@ -157,8 +160,8 @@
 /*#  define K_C4ADVECTION*/
 /*#  define K_C2ADVECTION*/
 /*#  define N2S2_HORAVG*/
-/*#  define ZOS_HSIG*/
-/*#  define TKE_WAVEDISS*/
+#  define ZOS_HSIG
+#  define TKE_WAVEDISS
 # endif
 
 # if defined MY25_MIXING
@@ -217,7 +220,6 @@
 #if defined REEF_ECOSYS
 # define BIOLOGY
 # define ANA_BIOLOGY
-/*# define ANA_TOBC_BIO*/   /*Original CPP flag */
 
 /* compartments */
 # define ORGANIC_MATTER
