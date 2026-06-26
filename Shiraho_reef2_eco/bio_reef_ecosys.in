@@ -52,9 +52,9 @@
 !    1: foodweb (tracer variables)
 !    2: coral, seagass, macroalgae, sediment, etc.
 !
-!               1 2   
+!               1 2     yt_edit
  LReadBioINI == F F
-!LReadBioINI == T T
+!  LReadBioINI == T T
 
 ! Maximum number of iterations to achieve convergence of the nonlinear
 ! solution.
@@ -183,6 +183,7 @@
 !                   1       2       3       4     
 
    LBC(isTvar) == Clo     RadNud   RadNud   RadNud ! idbio(:), compact
+!    LBC(isTvar) == Clo     Clo      RadNud   Clo   ! idbio(:), compact   yt_edit closed north and south boundary for biological tracers???
 
 ! Adjoint-based algorithms can have different lateral boundary
 ! conditions keywords.
@@ -208,30 +209,37 @@ Hout(idTvar) == 60*T    ! NO3, ...           biological tracer
 Hout(idTsur) == 45*F    ! NO3_sflux, ...     surface tracer flux
 
 Hout(iHbio2) == 60*T
+
+Hout(iHbio2) == 78*T
 Hout(iHbio3) == 3*F
 Hout(iHbiosed3) == 60*F
 
 ! Logical switches (TRUE/FALSE) to activate writing of biological fields
 ! into QUICK output file: [1:NBT,Ngrids].
 
+! Qout(idTvar) == 45*F    ! NO3, ...           biological tracer
+! Qout(idTsur) == 45*F    ! NO3_sflux, ...     surface tracer flux
 Qout(idTvar) == 45*F    ! NO3, ...           biological tracer
 Qout(idTsur) == 45*F    ! NO3_sflux, ...     surface tracer flux
 
-Qout(iHbio2) == 60*F
+Qout(iHbio2) == 78*F
 Qout(iHbio3) == 3*F
-Qout(iHbiosed3) == 60*T 
+Qout(iHbiosed3) == 56*T 
 
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged fields
 ! into AVERAGE output file: [1:NBT,Ngrids].
 
+! Aout(idTvar) == 45*F    ! NO3, ...           biological tracer
 Aout(idTvar) == 45*F    ! NO3, ...           biological tracer
 
 ! Logical switches (TRUE/FALSE) to activate writing of biological 
 ! diagnostic terms into DIAGNOSTIC output file:
 ! [1:NBT,Ngrids].
 
-Dout(iDbio2) == 33*T  !!!!!!!!!!!!!!!!!! Check number
-Dout(iDbio3) == 4*T   !!!!!!!!!!!!!!!!!! Check number
+! Dout(iDbio2) == 37*T  !!!!!!!!!!!!!!!!!! Check number
+! Dout(iDbio3) == 4*T   !!!!!!!!!!!!!!!!!! Check number
+Dout(iDbio2) == 19*T  !!!!!!!!!!!!!!!!!! Check number
+Dout(iDbio3) == 17*T   !!!!!!!!!!!!!!!!!! Check number
 
 ! Logical switches (TRUE/FALSE) to activate writing of time-averaged,
 ! biological processes diagnostics terms into DIAGNOSTIC output file [Ngrids].
@@ -399,6 +407,12 @@ Dout(iDbio3) == 4*T   !!!!!!!!!!!!!!!!!! Check number
 ! iHbio2(45),            iHbio2(29),         SgSgCBm
 ! iHbio2(46),            iHbio2(30),         SgLfCBm
 ! iHbio2(47),            iHbio2(31),         SgRtCBm
+! iHbio2(48),            iHbio2(32),         iSdEfDO
+! iHbio2(49),            iHbio2(33),         iSdEfTA
+! iHbio2(50),            iHbio2(34),         iSdEfDIC
+! iHbio2(51),            iHbio2(35),         iSdEfNO3
+! iHbio2(52),            iHbio2(36),         iSdEfNH4
+! iHbio2(53),            iHbio2(37),         iSdEfPO4
 !!------------------------------------------------------------------------------
 ! Biological Sediment Model 3D Sediment Parameters:
 !
